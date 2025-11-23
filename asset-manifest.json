@@ -1,15 +1,13 @@
 {
   "files": {
-    "main.css": "/Kone-Code-Academy/static/css/main.0762fec6.css",
-    "main.js": "/Kone-Code-Academy/static/js/main.9d591fea.js",
-    "static/js/453.f64ec559.chunk.js": "/Kone-Code-Academy/static/js/453.f64ec559.chunk.js",
+    "main.css": "/Kone-Code-Academy/static/css/main.b4c7a9f4.css",
+    "main.js": "/Kone-Code-Academy/static/js/main.c972b92b.js",
     "index.html": "/Kone-Code-Academy/index.html",
-    "main.0762fec6.css.map": "/Kone-Code-Academy/static/css/main.0762fec6.css.map",
-    "main.9d591fea.js.map": "/Kone-Code-Academy/static/js/main.9d591fea.js.map",
-    "453.f64ec559.chunk.js.map": "/Kone-Code-Academy/static/js/453.f64ec559.chunk.js.map"
+    "main.b4c7a9f4.css.map": "/Kone-Code-Academy/static/css/main.b4c7a9f4.css.map",
+    "main.c972b92b.js.map": "/Kone-Code-Academy/static/js/main.c972b92b.js.map"
   },
   "entrypoints": [
-    "static/css/main.0762fec6.css",
-    "static/js/main.9d591fea.js"
+    "static/css/main.b4c7a9f4.css",
+    "static/js/main.c972b92b.js"
   ]
 }
