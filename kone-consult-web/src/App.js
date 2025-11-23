@@ -15,7 +15,7 @@ import './index.css';
 function App() {
   return (
     <AuthProvider>
-      <Router basename="/consult">
+      <Router>
         <div className="App">
           <Header />
           <main>
