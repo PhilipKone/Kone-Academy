@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="6" stroke-linecap="round" stroke-linejoin="round">
+  <!-- Left Parenthesis -->
+  <path d="M 30 20 Q 10 50 30 80" />
+  
+  <!-- Drop -->
+  <path d="M 50 25 Q 75 65 50 82 Q 25 65 50 25" fill="currentColor" stroke="none" />
+  
+  <!-- Right Parenthesis -->
+  <path d="M 70 20 Q 90 50 70 80" />
+</svg>
