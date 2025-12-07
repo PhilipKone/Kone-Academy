@@ -36,6 +36,14 @@
   text-align: center;
 }
 
+@media (min-width: 768px) {
+  .category-grid {
+    justify-content: center;
+    overflow-x: visible;
+    /* Optional: remove scroll if wrapping is desired, but keeping scroll behavior with centering is safer */
+  }
+}
+
 .service-item {
   min-width: 300px;
   max-width: 300px;
