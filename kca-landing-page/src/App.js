@@ -9,6 +9,10 @@ import CTA from './components/CTA';
 import Footer from './components/Footer';
 
 function App() {
+  React.useEffect(() => {
+    document.documentElement.setAttribute('data-theme', 'dark');
+  }, []);
+
   return (
     <div className="App">
       <Header />

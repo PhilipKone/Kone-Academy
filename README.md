@@ -1,4 +1,4 @@
-# Kone Academy
+# <img src="kca-landing-page/public/favicon.svg" height="30" alt="KCA Logo" /> Kone Code Academy (KCA)
 
 [![Typing SVG](https://readme-typing-svg.herokuapp.com?font=Fira+Code&pause=1000&width=435&lines=Research...;Coding...;Engineering...)](https://git.io/typing-svg)
 
@@ -86,4 +86,4 @@ This project is licensed under the terms of the [LICENSE](LICENSE) file.
 
 ---
 
-_Kone Academy: Research, Coding, and Engineering the Right Way._
+*Kone-Code-Academy: Research, Coding, and Engineering the Right Way.*

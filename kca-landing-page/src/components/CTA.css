@@ -9,23 +9,37 @@
   width: 100%;
   padding: 4rem 2rem;
   text-align: center;
-  background: linear-gradient(180deg, rgba(22, 27, 34, 0.8) 0%, rgba(13, 17, 23, 0.9) 100%);
+  background: var(--bg-glass);
+  /* Adaptive background */
+  backdrop-filter: var(--glass-blur);
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  /* Fix for Chrome rendering */
+  transform: translateZ(0);
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
 }
 
 .cta-title {
   font-size: 2.5rem;
   font-weight: 800;
   margin-bottom: 1rem;
+  color: var(--text-primary);
+  /* Ensure visibility */
 }
 
 .cta-description {
-  color: var(--text-secondary);
+  color: var(--text-primary);
+  /* Increased contrast */
   font-size: 1.1rem;
   margin-bottom: 3rem;
+  /* Fix for Chrome rendering */
+  transform: translateZ(0);
 }
 
 .cta-terminal {
   background: #000;
+  /* Keep terminal always black */
   border: 1px solid var(--border-color);
   border-radius: 8px;
   padding: 2rem;
@@ -35,12 +49,81 @@
   flex-direction: column;
   gap: 1.5rem;
   align-items: center;
+  box-shadow: var(--shadow-md);
 }
 
 .terminal-line {
   font-family: var(--font-mono);
   font-size: 1.1rem;
+  color: #ffffff;
+  /* Terminal text always white */
+  display: flex;
+  gap: 0.5rem;
+}
+
+.prompt {
+  color: var(--accent-success);
+}
+
+.cta-section {
+  padding: 6rem 2rem;
+  display: flex;
+  justify-content: center;
+}
+
+.cta-container {
+  max-width: 800px;
+  width: 100%;
+  padding: 4rem 2rem;
+  text-align: center;
+  background: var(--bg-glass);
+  /* Adaptive background */
+  backdrop-filter: var(--glass-blur);
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  /* Fix for Chrome rendering */
+  transform: translateZ(0);
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+
+.cta-title {
+  font-size: 2.5rem;
+  font-weight: 800;
+  margin-bottom: 1rem;
   color: var(--text-primary);
+  /* Ensure visibility */
+}
+
+.cta-description {
+  color: var(--text-primary);
+  /* Increased contrast */
+  font-size: 1.1rem;
+  margin-bottom: 3rem;
+  /* Fix for Chrome rendering */
+  transform: translateZ(0);
+}
+
+.cta-terminal {
+  background: #000;
+  /* Keep terminal always black */
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  padding: 2rem;
+  max-width: 500px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  align-items: center;
+  box-shadow: var(--shadow-md);
+}
+
+.terminal-line {
+  font-family: var(--font-mono);
+  font-size: 1.1rem;
+  color: #ffffff;
+  /* Terminal text always white */
   display: flex;
   gap: 0.5rem;
 }
@@ -50,7 +133,8 @@
 }
 
 .cmd {
-  color: var(--text-primary);
+  color: #ffffff;
+  /* Terminal command always white */
 }
 
 .cta-btn {
@@ -59,4 +143,22 @@
   text-decoration: none;
   display: block;
   padding: 1rem;
+}
+
+@media (max-width: 768px) {
+  .cta-container {
+    padding: 2rem 1rem;
+  }
+
+  .cta-title {
+    font-size: 2rem;
+  }
+
+  .cta-terminal {
+    padding: 1rem;
+  }
+
+  .terminal-line {
+    font-size: 0.9rem;
+  }
 }

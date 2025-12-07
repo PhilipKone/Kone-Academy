@@ -29,7 +29,7 @@ const Divisions = () => {
       subtitle: 'Kone Lab',
       icon: '🛠️',
       description: 'Practical engineering, 3D modeling, and embedded systems.',
-      features: ['Arduino', '3D Printing', 'Circuit Design'],
+      features: ['Arduino', '3D Simulation', 'Circuit Design'],
       status: 'Lab Access',
       link: '#'
     }

@@ -1,30 +1,42 @@
 import React from 'react';
 import './Services.css';
 
+const ServiceCard = ({ item }) => {
+  return (
+    <div className="service-item glass-panel">
+      <div className="service-content">
+        <span className="service-icon">{item.icon}</span>
+        <h4 className="service-title">{item.title}</h4>
+        <p className="service-desc">{item.desc}</p>
+      </div>
+    </div>
+  );
+};
+
 const Services = () => {
   const services = [
     {
       category: 'Research',
       items: [
-        { title: 'Thesis Guidance', desc: 'End-to-end support for academic writing.' },
-        { title: 'Data Analytics', desc: 'Processing complex datasets with Python/R.' },
-        { title: 'Publication', desc: 'Assistance with journal submissions.' }
+        { title: 'Thesis Guidance', desc: 'End-to-end support for academic writing.', icon: '🎓' },
+        { title: 'Data Analysis', desc: 'Processing complex datasets with Python/R.', icon: '📊' },
+        { title: 'Publication', desc: 'Assistance with journal submissions.', icon: '✍️' }
       ]
     },
     {
-      category: 'Development',
+      category: 'Coding',
       items: [
-        { title: 'Python Core', desc: 'From syntax to advanced algorithms.' },
-        { title: 'Web Stack', desc: 'Full-stack development with React & Node.' },
-        { title: 'System Design', desc: 'Architecture and scalability patterns.' }
+        { title: 'Python Masterclass', desc: 'From syntax to advanced algorithms.', icon: '🐍' },
+        { title: 'C / C++ School', desc: 'System programming and memory management.', icon: '💻' },
+        { title: 'R & MATLAB', desc: 'Statistical computing and data visualization.', icon: '📊' }
       ]
     },
     {
-      category: 'Hardware',
+      category: 'Engineering',
       items: [
-        { title: 'IoT Systems', desc: 'Arduino & ESP32 prototyping.' },
-        { title: '3D Design', desc: 'CAD modeling for manufacturing.' },
-        { title: 'Robotics', desc: 'Control systems and automation.' }
+        { title: 'IoT Systems', desc: 'Arduino & ESP32 prototyping.', icon: '📡' },
+        { title: '3D Simulation', desc: 'CAD modeling for manufacturing.', icon: '🧊' },
+        { title: 'Robotics', desc: 'Control systems and automation.', icon: '🤖' }
       ]
     }
   ];
@@ -43,13 +55,7 @@ const Services = () => {
               <h3 className="category-title">{category.category}</h3>
               <div className="category-grid">
                 {category.items.map((item, i) => (
-                  <div key={i} className="service-item glass-panel">
-                    <div className="service-header">
-                      <span className="service-icon">⚡</span>
-                      <h4 className="service-title">{item.title}</h4>
-                    </div>
-                    <p className="service-desc">{item.desc}</p>
-                  </div>
+                  <ServiceCard key={i} item={item} />
                 ))}
               </div>
             </div>
