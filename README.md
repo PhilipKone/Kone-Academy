@@ -8,7 +8,7 @@ Welcome to the official repository for **Kone Code Academy (KCA)**, an open-sour
 
 ## 🚀 Our Vision
 
-KCA is the parent organization of PHconsult, with a long-term vision to foster a community of learners, researchers, and builders. We aim to make high-quality education and resources accessible to everyone, from beginners to seasoned professionals.
+Kone Academy is an EduTech company, with a long-term vision to foster a community of learners, researchers, and builders. We aim to make high-quality education and resources accessible to everyone, from beginners to seasoned professionals.
 
 ---
 
@@ -70,7 +70,7 @@ Kone Lab is where ideas turn into reality. This division focuses on practical en
 
 ---
 
-## 📝 Get Started with KCA
+## 📝 Get Started with Kone Academy
 
 Ready to begin your journey with us? Whether you're interested in our services or want to contribute to our open-source projects, we'd love to hear from you.
 
@@ -86,4 +86,4 @@ This project is licensed under the terms of the [LICENSE](LICENSE) file.
 
 ---
 
-_Kone-Code-Academy: Research, Coding, and Engineering the Right Way._
+_Kone Academy: Research, Coding, and Engineering the Right Way._
