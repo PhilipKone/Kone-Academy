@@ -8,7 +8,7 @@ const Vision = () => {
         <div className="vision-content">
           <h2 className="vision-title">Our <span className="text-gradient">Vision</span></h2>
           <p className="vision-text">
-            KCA is the parent organization of PHconsult, with a long-term vision to foster a community of learners, researchers, and builders. We aim to make high-quality education and resources accessible to everyone, from beginners to seasoned professionals.
+            Kone Academy is an EduTech company with a long-term vision to foster a community of learners, researchers, and builders. We aim to make high-quality education and resources accessible to everyone, from beginners to seasoned professionals.
           </p>
           <div className="vision-stats">
             <div className="stat-item">

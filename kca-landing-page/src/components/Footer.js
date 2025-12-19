@@ -8,8 +8,8 @@ const Footer = () => {
       <div className="footer-container">
         <div className="footer-brand">
           <div className="logo">
-            <img src={process.env.PUBLIC_URL + '/favicon.svg'} alt="KCA Logo" className="logo-icon" />
-            <span className="logo-text">KCA</span>
+            <img src={process.env.PUBLIC_URL + '/logo-circle-blue.svg'} alt="KCA Logo" className="logo-icon" />
+            <span className="logo-text">Kone Academy</span>
           </div>
           <p className="footer-tagline">Research. Coding. Engineering.</p>
         </div>
@@ -28,15 +28,15 @@ const Footer = () => {
               <a href="https://discord.gg/7dYKYDh6j" aria-label="Discord"><FaDiscord /></a>
               <a href="https://www.linkedin.com/company/konecodeacdemy/?viewAsMember=true" aria-label="LinkedIn"><FaLinkedin /></a>
               <a href="https://www.facebook.com/profile.php?id=61584327765846" aria-label="Facebook"><FaFacebook /></a>
-              <a href="https://www.instagram.com/konecodeacademy/?__pwa=1" aria-label="Instagram"><FaInstagram /></a>
-              <a href="https://join.slack.com/t/konecodeacademy/shared_invite/zt-3kce482o6-tDDD~LS7KSw~jvOWV3Cb9g" aria-label="Slack"><FaSlack /></a>
+              <a href="https://www.instagram.com/koneacademy?igsh=bnlnaTZ5YmNsMXJ1&utm_source=qr" aria-label="Instagram"><FaInstagram /></a>
+              <a href="https://join.slack.com/t/koneacademy/shared_invite/zt-3kce482o6-tDDD~LS7KSw~jvOWV3Cb9g" aria-label="Slack"><FaSlack /></a>
               <a href="https://www.youtube.com/@konecodeacademy" aria-label="YouTube"><FaYoutube /></a>
             </div>
           </div>
         </div>
       </div>
       <div className="footer-bottom">
-        <p>&copy; {new Date().getFullYear()} Kone-Code-Academy. Open Source License.</p>
+        <p>&copy; {new Date().getFullYear()} Kone Academy. Open Source License.</p>
       </div>
     </footer>
   );

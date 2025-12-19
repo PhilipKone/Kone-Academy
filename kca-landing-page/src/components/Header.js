@@ -26,8 +26,8 @@ const Header = () => {
     <header className={`header ${scrolled ? 'scrolled' : ''}`}>
       <div className="header-container">
         <div className="logo">
-          <img src={process.env.PUBLIC_URL + '/favicon.svg'} alt="KCA Logo" className="logo-icon" />
-          <span className="logo-text">KCA</span>
+          <img src={process.env.PUBLIC_URL + '/logo-circle-blue.svg'} alt="KCA Logo" className="logo-icon" />
+          <span className="logo-text">Kone Academy</span>
         </div>
 
         <div className="mobile-toggle" onClick={toggleMobileMenu}>

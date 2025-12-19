@@ -105,6 +105,14 @@ pre {
     display: inline-block;
 }
 
+.d-flex {
+    display: flex;
+}
+
+.flex-column {
+    flex-direction: column;
+}
+
 button {
     font-family: var(--font-sans);
     cursor: pointer;

@@ -11,7 +11,7 @@ const Divisions = () => {
       description: 'Academic research, data analysis, and thesis mentorship.',
       features: ['Topic Selection', 'Data Analysis', 'Thesis Writing'],
       status: 'Active',
-      link: '#'
+      link: 'https://PhilipKone.github.io/Kone-Consult/'
     },
     {
       id: 'coding',
@@ -21,7 +21,7 @@ const Divisions = () => {
       description: 'Programming courses from Python to C++ and R.',
       features: ['Python Masterclass', 'Web Development', 'Data Science'],
       status: 'Enrollment Open',
-      link: '#'
+      link: 'https://PhilipKone.github.io/Kone-Code/'
     },
     {
       id: 'engineering',
@@ -31,7 +31,7 @@ const Divisions = () => {
       description: 'Practical engineering, 3D modeling, and embedded systems.',
       features: ['Arduino', '3D Simulation', 'Circuit Design'],
       status: 'Lab Access',
-      link: '#'
+      link: 'https://PhilipKone.github.io/Kone-Lab/'
     }
   ];
 

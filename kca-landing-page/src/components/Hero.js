@@ -13,11 +13,14 @@ const Hero = () => {
             <span className="text-gradient">Engineering.</span>
           </h1>
           <p className="hero-subtitle">
-            The open-source initiative dedicated to pioneering research and building the next generation of engineers.
+            The open-source initiative dedicated to pioneering research and building the next generation of engineers.<br />
+            <span className="text-white">Research, code and engineer the future the right way.</span>
           </p>
           <div className="hero-actions">
             <button className="btn-primary big">Start Learning</button>
-            <button className="btn-secondary big">View Documentation</button>
+            <a href="https://PhilipKone.github.io/Kone-Consult/#/documentation" className="btn-secondary big" style={{ textDecoration: 'none', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+              View Documentation
+            </a>
           </div>
         </div>
 
