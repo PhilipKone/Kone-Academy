@@ -39,13 +39,13 @@ const Header = () => {
           <a href="#divisions" className="nav-link" onClick={closeMobileMenu}>Divisions</a>
           <a href="#services" className="nav-link" onClick={closeMobileMenu}>Services</a>
           <div className="mobile-actions">
-            <a href="https://github.com/PhilipKone/Kone-Code-Academy" target="_blank" rel="noreferrer" className="btn-github">GitHub</a>
+            <a href="https://github.com/PhilipKone/Kone-Academy" target="_blank" rel="noreferrer" className="btn-github">GitHub</a>
             <button className="btn-primary">Get Started</button>
           </div>
         </nav>
 
         <div className="header-actions desktop-only">
-          <a href="https://github.com/PhilipKone/Kone-Code-Academy" target="_blank" rel="noreferrer" className="btn-github">
+          <a href="https://github.com/PhilipKone/Kone-Academy" target="_blank" rel="noreferrer" className="btn-github">
             GitHub
           </a>
           <button className="btn-primary">Get Started</button>
