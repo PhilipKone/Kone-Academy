@@ -8,7 +8,7 @@ Welcome to the official repository for **Kone Code Academy (KCA)**, an open-sour
 
 ## 🚀 Our Vision
 
-Kone Academy is an EduTech company, with a long-term vision to foster a community of learners, researchers, and builders. We aim to make high-quality education and resources accessible to everyone, from beginners to seasoned professionals.
+Kone Academy is an EdTech company, with a long-term vision to foster a community of learners, researchers, and builders. We aim to make high-quality education and resources accessible to everyone, from beginners to seasoned professionals.
 
 ---
 
