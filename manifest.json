@@ -1,9 +1,9 @@
 {
   "short_name": "Kone Academy",
-  "name": "Kone Academy - Research & Engineering",
+  "name": "Kone Academy - Research, Coding, & Engineering",
   "icons": [
     {
-      "src": "logo-circle-blue.svg",
+      "src": "favicon.svg",
       "sizes": "any",
       "type": "image/svg+xml",
       "purpose": "any"
