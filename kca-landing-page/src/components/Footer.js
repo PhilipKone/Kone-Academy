@@ -1,6 +1,7 @@
 import React from 'react';
 import './Footer.css';
-import { FaGithub, FaDiscord, FaTwitter, FaLinkedin, FaFacebook, FaInstagram, FaSlack, FaYoutube } from 'react-icons/fa';
+import { FaGithub, FaDiscord, FaTwitter, FaLinkedin, FaFacebook, FaInstagram, FaSlack, FaYoutube, FaTiktok } from 'react-icons/fa';
+import { FaXTwitter } from 'react-icons/fa6';
 
 const Footer = () => {
   return (
@@ -24,13 +25,15 @@ const Footer = () => {
           <div className="link-group">
             <h4>Community</h4>
             <div className="social-icons">
+              <a href="https://x.com/koneacademy" aria-label="X"><FaXTwitter /></a>
+              <a href="https://www.tiktok.com/@koneacademy?_r=1&_t=ZM-931L3z5lu71" aria-label="TikTok"><FaTiktok /></a>
               <a href="https://github.com/PhilipKone/Kone-Academy" aria-label="GitHub"><FaGithub /></a>
-              <a href="https://discord.gg/7dYKYDh6j" aria-label="Discord"><FaDiscord /></a>
+              <a href="https://discord.gg/Ab4SCxPgUK" target="_blank" rel="noreferrer" aria-label="Discord"><FaDiscord /></a>
               <a href="https://www.linkedin.com/company/konecodeacdemy/?viewAsMember=true" aria-label="LinkedIn"><FaLinkedin /></a>
               <a href="https://www.facebook.com/profile.php?id=61584327765846" aria-label="Facebook"><FaFacebook /></a>
               <a href="https://www.instagram.com/koneacademy?igsh=bnlnaTZ5YmNsMXJ1&utm_source=qr" aria-label="Instagram"><FaInstagram /></a>
-              <a href="https://join.slack.com/t/koneacademy/shared_invite/zt-3kce482o6-tDDD~LS7KSw~jvOWV3Cb9g" aria-label="Slack"><FaSlack /></a>
-              <a href="https://www.youtube.com/@konecodeacademy" aria-label="YouTube"><FaYoutube /></a>
+              <a href="https://join.slack.com/t/koneacademy/shared_invite/zt-3te5lrqpj-d3gixasFIoSerlBnoQ1UMg" target="_blank" rel="noreferrer" aria-label="Slack"><FaSlack /></a>
+              <a href="https://youtube.com/@koneacademy?si=zqEGBiiu0NRdNk6p" target="_blank" rel="noreferrer" aria-label="YouTube"><FaYoutube /></a>
             </div>
           </div>
         </div>

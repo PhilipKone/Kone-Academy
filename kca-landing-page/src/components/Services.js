@@ -8,6 +8,23 @@ const ServiceCard = ({ item }) => {
         <span className="service-icon">{item.icon}</span>
         <h4 className="service-title">{item.title}</h4>
         <p className="service-desc">{item.desc}</p>
+        <div style={{ marginTop: 'auto', paddingTop: '1rem' }}>
+          <a
+            href="https://docs.google.com/forms/d/e/1FAIpQLSeXOBgnnnquQmQHHU1Kbyw9iYfK7gJ6Kyj5T5OctIcyy4fXSA/viewform?usp=header"
+            target="_blank"
+            rel="noreferrer"
+            className="btn-primary"
+            style={{
+              display: 'block',
+              textAlign: 'center',
+              textDecoration: 'none',
+              padding: '0.5rem',
+              fontSize: '0.85rem'
+            }}
+          >
+            Request Service
+          </a>
+        </div>
       </div>
     </div>
   );

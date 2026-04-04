@@ -1,0 +1,12 @@
+{
+    "name": "gif_export_tool",
+    "version": "1.0.0",
+    "description": "Tool to convert SVG animations to GIF using Puppeteer",
+    "main": "convert.js",
+    "license": "MIT",
+    "dependencies": {
+        "puppeteer": "^24.0.0",
+        "gif-encoder": "^0.7.2",
+        "pngjs": "^7.0.0"
+    }
+}

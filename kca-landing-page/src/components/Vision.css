@@ -82,7 +82,8 @@
   font-size: 2.5rem;
   font-weight: 800;
   color: var(--accent-primary);
-  font-family: var(--font-mono);
+  font-family: var(--font-heading);
+  font-weight: 800;
   /* Fix for Chrome rendering */
   transform: translateZ(0);
 }

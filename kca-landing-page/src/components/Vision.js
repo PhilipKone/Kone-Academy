@@ -11,14 +11,14 @@ const Vision = () => {
           <div className="vision-card">
             <h3 className="card-title">Vision</h3>
             <p className="vision-text">
-              Kone Academy is an EduTech company with a long-term vision to foster a community of learners, researchers, and builders. We aim to make high-quality education and resources accessible to everyone, from beginners to seasoned professionals.
+              Kone Academy is an EdTech company with a long-term vision to foster a community of learners, researchers, and builders. We aim to make high-quality education and resources accessible to everyone, from beginners to seasoned professionals.
             </p>
           </div>
 
           <div className="vision-card">
             <h3 className="card-title">Mission</h3>
             <p className="vision-text">
-              Our mission is to empower the next generation of innovators by providing world-class education and research opportunities that are accessible to all.
+              Our mission is to empower the next generation of innovators by providing world-class education and research opportunities through software resources that are accessible to all.
             </p>
           </div>
         </div>

@@ -39,16 +39,18 @@ const Header = () => {
           <a href="#divisions" className="nav-link" onClick={closeMobileMenu}>Divisions</a>
           <a href="#services" className="nav-link" onClick={closeMobileMenu}>Services</a>
           <div className="mobile-actions">
+            <a href="https://consult.koneacademy.io/#/login" className="btn-login" style={{ display: 'block', marginBottom: '1rem', textAlign: 'center', textDecoration: 'none', color: 'var(--text-primary)' }}>Login</a>
             <a href="https://github.com/PhilipKone/Kone-Academy" target="_blank" rel="noreferrer" className="btn-github">GitHub</a>
-            <button className="btn-primary">Get Started</button>
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLSeXOBgnnnquQmQHHU1Kbyw9iYfK7gJ6Kyj5T5OctIcyy4fXSA/viewform?usp=header" target="_blank" rel="noreferrer" className="btn-primary" style={{ textDecoration: 'none', display: 'inline-block', textAlign: 'center' }}>Get Started</a>
           </div>
         </nav>
 
         <div className="header-actions desktop-only">
+          <a href="https://consult.koneacademy.io/#/login" className="btn-login" style={{ marginRight: '1rem', textDecoration: 'none', color: 'var(--text-primary)', fontWeight: '500' }}>Login</a>
           <a href="https://github.com/PhilipKone/Kone-Academy" target="_blank" rel="noreferrer" className="btn-github">
             GitHub
           </a>
-          <button className="btn-primary">Get Started</button>
+          <a href="https://docs.google.com/forms/d/e/1FAIpQLSeXOBgnnnquQmQHHU1Kbyw9iYfK7gJ6Kyj5T5OctIcyy4fXSA/viewform?usp=header" target="_blank" rel="noreferrer" className="btn-primary" style={{ textDecoration: 'none' }}>Get Started</a>
         </div>
       </div>
     </header>

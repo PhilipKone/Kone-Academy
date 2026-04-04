@@ -19,7 +19,8 @@
   display: flex;
   align-items: center;
   gap: 0.5rem;
-  font-family: var(--font-mono);
+  font-family: var(--font-heading);
+  letter-spacing: -0.03em;
   font-weight: 700;
   font-size: 1.5rem;
   color: var(--text-primary);
@@ -44,7 +45,9 @@
 .link-group h4 {
   color: var(--text-primary);
   margin-bottom: 1.5rem;
+  font-family: var(--font-heading);
   font-size: 0.9rem;
+  font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 1px;
 }
@@ -53,8 +56,10 @@
   display: block;
   color: var(--text-secondary);
   text-decoration: none;
+  font-family: var(--font-heading);
   margin-bottom: 0.75rem;
   font-size: 0.9rem;
+  font-weight: 600;
   transition: color 0.2s;
 }
 
@@ -93,6 +98,14 @@
 }
 
 /* Brand Colors */
+.social-icons a[aria-label="X"]:hover {
+  color: #ffffff;
+}
+
+.social-icons a[aria-label="TikTok"]:hover {
+  color: #FE2C55;
+}
+
 .social-icons a[aria-label="GitHub"]:hover {
   color: #ffffff;
 }

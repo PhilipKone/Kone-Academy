@@ -7,18 +7,18 @@ const Hero = () => {
     <section className="hero" id="home">
       <div className="hero-container">
         <div className="hero-content">
-          <div className="badge">v1.0 Now Available</div>
+          <div className="badge">v1.1 Now Available</div>
           <h1 className="hero-title">
             Research. Coding.<br />
             <span className="text-gradient">Engineering.</span>
           </h1>
           <p className="hero-subtitle">
             The open-source initiative dedicated to pioneering research and building the next generation of engineers.<br />
-            <span className="text-white">Research, code and engineer the future the right way.</span>
+            <span className="text-white">Research, code, and engineer the future the right way.</span>
           </p>
           <div className="hero-actions">
-            <button className="btn-primary big">Start Learning</button>
-            <a href="https://PhilipKone.github.io/Kone-Consult/#/documentation" className="btn-secondary big" style={{ textDecoration: 'none', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLSeXOBgnnnquQmQHHU1Kbyw9iYfK7gJ6Kyj5T5OctIcyy4fXSA/viewform?usp=header" target="_blank" rel="noreferrer" className="btn-primary big" style={{ textDecoration: 'none', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>Start Learning</a>
+            <a href="https://consult.koneacademy.io/#/docs?category=general" target="_blank" rel="noreferrer" className="btn-secondary big" style={{ textDecoration: 'none', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
               View Documentation
             </a>
           </div>
@@ -30,11 +30,11 @@ const Hero = () => {
               <div className="dot red"></div>
               <div className="dot yellow"></div>
               <div className="dot green"></div>
-              <div className="terminal-title">bash — kca-cli</div>
+              <div className="terminal-title">bash — ka-cli</div>
             </div>
             <div className="terminal-body">
               <div className="command-line">
-                <span className="prompt">user@kca:~$</span>
+                <span className="prompt">user@ka:~$</span>
                 <span className="command"> init learning-path</span>
               </div>
               <div className="output">

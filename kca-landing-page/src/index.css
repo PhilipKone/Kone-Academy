@@ -1,3 +1,12 @@
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.8s ease-out forwards;
+}
+
 :root {
     /* Color Palette - Dark & Neon */
     --bg-primary: #0a0c10;
@@ -28,6 +37,10 @@
     --shadow-sm: 0 1px 0 rgba(27, 31, 35, 0.04);
     --shadow-md: 0 3px 6px rgba(0, 0, 0, 0.4);
     --shadow-glow: 0 0 15px rgba(88, 166, 255, 0.4);
+    
+    --font-heading: 'Baloo 2', 'Nunito', sans-serif;
+    --font-sans: 'Nunito', system-ui, -apple-system, sans-serif;
+    --font-mono: 'JetBrains Mono', 'Fira Code', monospace;
 }
 
 [data-theme="dark"] {
@@ -61,6 +74,11 @@ body {
         linear-gradient(90deg, rgba(48, 54, 61, 0.1) 1px, transparent 1px);
     background-size: 40px 40px;
     /* Tech Grid */
+}
+
+h1, h2, h3, h4, h5, h6, .hero-title, .section-title {
+    font-family: var(--font-heading);
+    letter-spacing: -0.03em;
 }
 
 html {
@@ -97,12 +115,22 @@ pre {
 }
 
 .text-gradient {
+    /* Solid color fallback for browsers that fail to clip background-to-text correctly */
+    color: var(--accent-primary);
     background: linear-gradient(90deg, var(--accent-primary), var(--accent-secondary));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    /* Fix for Chrome rendering */
-    transform: translateZ(0);
+    background-clip: text;
+    /* Extra padding & negative margin to prevent glyph clipping in Edge */
+    padding-left: 0.2em;
+    margin-left: -0.2em;
+    padding-right: 0.2em;
+    margin-right: -0.2em;
     display: inline-block;
+    vertical-align: bottom;
+    /* Hardware acceleration 'nudge' for rendering stability */
+    transform: translateZ(0);
+    will-change: transform;
 }
 
 .d-flex {

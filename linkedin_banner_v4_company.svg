@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1128 191" width="1128" height="191">
+  <defs>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&amp;display=swap');
+      @import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;600&amp;display=swap');
+      
+      text { font-family: 'Nunito', sans-serif; }
+      .font-mono { font-family: 'Fira Code', monospace; }
+      
+      .bg-primary { fill: #0a0c10; }
+      .bg-header { fill: #161b22; }
+      
+      .text-primary { fill: #ffffff; }
+      .text-secondary { fill: #d1d5db; }
+      .text-accent { fill: #58a6ff; }
+      .text-purple { fill: #bc8cff; }
+      .text-green { fill: #3fb950; }
+    </style>
+    
+    <pattern id="gridPattern" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#21262d" stroke-width="1"/>
+    </pattern>
+    
+    <radialGradient id="glowBlue" cx="50%" cy="50%" r="50%">
+         <stop offset="0%" stop-color="#58a6ff" stop-opacity="0.15"/>
+         <stop offset="100%" stop-color="#0a0c10" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1128" height="191" class="bg-primary" />
+  <rect width="1128" height="191" fill="url(#gridPattern)" opacity="0.4" />
+  
+  <circle cx="900" cy="100" r="300" fill="url(#glowBlue)" />
+
+  <!-- Header Bar (Top 30px) -->
+  <rect width="1128" height="30" class="bg-header" />
+  <g transform="translate(20, 15)">
+    <circle cx="0" cy="0" r="5" fill="#ff5f56" />
+    <circle cx="15" cy="0" r="5" fill="#ffbd2e" />
+    <circle cx="30" cy="0" r="5" fill="#27c93f" />
+  </g>
+  <text x="564" y="20" text-anchor="middle" font-size="12" fill="#8b949e" class="font-mono">mission_control.sh</text>
+  
+  <!-- Content (Compact) -->
+  <g transform="translate(60, 70)">
+      <!-- Prompt -->
+      <text x="0" y="0" font-size="18" class="font-mono">
+          <tspan class="text-green">➜</tspan>
+          <tspan class="text-accent"> ~/kone-academy</tspan>
+          <tspan class="text-primary"> cat mission.txt</tspan>
+      </text>
+      
+      <!-- Output (Inline/Compact) -->
+      <text x="0" y="40" font-size="24" class="text-primary" font-weight="800">Bridging the Gap.</text>
+      
+      <text x="0" y="75" font-size="16" class="text-secondary">
+          We connect <tspan class="text-accent" font-weight="700">Theoretical Education</tspan> with real-world <tspan class="text-purple" font-weight="700">Industry Skills</tspan>.
+      </text>
+  </g>
+</svg>

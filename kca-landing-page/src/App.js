@@ -8,21 +8,30 @@ import Services from './components/Services';
 import CTA from './components/CTA';
 import Footer from './components/Footer';
 
+import LoadingScreen from './components/LoadingScreen';
+
 function App() {
+  const [isInitializing, setIsInitializing] = React.useState(true);
+  
   React.useEffect(() => {
     document.documentElement.setAttribute('data-theme', 'dark');
   }, []);
 
   return (
-    <div className="App">
-      <Header />
-      <Hero />
-      <Vision />
-      <Divisions />
-      <Services />
-      <CTA />
-      <Footer />
-    </div>
+    <>
+      <LoadingScreen onFinished={() => setIsInitializing(false)} />
+      {!isInitializing && (
+        <div className="App animate-fade-in">
+          <Header />
+          <Hero />
+          <Vision />
+          <Divisions />
+          <Services />
+          <CTA />
+          <Footer />
+        </div>
+      )}
+    </>
   );
 }
 
