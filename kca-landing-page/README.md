@@ -6,7 +6,7 @@ The official, modern, and responsive landing page for the **Kone Academy** ecosy
 To provide a seamless, premium entry point for students, developers, and partners to engage with our core divisions.
 
 ## Features
-- 🎨 Premium AI-driven design aesthetics
+- 🎨 Premium design aesthetics
 - 📱 Responsive cross-device performance
 - ⚡ High-authority communication
 
