@@ -66,3 +66,15 @@ pnpm-debug.log*
 .turbo/
 .vercel
 /public/assets/blog/links.txt
+
+# 🛡️ Unified Workspace Control: Sub-Project Lockdown
+# These are managed by the Synchronization Agent and must NEVER be committed.
+Kone-Code/
+Kone-Consult/
+Kone-Lab/
+kone-consult-web/
+
+# Build Artifacts from Sub-Projects
+**/build/
+**/dist/
+**/.env
