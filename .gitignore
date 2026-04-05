@@ -73,6 +73,11 @@ Kone-Code/
 Kone-Consult/
 Kone-Lab/
 kone-consult-web/
+agency/
+gif_export_tool/
+scripts/
+tools/
+types/
 
 # Build Artifacts from Sub-Projects
 **/build/
