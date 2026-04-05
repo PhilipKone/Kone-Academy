@@ -79,6 +79,16 @@ scripts/
 tools/
 types/
 
+# Root-level Development Assets & Scripts
+# (Excludes assets inside kca-landing-page/)
+/*.py
+/*.svg
+/*.png
+/*.jpg
+/*.gif
+/*.webp
+/Screenshot*
+
 # Build Artifacts from Sub-Projects
 **/build/
 **/dist/
