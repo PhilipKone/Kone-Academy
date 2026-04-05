@@ -80,14 +80,6 @@ Fill out our form to register your interest, book a service, or get in touch wit
 
 ---
 
-## 🛡️ Security & Workflow Policy
-
-To ensure the integrity of our open-source presence while protecting proprietary assets and research:
-
-- **Zero-Leak Policy**: Never commit `.env` files, credentials, or private sub-projects (`Kone-Code`, `Kone-Consult`, `Kone-Lab`) to this repository. These are explicitly ignored in `.gitignore`.
-- **Synchronization Agent (FSS)**: Use the `Firebase Shard Synchronizer` (FSS) located in `Kone-Consult/scripts/` for data synchronization. Pushes to GitHub should only be done for non-sensitive landing page updates or public resource changes.
-- **Mandatory Review**: All major pushes involving new directories or configuration changes must be reviewed by the project lead.
-
 ## 📄 License
 
 This project is licensed under the terms of the [LICENSE](LICENSE) file.
