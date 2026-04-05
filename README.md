@@ -86,4 +86,4 @@ This project is licensed under the terms of the [LICENSE](LICENSE) file.
 
 ---
 
-*Kone-Code-Academy: Research, Coding, and Engineering the Right Way.*
+*Kone Academy: Research, Coding, and Engineering the Right Way.*
