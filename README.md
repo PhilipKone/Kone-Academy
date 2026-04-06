@@ -2,6 +2,10 @@
 
 [![Typing SVG](https://readme-typing-svg.herokuapp.com?font=Fira+Code&pause=1000&width=435&lines=Research...;Coding...;Engineering...)](https://git.io/typing-svg)
 
+![Version](https://img.shields.io/github/v/release/PhilipKone/Kone-Code?include_prereleases&color=blue)
+![Deployment](https://img.shields.io/github/deployments/PhilipKone/Kone-Code/github-pages)
+![License](https://img.shields.io/github/license/PhilipKone/Kone-Code)
+
 Welcome to the official repository for **Kone Academy**, an open-source initiative dedicated to pioneering research, coding, and engineering for all age groups and skill levels. Our mission is to provide a structured and supportive environment for learning and innovation.
 
 ---
