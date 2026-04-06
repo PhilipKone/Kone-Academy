@@ -1,4 +1,4 @@
-# <img src="kca-landing-page/public/favicon.svg" height="30" alt="KA Logo" /> Kone Academy
+# <img src="kca-landing-page/public/favicon.svg" height="50" alt="KA Logo" /> Kone Academy
 
 [![Typing SVG](https://readme-typing-svg.herokuapp.com?font=Fira+Code&pause=1000&width=435&lines=Research...;Coding...;Engineering...)](https://git.io/typing-svg)
 
