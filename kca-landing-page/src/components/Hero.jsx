@@ -1,5 +1,6 @@
 import React from 'react';
 import TypingAnimation from './TypingAnimation';
+import HeroMoon from './HeroMoon';
 import './Hero.css';
 
 const Hero = () => {
@@ -18,7 +19,7 @@ const Hero = () => {
           </p>
           <div className="hero-actions">
             <a href="https://docs.google.com/forms/d/e/1FAIpQLSeXOBgnnnquQmQHHU1Kbyw9iYfK7gJ6Kyj5T5OctIcyy4fXSA/viewform?usp=header" target="_blank" rel="noreferrer" className="btn-primary big" style={{ textDecoration: 'none', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>Start Learning</a>
-            <a href="https://consult.koneacademy.io/#/docs?category=general" target="_blank" rel="noreferrer" className="btn-secondary big" style={{ textDecoration: 'none', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+            <a href={(window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1' ? 'http://localhost:3001' : 'https://consult.koneacademy.io') + "/docs?category=general"} target="_blank" rel="noreferrer" className="btn-secondary big" style={{ textDecoration: 'none', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
               View Documentation
             </a>
           </div>
@@ -45,6 +46,7 @@ const Hero = () => {
         </div>
       </div>
 
+      {/* <HeroMoon /> */}
       <div className="hero-background-glow"></div>
     </section>
   );

@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="utf-8" />
-  <link rel="icon" href="%PUBLIC_URL%/favicon.svg" type="image/svg+xml" />
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="theme-color" content="#000000" />
   <meta name="description"
@@ -15,6 +15,8 @@
   <meta property="og:title" content="Kone Academy | Research, Coding, and Engineering" />
   <meta property="og:description" content="Kone Academy: Your gateway to mastering Research, Coding, and Engineering. Programs for all age groups and skill levels." />
   <meta property="og:image" content="https://koneacademy.io/og-image.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
 
   <!-- Twitter -->
   <meta property="twitter:card" content="summary_large_image" />
@@ -23,8 +25,8 @@
   <meta property="twitter:description" content="Kone Academy: Your gateway to mastering Research, Coding, and Engineering. Programs for all age groups and skill levels." />
   <meta property="twitter:image" content="https://koneacademy.io/og-image.png" />
 
-  <link rel="apple-touch-icon" href="%PUBLIC_URL%/favicon.svg" />
-  <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
+  <link rel="apple-touch-icon" href="/favicon.svg" />
+  <link rel="manifest" href="/manifest.json" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;500;600;700;800&family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">
@@ -34,6 +36,7 @@
 <body>
   <noscript>You need to enable JavaScript to run this app.</noscript>
   <div id="root"></div>
+  <script type="module" src="/src/index.jsx"></script>
   <script>
     if ('serviceWorker' in navigator) {
       window.addEventListener('load', () => {

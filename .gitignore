@@ -81,6 +81,8 @@ types/
 
 # Root-level Development Assets & Scripts
 # (Excludes assets inside kca-landing-page/)
+marketing/
+snyk-win.exe
 /*.py
 /*.svg
 /*.png

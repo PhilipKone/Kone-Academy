@@ -9,6 +9,7 @@ import CTA from './components/CTA';
 import Footer from './components/Footer';
 
 import LoadingScreen from './components/LoadingScreen';
+import InteractiveGrid from './components/InteractiveGrid';
 
 function App() {
   const [isInitializing, setIsInitializing] = React.useState(true);
@@ -22,6 +23,7 @@ function App() {
       <LoadingScreen onFinished={() => setIsInitializing(false)} />
       {!isInitializing && (
         <div className="App animate-fade-in">
+          <InteractiveGrid />
           <Header />
           <Hero />
           <Vision />

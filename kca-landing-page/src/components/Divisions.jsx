@@ -2,6 +2,7 @@ import React from 'react';
 import './Divisions.css';
 
 const Divisions = () => {
+  const isLocal = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1';
   const divisions = [
     {
       id: 'research',
@@ -11,7 +12,7 @@ const Divisions = () => {
       description: 'Research, data analysis, and mentorship.',
       features: ['Topic Selection', 'Data Analysis', 'Writing'],
       status: 'Active',
-      link: 'https://consult.koneacademy.io/'
+      link: isLocal ? 'http://localhost:3001/' : 'https://consult.koneacademy.io/'
     },
     {
       id: 'coding',
@@ -21,7 +22,7 @@ const Divisions = () => {
       description: 'Software development and general programming from Python to C++ and R.',
       features: ['Python Masterclass', 'Web Development', 'Data Science'],
       status: 'Enrollment Open',
-      link: 'https://code.koneacademy.io/'
+      link: isLocal ? 'http://localhost:5174/' : 'https://code.koneacademy.io/'
     },
     {
       id: 'engineering',
@@ -31,7 +32,7 @@ const Divisions = () => {
       description: 'Practical engineering, 3D modeling, and embedded systems.',
       features: ['Arduino', '3D Simulation', 'Circuit Design'],
       status: 'Lab Access',
-      link: 'https://lab.koneacademy.io/'
+      link: isLocal ? 'http://localhost:5175/' : 'https://lab.koneacademy.io/'
     }
   ];
 

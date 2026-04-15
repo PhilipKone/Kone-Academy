@@ -1,6 +1,6 @@
 import React from 'react';
 import './Footer.css';
-import { FaGithub, FaDiscord, FaTwitter, FaLinkedin, FaFacebook, FaInstagram, FaSlack, FaYoutube, FaTiktok } from 'react-icons/fa';
+import { FaGithub, FaDiscord, FaLinkedin, FaFacebook, FaInstagram, FaSlack, FaYoutube, FaTiktok } from 'react-icons/fa';
 import { FaXTwitter } from 'react-icons/fa6';
 
 const Footer = () => {
@@ -9,7 +9,7 @@ const Footer = () => {
       <div className="footer-container">
         <div className="footer-brand">
           <div className="logo">
-            <img src={process.env.PUBLIC_URL + '/logo-circle-blue.svg'} alt="KCA Logo" className="logo-icon" />
+            <img src="/logo-circle-blue.svg" alt="KCA Logo" className="logo-icon" />
             <span className="logo-text">Kone Academy</span>
           </div>
           <p className="footer-tagline">Research. Coding. Engineering.</p>
