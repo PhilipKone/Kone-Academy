@@ -4,6 +4,10 @@ import './index.css'
 import ProgramDetails from './components/ProgramDetails'
 import Mascot from './components/Mascot'
 import EnrollmentModal from './components/EnrollmentModal'
+import BadgeTray from './components/BadgeTray'
+import { GamificationProvider, useGamification } from './context/GamificationContext'
+import Celebration from './components/Celebration'
+import InstallBanner from './components/InstallBanner'
 
 function Home() {
   const [isModalOpen, setIsModalOpen] = useState(false)
@@ -19,19 +23,14 @@ function Home() {
 
       {/* Hero Section */}
       <header className="section-padding">
-        <div className="container" style={{ 
-          display: 'grid', 
-          gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', 
-          gap: '2rem',
-          alignItems: 'center'
-        }}>
+        <div className="container hero-grid">
           {/* Mascot Section */}
-          <div style={{ textAlign: 'center', order: window.innerWidth < 768 ? 2 : 1 }}>
+          <div className="mascot-wrapper">
             <Mascot />
           </div>
 
           {/* Tagline & Program List */}
-          <div style={{ order: window.innerWidth < 768 ? 1 : 2 }}>
+          <div className="hero-content">
             <h2 className="hero-tagline">Do it Right</h2>
             
             <ul className="program-list">
@@ -55,7 +54,7 @@ function Home() {
               </li>
             </ul>
 
-            <div style={{ marginTop: '3rem' }}>
+            <div style={{ marginTop: '2.5rem' }}>
               <button 
                 className="kids-button"
                 onClick={() => setIsModalOpen(true)}
@@ -67,63 +66,95 @@ function Home() {
         </div>
       </header>
       
+      {/* Achievement Gallery */}
+      <BadgeTray />
+      
       {/* Footer */}
       <footer style={{ 
-        padding: '2rem 10%', 
+        padding: 'clamp(1.5rem, 4vw, 2rem) 5%', 
         background: 'white', 
         borderTop: '1px solid #e2e8f0',
-        display: 'flex',
-        justifyContent: 'space-between',
-        alignItems: 'center'
       }}>
-        <div style={{ display: 'flex', gap: '2rem', alignItems: 'center' }}>
-          <span style={{ color: '#64748b', fontSize: '0.9rem' }}>© 2026 Kone Kids. All rights reserved.</span>
+        <div style={{
+          maxWidth: '1200px',
+          margin: '0 auto',
+          display: 'flex',
+          flexWrap: 'wrap',
+          justifyContent: 'space-between',
+          alignItems: 'center',
+          gap: '0.75rem'
+        }}>
+          <span style={{ color: '#64748b', fontSize: 'clamp(0.8rem, 2.5vw, 0.9rem)' }}>
+            © 2026 Kone Kids. All rights reserved.
+          </span>
+          <p style={{ fontSize: 'clamp(0.95rem, 3vw, 1.1rem)', color: 'var(--kids-orange)', fontWeight: 'bold', margin: 0 }}>
+            +233 55 199 3820
+          </p>
         </div>
-        <p style={{ fontSize: '1.1rem', color: 'var(--kids-orange)', fontWeight: 'bold' }}>+233 55 199 3820</p>
       </footer>
     </div>
   )
 }
 
-function App() {
+function AppContent() {
+  const { markVisited } = useGamification();
+  
+  // Track visits to pages
+  React.useEffect(() => {
+    markVisited(window.location.pathname);
+  }, [window.location.pathname, markVisited]);
+
   return (
-    <Routes>
-      <Route path="/" element={<Home />} />
-      <Route 
-        path="/coding" 
-        element={
-          <ProgramDetails 
-            title="Coding 4 Kids" 
-            image="/programs/coding.png" 
-            description="Learn the language of the future through fun, interactive projects. Master the logic of the digital world through interactive and visual programming." 
-            accentColor="var(--kids-orange)"
-          />
-        } 
-      />
-      <Route 
-        path="/robotics" 
-        element={
-          <ProgramDetails 
-            title="Robotics 4 Kids" 
-            image="/programs/robotics.png" 
-            description="Build and program your own robots in hands-on engineering labs. Bring machines to life with hands-on electronics and hardware engineering." 
-            accentColor="var(--kids-blue)"
-          />
-        } 
-      />
-      <Route 
-        path="/ai" 
-        element={
-          <ProgramDetails 
-            title="AI 4 Kids" 
-            image="/programs/ai.png" 
-            description="Explore the world of artificial intelligence and machine learning in a kid-friendly way. Understand how the future is built with machine learning." 
-            accentColor="#a855f7"
-          />
-        } 
-      />
-    </Routes>
+    <>
+      <Celebration />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route 
+          path="/coding" 
+          element={
+            <ProgramDetails 
+              title="Coding 4 Kids" 
+              image="/programs/coding.png" 
+              description="Learn the language of the future through fun, interactive projects. Master the logic of the digital world through interactive and visual programming." 
+              accentColor="var(--kids-orange)"
+            />
+          } 
+        />
+        <Route 
+          path="/robotics" 
+          element={
+            <ProgramDetails 
+              title="Robotics 4 Kids" 
+              image="/programs/robotics.png" 
+              description="Build and program your own robots in hands-on engineering labs. Bring machines to life with hands-on electronics and hardware engineering." 
+              accentColor="var(--kids-blue)"
+            />
+          } 
+        />
+        <Route 
+          path="/ai" 
+          element={
+            <ProgramDetails 
+              title="AI 4 Kids" 
+              image="/programs/ai.png" 
+              description="Explore the world of artificial intelligence and machine learning in a kid-friendly way. Understand how the future is built with machine learning." 
+              accentColor="#a855f7"
+            />
+          } 
+        />
+      </Routes>
+      <InstallBanner />
+    </>
   )
 }
 
-export default App
+function App() {
+  return (
+    <GamificationProvider>
+      <AppContent />
+    </GamificationProvider>
+  )
+}
+
+export default App;
+console.log("Kone Kids v1.0.2-live");
