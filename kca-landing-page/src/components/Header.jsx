@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { FaBars, FaTimes } from 'react-icons/fa';
+import AppLauncher from './AppLauncher';
 import './Header.css';
 
 const Header = () => {
@@ -44,6 +45,9 @@ const Header = () => {
           <a href="#divisions" className="nav-link" onClick={closeMobileMenu}>Divisions</a>
           <a href="#services" className="nav-link" onClick={closeMobileMenu}>Services</a>
           <div className="mobile-actions">
+            <div style={{ display: 'flex', justifyContent: 'center', marginBottom: '1rem' }}>
+              <AppLauncher />
+            </div>
             <a href={loginUrl} className="btn-login" style={{ display: 'block', marginBottom: '1rem', textAlign: 'center', textDecoration: 'none', color: 'var(--text-primary)' }}>Login</a>
             <a href="https://github.com/PhilipKone/Kone-Academy" target="_blank" rel="noreferrer" className="btn-github">GitHub</a>
             <a href="https://docs.google.com/forms/d/e/1FAIpQLSeXOBgnnnquQmQHHU1Kbyw9iYfK7gJ6Kyj5T5OctIcyy4fXSA/viewform?usp=header" target="_blank" rel="noreferrer" className="btn-primary" style={{ textDecoration: 'none', display: 'inline-block', textAlign: 'center' }}>Get Started</a>
@@ -51,6 +55,7 @@ const Header = () => {
         </nav>
 
         <div className="header-actions desktop-only">
+          <AppLauncher />
           <a href={loginUrl} className="btn-login" style={{ marginRight: '1rem', textDecoration: 'none', color: 'var(--text-primary)', fontWeight: '500' }}>Login</a>
           <a href="https://github.com/PhilipKone/Kone-Academy" target="_blank" rel="noreferrer" className="btn-github">
             GitHub
@@ -63,3 +68,4 @@ const Header = () => {
 };
 
 export default Header;
+

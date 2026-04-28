@@ -7,6 +7,7 @@ import Divisions from './components/Divisions';
 import Services from './components/Services';
 import CTA from './components/CTA';
 import Footer from './components/Footer';
+import InstallBanner from './components/InstallBanner';
 
 import LoadingScreen from './components/LoadingScreen';
 import InteractiveGrid from './components/InteractiveGrid';
@@ -31,6 +32,7 @@ function App() {
           <Services />
           <CTA />
           <Footer />
+          <InstallBanner />
         </div>
       )}
     </>
@@ -38,4 +40,5 @@ function App() {
 }
 
 export default App;
+
 
