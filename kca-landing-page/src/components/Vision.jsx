@@ -18,7 +18,7 @@ const Vision = () => {
           <div className="vision-card">
             <h3 className="card-title">Mission</h3>
             <p className="vision-text">
-              Our mission is to empower the next generation of innovators by providing world-class education and research opportunities through software resources that are accessible to all.
+              Our mission is to empower the next generation of innovators and developers by providing world-class software, education, and research opportunities through software resources that are accessible to all.
             </p>
           </div>
         </div>

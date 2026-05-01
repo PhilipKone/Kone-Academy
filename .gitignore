@@ -78,6 +78,7 @@ gif_export_tool/
 scripts/
 tools/
 types/
+Kone-Digital/
 
 # Root-level Development Assets & Scripts
 # (Excludes assets inside kca-landing-page/)
