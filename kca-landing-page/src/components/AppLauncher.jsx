@@ -26,6 +26,13 @@ const apps = [
     url: 'https://lab.koneacademy.io',
   },
   {
+    name: 'Kone Digital',
+    logo: '/app-digital.svg',
+    color: 'digital',
+    glow: 'rgba(0, 255, 255, 0.12)',
+    url: 'https://digital.koneacademy.io',
+  },
+  {
     name: 'Anim Studio',
     logo: '/app-studio.svg',
     color: 'studio',
