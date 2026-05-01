@@ -205,6 +205,7 @@
 .app-icon--studio   { background: linear-gradient(135deg, #4a1a1a, #ef4444); }
 .app-icon--kids     { background: linear-gradient(135deg, #4a3a1a, #f59e0b); }
 .app-icon--digital  { background: linear-gradient(135deg, #091a1a, #00ffff); }
+.app-icon--shop     { background: linear-gradient(135deg, #4a1a30, #ec4899); }
 .app-icon--academy  { background: linear-gradient(135deg, #1a3040, #58a6ff); }
 
 .app-grid-item:hover .app-icon--consult { box-shadow: 0 4px 20px rgba(37, 99, 235, 0.35); }
@@ -213,6 +214,7 @@
 .app-grid-item:hover .app-icon--studio  { box-shadow: 0 4px 20px rgba(239, 68, 68, 0.35); }
 .app-grid-item:hover .app-icon--kids    { box-shadow: 0 4px 20px rgba(245, 158, 11, 0.35); }
 .app-grid-item:hover .app-icon--digital { box-shadow: 0 4px 20px rgba(0, 255, 255, 0.35); }
+.app-grid-item:hover .app-icon--shop    { box-shadow: 0 4px 20px rgba(236, 72, 153, 0.35); }
 .app-grid-item:hover .app-icon--academy { box-shadow: 0 4px 20px rgba(88, 166, 255, 0.35); }
 
 /* ── Click-outside overlay ──────────────────────────────── */

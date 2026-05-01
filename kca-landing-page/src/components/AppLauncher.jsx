@@ -47,6 +47,13 @@ const apps = [
     url: 'https://kids.koneacademy.io',
   },
   {
+    name: 'Kone Shop',
+    logo: '/app-shop.svg',
+    color: 'shop',
+    glow: 'rgba(236, 72, 153, 0.12)',
+    url: 'https://shop.koneacademy.io',
+  },
+  {
     name: 'Academy',
     logo: '/logo-circle-blue.svg',
     color: 'academy',
