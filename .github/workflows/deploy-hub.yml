@@ -1,4 +1,4 @@
-name: Deploy Kone Kids to GitHub Pages
+name: Deploy Kone Academy Hub to GitHub Pages
 
 on:
   push:
@@ -26,24 +26,20 @@ jobs:
         with:
           node-version: '18'
           cache: 'npm'
-          cache-dependency-path: Kone-Kids/package-lock.json
+          cache-dependency-path: kca-landing-page/package-lock.json
 
       - name: Install dependencies
-        working-directory: ./Kone-Kids
+        working-directory: ./kca-landing-page
         run: npm ci
 
       - name: Build
-        working-directory: ./Kone-Kids
-        env:
-          VITE_EMAILJS_SERVICE_ID: ${{ secrets.VITE_EMAILJS_SERVICE_ID }}
-          VITE_EMAILJS_TEMPLATE_ID: ${{ secrets.VITE_EMAILJS_TEMPLATE_ID }}
-          VITE_EMAILJS_PUBLIC_KEY: ${{ secrets.VITE_EMAILJS_PUBLIC_KEY }}
+        working-directory: ./kca-landing-page
         run: npm run build
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: './Kone-Kids/dist'
+          path: './kca-landing-page/dist'
 
   deploy:
     environment:
