@@ -53,13 +53,6 @@ const apps = [
     glow: 'rgba(236, 72, 153, 0.12)',
     url: 'https://shop.koneacademy.io',
   },
-  {
-    name: 'Academy',
-    logo: '/logo-circle-blue.svg',
-    color: 'academy',
-    glow: 'rgba(88, 166, 255, 0.12)',
-    url: 'https://koneacademy.io',
-  },
 ];
 
 /* ── Component ────────────────────────────────────────── */

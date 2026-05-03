@@ -5,13 +5,13 @@
 ![Deployment](https://img.shields.io/github/deployments/PhilipKone/Kone-Academy/github-pages)
 ![License](https://img.shields.io/github/license/PhilipKone/Kone-Academy)
 
-Welcome to the official repository for **Kone Academy**, an open-source initiative dedicated to pioneering research, coding, and engineering for all age groups and skill levels. Our mission is to provide a structured and supportive environment for learning and innovation.
+Welcome to the official repository for **Kone Academy**, a multidisciplinary technology and innovation collective. Our mission is to empower innovators and developers at all levels by merging world-class software education and research with high-performance engineering, deploying custom digital solutions and creative services that deliver measurable results and sustainable competitive advantage to businesses.
 
 ---
 
 ## 🚀 Our Vision
 
-Kone Academy is an EdTech company, with a long-term vision to foster a community of learners, researchers, and builders. We aim to make high-quality software and education and resources accessible to everyone, from beginners to seasoned professionals.
+Kone Academy is a multidisciplinary technology and innovation collective. We foster a powerful, global community of learners, researchers, and builders, where high-quality education and professional resources are made accessible to everyone. We blend deep educational accessibility with cutting-edge engineering, leveraging our collective talent to provide custom, high-performance digital, creative, and strategic solutions. From personalized learning pathways to commercial B2B growth platforms, we empower innovators and businesses at all levels to solve real-world problems through advanced design and computational precision.
 
 ---
 
