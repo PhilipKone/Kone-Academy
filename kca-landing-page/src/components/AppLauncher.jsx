@@ -53,6 +53,13 @@ const apps = [
     glow: 'rgba(236, 72, 153, 0.12)',
     url: 'https://shop.koneacademy.io',
   },
+  {
+    name: 'Kone Pay',
+    logo: '/app-pay.svg',
+    color: 'pay',
+    glow: 'rgba(255, 215, 0, 0.12)',
+    url: 'https://consult.koneacademy.io/#/admin',
+  },
 ];
 
 /* ── Component ────────────────────────────────────────── */
