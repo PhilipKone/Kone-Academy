@@ -58,7 +58,7 @@ const apps = [
     logo: '/app-pay.svg',
     color: 'pay',
     glow: 'rgba(255, 215, 0, 0.12)',
-    url: 'https://consult.koneacademy.io/#/admin',
+    url: 'https://consult.koneacademy.io/pay',
   },
 ];
 
