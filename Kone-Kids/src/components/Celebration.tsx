@@ -5,7 +5,10 @@ import { useGamification, Badge } from '../context/GamificationContext';
 const Celebration: React.FC = () => {
   const { badges } = useGamification();
   const [activeBadge, setActiveBadge] = useState<Badge | null>(null);
-  const [lastUnlockedIds, setLastUnlockedIds] = useState<Set<string>>(new Set());
+  const [lastUnlockedIds, setLastUnlockedIds] = useState<Set<string>>(() => {
+    // On mount, assume already unlocked badges don't need a celebration
+    return new Set(badges.filter(b => b.unlocked).map(b => b.id));
+  });
 
   useEffect(() => {
     // Detect newly unlocked badges
@@ -15,7 +18,7 @@ const Celebration: React.FC = () => {
       triggerCelebration(newlyUnlocked);
       setLastUnlockedIds(prev => new Set([...prev, newlyUnlocked.id]));
     }
-  }, [badges]);
+  }, [badges, lastUnlockedIds]);
 
   const triggerCelebration = (badge: Badge) => {
     setActiveBadge(badge);
@@ -39,21 +42,37 @@ const Celebration: React.FC = () => {
       confetti({ ...defaults, particleCount, origin: { x: randomInRange(0.7, 0.9), y: Math.random() - 0.2 } });
     }, 250);
 
-    // 2. Play Sound (Optional, using browser beep for now as placeholder)
+    // 2. Play Sound (Magical Chime Arpeggio)
     try {
       const audioCtx = new (window.AudioContext || (window as any).webkitAudioContext)();
-      const oscillator = audioCtx.createOscillator();
-      const gainNode = audioCtx.createGain();
-      oscillator.connect(gainNode);
-      gainNode.connect(audioCtx.destination);
-      oscillator.type = 'sine';
-      oscillator.frequency.setValueAtTime(587.33, audioCtx.currentTime); // D5
-      oscillator.frequency.exponentialRampToValueAtTime(880, audioCtx.currentTime + 0.1); // A5
-      gainNode.gain.setValueAtTime(0.1, audioCtx.currentTime);
-      gainNode.gain.exponentialRampToValueAtTime(0.01, audioCtx.currentTime + 0.5);
-      oscillator.start();
-      oscillator.stop(audioCtx.currentTime + 0.5);
-    } catch (e) {}
+      
+      const playNote = (freq: number, startTime: number, duration: number) => {
+        const osc = audioCtx.createOscillator();
+        const gain = audioCtx.createGain();
+        osc.connect(gain);
+        gain.connect(audioCtx.destination);
+        
+        osc.type = 'sine';
+        osc.frequency.setValueAtTime(freq, startTime);
+        
+        gain.gain.setValueAtTime(0, startTime);
+        gain.gain.linearRampToValueAtTime(0.15, startTime + 0.05);
+        gain.gain.exponentialRampToValueAtTime(0.01, startTime + duration);
+        
+        osc.start(startTime);
+        osc.stop(startTime + duration);
+      };
+
+      const now = audioCtx.currentTime;
+      // C Major 7 Arpeggio (C5, E5, G5, B5, C6)
+      playNote(523.25, now, 0.8);        // C5
+      playNote(659.25, now + 0.1, 0.8);  // E5
+      playNote(783.99, now + 0.2, 0.8);  // G5
+      playNote(987.77, now + 0.3, 0.8);  // B5
+      playNote(1046.50, now + 0.4, 1.2); // C6
+    } catch (e) {
+      console.error('Audio failed', e);
+    }
 
     // 3. Auto-close modal
     setTimeout(() => setActiveBadge(null), 5000);
@@ -84,16 +103,22 @@ const Celebration: React.FC = () => {
         animation: 'modalPop 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) both'
       }}>
         <div style={{ marginBottom: '1.5rem', display: 'flex', justifyContent: 'center' }}>
-          <img 
-            src={activeBadge.icon} 
-            alt={activeBadge.name} 
-            style={{ 
-              width: '120px', 
-              height: '120px', 
-              objectFit: 'contain',
-              filter: 'drop-shadow(0 10px 15px rgba(0,0,0,0.1))'
-            }} 
-          />
+          {activeBadge.icon.length > 2 ? (
+            <img 
+              src={activeBadge.icon} 
+              alt={activeBadge.name} 
+              style={{ 
+                width: '120px', 
+                height: '120px', 
+                objectFit: 'contain',
+                filter: 'drop-shadow(0 10px 15px rgba(0,0,0,0.1))'
+              }} 
+            />
+          ) : (
+            <div style={{ fontSize: '6rem', filter: 'drop-shadow(0 10px 15px rgba(0,0,0,0.1))' }}>
+              {activeBadge.icon}
+            </div>
+          )}
         </div>
         <h2 style={{ fontSize: '2.5rem', margin: '0 0 1rem', color: 'var(--kids-blue)' }}>Badge Unlocked!</h2>
         <h3 style={{ fontSize: '1.8rem', margin: '0 0 1rem', color: 'var(--kids-dark)' }}>{activeBadge.name}</h3>

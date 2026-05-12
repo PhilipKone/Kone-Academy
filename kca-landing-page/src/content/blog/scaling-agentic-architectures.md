@@ -8,7 +8,7 @@
   <meta name="description" content="A definitive technical guide on the transition from simple LLM wrappers to complex, autonomous multi-agent systems and 2026 architectural patterns.">
   <meta name="keywords" content="Agentic AI, Agentic Architectures, Autonomous Systems, Multi-Agent Systems, SWARMS, LLM Wrappers, MCP Protocol, Kone Academy">
   <meta property="og:title" content="Scaling Agentic Architectures | Kone Academy">
-  <meta property="og:image" content="../../assets/blog/hero_agentic.png">
+  <meta property="og:image" content="../../assets/blog/hero_agentic.webp">
 </head>
 
 <script type="application/ld+json">
@@ -17,7 +17,7 @@
   "@type": "TechArticle",
   "headline": "Scaling Agentic Architectures: From LLM Wrappers to Autonomous Systems",
   "description": "Explores the engineering patterns required to scale agentic systems from basic tool-use to decentralized swarms.",
-  "image": "https://kone-academy.com/assets/blog/hero_agentic.png",
+  "image": "https://kone-academy.com/assets/blog/hero_agentic.webp",
   "author": {
     "@type": "Organization",
     "name": "Kone Academy"
