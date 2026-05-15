@@ -21,13 +21,14 @@ const Footer = () => {
             <a href="#vision">Vision</a>
             <a href="#divisions">Divisions</a>
             <a href="#services">Services</a>
+            <a href="#careers">Careers</a>
           </div>
           <div className="link-group">
             <h4>Community</h4>
             <div className="social-icons">
               <a href="https://x.com/koneacademy" aria-label="X"><FaXTwitter /></a>
               <a href="https://www.tiktok.com/@koneacademy?_r=1&_t=ZM-931L3z5lu71" aria-label="TikTok"><FaTiktok /></a>
-              <a href="https://github.com/PhilipKone/Kone-Academy" aria-label="GitHub"><FaGithub /></a>
+              {/* <a href="https://github.com/PhilipKone/Kone-Academy" aria-label="GitHub"><FaGithub /></a> */}
               <a href="https://discord.gg/Ab4SCxPgUK" target="_blank" rel="noreferrer" aria-label="Discord"><FaDiscord /></a>
               <a href="https://www.linkedin.com/company/konecodeacdemy/?viewAsMember=true" aria-label="LinkedIn"><FaLinkedin /></a>
               <a href="https://www.facebook.com/profile.php?id=61584327765846" aria-label="Facebook"><FaFacebook /></a>

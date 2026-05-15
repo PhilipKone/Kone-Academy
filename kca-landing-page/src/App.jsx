@@ -6,6 +6,7 @@ import Vision from './components/Vision';
 import Divisions from './components/Divisions';
 import Services from './components/Services';
 import CTA from './components/CTA';
+import Careers from './components/Careers';
 import Footer from './components/Footer';
 import InstallBanner from './components/InstallBanner';
 
@@ -30,6 +31,7 @@ function App() {
           <Vision />
           <Divisions />
           <Services />
+          <Careers />
           <CTA />
           <Footer />
           <InstallBanner />

@@ -44,12 +44,13 @@ const Header = () => {
           <a href="#vision" className="nav-link" onClick={closeMobileMenu}>Vision</a>
           <a href="#divisions" className="nav-link" onClick={closeMobileMenu}>Divisions</a>
           <a href="#services" className="nav-link" onClick={closeMobileMenu}>Services</a>
+          <a href="#careers" className="nav-link" onClick={closeMobileMenu}>Careers</a>
           <div className="mobile-actions">
             <div style={{ display: 'flex', justifyContent: 'center', marginBottom: '1rem' }}>
               <AppLauncher />
             </div>
             <a href={loginUrl} className="btn-login" style={{ display: 'block', marginBottom: '1rem', textAlign: 'center', textDecoration: 'none', color: 'var(--text-primary)' }}>Login</a>
-            <a href="https://github.com/PhilipKone/Kone-Academy" target="_blank" rel="noreferrer" className="btn-github">GitHub</a>
+            {/* <a href="https://github.com/PhilipKone/Kone-Academy" target="_blank" rel="noreferrer" className="btn-github">GitHub</a> */}
             <a href="https://docs.google.com/forms/d/e/1FAIpQLSeXOBgnnnquQmQHHU1Kbyw9iYfK7gJ6Kyj5T5OctIcyy4fXSA/viewform?usp=header" target="_blank" rel="noreferrer" className="btn-primary" style={{ textDecoration: 'none', display: 'inline-block', textAlign: 'center' }}>Get Started</a>
           </div>
         </nav>
@@ -57,9 +58,9 @@ const Header = () => {
         <div className="header-actions desktop-only">
           <AppLauncher />
           <a href={loginUrl} className="btn-login" style={{ marginRight: '1rem', textDecoration: 'none', color: 'var(--text-primary)', fontWeight: '500' }}>Login</a>
-          <a href="https://github.com/PhilipKone/Kone-Academy" target="_blank" rel="noreferrer" className="btn-github">
+          {/* <a href="https://github.com/PhilipKone/Kone-Academy" target="_blank" rel="noreferrer" className="btn-github">
             GitHub
-          </a>
+          </a> */}
           <a href="https://docs.google.com/forms/d/e/1FAIpQLSeXOBgnnnquQmQHHU1Kbyw9iYfK7gJ6Kyj5T5OctIcyy4fXSA/viewform?usp=header" target="_blank" rel="noreferrer" className="btn-primary" style={{ textDecoration: 'none' }}>Get Started</a>
         </div>
       </div>

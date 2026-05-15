@@ -37,7 +37,9 @@ const apps = [
     logo: '/app-studio.svg',
     color: 'studio',
     glow: 'rgba(239, 68, 68, 0.12)',
-    url: 'https://github.com/PhilipKone/anim-studio',
+    url: window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1' 
+         ? 'http://localhost:5175/#/anim-studio' 
+         : 'https://lab.koneacademy.io/#/anim-studio',
   },
   {
     name: 'Kone Kids',
