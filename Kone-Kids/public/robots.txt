@@ -1,4 +1,0 @@
-User-agent: *
-Allow: /
-
-Sitemap: https://kids.koneacademy.io/sitemap.xml
