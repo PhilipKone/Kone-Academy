@@ -96,3 +96,18 @@ snyk-win.exe
 **/build/
 **/dist/
 **/.env
+
+# Gemini Agent Local Brain & Scratch Logs
+/brain/
+
+# Local Office Space Layouts & Assets
+/workspace_design/
+/*.HEIC
+/*.mp4
+/*.zip
+/Kone-AI-Brand-Assets/
+/Kones-Brand-Assets/
+
+# Locked Down Subdomains
+/Kone-AI/
+

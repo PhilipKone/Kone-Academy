@@ -1,4 +1,5 @@
 import React, { createContext, useContext, useState, useEffect, useCallback, useMemo } from 'react';
+import { updateAppBadge } from '../utils/pwa';
 import { db, auth } from '../firebase/config';
 import { doc, setDoc, getDoc } from 'firebase/firestore';
 import { onAuthStateChanged } from 'firebase/auth';
@@ -9,6 +10,7 @@ export interface Badge {
   icon: string;
   description: string;
   unlocked: boolean;
+  viewed?: boolean;
   xpReward?: number;
 }
 
@@ -18,6 +20,7 @@ interface GamificationContextType {
   unlockBadge: (id: string) => void;
   hasVisited: { [key: string]: boolean };
   markVisited: (page: string) => void;
+  markBadgeViewed: (id: string) => void;
   // Game Stats
   xp: number;
   level: number;
@@ -32,6 +35,10 @@ interface GamificationContextType {
   equippedItems: { [key: string]: string };
   purchaseItem: (itemId: string, price: number) => boolean;
   equipItem: (type: string, itemId: string) => void;
+  addCoins: (amount: number) => void;
+  // Game Series
+  unlockedSeries: string[];
+  unlockSeries: (seriesId: string, cost: number) => boolean;
 }
 
 const INITIAL_BADGES: Badge[] = [
@@ -59,7 +66,7 @@ export const GamificationProvider: React.FC<{children: React.ReactNode}> = ({ ch
       if (!Array.isArray(savedBadges)) return INITIAL_BADGES;
       return INITIAL_BADGES.map(initial => {
         const saved = savedBadges.find(s => s.id === initial.id);
-        return saved ? { ...initial, unlocked: saved.unlocked } : initial;
+        return saved ? { ...initial, unlocked: saved.unlocked, viewed: saved.viewed } : initial;
       });
     } catch (e) {
       console.error('Gamification: Error loading badges from local storage', e);
@@ -130,6 +137,15 @@ export const GamificationProvider: React.FC<{children: React.ReactNode}> = ({ ch
       return {};
     }
   });
+  
+  const [unlockedSeries, setUnlockedSeries] = useState<string[]>(() => {
+    try {
+      const saved = localStorage.getItem('kone_kids_series');
+      return saved ? JSON.parse(saved) : ['series_word_search']; // Word search is free by default
+    } catch (e) {
+      return ['series_word_search'];
+    }
+  });
 
   const [latestBadge, setLatestBadge] = useState<Badge | null>(null);
 
@@ -164,6 +180,9 @@ export const GamificationProvider: React.FC<{children: React.ReactNode}> = ({ ch
               if (cloudData.completedMissions?.length > completedMissions.length) {
                 setCompletedMissions(cloudData.completedMissions);
               }
+              if (cloudData.unlockedSeries?.length > unlockedSeries.length) {
+                setUnlockedSeries(cloudData.unlockedSeries);
+              }
             }
           } catch (e) {
             console.warn('Firebase Sync: Failed to load user data.', e);
@@ -187,6 +206,7 @@ export const GamificationProvider: React.FC<{children: React.ReactNode}> = ({ ch
               coins,
               inventory,
               equippedItems,
+              unlockedSeries,
               lastSync: new Date().toISOString()
             }, { merge: true });
         } catch (e) {
@@ -232,6 +252,15 @@ export const GamificationProvider: React.FC<{children: React.ReactNode}> = ({ ch
     localStorage.setItem('kone_kids_equipped', JSON.stringify(equippedItems));
   }, [equippedItems]);
 
+  useEffect(() => {
+    localStorage.setItem('kone_kids_series', JSON.stringify(unlockedSeries));
+  }, [unlockedSeries]);
+
+  useEffect(() => {
+    const unviewedCount = badges.filter(b => b.unlocked && !b.viewed).length;
+    updateAppBadge(unviewedCount);
+  }, [badges]);
+
   const unlockBadge = useCallback((id: string) => {
     setBadges(prev => prev.map(badge => {
       if (badge.id === id && !badge.unlocked) {
@@ -252,6 +281,15 @@ export const GamificationProvider: React.FC<{children: React.ReactNode}> = ({ ch
       if (prev[page]) return prev;
       return { ...prev, [page]: true };
     });
+  }, []);
+
+  const markBadgeViewed = useCallback((id: string) => {
+    setBadges(prev => prev.map(badge => {
+      if (badge.id === id) {
+        return { ...badge, viewed: true };
+      }
+      return badge;
+    }));
   }, []);
 
   const completeMission = useCallback((missionId: string, baseXP: number) => {
@@ -310,6 +348,10 @@ export const GamificationProvider: React.FC<{children: React.ReactNode}> = ({ ch
     return false;
   }, [coins]);
 
+  const addCoins = useCallback((amount: number) => {
+    setCoins(curr => curr + amount);
+  }, []);
+
   const equipItem = useCallback((type: string, itemId: string) => {
     setEquippedItems(prev => ({
       ...prev,
@@ -317,11 +359,20 @@ export const GamificationProvider: React.FC<{children: React.ReactNode}> = ({ ch
     }));
   }, []);
 
+  const unlockSeries = useCallback((seriesId: string, cost: number) => {
+    if (coins >= cost) {
+      setCoins(curr => curr - cost);
+      setUnlockedSeries(prev => prev.includes(seriesId) ? prev : [...prev, seriesId]);
+      return true;
+    }
+    return false;
+  }, [coins]);
+
   const contextValue = useMemo(() => ({
-    badges, latestBadge, unlockBadge, hasVisited, markVisited, xp, level, completedMissions, completeMission, user, hasCompletedOnboarding, completeOnboarding,
-    coins, inventory, equippedItems, purchaseItem, equipItem
-  }), [badges, latestBadge, unlockBadge, hasVisited, markVisited, xp, level, completedMissions, completeMission, user, hasCompletedOnboarding, completeOnboarding,
-       coins, inventory, equippedItems, purchaseItem, equipItem]);
+    badges, latestBadge, unlockBadge, hasVisited, markVisited, markBadgeViewed, xp, level, completedMissions, completeMission, user, hasCompletedOnboarding, completeOnboarding,
+    coins, inventory, equippedItems, purchaseItem, equipItem, unlockedSeries, unlockSeries, addCoins
+  }), [badges, latestBadge, unlockBadge, hasVisited, markVisited, markBadgeViewed, xp, level, completedMissions, completeMission, user, hasCompletedOnboarding, completeOnboarding,
+       coins, inventory, equippedItems, purchaseItem, equipItem, unlockedSeries, unlockSeries, addCoins]);
 
   return (
     <GamificationContext.Provider value={contextValue}>
