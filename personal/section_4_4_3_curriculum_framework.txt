@@ -1,0 +1,71 @@
+================================================================================
+SECTION 4.4.3: Curriculum Framework
+================================================================================
+
+4.4.3 Curriculum Framework
+
+Level 3 curriculum translates the AI4K12 framework's Five Big Ideas into structured learning experiences that develop AI literacy through progressive engagement. This section details the curriculum organization, hands-on project sequences, and assessment approaches that characterize the Level 3 learning journey.
+
+**Alignment with Touretzky's Five Big Ideas**
+
+The AI4K12 framework identifies five foundational concepts that characterize AI literacy: perception, representation and reasoning, learning, natural interaction, and societal impact. Kone Academy Level 3 organizes curriculum modules around each Big Idea, ensuring comprehensive coverage while maintaining conceptual coherence across the learning progression.
+
+The Perception module introduces how AI systems interpret sensory data from the physical world. Activities progress from simple classification—identifying colors, shapes, and basic objects—to more complex recognition tasks involving Ghanaian cultural artifacts, environmental features, and written characters. Learners train personal classification models using device cameras, observing how training data quality affects recognition accuracy. The module emphasizes that AI perception differs from human vision, being fundamentally pattern-matching rather than understanding, and explores failure modes where AI systems misclassify familiar objects.
+
+The Representation and Reasoning module examines how AI systems encode knowledge and apply logical rules to reach conclusions. Activities employ rule-based expert systems where learners encode domain knowledge about Ghanaian topics—agricultural practices, health information, cultural protocols—and observe how systems apply these rules to answer questions or make recommendations. The module makes concrete the distinction between data-driven machine learning and knowledge-based symbolic AI, demonstrating that different AI approaches are appropriate for different problem types.
+
+The Learning module addresses machine learning as AI's signature capability—systems that improve performance through experience. Activities focus on supervised learning, with learners providing labeled training examples and observing how models generalize from these examples to classify new instances. The module explicitly examines training data characteristics—size, diversity, balance, and potential biases—developing understanding that machine learning systems embody their training data limitations. Learners experiment with small training sets to observe overfitting, and with biased datasets to observe how training imbalances affect system behavior across different groups.
+
+The Natural Interaction module explores how AI systems process and generate human language. Activities include speech recognition experiments with Ghanaian English accents and major local languages, text classification for sentiment analysis, and simple conversational system construction. The module emphasizes the substantial gap between current AI language capabilities and true language understanding, developing appropriate skepticism toward claims about AI comprehension while appreciating genuine utility for constrained language tasks.
+
+The Societal Impact module runs throughout Level 3, connecting technical AI activities to broader social considerations. Case studies examine AI deployment in African contexts—agricultural advisory systems, mobile health diagnostics, financial inclusion tools—evaluating benefits, risks, and appropriate governance. The module addresses employment impacts, privacy concerns, accessibility benefits, and environmental costs of AI systems, developing holistic understanding that AI literacy requires social and ethical evaluation alongside technical knowledge.
+
+**Hands-On AI Projects**
+
+Level 3 learning centers on project-based activities that enable learners to construct functioning AI systems while developing conceptual understanding. Projects are organized into thematic categories that provide coherence while accommodating diverse interests and community needs.
+
+Intelligent Agricultural Systems projects combine AI perception with practical applications relevant to Ghana's agrarian economy. Learners create plant disease identification systems using image classification, soil quality prediction systems combining sensor data with machine learning, and crop recommendation tools that match local conditions with optimal varieties. These projects demonstrate AI's potential for agricultural improvement while developing critical evaluation of whether AI recommendations align with local knowledge and observed outcomes.
+
+Environmental Intelligence projects address climate monitoring and ecological awareness. Learners develop systems that classify wildlife from camera trap images, predict weather patterns from historical data, and identify environmental changes through image comparison over time. These projects connect to science curriculum while developing capabilities for evidence-based environmental advocacy and connecting learners to broader citizen science initiatives.
+
+Health and Safety AI projects address practical applications for community wellbeing. Learners create simple diagnostic aids that classify symptoms based on decision trees, reminder systems for medication and health appointments, and accessibility tools that assist community members with disabilities. These projects position AI as a tool for social benefit and community care, developing dispositions toward appropriate technology deployment alongside technical skills.
+
+Cultural Heritage AI projects demonstrate how AI can support rather than replace human cultural practices. Learners develop systems that classify traditional artifacts, transcribe oral histories using speech recognition, or match textile patterns to cultural origins. These activities demonstrate AI applications that preserve and promote cultural heritage, positioning technology as supportive of rather than destructive to traditional knowledge systems.
+
+Creative AI projects explore artistic and expressive applications of machine learning. Learners experiment with style transfer for image manipulation, simple music generation, and poetry or story creation using language models. These activities expand conceptions of AI beyond practical problem-solving to include creative expression, and raise questions about authorship, creativity, and the nature of art when AI systems participate in creation.
+
+**Project Complexity Progression**
+
+Projects within each thematic category follow complexity progressions that scaffold developing capabilities:
+
+Entry projects employ pre-trained models as black boxes that learners apply but do not modify. Learners use existing image classifiers, speech recognizers, or text analysis tools to address specific tasks, focusing on understanding capabilities and limitations rather than technical implementation. These projects establish foundational AI literacy—knowing what AI can do and how to apply it appropriately—before requiring technical depth.
+
+Intermediate projects introduce model customization through transfer learning. Learners provide training examples to personalize existing models for specific contexts—adding local object categories to image classifiers, adapting speech recognition to individual voices, or customizing text classifiers for local content. These projects make concrete the concept of machine learning as improvement through experience, while remaining computationally feasible on mobile devices.
+
+Advanced projects combine multiple AI capabilities into integrated systems. Learners create applications that combine image classification with text generation, speech recognition with physical robot control, or sensor prediction with decision recommendations. These projects require systems thinking—designing architectures where multiple AI components interact effectively—and develop appreciation for the complexity of real-world AI applications.
+
+Capstone projects enable independent creation addressing personally meaningful problems. Learners identify needs within their communities, design appropriate AI-assisted solutions, and construct working prototypes. These projects emphasize the complete AI development process—problem identification, data collection, model selection or training, system integration, testing, and evaluation—preparing learners to continue AI learning beyond Kone Academy or to pursue further technical education.
+
+**Assessment and Portfolio Development**
+
+Assessment in Level 3 emphasizes capability demonstration and critical evaluation rather than technical correctness alone. Portfolio components document both what learners can create and how they think about AI systems and their implications.
+
+Technical portfolios capture functioning AI systems created by learners, with documentation of design decisions, model selection rationales, and performance evaluations. These portfolios demonstrate technical competence while revealing learners' understanding of AI system capabilities and limitations.
+
+Critical reflection portfolios contain written and recorded reflections on AI activities, including ethical considerations, societal implications, and personal learning growth. Learners articulate their developing positions on AI governance, their evaluation of specific AI applications encountered, and their aspirations for future AI engagement.
+
+Peer teaching portfolios document instances where learners explain AI concepts to others—classmates, family members, community groups. These portfolios assess communicative competence and depth of understanding, recognizing that true literacy includes capability to teach others.
+
+Community impact portfolios capture evidence of how learner-created AI systems affect their communities—adoption by local farmers, use by health workers, integration into school activities. While not all projects achieve community deployment, the aspiration toward genuine impact motivates quality and connects learning to community benefit.
+
+**Conclusion**
+
+The Level 3 curriculum framework translates AI literacy concepts into structured learning experiences that develop both technical capability and critical perspective. Through alignment with the AI4K12 Five Big Ideas, hands-on project engagement, progressive complexity, and portfolio-based assessment, Level 3 prepares learners for AI-literate citizenship in an increasingly AI-mediated world. This preparation extends beyond specific technical skills to encompass understanding of AI capabilities and limitations, ethical evaluation frameworks, and recognition of learners' agency in shaping how AI affects their lives and communities.
+
+References (for this section):
+- Touretzky, D., et al. (2019). Envisioning AI for K-12: What should every child know about AI? Proceedings of the AAAI Conference on Artificial Intelligence, 33(1), 9795-9799. https://doi.org/10.1609/aaai.v33i01.33019795
+- Long, D., & Magerko, B. (2020). What is AI literacy? Competencies and design considerations. In Proceedings of the ACM CHI Conference on Human Factors in Computing Systems (pp. 1-16). https://doi.org/10.1145/3313831.3376727
+
+Word Count: ~1,050 words
+Tone: Curriculum organization with project-based emphasis
+================================================================================

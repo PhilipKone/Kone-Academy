@@ -1,0 +1,72 @@
+================================================================================
+SECTION 2.4: Research Objectives and Questions
+================================================================================
+
+2.4 Research Objectives and Questions
+
+Based on the identified problem space, this research pursues specific objectives designed to advance both practical intervention and scholarly understanding. This section articulates the primary research objectives, the guiding research questions, and the significance of addressing these objectives for educational technology and computing education in developing contexts.
+
+**Primary Research Objectives**
+
+The overarching research objective is to develop, implement, and evaluate the Kone Academy platform—a three-tiered computational thinking education system designed specifically for Ghanaian basic education contexts. Within this broad objective, three specific aims guide the research:
+
+1. Design Objective: To develop a platform architecture that addresses the infrastructure, pedagogical, and contextual requirements identified in the problem analysis. This objective encompasses creating an offline-first technical system, a scaffolded three-tiered curriculum (Level 1: Coding Fundamentals, Level 2: Robotics, Level 3: AI Literacy), culturally-adapted content aligned with Ghanaian curriculum standards, and comprehensive teacher support systems.
+
+2. Implementation Objective: To examine how the Kone Academy platform functions across diverse Ghanaian educational contexts including urban, peri-urban, and rural schools with varying infrastructure conditions and teacher preparation levels. This objective assesses implementation feasibility, identifies contextual factors influencing effectiveness, and documents implementation challenges and solutions.
+
+3. Outcome Objective: To evaluate the educational effectiveness of the Kone Academy platform for developing learners' computational thinking capabilities, engagement with computing, and sustained interest in technology learning. This objective examines learning outcomes across the three platform levels, differential effectiveness for diverse learner populations, and relationships between implementation fidelity and learning achievement.
+
+**Guiding Research Questions**
+
+The research objectives are operationalized through specific research questions that guide data collection and analysis:
+
+Design Feasibility Questions:
+- What technical architecture enables effective offline-first educational technology for computational thinking education in low-connectivity contexts?
+- How can a three-tiered curriculum (coding→robotics→AI) be structured to provide scaffolded progression appropriate for Ghanaian learners aged 7-15?
+- What cultural adaptations and local content integration are necessary for platform relevance and engagement in Ghanaian educational contexts?
+- What teacher support systems (professional development, just-in-time assistance, community building) are necessary for sustainable implementation by teachers without computer science backgrounds?
+
+Implementation Process Questions:
+- How does Kone Academy implementation vary across urban, peri-urban, and rural school contexts, and what contextual factors most strongly influence implementation effectiveness?
+- What implementation challenges emerge during platform deployment, and how do teachers and schools adapt to address these challenges?
+- How do teachers' self-efficacy and pedagogical practices evolve through Kone Academy implementation, and what professional development approaches best support this evolution?
+- What infrastructure, administrative, and ecosystem conditions enable or constrain effective implementation?
+
+Educational Outcome Questions:
+- What computational thinking learning gains do Ghanaian learners demonstrate through Kone Academy participation, and how do these gains compare across platform levels and learner subgroups?
+- How does learner engagement (behavioral, emotional, cognitive) manifest during platform activities, and what platform features best support sustained engagement?
+- What is the relationship between implementation fidelity (activity completion, teacher support, time-on-task) and learning outcomes?
+- Do learning outcomes and engagement patterns differ significantly by gender, geographic location, prior technology exposure, or other demographic factors, indicating equity concerns or differential effectiveness?
+
+**Research Significance**
+
+Addressing these research objectives carries significance for multiple stakeholders and contributes to several scholarly and practical domains.
+
+Practical Significance for Ghanaian Education:
+The research provides an evaluated educational technology solution specifically designed for Ghanaian basic education conditions. If findings demonstrate effectiveness, Kone Academy offers a scalable approach to computational thinking education that can extend beyond the elite schools currently monopolizing such opportunities. The platform's offline-first design, teacher support systems, and curriculum alignment address the practical constraints that have impeded computing education implementation, potentially contributing to policy goal achievement.
+
+Theoretical Significance for Educational Technology:
+The research contributes theoretical understanding of educational technology design for developing contexts. By explicitly addressing infrastructure constraints, cultural adaptation, and teacher capacity limitations, the research extends educational technology theory beyond its predominant focus on well-resourced contexts. Findings regarding scaffolded progression, offline functionality, and teacher support can inform design principles applicable to similar contexts globally.
+
+Methodological Significance for CS Education Research:
+The research employs Design-Based Research methodology in a developing context, contributing to methodological understanding of how iterative design and evaluation can proceed in resource-constrained educational environments. The mixed-methods approach combining learning analytics, standardized assessments, and qualitative implementation data demonstrates methods for comprehensive evaluation of complex educational interventions.
+
+Equity Significance for Global Education:
+By focusing on a developing country context and designing for infrastructure-constrained environments, the research addresses educational equity at global scale. Educational technology research predominantly reflects well-resourced contexts, implicitly treating developing settings as peripheral rather than central. This research centers Ghanaian conditions, contributing to epistemic equity in the knowledge base and demonstrating that effective educational technology can be designed for diverse global contexts.
+
+Policy Significance for Educational Reform:
+Findings provide evidence to inform Ghana's ongoing educational technology policy and implementation. By documenting what works in authentic Ghanaian school contexts, the research offers guidance for curriculum developers, teacher preparation programs, and education authorities seeking to expand computational thinking education. The research also contributes to international policy discussions regarding educational technology for sustainable development.
+
+**Scope and Boundaries**
+
+The research scope is bounded in ways that clarify legitimate inferences and manage expectations. The platform targets basic education (primary through junior secondary, ages 7-15) rather than senior secondary or tertiary levels. The curriculum focuses on computational thinking foundations rather than advanced computer science or professional programming preparation. The implementation contexts are Ghanaian schools, with generalization to other developing contexts requiring explicit consideration of contextual similarity.
+
+The research evaluates platform effectiveness under conditions of supported implementation including teacher professional development and ongoing technical support. Findings indicate what is possible with adequate implementation support rather than what would occur with minimal investment or passive deployment. Cost-effectiveness and large-scale scalability are examined but ultimate scaling decisions depend on policy and resource allocation considerations beyond the research scope.
+
+**Conclusion**
+
+The research objectives address the identified problem space through design-based development and comprehensive evaluation of the Kone Academy platform. By pursuing design, implementation, and outcome objectives simultaneously, the research generates both practical intervention and scholarly knowledge. The guiding research questions operationalize these objectives for empirical investigation, while attention to research significance ensures that findings contribute meaningfully to educational improvement in Ghana and theoretical understanding of educational technology in developing contexts.
+
+Word Count: ~850 words
+Tone: Clear objectives with scholarly and practical significance
+================================================================================

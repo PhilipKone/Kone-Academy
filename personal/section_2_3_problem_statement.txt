@@ -1,0 +1,55 @@
+================================================================================
+SECTION 2.3: Problem Statement
+================================================================================
+
+2.3 Problem Statement
+
+Despite global recognition of computational thinking as essential 21st-century education and Ghana's policy commitment to digital literacy integration, significant gaps persist between educational aspirations and implementation realities. The convergence of ambitious goals and constrained conditions creates a problem space that existing educational technology solutions inadequately address, leaving Ghanaian learners underserved by current approaches to computing education.
+
+**Lack of Locally-Adapted Educational Technology**
+
+The educational technology market is dominated by solutions designed for well-resourced contexts with robust infrastructure, qualified teachers, and learners with prior technology exposure. These solutions—whether commercial platforms like Scratch, Code.org, or robotics kits—assume conditions that do not obtain in most Ghanaian schools: reliable internet connectivity, one-to-one device access, teachers with computer science backgrounds, and learners with foundational digital literacy.
+
+Attempts to transplant these foreign-designed solutions into Ghanaian contexts typically fail or achieve limited success. Connectivity requirements render cloud-based platforms unusable in schools without reliable internet. English-only interfaces exclude learners with limited English proficiency. Cultural examples unfamiliar to Ghanaian learners reduce engagement and relevance. Teacher support resources assume pedagogical backgrounds and technology access that Ghanaian teachers often lack. The result is that educational technology solutions accessible to privileged elite schools remain inaccessible to the majority of Ghanaian learners.
+
+This gap between available solutions and local conditions represents a fundamental market and design failure. Educational technology designed without attention to developing context constraints systematically excludes learners in those contexts, perpetuating rather than ameliorating educational inequality. Locally-adapted solutions that function within Ghanaian infrastructure realities, align with curriculum requirements, and support teachers without computer science backgrounds are urgently needed but largely absent from current options.
+
+**Gap Between Policy and Practice**
+
+Ghana's policy frameworks establish ambitious goals for computing education and educational technology integration, but implementation consistently lags behind aspiration. The Education Strategic Plan articulates technology access for all schools and digital literacy for all learners, yet budget allocations, teacher preparation, and infrastructure deployment remain inadequate to achieve these goals.
+
+This policy-practice gap reflects a broader challenge in educational reform: policy change on paper is far easier than instructional change in classrooms. Without practical solutions that function within existing constraints, policy aspirations remain aspirational. Teachers cannot teach computational thinking they never learned. Schools cannot integrate technology they cannot access. Learners cannot develop digital capabilities without opportunities for engagement.
+
+Closing the policy-practice gap requires more than additional resources—which Ghana's fiscal constraints limit—but also innovative approaches that achieve educational goals despite resource limitations. Educational technology designed for affordability, offline functionality, and teacher support can extend computational thinking education beyond the elite schools that currently monopolize such opportunities.
+
+**Need for Scaffolded Progression**
+
+Existing computing education approaches often adopt one-size-fits-all designs that fail to accommodate developmental progression or varying learner starting points. A single platform designed for generic "coding education" may overwhelm beginners with insufficient scaffolding or bore advanced learners with excessive repetition. This failure to differentiate by developmental level and prior knowledge reduces effectiveness across the ability spectrum.
+
+Effective computational thinking education requires scaffolded progression that meets learners where they are and systematically develops capabilities toward increasing sophistication. Beginning learners need substantial support, visual representations, and structured guidance. As capabilities develop, scaffolding should fade, enabling greater independence and complexity. Advanced learners need challenges that extend their capabilities into authentic problem-solving and creative production.
+
+Current platforms rarely provide this developmental scaffolding, typically offering either simplified entry-level activities or complex open-ended environments without bridging progressions. The gap between beginner tools and advanced environments leaves learners stranded when initial scaffolding ends or overwhelmed when thrust into complex contexts. A coherent progression pathway that systematically develops capabilities from foundational concepts through intermediate skills to advanced applications is needed but not currently available for Ghanaian contexts.
+
+**Offline Capability Requirements**
+
+The infrastructure realities of Ghanaian education—unreliable electricity, limited connectivity, and device scarcity—render cloud-dependent educational technology unusable in many contexts. Yet most contemporary educational technology assumes continuous connectivity, with learning activities, progress tracking, and content delivery dependent on internet access. This connectivity assumption systematically excludes schools in offline or low-bandwidth contexts.
+
+Even where connectivity exists, data costs present significant barriers. Educational technology that requires continuous data usage imposes costs that schools and families cannot sustain. Platforms designed with bandwidth-intensive multimedia, real-time synchronization, or cloud-based processing become economically infeasible for widespread implementation.
+
+The requirement for offline functionality is not merely a technical preference but a fundamental condition for accessibility. Educational technology that functions effectively without connectivity, synchronizing opportunistically when connections are available, can reach learners in contexts that cloud-dependent platforms cannot serve. This offline-first design requirement shapes every aspect of platform architecture and instructional design, yet is rarely addressed in mainstream educational technology development.
+
+**Limited Research on African CS Education Contexts**
+
+The scholarly literature on computer science education predominantly reflects North American and European contexts, with limited attention to African implementation realities. This research gap means that evidence-based guidance for Ghanaian computing education is scarce, with practitioners forced to adapt research findings from radically different contexts or proceed without empirical guidance.
+
+The absence of African context research has multiple consequences. Theoretical frameworks developed in Western contexts may not adequately explain learning processes in African educational environments with different cultural orientations, pedagogical traditions, and resource constraints. Pedagogical strategies effective in well-resourced schools may fail when infrastructure, teacher preparation, and learner backgrounds differ. Assessment instruments validated in other populations may not function appropriately for African learners.
+
+This research gap creates both practical and epistemic problems. Practically, educators lack guidance for effective implementation. Epistemically, the field's understanding of computing education remains incomplete and potentially biased by the overrepresentation of Western contexts. Research examining computing education in Ghanaian and broader African contexts is needed to fill these gaps and ensure that the field's knowledge base encompasses global diversity.
+
+**Conclusion**
+
+The problem space for Kone Academy research is defined by the convergence of ambitious educational goals with constrained implementation conditions, the inadequacy of existing educational technology solutions for developing contexts, and the limited research base for African computing education. Addressing these problems requires not merely adapting foreign solutions but designing specifically for Ghanaian conditions—creating an educational technology platform that is locally relevant, offline-capable, developmentally scaffolded, and teacher-supportive. The Kone Academy research addresses this problem space through design-based development and evaluation of such a platform, contributing both practical intervention and research knowledge to the challenge of equitable computational thinking education.
+
+Word Count: ~850 words
+Tone: Problem articulation with clear gap identification
+================================================================================

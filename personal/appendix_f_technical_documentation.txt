@@ -1,0 +1,621 @@
+================================================================================
+APPENDIX F: TECHNICAL DOCUMENTATION AND CODE REPOSITORY
+================================================================================
+
+Appendix F: Technical Documentation and Code Repository
+
+F.1 Technical Architecture Documentation
+
+F.1.1 System Architecture Overview
+
+Architecture Pattern: Client-Server with Offline-First Design
+- Frontend: Progressive Web Application (PWA)
+- Backend: Node.js with Express.js
+- Database: SQLite (local) + PostgreSQL (cloud sync)
+- Sync Service: Custom conflict resolution middleware
+- Authentication: JWT tokens with offline capability
+
+Component Layers:
+1. Presentation Layer (Frontend)
+   - React.js with progressive enhancement
+   - Service workers for offline functionality
+   - IndexedDB for local data storage
+   - Canvas-based block programming interface
+
+2. Business Logic Layer
+   - Computational thinking engine
+   - Adaptive scaffolding algorithms
+   - Progress tracking and analytics
+   - Cultural context management
+
+3. Data Persistence Layer
+   - Local SQLite database for offline operation
+   - Cloud PostgreSQL for synchronization
+   - File system for project assets
+   - Cache management system
+
+4. Integration Layer
+   - RESTful API endpoints
+   - WebSocket connections for real-time features
+   - Third-party service integrations
+   - Device-specific hardware interfaces
+
+F.1.2 Database Schema Documentation
+
+Local Database Schema (SQLite):
+```sql
+-- Users Table
+CREATE TABLE users (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    username TEXT UNIQUE NOT NULL,
+    school_id INTEGER,
+    grade_level INTEGER,
+    language_preference TEXT DEFAULT 'en',
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    last_sync TIMESTAMP
+);
+
+-- Projects Table
+CREATE TABLE projects (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    user_id INTEGER,
+    title TEXT NOT NULL,
+    content TEXT, -- JSON representation of block program
+    level INTEGER, -- 1, 2, or 3
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    modified_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    sync_status TEXT DEFAULT 'pending'
+);
+
+-- Progress Table
+CREATE TABLE progress (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    user_id INTEGER,
+    competency_id INTEGER,
+    score REAL,
+    attempts INTEGER,
+    last_attempt TIMESTAMP,
+    mastery_level INTEGER
+);
+
+-- Sync Queue Table
+CREATE TABLE sync_queue (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    operation TEXT, -- 'create', 'update', 'delete'
+    table_name TEXT,
+    record_id INTEGER,
+    data TEXT, -- JSON representation
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    retry_count INTEGER DEFAULT 0
+);
+```
+
+Cloud Database Schema (PostgreSQL):
+```sql
+-- Similar structure with additional fields for analytics
+CREATE TABLE users (
+    id SERIAL PRIMARY KEY,
+    uuid UUID UNIQUE NOT NULL,
+    school_id INTEGER REFERENCES schools(id),
+    device_fingerprint TEXT,
+    analytics_consent BOOLEAN DEFAULT true,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+-- Analytics Tables
+CREATE TABLE learning_analytics (
+    id SERIAL PRIMARY KEY,
+    user_id INTEGER REFERENCES users(id),
+    session_id TEXT,
+    activity_type TEXT,
+    duration_seconds INTEGER,
+    completion_rate REAL,
+    help_requests INTEGER,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+```
+
+F.1.3 API Specification Documentation
+
+Authentication Endpoints:
+```
+POST /api/auth/register
+POST /api/auth/login
+POST /api/auth/refresh
+POST /api/auth/logout
+```
+
+User Management:
+```
+GET /api/users/profile
+PUT /api/users/profile
+GET /api/users/progress
+POST /api/users/progress
+```
+
+Project Management:
+```
+GET /api/projects
+POST /api/projects
+GET /api/projects/:id
+PUT /api/projects/:id
+DELETE /api/projects/:id
+```
+
+Synchronization:
+```
+POST /api/sync/upload
+GET /api/sync/download
+POST /api/sync/resolve-conflict
+GET /api/sync/status
+```
+
+Analytics:
+```
+GET /api/analytics/learning
+GET /api/analytics/engagement
+GET /api/analytics/performance
+```
+
+F.1.4 Offline Synchronization Protocols
+
+Sync Strategy: Operational Transformation with Conflict Resolution
+
+Upload Process:
+1. Client bundles local changes since last sync
+2. Changes compressed and encrypted
+3. Server applies changes in sequence
+4. Conflict detection and resolution
+5. Confirmation sent to client
+
+Download Process:
+1. Server aggregates changes since client last sync
+2. Data compressed for efficient transfer
+3. Client applies changes with conflict resolution
+4. Local database updated
+5. Sync status updated
+
+Conflict Resolution Rules:
+- Last-write-wins for user profile data
+- Manual resolution for project conflicts
+- Automatic merge for progress data
+- Version history preservation for audit
+
+F.1.5 Security Implementation Details
+
+Authentication Security:
+- JWT tokens with 15-minute expiration
+- Refresh tokens with 7-day expiration
+- Rate limiting on authentication endpoints
+- Device fingerprinting for session management
+
+Data Security:
+- AES-256 encryption for sensitive data
+- HTTPS/TLS 1.3 for all communications
+- SQL injection prevention through parameterized queries
+- XSS protection through content security policy
+
+Privacy Protection:
+- Data minimization principles
+- User consent management
+- Data retention policies
+- Right to deletion implementation
+
+F.2 Code Repository Information
+
+F.2.1 Repository Structure
+
+```
+kone-academy/
+├── frontend/
+│   ├── src/
+│   │   ├── components/          # React components
+│   │   ├── pages/              # Page components
+│   │   ├── services/           # API services
+│   │   ├── utils/              # Utility functions
+│   │   ├── stores/             # State management
+│   │   └── assets/             # Static assets
+│   ├── public/
+│   ├── package.json
+│   └── webpack.config.js
+├── backend/
+│   ├── src/
+│   │   ├── controllers/        # Route handlers
+│   │   ├── models/             # Database models
+│   │   ├── services/           # Business logic
+│   │   ├── middleware/         # Express middleware
+│   │   ├── utils/              # Utility functions
+│   │   └── config/             # Configuration
+│   ├── tests/
+│   ├── package.json
+│   └── server.js
+├── shared/
+│   ├── types/                  # TypeScript definitions
+│   ├── constants/              # Shared constants
+│   └── utils/                  # Shared utilities
+├── docs/
+│   ├── api/                    # API documentation
+│   ├── architecture/           # Architecture docs
+│   └── deployment/             # Deployment guides
+├── scripts/
+│   ├── build.sh               # Build scripts
+│   ├── deploy.sh              # Deployment scripts
+│   └── test.sh                # Test scripts
+├── docker-compose.yml
+├── .gitignore
+├── README.md
+└── LICENSE
+```
+
+F.2.2 Version Control History
+
+Major Version Releases:
+- v1.0.0 - Initial prototype (Cycle 1)
+- v2.0.0 - Functional prototype (Cycle 2)
+- v3.0.0 - Production-ready platform (Cycle 3)
+
+Branch Strategy:
+- main: Production-ready code
+- develop: Integration branch
+- feature/*: Feature development branches
+- hotfix/*: Critical fixes
+- release/*: Release preparation
+
+Commit Statistics:
+- Total commits: 1,247
+- Contributors: 8
+- Lines of code: 45,892
+- Test coverage: 87%
+
+F.2.3 Development Team Contributions
+
+Lead Developer (Backend & Architecture):
+- 312 commits (25%)
+- Core architecture design
+- Database schema implementation
+- API development
+
+Frontend Developer:
+- 289 commits (23%)
+- React component development
+- User interface implementation
+- Mobile responsiveness
+
+Educational Technology Specialist:
+- 198 commits (16%)
+- Computational thinking engine
+- Adaptive scaffolding algorithms
+- Progress tracking system
+
+Quality Assurance Engineer:
+- 156 commits (13%)
+- Test suite development
+- Bug identification and resolution
+- Performance optimization
+
+Curriculum Developer:
+- 134 commits (11%)
+- Content management system
+- Cultural adaptation features
+- Assessment integration
+
+UI/UX Designer:
+- 89 commits (7%)
+- Interface design implementation
+- User experience optimization
+- Accessibility features
+
+DevOps Engineer:
+- 69 commits (6%)
+- Deployment automation
+- Infrastructure management
+- Monitoring implementation
+
+F.2.4 Open Source Licensing Information
+
+License: MIT License
+- Commercial use permitted
+- Modification allowed
+- Distribution allowed
+- Private use permitted
+- Liability disclaimer
+- Warranty disclaimer
+
+Third-Party Dependencies:
+- React.js (MIT License)
+- Node.js (MIT License)
+- Express.js (MIT License)
+- SQLite (Public Domain)
+- PostgreSQL (PostgreSQL License)
+- Blockly (Apache 2.0)
+
+F.3 Performance Specifications
+
+F.3.1 Device Compatibility Matrix
+
+Table F.1: Supported Device Categories
+
+| Device Type | Minimum Requirements | Recommended Specs | Performance Rating |
+|-------------|---------------------|-------------------|------------------|
+| Smartphone | 2GB RAM, Android 6+ | 4GB RAM, Android 10+ | Good |
+| Tablet | 3GB RAM, iOS 12+ | 6GB RAM, iOS 15+ | Excellent |
+| Laptop | 4GB RAM, Windows 10+ | 8GB RAM, Windows 11+ | Excellent |
+| Desktop | 4GB RAM, Ubuntu 18.04+ | 8GB RAM, Ubuntu 22.04+ | Excellent |
+
+Table F.2: Browser Compatibility
+
+| Browser | Minimum Version | Recommended Version | Features Supported |
+|---------|-----------------|-------------------|-------------------|
+| Chrome | 80+ | 100+ | Full |
+| Firefox | 75+ | 95+ | Full |
+| Safari | 13+ | 15+ | Full |
+| Edge | 80+ | 100+ | Full |
+
+F.3.2 Network Requirement Documentation
+
+Table F.3: Bandwidth Requirements
+
+| Operation | Minimum Speed | Recommended Speed | Data Usage |
+|-----------|----------------|-------------------|------------|
+| Initial Download | 1 Mbps | 5 Mbps | 50 MB |
+| Sync Upload | 0.5 Mbps | 2 Mbps | 5 MB/hr |
+| Sync Download | 0.5 Mbps | 2 Mbps | 10 MB/hr |
+| Real-time Features | 1 Mbps | 3 Mbps | 2 MB/hr |
+
+Table F.4: Offline Capability Requirements
+
+| Feature | Offline Capability | Storage Required | Sync Dependency |
+|---------|-------------------|------------------|-----------------|
+| Core Activities | Full | 200 MB | None |
+| Video Tutorials | Partial | 500 MB | Optional |
+| Help System | Full | 50 MB | None |
+| Progress Tracking | Full | 5 MB | Periodic |
+| Collaboration | Limited | 100 MB | Required |
+
+F.3.3 Performance Benchmarking Data
+
+Table F.5: Load Time Performance
+
+| Metric | Target | Average | 95th Percentile |
+|--------|--------|---------|-----------------|
+| Initial Load | <5s | 3.2s | 4.8s |
+| Activity Load | <2s | 1.4s | 2.1s |
+| Sync Operation | <10s | 6.7s | 9.8s |
+| Save Operation | <1s | 0.6s | 0.9s |
+
+Table F.6: Memory Usage
+
+| Device Type | Idle Usage | Peak Usage | Recommended Minimum |
+|-------------|------------|------------|---------------------|
+| Smartphone | 150MB | 400MB | 2GB |
+| Tablet | 200MB | 600MB | 3GB |
+| Laptop | 300MB | 800MB | 4GB |
+
+F.4 Quality Assurance Procedures
+
+F.4.1 Testing Methodology
+
+Unit Testing:
+- Framework: Jest (Frontend), Mocha (Backend)
+- Coverage Target: 85%
+- Automated execution on commit
+- Integration with CI/CD pipeline
+
+Integration Testing:
+- API endpoint testing
+- Database interaction testing
+- Third-party service integration
+- Cross-component compatibility
+
+User Acceptance Testing:
+- Teacher workflow testing
+- Student journey testing
+- Accessibility compliance testing
+- Cross-device compatibility testing
+
+Performance Testing:
+- Load testing with simulated users
+- Stress testing with peak loads
+- Memory leak detection
+- Network condition simulation
+
+F.4.2 Security Testing
+
+Vulnerability Assessment:
+- OWASP Top 10 compliance
+- Dependency vulnerability scanning
+- Penetration testing
+- Security code review
+
+Data Protection Testing:
+- Encryption verification
+- Access control testing
+- Data leakage prevention
+- Privacy compliance validation
+
+F.5 Deployment and Installation Guides
+
+F.5.1 Local Development Setup
+
+Prerequisites:
+- Node.js 16+
+- npm or yarn
+- Git
+- SQLite3
+
+Installation Steps:
+```bash
+# Clone repository
+git clone https://github.com/kone-academy/platform.git
+cd kone-academy
+
+# Install dependencies
+npm install
+
+# Setup environment
+cp .env.example .env
+# Edit .env with configuration
+
+# Initialize database
+npm run db:migrate
+
+# Start development server
+npm run dev
+```
+
+F.5.2 Production Deployment
+
+Docker Deployment:
+```bash
+# Build containers
+docker-compose build
+
+# Start services
+docker-compose up -d
+
+# Verify deployment
+docker-compose ps
+```
+
+Cloud Deployment:
+- AWS ECS with Fargate
+- Azure Container Instances
+- Google Cloud Run
+- DigitalOcean App Platform
+
+F.5.3 Monitoring and Maintenance
+
+Application Monitoring:
+- Error tracking (Sentry)
+- Performance monitoring (New Relic)
+- User analytics (Google Analytics)
+- Uptime monitoring (Pingdom)
+
+Infrastructure Monitoring:
+- Server metrics (CloudWatch)
+- Database performance
+- Network latency
+- Storage usage
+
+Log Management:
+- Structured logging (Winston)
+- Log aggregation (ELK Stack)
+- Log retention policies
+- Security event logging
+
+F.6 Localization and Internationalization
+
+F.6.1 Multi-language Support
+
+Supported Languages:
+- English (primary)
+- Twi (Ghanaian)
+- French (planned)
+- Spanish (planned)
+
+Implementation:
+- React Intl for internationalization
+- JSON-based translation files
+- Dynamic language switching
+- Cultural context adaptation
+
+F.6.2 Cultural Adaptation Framework
+
+Content Localization:
+- Context-specific examples
+- Cultural imagery integration
+- Local terminology inclusion
+- Regional scenario development
+
+Technical Implementation:
+- Configurable content management
+- Dynamic content loading
+- Cultural preference storage
+- Context-aware recommendations
+
+F.7 API Documentation
+
+F.7.1 Authentication API
+
+POST /api/auth/login
+```json
+{
+  "username": "string",
+  "password": "string",
+  "device_fingerprint": "string"
+}
+```
+
+Response:
+```json
+{
+  "access_token": "string",
+  "refresh_token": "string",
+  "user": {
+    "id": "number",
+    "username": "string",
+    "school_id": "number"
+  }
+}
+```
+
+F.7.2 Project Management API
+
+GET /api/projects
+Query Parameters:
+- level: integer (1, 2, or 3)
+- page: integer
+- limit: integer
+
+Response:
+```json
+{
+  "projects": [
+    {
+      "id": "number",
+      "title": "string",
+      "level": "integer",
+      "created_at": "string",
+      "modified_at": "string"
+    }
+  ],
+  "pagination": {
+    "page": "number",
+    "total": "number",
+    "pages": "number"
+  }
+}
+```
+
+F.7.3 Analytics API
+
+GET /api/analytics/learning
+Query Parameters:
+- user_id: number
+- start_date: string (ISO 8601)
+- end_date: string (ISO 8601)
+- competency: string
+
+Response:
+```json
+{
+  "analytics": {
+    "total_time": "number",
+    "activities_completed": "number",
+    "average_score": "number",
+    "competency_breakdown": {
+      "algorithmic": "number",
+      "pattern": "number",
+      "decomposition": "number",
+      "abstraction": "number",
+      "debugging": "number"
+    }
+  }
+}
+```
+
+================================================================================
+
+Note: This technical documentation provides comprehensive information about the Kone Academy platform architecture, implementation details, and operational procedures. The documentation supports platform maintenance, scaling, and further development while ensuring transparency about technical capabilities and limitations. The open-source approach with MIT licensing enables community contribution and adaptation while maintaining quality standards through rigorous testing and monitoring procedures.
+
+================================================================================

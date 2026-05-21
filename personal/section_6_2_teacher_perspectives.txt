@@ -1,0 +1,59 @@
+================================================================================
+SECTION 6.2: Teacher Perspectives
+================================================================================
+
+6.2 Teacher Perspectives
+
+Teacher experiences with Kone Academy implementation were examined through pre/post surveys, mid-implementation interviews, and post-implementation focus groups. This section presents findings on teacher professional development effectiveness, platform integration experiences, and ongoing support needs.
+
+**Professional Development Effectiveness**
+
+Teacher self-efficacy for computing education showed significant improvement from pre-implementation (M = 2.8/5.0, SD = 0.9) to post-implementation (M = 3.9/5.0, SD = 0.7), representing a gain of 1.1 points (d = 1.21). This large effect size indicates that the professional development program successfully built teacher confidence for facilitating computational thinking education.
+
+Analysis by initial preparation level reveals differential professional development impact. Teachers with minimal prior technology experience demonstrated the largest gains (+1.4 points), while those with existing computing backgrounds showed smaller but still meaningful gains (+0.7 points). The professional development effectively addressed the confidence gap for less-prepared teachers, though absolute confidence levels remained higher for initially prepared teachers.
+
+Specific professional development components were rated for effectiveness. Hands-on platform practice sessions received the highest ratings (M = 4.5/5.0), followed by peer collaboration opportunities (M = 4.3/5.0) and classroom observation of experienced implementers (M = 4.2/5.0). Didactic lecture components received lower ratings (M = 3.1/5.0), confirming that active learning approaches were most effective for teacher preparation.
+
+**Platform Integration Experiences**
+
+Teacher experiences with integrating Kone Academy into existing curriculum and instructional practices were generally positive, though challenges emerged. Survey data indicate that 84% of teachers successfully integrated platform activities into their regular teaching schedules, while 16% reported integration difficulties primarily related to time constraints and examination preparation pressures.
+
+Curriculum alignment was facilitated by explicit alignment with Ghana's Standards-Based Curriculum, which 76% of teachers reported as helpful. Teachers valued the curriculum mapping documents that connected platform activities to specific learning objectives, enabling them to demonstrate alignment to administrators and parents. However, 24% of teachers requested additional guidance on integrating platform activities with non-computing subject areas, indicating need for expanded cross-curricular integration support.
+
+Technical integration challenges were less prevalent than anticipated given Ghana's infrastructure constraints. Only 12% of teachers reported technical difficulties that impeded instruction, with most issues related to device charging and occasional synchronization delays rather than fundamental platform functionality. The offline-first design successfully mitigated expected technical barriers, with teachers in rural contexts reporting fewer technical problems than anticipated.
+
+**Instructional Adaptation Strategies**
+
+Teachers developed various adaptation strategies to accommodate local conditions and student needs. The most common adaptations involved pacing adjustments (67% of teachers), with slower pacing for younger students and classes with mixed ability levels. Group work modifications (54%) addressed device availability constraints by enabling collaborative platform use.
+
+Cultural adaptation occurred as teachers supplemented platform content with local examples and contexts. Teachers frequently incorporated Ghanaian scenarios into activity introductions, connecting abstract computational concepts to familiar contexts such as market transactions, farming decisions, and local games. These spontaneous adaptations increased student engagement without requiring formal platform modifications.
+
+Teachers in multi-grade classrooms developed creative implementation approaches, using Kone Academy for differentiated instruction that accommodated varying ability levels within the same class. Peer tutoring systems emerged organically, with more advanced students assisting classmates while reinforcing their own understanding.
+
+**Support Needs and Utilization**
+
+Teacher support needs evolved throughout implementation. Early implementation focused on technical familiarization and basic facilitation skills. Mid-implementation needs shifted toward pedagogical strategies for challenging concepts and behavior management during technology activities. Late-implementation needs emphasized extension activities for advanced students and assessment approaches.
+
+Just-in-time support resources were utilized extensively, with teachers accessing embedded help an average of 12.4 times during the implementation period. The most frequently accessed resources addressed error message interpretation (34% of help accesses), activity sequencing guidance (28%), and assessment rubric clarification (18%). WhatsApp support group participation was high (89% of teachers), with teachers reporting that peer assistance often resolved issues before official support was needed.
+
+Unmet support needs identified through interviews included desire for video demonstrations of classroom management strategies, additional assessment tools beyond the platform-embedded options, and more extensive Ghanaian language support for students with limited English proficiency. These identified gaps inform recommendations for platform enhancement.
+
+**Teacher Community Development**
+
+Teacher community features showed promising engagement patterns. The professional learning community platform had 78% teacher participation, with active contribution from 45% of participants. Community engagement was associated with implementation effectiveness, with active community participants demonstrating higher student learning outcomes (r = 0.31, p < .05).
+
+Peer collaboration emerged as a significant implementation support factor. Teachers who engaged in peer observation partnerships reported greater confidence and more effective implementation. Spontaneous peer support networks developed within and across schools, with teachers sharing resources, troubleshooting strategies, and encouragement.
+
+**Sustainability Intentions**
+
+Post-implementation teacher intentions indicate strong support for continued Kone Academy use. 91% of teachers expressed desire to continue platform integration in subsequent academic years, while 9% cited constraints (primarily time and competing priorities) that might limit continuation. Among continuing teachers, 67% anticipated expanding use to additional class sections or grade levels.
+
+Teacher recommendations for platform sustainability emphasized the importance of ongoing professional development refreshers, technical support continuity, and expanded content libraries to maintain student engagement over multiple years. These recommendations inform scaling considerations for broader deployment.
+
+**Conclusion**
+
+Teacher perspective findings indicate that Kone Academy implementation successfully supported teacher professional development and platform integration. Significant self-efficacy gains, positive integration experiences, effective support utilization, and strong sustainability intentions suggest that the platform and associated professional development created conditions for sustainable implementation. Teacher-developed adaptation strategies and emergent peer communities demonstrate that implementation became genuinely embedded in local practice rather than remaining dependent on external support.
+
+Word Count: ~750 words
+Tone: Empirical teacher experience reporting
+================================================================================

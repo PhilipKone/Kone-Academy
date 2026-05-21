@@ -1,0 +1,31 @@
+================================================================================
+SECTION 2.5: Significance of the Study
+================================================================================
+
+2.5 Significance of the Study
+
+This research contributes meaningfully to multiple domains, extending beyond the specific intervention to address broader scholarly and practical needs.
+
+**Contribution to African CS Education Research**
+
+The study addresses a critical gap in the educational technology literature, which predominantly reflects North American and European contexts. By centering Ghanaian educational realities, the research generates knowledge about computational thinking education in developing contexts where infrastructure constraints, teacher preparation limitations, and curriculum alignment challenges differ fundamentally from well-resourced settings. This contribution supports epistemic equity in the global knowledge base, ensuring that African educational contexts inform theoretical understanding rather than merely receiving externally-developed solutions.
+
+**Practical Implications for EdTech Designers**
+
+The research demonstrates design principles for educational technology that functions effectively in low-connectivity, resource-constrained environments. Findings regarding offline-first architecture, scaffolded curriculum progression, and teacher support systems provide actionable guidance for designers targeting similar contexts globally. The Kone Academy platform itself represents a practical contribution—a validated solution ready for deployment in Ghana and adaptation elsewhere.
+
+**Policy Implications for Ghana and Similar Contexts**
+
+By documenting what works in authentic Ghanaian school contexts, the research provides evidence to inform educational technology policy and implementation strategies. Findings regarding effective teacher professional development approaches, infrastructure requirements for successful implementation, and equity considerations in technology access can guide Ghana's ongoing educational reform efforts and inform policy in similar developing contexts.
+
+**Methodological Contribution**
+
+The research employs Design-Based Research methodology in a developing context, demonstrating how iterative design and evaluation can proceed effectively despite resource constraints. The mixed-methods approach combining learning analytics, standardized assessments, and qualitative implementation data illustrates comprehensive evaluation strategies for complex educational interventions in challenging research environments.
+
+**Conclusion**
+
+The research significance extends across scholarly, practical, policy, and methodological domains, ensuring that findings contribute meaningfully to educational improvement in Ghana and theoretical advancement in educational technology for developing contexts.
+
+Word Count: ~350 words
+Tone: Concise significance articulation across multiple domains
+================================================================================

@@ -1,0 +1,55 @@
+================================================================================
+SECTION 5.3.1: Quantitative Measures
+================================================================================
+
+5.3.1 Quantitative Measures
+
+The quantitative data collection strategy employs multiple instruments to capture learning outcomes, engagement patterns, and attitudinal changes associated with Kone Academy implementation. This section details the pre/post computational thinking assessments, platform learning analytics, and survey instruments that provide numerical evidence of platform effectiveness.
+
+**Pre/Post Computational Thinking Assessments**
+
+Learning outcomes were measured using an adapted version of the STEM Computational Thinking Assessment developed by Shute et al. (2017), a validated instrument designed to measure five core computational thinking competencies: decomposition, pattern recognition, abstraction, algorithm design, and debugging. The original instrument was adapted for the Ghanaian context through item review by local curriculum specialists, language simplification for accessibility, and addition of culturally relevant problem contexts while preserving the psychometric properties of the original measure.
+
+The assessment employs scenario-based items presenting authentic problem situations that require application of computational thinking skills. Items are formatively developed to assess conceptual understanding rather than programming syntax knowledge, ensuring that the instrument measures transferable computational thinking capabilities rather than platform-specific skills. The assessment contains 35 items distributed across the five competency domains, with items sequenced by difficulty to minimize test anxiety while maintaining discriminatory power across ability levels.
+
+Pre-assessment was administered within the first two weeks of platform implementation to establish baseline computational thinking capabilities before significant Kone Academy exposure. Post-assessment was administered after 12-16 weeks of implementation, providing sufficient time for meaningful learning while enabling completion within a single academic term. Parallel forms (A and B) with equivalent difficulty and content coverage were used for pre/post administration to minimize practice effects while ensuring comparable measurement.
+
+Scoring employs both correct/incorrect dichotomous coding and partial credit rubrics for multi-step problems, capturing the sophistication of problem-solving approaches rather than merely final answer correctness. Item response theory (IRT) analysis supports examination of how individual items function across the ability spectrum and enables detection of differential item functioning that might indicate cultural bias in specific items.
+
+**Learning Analytics from Platform**
+
+The Kone Academy platform automatically captures extensive process data during learner engagement, providing objective behavioral indicators of learning activity, engagement patterns, and skill development. These analytics complement standardized assessments by capturing authentic performance in naturalistic contexts rather than decontextualized test performance.
+
+Activity completion metrics document learner progress through curriculum activities, recording completion rates, time-on-task, and repetition patterns. These data reveal implementation fidelity—whether learners are engaging with intended activities at expected rates—and identify learners who may be struggling or disengaging. Completion data are aggregated by activity type, difficulty level, and curriculum domain to identify patterns in learner progression.
+
+Interaction logging records granular behavioral data including block placements and deletions, code execution attempts, debugging sequences, and help resource access. These process data enable analysis of problem-solving approaches, error patterns, and help-seeking strategies that indicate developing computational thinking capabilities. Interaction patterns are analyzed both cross-sectionally (comparing learners at different achievement levels) and longitudinally (examining how individual learners' patterns change over time).
+
+Error analysis tracks the frequency, types, and resolution of errors encountered during platform activities. Errors are categorized by computational thinking domain (decomposition errors, algorithm design errors, debugging failures) to identify specific competency areas where learners struggle. Error recovery patterns—how quickly and effectively learners resolve errors—provide indicators of developing self-regulation and debugging capabilities.
+
+Engagement metrics include session frequency and duration, return rates following interruptions, and voluntary extension of activity time beyond required minimums. These behavioral indicators of motivation complement self-reported attitude measures by capturing enacted engagement rather than merely stated intentions. Engagement patterns are analyzed for trends over time (increasing or decreasing engagement) and relationships with learning outcomes.
+
+**Survey Instruments**
+
+Self-report surveys capture attitudinal and perceptual dimensions of the Kone Academy experience that behavioral data and standardized assessments cannot directly measure. Survey instruments were developed or adapted from established measures and piloted for comprehension and cultural appropriateness before full implementation.
+
+Student attitude surveys assess interest in computing, self-efficacy for computational tasks, perceived value of programming skills, and intentions for continued computing engagement. Items employ 5-point Likert scales with verbally anchored response options appropriate for the participant age range. The survey contains 24 items distributed across four attitudinal dimensions, with reading level appropriate for upper primary and junior secondary learners.
+
+Teacher self-efficacy surveys measure teacher confidence in facilitating platform activities, supporting learner debugging, managing classroom technology, and integrating computing with curriculum requirements. The instrument adapts items from Bean et al. (2015) research on teacher self-efficacy in computer science instruction, contextualized for Kone Academy implementation. Teachers complete surveys at implementation onset (baseline), mid-implementation, and post-implementation to capture self-efficacy development trajectories.
+
+Technology acceptance measures assess perceived ease of use, perceived usefulness, and behavioral intention to continue platform use, drawing on the Technology Acceptance Model (TAM) framework adapted for educational contexts. These measures provide indicators of implementation sustainability by capturing user satisfaction and continued use intentions.
+
+Implementation fidelity checklists completed by teachers document which platform features were utilized, which activities were completed, and what adaptations were made to standard implementation protocols. These data enable analysis of relationships between implementation intensity/completeness and learning outcomes, identifying critical implementation components for effectiveness.
+
+All survey instruments were administered in English with availability of oral administration for learners with reading difficulties. Survey sessions were conducted during regular class periods to minimize disruption, with explicit assurance that responses would not affect grades or evaluation to encourage honest responding.
+
+**Conclusion**
+
+The quantitative measurement strategy employs complementary instruments—standardized assessments for learning outcomes, platform analytics for behavioral process data, and surveys for attitudinal measures—to provide comprehensive numerical evidence of Kone Academy effectiveness. This multi-method quantitative approach enables triangulation across data sources, with convergent findings across instruments strengthening confidence in conclusions while divergent patterns suggesting nuanced understanding requiring qualitative exploration.
+
+References (for this section):
+- Shute, V. J., et al. (2017). Demystifying computational thinking. Educational Research Review, 22, 142-158. https://doi.org/10.1016/j.edurev.2017.09.003
+- Bean, V., et al. (2015). Teachers' self-efficacy beliefs in computer science instruction. ACM Transactions on Computing Education, 15(3), 1-18.
+
+Word Count: ~950 words
+Tone: Methodological precision with instrument specification
+================================================================================

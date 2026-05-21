@@ -1,0 +1,11 @@
+================================================================================
+SECTION 2.6: Structure of the Paper
+================================================================================
+
+2.6 Structure of the Paper
+
+The remainder of this paper is organized as follows. Section 3 presents a comprehensive literature review examining theoretical foundations of computational thinking education, evidence for block-based programming approaches, the state of educational technology in African contexts, pedagogical design principles, and research gaps that the Kone Academy platform addresses. Section 4 details the Kone Academy platform design, describing the three-tiered curriculum structure (Level 1: Coding Fundamentals, Level 2: Robotics and Physical Computing, Level 3: AI Literacy), assessment systems, and teacher support infrastructure. Section 5 presents the research methodology, including the Design-Based Research approach, participant contexts, data collection methods, and analytical procedures. Section 6 reports research findings regarding platform implementation, learner outcomes, and contextual factors influencing effectiveness. Section 7 discusses findings in relation to existing literature, acknowledges limitations, and articulates implications for practice, policy, and future research.
+
+Word Count: ~150 words
+Tone: Concise roadmap
+================================================================================

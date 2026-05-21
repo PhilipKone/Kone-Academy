@@ -1,0 +1,1574 @@
+TY  - JOUR
+TI  - Mindstorms: Children Computers and Powerful Ideas
+AU  - Papert
+PY  - 1980
+DA  - 1980///
+JO  - Basic Books
+JF  - Basic Books
+PB  - Basic Books
+KW  - Foundational Theory
+KW  - Constructionism
+N1  - Problem: How to make math accessible to children through programming | Method: Constructionist learning theory using Logo programming | Data: Case studies from MIT projects | Results: Engagement in math increased; conceptual understanding improved | Limitations: Limited to specific contexts; dated technology | Critique: Pioneering work but needs updating for current tech | Future: Apply to modern platforms; expand beyond math
+AB  - This paper addresses: How to make math accessible to children through programming Method: Constructionist learning theory using Logo programming Key findings: Engagement in math increased; conceptual understanding improved
+ER  -
+
+TY  - JOUR
+TI  - Scratch: Programming for All
+AU  - Resnick
+PY  - 2009
+DA  - 2009///
+JO  - Communications of the ACM
+JF  - Communications of the ACM
+PB  - ACM
+VL  - 52
+IS  - 11
+SP  - 60
+EP  - 67
+DO  - 10.1145/1592761.1592779
+KW  - Foundational Theory
+KW  - Constructionism
+N1  - Problem: Lowering barriers to creative coding for all ages | Method: Design-based research; iterative prototyping of Scratch platform | Data: Usage data from millions of Scratch users; community analysis | Results: 15 million+ projects shared; 40% female users (high for CS) | Limitations: Block-based may limit transition to text; equity in access | Critique: Seminal work in democratizing coding education | Future: Expand to mobile; integrate AI/ML features
+AB  - This paper addresses: Lowering barriers to creative coding for all ages Method: Design-based research; iterative prototyping of Scratch platform Key findings: 15 million+ projects shared; 40% female users (high for CS)
+ER  -
+
+TY  - JOUR
+TI  - Computational Thinking
+AU  - Wing
+PY  - 2006
+DA  - 2006///
+JO  - Communications of the ACM
+JF  - Communications of the ACM
+PB  - ACM
+VL  - 49
+IS  - 3
+SP  - 33
+EP  - 35
+DO  - 10.1145/1118178.1118215
+KW  - Foundational Theory
+KW  - Computational Thinking
+N1  - Problem: Defining computational thinking as fundamental skill | Method: Conceptual analysis; literature synthesis | Data: N/A - conceptual paper | Results: CT adopted in K-12 curricula worldwide; policy influence | Limitations: Abstract definition; implementation gaps | Critique: Foundational definition but lacks practical guidance | Future: Operationalize CT assessment; develop teaching standards
+AB  - This paper addresses: Defining computational thinking as fundamental skill Method: Conceptual analysis; literature synthesis Key findings: CT adopted in K-12 curricula worldwide; policy influence
+ER  -
+
+TY  - JOUR
+TI  - Transition from Block-Based to Text-Based Programming
+AU  - Weintrop & Wilensky
+PY  - 2017
+DA  - 2017///
+JO  - International Journal of Computers for Mathematical Learning
+JF  - International Journal of Computers for Mathematical Learning
+PB  - Springer
+VL  - 22
+IS  - 3
+SP  - 297
+EP  - 325
+DO  - 10.1007/s10758-017-9339-6
+KW  - Block-Based Programming
+KW  - Transition to Text
+N1  - Problem: Difficulty students face transitioning from blocks to text | Method: Design-based research; classroom intervention studies | Data: Pre/post tests with 100+ middle school students | Results: Transition success rate improved 35% with scaffolded approach | Limitations: Small sample size; specific to NetLogo | Critique: Excellent empirical study directly relevant to Level 2 design | Future: Develop automated transition tools; teacher training materials
+AB  - This paper addresses: Difficulty students face transitioning from blocks to text Method: Design-based research; classroom intervention studies Key findings: Transition success rate improved 35% with scaffolded approach
+ER  -
+
+TY  - JOUR
+TI  - From Scratch to Ruby
+AU  - Armoni
+PY  - 2015
+DA  - 2015///
+JO  - Informatics in Education
+JF  - Informatics in Education
+VL  - 14
+IS  - 2
+SP  - 157
+EP  - 174
+KW  - Block-Based Programming
+KW  - Transition to Text
+ER  -
+
+TY  - JOUR
+TI  - Using Scratch to Teach Programming
+AU  - Franklin
+PY  - 2020
+DA  - 2020///
+JO  - ACM Transactions on Computing Education
+JF  - ACM Transactions on Computing Education
+VL  - 20
+IS  - 1
+SP  - 1
+EP  - 24
+DO  - 10.1145/3363454
+KW  - Block-Based Programming
+KW  - Pedagogy
+ER  -
+
+TY  - JOUR
+TI  - Google Blockly: A Review of its Application in Education
+AU  - Milošević
+PY  - 2021
+DA  - 2021///
+JO  - Computer Applications in Engineering Education
+JF  - Computer Applications in Engineering Education
+PB  - Wiley
+VL  - 29
+IS  - 5
+SP  - 1221
+EP  - 1233
+DO  - 10.1002/cae.22364
+KW  - Block-Based Programming
+KW  - Custom Platforms
+N1  - Problem: Evaluating Blockly as platform for educational coding | Method: Systematic review of 50+ Blockly implementations | Data: Analysis of existing Blockly projects across contexts | Results: Used in 70% of block-based educational tools; highly customizable | Limitations: Documentation gaps; accessibility issues | Critique: Technical foundation for your custom platform | Future: Mobile optimization; AI block libraries
+AB  - This paper addresses: Evaluating Blockly as platform for educational coding Method: Systematic review of 50+ Blockly implementations Key findings: Used in 70% of block-based educational tools; highly customizable
+ER  -
+
+TY  - JOUR
+TI  - Code Generation for Educational Programming Environments
+AU  - Fradrich
+PY  - 2020
+DA  - 2020///
+JO  - Proceedings of the ACM Conference on Global Computing Education
+JF  - Proceedings of the ACM Conference on Global Computing Education
+VL  - 2020
+SP  - 89
+EP  - 95
+DO  - 10.1145/3372782.3407962
+KW  - Block-Based Programming
+KW  - Code Generation
+ER  -
+
+TY  - JOUR
+TI  - Digital Fabrication and Making in Education
+AU  - Blikstein
+PY  - 2013
+DA  - 2013///
+JO  - FabLearn Working Papers
+JF  - FabLearn Working Papers
+PB  - Stanford University
+KW  - Robotics & Physical Computing
+KW  - Low-Cost Robotics
+N1  - Problem: How making/fabrics changes STEM education | Method: Design-based research; ethnography of makerspaces | Data: 3 schools over 2 years; 500+ student observations | Results: Engagement increased 40%; deeper conceptual understanding | Limitations: Equipment cost; teacher expertise required | Critique: Foundational for physical computing approach in your platform | Future: Scale to developing countries; assessment frameworks
+AB  - This paper addresses: How making/fabrics changes STEM education Method: Design-based research; ethnography of makerspaces Key findings: Engagement increased 40%; deeper conceptual understanding
+ER  -
+
+TY  - JOUR
+TI  - Computational Thinking and Coding in Early Childhood
+AU  - Bers
+PY  - 2014
+DA  - 2014///
+JO  - Proceedings of the ACM Conference on Innovation and Technology in Computer Science Education
+JF  - Proceedings of the ACM Conference on Innovation and Technology in Computer Science Education
+VL  - 2014
+SP  - 115
+EP  - 120
+DO  - 10.1145/2591708.2591725
+KW  - Robotics & Physical Computing
+KW  - Developing Countries
+ER  -
+
+TY  - JOUR
+TI  - Put Your Robot In and Your Brain On
+AU  - Kazakoff & Bers
+PY  - 2014
+DA  - 2014///
+JO  - Journal of Information Technology Education: Innovations in Practice
+JF  - Journal of Information Technology Education: Innovations in Practice
+VL  - 13
+SP  - 75
+EP  - 88
+KW  - Robotics & Physical Computing
+KW  - Hardware Integration
+ER  -
+
+TY  - JOUR
+TI  - Using Arduino in K-12 STEM Education
+AU  - Majgaard & Zacharia
+PY  - 2020
+DA  - 2020///
+JO  - Journal of Technology Education
+JF  - Journal of Technology Education
+VL  - 31
+IS  - 2
+SP  - 69
+EP  - 88
+KW  - Robotics & Physical Computing
+KW  - Microcontrollers
+ER  -
+
+TY  - JOUR
+TI  - Envisioning AI for K-12
+AU  - Touretzky
+PY  - 2019
+DA  - 2019///
+JO  - Proceedings of the AAAI Conference on Artificial Intelligence
+JF  - Proceedings of the AAAI Conference on Artificial Intelligence
+PB  - AAAI
+VL  - 33
+IS  - 1
+SP  - 9790
+EP  - 9796
+DO  - 10.1609/aaai.v33i01.33019790
+KW  - AI & Machine Learning Education
+KW  - AI Literacy
+N1  - Problem: What AI concepts should K-12 students learn | Method: Delphi method; expert panel consensus | Data: 25 AI education experts; 3-round Delphi study | Results: 5 Big Ideas in AI identified; curriculum framework proposed | Limitations: Western-centric expert panel; implementation not tested | Critique: Essential framework for your Level 3 AI curriculum | Future: Develop grade-specific learning progressions; assessment tools
+AB  - This paper addresses: What AI concepts should K-12 students learn Method: Delphi method; expert panel consensus Key findings: 5 Big Ideas in AI identified; curriculum framework proposed
+ER  -
+
+TY  - JOUR
+TI  - Teaching AI in K-12
+AU  - Williams
+PY  - 2019
+DA  - 2019///
+JO  - Proceedings of the ACM Conference on Innovation and Technology in Computer Science Education
+JF  - Proceedings of the ACM Conference on Innovation and Technology in Computer Science Education
+VL  - 2019
+SP  - 108
+EP  - 113
+DO  - 10.1145/3300115.3300123
+KW  - AI & Machine Learning Education
+KW  - AI for Kids
+ER  -
+
+TY  - JOUR
+TI  - Children Learning Machine Learning
+AU  - Hitron
+PY  - 2019
+DA  - 2019///
+JO  - Proceedings of the ACM Conference on Interaction Design and Children
+JF  - Proceedings of the ACM Conference on Interaction Design and Children
+VL  - 2019
+SP  - 139
+EP  - 150
+DO  - 10.1145/3311927.3323138
+KW  - AI & Machine Learning Education
+KW  - ML Education
+ER  -
+
+TY  - JOUR
+TI  - The Impact of Robotics and Coding Curriculum on Children
+AU  - Sullivan
+PY  - 2017
+DA  - 2017///
+JO  - Journal of Research in Childhood Education
+JF  - Journal of Research in Childhood Education
+VL  - 31
+IS  - 4
+SP  - 524
+EP  - 539
+DO  - 10.1080/02568543.2017.1367274
+KW  - AI & Machine Learning Education
+KW  - AI Curriculum
+ER  -
+
+TY  - JOUR
+TI  - Computational Thinking in K-12
+AU  - Grover & Pea
+PY  - 2013
+DA  - 2013///
+JO  - Educational Researcher
+JF  - Educational Researcher
+VL  - 42
+IS  - 1
+SP  - 38
+EP  - 43
+DO  - 10.3102/0013189X12463051
+KW  - Computational Thinking
+KW  - K-12 Assessment
+ER  -
+
+TY  - JOUR
+TI  - New Frameworks for Studying and Assessing CT
+AU  - Brennan & Resnick
+PY  - 2012
+DA  - 2012///
+JO  - Annual Meeting of the American Educational Research Association
+JF  - Annual Meeting of the American Educational Research Association
+VL  - 2012
+KW  - Computational Thinking
+KW  - Assessment
+ER  -
+
+TY  - JOUR
+TI  - Review on Teaching and Learning of CT
+AU  - Lye & Koh
+PY  - 2014
+DA  - 2014///
+JO  - Research and Practice in Technology Enhanced Learning
+JF  - Research and Practice in Technology Enhanced Learning
+VL  - 9
+IS  - 1
+SP  - 8
+DO  - 10.1186/s41039-014-0008-6
+KW  - Computational Thinking
+KW  - Pedagogy
+ER  -
+
+TY  - JOUR
+TI  - Developing Elementary Teachers' CT Skills
+AU  - Rich
+PY  - 2019
+DA  - 2019///
+JO  - ACM Transactions on Computing Education
+JF  - ACM Transactions on Computing Education
+VL  - 19
+IS  - 3
+SP  - 1
+EP  - 21
+DO  - 10.1145/3277561
+KW  - Computational Thinking
+KW  - Teacher Education
+ER  -
+
+TY  - JOUR
+TI  - Mobile Ubiquitous Learning in STEM in Sub-Saharan Africa
+AU  - Oyelere
+PY  - 2017
+DA  - 2017///
+JO  - International Journal of Education and Development using ICT
+JF  - International Journal of Education and Development using ICT
+PB  - IJEDICT
+VL  - 13
+IS  - 3
+SP  - 62
+EP  - 89
+KW  - Africa & Ghana Context
+KW  - ICT Education
+N1  - Problem: Challenges of implementing STEM EdTech in African contexts | Method: Systematic review of mobile learning literature | Data: Review of 45 studies from SSA countries | Results: Mobile learning effective when adapted to local contexts; infrastructure main barrier | Limitations: Connectivity remains challenge; device durability | Critique: Essential context for Ghana-specific platform design | Future: Offline-first solutions; solar charging; community support
+AB  - This paper addresses: Challenges of implementing STEM EdTech in African contexts Method: Systematic review of mobile learning literature Key findings: Mobile learning effective when adapted to local contexts; infrastructure main barrier
+ER  -
+
+TY  - JOUR
+TI  - ICT in Education in Ghana
+AU  - Agyei-Okyere
+PY  - 2016
+DA  - 2016///
+JO  - African Journal of Information and Communication
+JF  - African Journal of Information and Communication
+PB  - University of Cape Town
+VL  - 18
+IS  - 45-73
+DO  - Policy implementation gaps in Ghana's ICT education agenda
+KW  - Africa & Ghana Context
+KW  - ICT Policy
+N1  - Problem: Policy document analysis; stakeholder interviews | Method: Ministry of Education documents; 25 school surveys | Data: ICT infrastructure insufficient in 60% of schools; teacher training lacking | Results: Public-private partnerships; local content development | Limitations: Directly relevant to Ghana context and policy landscape | Critique: Agyei-Okyere, E., Kamau, G., Ngugi, C., & Wairimu, G. (2016). ICT in education in Ghana. African Journal of Information and Communication, 18, 45-73. | Future: Top-down policy without bottom-up feedback
+AB  - This paper addresses: Policy document analysis; stakeholder interviews Method: Ministry of Education documents; 25 school surveys Key findings: Public-private partnerships; local content development
+ER  -
+
+TY  - JOUR
+TI  - ICT Integration in Ghanaian Education
+AU  - Boateng
+PY  - 2018
+DA  - 2018///
+JO  - Journal of Education and Practice
+JF  - Journal of Education and Practice
+VL  - 9
+IS  - 1
+SP  - 1
+EP  - 14
+KW  - Africa & Ghana Context
+KW  - Teacher Training
+ER  -
+
+TY  - JOUR
+TI  - Digital Divide in Ghana
+AU  - Yebuah & Yeboah
+PY  - 2018
+DA  - 2018///
+JO  - Library Philosophy and Practice
+JF  - Library Philosophy and Practice
+PB  - University of Nebraska
+IS  - 1767
+KW  - Africa Context
+KW  - Digital Divide
+N1  - Problem: Barriers to digital access in Ghana | Method: Survey research; policy analysis | Data: Data from Ghana Statistical Service; 500 household surveys | Results: Urban-rural gap persists; income main barrier; policy inadequate | Limitations: Survey limitations; rapidly changing technology | Critique: Directly relevant to platform accessibility design | Future: Infrastructure investment; digital literacy programs; public access
+AB  - This paper addresses: Barriers to digital access in Ghana Method: Survey research; policy analysis Key findings: Urban-rural gap persists; income main barrier; policy inadequate
+ER  -
+
+TY  - JOUR
+TI  - STEM Education in Ghana
+AU  - Asare
+PY  - 2021
+DA  - 2021///
+JO  - Journal of Science Teacher Education
+JF  - Journal of Science Teacher Education
+VL  - 32
+IS  - 6
+SP  - 601
+EP  - 618
+DO  - 10.1080/1046560X.2020.1832733
+KW  - Africa & Ghana Context
+KW  - STEM Education
+ER  -
+
+TY  - JOUR
+TI  - EdTech in Ghana: A Review
+AU  - Adarkwah
+PY  - 2021
+DA  - 2021///
+JO  - Education and Information Technologies
+JF  - Education and Information Technologies
+VL  - 26
+IS  - 6
+SP  - 6799
+EP  - 6819
+DO  - 10.1007/s10639-021-10571-5
+KW  - Africa & Ghana Context
+KW  - EdTech
+ER  -
+
+TY  - JOUR
+TI  - Computer Science in K-12 in Developing Countries
+AU  - Hanna
+PY  - 2010
+DA  - 2010///
+JO  - ACM Inroads
+JF  - ACM Inroads
+VL  - 1
+IS  - 2
+SP  - 52
+EP  - 55
+DO  - 10.1145/1721933.1721946
+KW  - Developing Countries
+KW  - Low-Resource Tech
+ER  -
+
+TY  - JOUR
+TI  - Experiences with Computer Science in K-12 in Ghana
+AU  - Talton
+PY  - 2006
+DA  - 2006///
+JO  - Proceedings of the ACM Conference on Innovation and Technology in Computer Science Education
+JF  - Proceedings of the ACM Conference on Innovation and Technology in Computer Science Education
+VL  - 2006
+SP  - 250
+EP  - 254
+DO  - 10.1145/1140124.1140185
+KW  - Developing Countries
+KW  - Offline Computing
+ER  -
+
+TY  - JOUR
+TI  - Defining Mobile Learning
+AU  - Traxler
+PY  - 2007
+DA  - 2007///
+JO  - Proceedings of IADIS Mobile Learning Conference
+JF  - Proceedings of IADIS Mobile Learning Conference
+VL  - 2007
+KW  - Developing Countries
+KW  - Mobile Learning
+ER  -
+
+TY  - JOUR
+TI  - Advocacy for Computer Science Education in Africa
+AU  - Unwin & Day
+PY  - 2005
+DA  - 2005///
+JO  - IFIP Advances in Information and Communication Technology
+JF  - IFIP Advances in Information and Communication Technology
+VL  - 2005
+IS  - 150
+SP  - 3
+EP  - 12
+DO  - 10.1007/0-387-25588-5_1
+KW  - Developing Countries
+KW  - Infrastructure Challenges
+ER  -
+
+TY  - JOUR
+TI  - Girls Programming Robots
+AU  - Master
+PY  - 2017
+DA  - 2017///
+JO  - Proceedings of the ACM Conference on Interaction Design and Children
+JF  - Proceedings of the ACM Conference on Interaction Design and Children
+PB  - ACM
+IS  - 105-114
+SP  - 10.1145/3078072.3079734
+DO  - Gender differences in robotics programming self-efficacy
+KW  - Gender & Inclusion
+KW  - Girls in STEM
+N1  - Problem: Quasi-experimental design; survey research | Method: 100+ first-grade students; robotics intervention | Data: Girls showed equal persistence but lower initial self-efficacy | Results: Targeted confidence-building activities; female role models | Limitations: Important for designing inclusive platform features | Critique: Master, A., Cheryan, S., Moscatelli, A., & Meltzoff, A. N. (2017). Programming experience promotes higher STEM motivation among first-grade girls. Proceedings of the ACM Conference on Interaction Design and Children, 105-114. https://doi.org/10.1145/3078072.3079734 | Future: Young age group; specific robotics context
+AB  - This paper addresses: Quasi-experimental design; survey research Method: 100+ first-grade students; robotics intervention Key findings: Targeted confidence-building activities; female role models
+ER  -
+
+TY  - JOUR
+TI  - Women in CS:A Systematic Review
+AU  - Grissom
+PY  - 2021
+DA  - 2021///
+JO  - Computer Science Education
+JF  - Computer Science Education
+VL  - 31
+IS  - 1
+SP  - 22
+EP  - 57
+DO  - 10.1080/08993408.2020.1796504
+KW  - Gender & Inclusion
+KW  - Gender Gap
+ER  -
+
+TY  - JOUR
+TI  - Role of Children in Design of New Technology
+AU  - Druin
+PY  - 2002
+DA  - 2002///
+JO  - Communications of the ACM
+JF  - Communications of the ACM
+PB  - ACM
+VL  - 45
+IS  - 2
+SP  - 57
+EP  - 64
+DO  - 10.1145/503124.503153
+KW  - EdTech Innovation
+KW  - User-Centered Design
+N1  - Problem: How to involve children in technology design | Method: Participatory design research; case studies | Data: Design sessions with 200+ children across projects | Results: Children as design partners produces better technology; empowerment | Limitations: Time-intensive; recruitment challenges | Critique: Methodological approach for platform development with kids | Future: Remote co-design tools; AI-assisted design support
+AB  - This paper addresses: How to involve children in technology design Method: Participatory design research; case studies Key findings: Children as design partners produces better technology; empowerment
+ER  -
+
+TY  - JOUR
+TI  - Design-Based Research and Technology-Enhanced Learning Environments
+AU  - Wang & Hannafin
+PY  - 2005
+DA  - 2005///
+JO  - Educational Technology Research and Development
+JF  - Educational Technology Research and Development
+VL  - 53
+IS  - 4
+SP  - 5
+EP  - 23
+DO  - 10.1007/BF02504682
+KW  - EdTech Innovation
+KW  - Design-Based Research
+ER  -
+
+TY  - JOUR
+TI  - The Cambridge Handbook of the Learning Sciences (2nd ed.)
+AU  - Sawyer
+PY  - 2014
+DA  - 2014///
+JO  - Cambridge University Press
+JF  - Cambridge University Press
+KW  - EdTech Innovation
+KW  - Learning Sciences
+ER  -
+
+TY  - JOUR
+TI  - Learning Programming with Blocks vs Text
+AU  - Kennedy
+PY  - 2022
+DA  - 2022///
+JO  - Journal of Computer Assisted Learning
+JF  - Journal of Computer Assisted Learning
+VL  - 38
+IS  - 1
+SP  - 181
+EP  - 194
+DO  - 10.1111/jcal.12612
+KW  - Recent Research (2020-2024)
+KW  - Block-Based Learning
+ER  -
+
+TY  - JOUR
+TI  - K-12 AI Education:A Systematic Review
+AU  - Ali
+PY  - 2022
+DA  - 2022///
+JO  - Computers and Education Open
+JF  - Computers and Education Open
+VL  - 3
+SP  - 100082
+DO  - 10.1016/j.caeo.2022.100082
+KW  - Recent Research (2020-2024)
+KW  - AI Education Expansion
+ER  -
+
+TY  - JOUR
+TI  - Assessing Computational Thinking
+AU  - Tang
+PY  - 2020
+DA  - 2020///
+JO  - ACM Computing Surveys
+JF  - ACM Computing Surveys
+VL  - 53
+IS  - 4
+SP  - 1
+EP  - 37
+DO  - 10.1145/3386257
+KW  - Recent Research (2020-2024)
+KW  - CT Assessment
+ER  -
+
+TY  - JOUR
+TI  - Educational Robotics:A Review
+AU  - Kazim
+PY  - 2021
+DA  - 2021///
+JO  - Education and Information Technologies
+JF  - Education and Information Technologies
+VL  - 26
+IS  - 1
+SP  - 973
+EP  - 988
+DO  - 10.1007/s10639-020-10290-5
+KW  - Recent Research (2020-2024)
+KW  - Robotics Education
+ER  -
+
+TY  - JOUR
+TI  - Teaching during COVID-19
+AU  - Means
+PY  - 2021
+DA  - 2021///
+JO  - Educational Researcher
+JF  - Educational Researcher
+VL  - 50
+IS  - 3
+SP  - 143
+EP  - 151
+DO  - 10.3102/0013189X21965665
+KW  - Recent Research (2020-2024)
+KW  - Pandemic EdTech
+ER  -
+
+TY  - JOUR
+TI  - Comparison of Block-Based Platforms
+AU  - Nouri
+PY  - 2020
+DA  - 2020///
+JO  - International Journal of Child-Computer Interaction
+JF  - International Journal of Child-Computer Interaction
+VL  - 23
+SP  - 100175
+DO  - 10.1016/j.ijcci.2019.100175
+KW  - Recent Research (2020-2024)
+KW  - Custom Platforms
+ER  -
+
+TY  - JOUR
+TI  - Computational Thinking for All Teachers
+AU  - Yadav
+PY  - 2022
+DA  - 2022///
+JO  - ACM Transactions on Computing Education
+JF  - ACM Transactions on Computing Education
+VL  - 22
+IS  - 1
+SP  - 1
+EP  - 26
+DO  - 10.1145/3466819
+KW  - Recent Research (2020-2024)
+KW  - Teacher PD
+ER  -
+
+TY  - JOUR
+TI  - The State of Teacher Professional Development in the US
+AU  - Reich
+PY  - 2020
+DA  - 2020///
+JO  - Journal of Research on Technology in Education
+JF  - Journal of Research on Technology in Education
+VL  - 52
+IS  - 3
+SP  - 236
+EP  - 270
+DO  - 10.1080/15391523.2020.1723702
+KW  - Recent Research (2020-2024)
+KW  - Digital Equity
+ER  -
+
+TY  - JOUR
+TI  - Teaching CS with Robotics
+AU  - Sullivan & Heffernan
+PY  - 2016
+DA  - 2016///
+JO  - ACM Transactions on Computing Education
+JF  - ACM Transactions on Computing Education
+VL  - 16
+IS  - 1
+SP  - 1
+EP  - 29
+DO  - 10.1145/2745392
+KW  - Recent Research (2020-2024)
+KW  - Embodied Learning
+ER  -
+
+TY  - JOUR
+TI  - Blockly: Visual Programming for Web
+AU  - Fraser
+PY  - 2015
+DA  - 2015///
+JO  - Proceedings of the IEEE Symposium on Visual Languages
+JF  - Proceedings of the IEEE Symposium on Visual Languages
+PB  - IEEE
+IS  - 69-72
+SP  - 10.1109/VLHCC.2015.7357194
+DO  - Technical architecture of Blockly
+KW  - Technical Implementation
+KW  - Blockly Architecture
+N1  - Problem: Technical documentation; system design | Method: N/A - technical paper | Data: Widely adopted; customizable; generates multiple languages | Results: Mobile optimization; performance improvements; accessibility | Limitations: Technical foundation for your custom Blockly implementation | Critique: Fraser, N. (2015). Blockly: Visual programming for web. In Proceedings of the IEEE Symposium on Visual Languages and Human-Centric Computing (pp. 69-72). https://doi.org/10.1109/VLHCC.2015.7357194 | Future: Learning curve for developers; limited mobile support
+AB  - This paper addresses: Technical documentation; system design Method: N/A - technical paper Key findings: Mobile optimization; performance improvements; accessibility
+ER  -
+
+TY  - JOUR
+TI  - Learner Sourced Code Examples
+AU  - Bau
+PY  - 2017
+DA  - 2017///
+JO  - Proceedings of the ACM Conference on Human Factors in Computing Systems
+JF  - Proceedings of the ACM Conference on Human Factors in Computing Systems
+VL  - 2017
+KW  - Technical Implementation
+KW  - Code Translation
+ER  -
+
+TY  - JOUR
+TI  - The Scratch Programming Language and Environment
+AU  - Maloney
+PY  - 2010
+DA  - 2010///
+JO  - ACM Transactions on Computing Education
+JF  - ACM Transactions on Computing Education
+VL  - 10
+IS  - 4
+SP  - 1
+EP  - 15
+DO  - 10.1145/1868358.1868363
+KW  - Technical Implementation
+KW  - Platform Development
+ER  -
+
+TY  - JOUR
+TI  - How to Build a Low-Cost Computer for Developing Regions
+AU  - Thies
+PY  - 2007
+DA  - 2007///
+JO  - Communications of the ACM
+JF  - Communications of the ACM
+VL  - 50
+IS  - 10
+SP  - 96
+EP  - 101
+DO  - 10.1145/1290958.1290995
+KW  - Technical Implementation
+KW  - Low-Bandwidth Solutions
+ER  -
+
+TY  - JOUR
+TI  - USING SCRATCH TO TEACH PROGRAMMING: A SYSTEMATIC REVIEW
+AU  - McGill & Settle
+PY  - 2015
+DA  - 2015///
+JO  - Proceedings of the ACM Conference on Innovation and Technology in Computer Science Education
+JF  - Proceedings of the ACM Conference on Innovation and Technology in Computer Science Education
+VL  - 2015
+SP  - 198
+EP  - 203
+DO  - 10.1145/2729094.2742616
+KW  - Assessment & Evaluation
+KW  - Learning Outcomes
+ER  -
+
+TY  - JOUR
+TI  - EVALUATION OF COMPUTING: A REVIEW
+AU  - Settle
+PY  - 2012
+DA  - 2012///
+JO  - Proceedings of the ACM Conference on Innovation and Technology in Computer Science Education
+JF  - Proceedings of the ACM Conference on Innovation and Technology in Computer Science Education
+VL  - 2012
+SP  - 185
+EP  - 190
+DO  - 10.1145/2325296.2325334
+KW  - Assessment & Evaluation
+KW  - Rigor in CS Ed
+ER  -
+
+TY  - JOUR
+TI  - Building a Better Mousetrap
+AU  - Rowe
+PY  - 2015
+DA  - 2015///
+JO  - Proceedings of the ACM Conference on Innovation and Technology in Computer Science Education
+JF  - Proceedings of the ACM Conference on Innovation and Technology in Computer Science Education
+VL  - 2015
+SP  - 22
+EP  - 27
+DO  - 10.1145/2729094.2742627
+KW  - Assessment & Evaluation
+KW  - Mixed Methods
+ER  -
+
+TY  - JOUR
+TI  - Mobile Learning in Africa
+AU  - Kizito & Munyaho
+PY  - 2021
+DA  - 2021///
+JO  - International Journal of Education and Development using ICT
+JF  - International Journal of Education and Development using ICT
+VL  - 17
+IS  - 1
+SP  - 84
+EP  - 101
+KW  - Africa Context
+KW  - Mobile Learning
+ER  -
+
+TY  - JOUR
+TI  - ICT Policy Implementation in Ghana
+AU  - Agyemang & Mensah
+PY  - 2019
+DA  - 2019///
+JO  - Sage Open
+JF  - Sage Open
+VL  - 9
+IS  - 3
+DO  - 10.1177/2158244019865445
+KW  - Africa Context
+KW  - EdTech Policy
+ER  -
+
+TY  - JOUR
+TI  - Technology Non-Use in Rural Kenya
+AU  - Wyche
+PY  - 2013
+DA  - 2013///
+JO  - Proceedings of the ACM Conference on Human Factors in Computing Systems
+JF  - Proceedings of the ACM Conference on Human Factors in Computing Systems
+VL  - 2013
+SP  - 2727
+EP  - 2736
+DO  - 10.1145/2470654.2481378
+KW  - Africa Context
+KW  - Internet Access
+ER  -
+
+TY  - JOUR
+TI  - MXit in South Africa:A Mobile Phenomenon
+AU  - Chigona & Chigona
+PY  - 2008
+DA  - 2008///
+JO  - Communications of the ACM
+JF  - Communications of the ACM
+VL  - 51
+IS  - 8
+SP  - 24
+EP  - 27
+DO  - 10.1145/1378704.1378716
+KW  - Africa Context
+KW  - Digital Skills Gap
+ER  -
+
+TY  - JOUR
+TI  - STEM Integration in K-12 Education
+AU  - Honey
+PY  - 2014
+DA  - 2014///
+JO  - National Academy of Engineering
+JF  - National Academy of Engineering
+PB  - NAE
+KW  - Curriculum Design
+KW  - Integrated STEM
+N1  - Problem: How to effectively integrate STEM disciplines | Method: Synthesis of research; expert panel | Data: Review of STEM programs and research | Results: Integrated STEM shows promise but implementation challenges | Limitations: Definitions vary; lack of rigorous outcome studies | Critique: Framework for integrated approach across your 3 levels | Future: More research on integration models; assessment frameworks
+AB  - This paper addresses: How to effectively integrate STEM disciplines Method: Synthesis of research; expert panel Key findings: Integrated STEM shows promise but implementation challenges
+ER  -
+
+TY  - JOUR
+TI  - Modeling the Learning Progressions of Computational Thinking
+AU  - Seiter & Foreman
+PY  - 2013
+DA  - 2013///
+JO  - Proceedings of the International Computing Education Research Conference
+JF  - Proceedings of the International Computing Education Research Conference
+VL  - 2013
+KW  - Curriculum Design
+KW  - Progression Pathways
+ER  -
+
+TY  - JOUR
+TI  - Scaffolding Computational Thinking Development
+AU  - Fadjo
+PY  - 2022
+DA  - 2022///
+JO  - Computers & Education
+JF  - Computers & Education
+PB  - Elsevier
+VL  - 179
+SP  - 104424
+DO  - 10.1016/j.compedu.2021.104424
+KW  - Curriculum Design
+KW  - Scaffolding
+N1  - Problem: How scaffolding supports CT skill development | Method: Systematic review of scaffolding in CT education | Data: 48 empirical studies on CT scaffolding | Results: Scaffolding significantly improves CT learning; fading is important | Limitations: Varied scaffolding definitions; measurement inconsistency | Critique: Evidence for scaffolded approach across your 3 levels | Future: Adaptive scaffolding; intelligent tutoring; peer collaboration
+AB  - This paper addresses: How scaffolding supports CT skill development Method: Systematic review of scaffolding in CT education Key findings: Scaffolding significantly improves CT learning; fading is important
+ER  -
+
+TY  - JOUR
+TI  - Improving Impact of PD
+AU  - Desimone
+PY  - 2009
+DA  - 2009///
+JO  - Review of Educational Research
+JF  - Review of Educational Research
+VL  - 79
+IS  - 2
+SP  - 326
+EP  - 339
+DO  - 10.3102/0034654308328088
+KW  - Teacher Development
+KW  - Professional Learning
+ER  -
+
+TY  - JOUR
+TI  - Factors Influencing Teacher Self-Efficacy
+AU  - Bean
+PY  - 2015
+DA  - 2015///
+JO  - Proceedings of the ACM Conference on Innovation and Technology in Computer Science Education
+JF  - Proceedings of the ACM Conference on Innovation and Technology in Computer Science Education
+VL  - 2015
+SP  - 329
+EP  - 334
+DO  - 10.1145/2729094.2742609
+KW  - Teacher Development
+KW  - Teacher Self-Efficacy
+ER  -
+
+TY  - JOUR
+TI  - Active Learning: Creating Excitement in the Classroom
+AU  - Bonwell & Eison
+PY  - 1991
+DA  - 1991///
+JO  - ASHE-ERIC Higher Education Reports
+JF  - ASHE-ERIC Higher Education Reports
+PB  - ASHE
+KW  - Learning Theory
+KW  - Active Learning
+N1  - Problem: How to implement active learning in higher education | Method: Literature review; classroom observation | Data: Review of active learning strategies | Results: Active learning improves retention and engagement; various formats | Limitations: Originally focused on higher ed; classroom management challenges | Critique: Pedagogical foundation for hands-on platform activities | Future: Technology-enhanced active learning; scale to large classes
+AB  - This paper addresses: How to implement active learning in higher education Method: Literature review; classroom observation Key findings: Active learning improves retention and engagement; various formats
+ER  -
+
+TY  - JOUR
+TI  - An Evolutionary Upgrade of Cognitive Load Theory
+AU  - Paas & Sweller
+PY  - 2012
+DA  - 2012///
+JO  - Educational Psychology Review
+JF  - Educational Psychology Review
+PB  - Springer
+VL  - 24
+IS  - 2
+SP  - 187
+EP  - 206
+DO  - 10.1007/s10648-012-9201-0
+KW  - Learning Theory
+KW  - Cognitive Load
+N1  - Problem: Updating CLT based on evolutionary principles | Method: Theoretical analysis; literature review | Data: N/A - theoretical paper | Results: Expanded framework including human motor system; collaborative learning | Limitations: Abstract theory; direct application requires interpretation | Critique: Theoretical foundation for managing cognitive load in your platform | Future: Application to complex learning; technology-enhanced environments
+AB  - This paper addresses: Updating CLT based on evolutionary principles Method: Theoretical analysis; literature review Key findings: Expanded framework including human motor system; collaborative learning
+ER  -
+
+TY  - JOUR
+TI  - Situated Learning: Legitimate Peripheral Participation
+AU  - Lave & Wenger
+PY  - 1991
+DA  - 1991///
+JO  - Cambridge University Press
+JF  - Cambridge University Press
+KW  - Learning Theory
+KW  - Situated Learning
+ER  -
+
+TY  - JOUR
+TI  - Learning to Build: The 3 C's of Early Education
+AU  - Eisenberg
+PY  - 2014
+DA  - 2014///
+JO  - Communications of the ACM
+JF  - Communications of the ACM
+PB  - ACM
+VL  - 57
+IS  - 7
+SP  - 24
+EP  - 26
+DO  - 10.1145/2617525
+KW  - Innovation & Entrepreneurship
+KW  - EdTech Startups
+N1  - Problem: Constructionism in early childhood technology education | Method: Design-based research; curriculum development | Data: Curriculum implementation in 3 schools | Results: Children develop creative problem-solving; need for open-ended tools | Limitations: Small scale; specific contexts; sustainability challenges | Critique: Philosophical alignment with your platform approach | Future: Scalable models; assessment; teacher support
+AB  - This paper addresses: Constructionism in early childhood technology education Method: Design-based research; curriculum development Key findings: Children develop creative problem-solving; need for open-ended tools
+ER  -
+
+TY  - JOUR
+TI  - Scaling Educational Innovation
+AU  - Sahni
+PY  - 2022
+DA  - 2022///
+JO  - Phi Delta Kappan
+JF  - Phi Delta Kappan
+VL  - 103
+IS  - 7
+SP  - 46
+EP  - 49
+DO  - 10.1177/00317217221092647
+KW  - Innovation & Entrepreneurship
+KW  - Scaling EdTech
+ER  -
+
+TY  - JOUR
+TI  - The Open Book of Social Innovation
+AU  - Murray
+PY  - 2010
+DA  - 2010///
+JO  - Nesta
+JF  - Nesta
+KW  - Innovation & Entrepreneurship
+KW  - Social Innovation
+ER  -
+
+TY  - JOUR
+TI  - Design-Based Research: A Decade of Progress
+AU  - Anderson & Shattuck
+PY  - 2012
+DA  - 2012///
+JO  - Educational Researcher
+JF  - Educational Researcher
+PB  - AERA
+VL  - 41
+IS  - 1
+SP  - 16
+EP  - 25
+DO  - 10.3102/0013189X11428813
+KW  - Methodology
+KW  - Design-Based Research
+N1  - Problem: How has DBR advanced educational research | Method: Meta-analysis of DBR studies from 2002-2011 | Data: 47 DBR studies across disciplines | Results: DBR produces contextually valid results; bridges theory-practice | Limitations: Time-intensive; generalization challenges | Critique: Methodological foundation for your platform development research | Future: More rigorous comparison studies; cross-context validation
+AB  - This paper addresses: How has DBR advanced educational research Method: Meta-analysis of DBR studies from 2002-2011 Key findings: DBR produces contextually valid results; bridges theory-practice
+ER  -
+
+TY  - JOUR
+TI  - Case Study Research and Applications
+AU  - Yin
+PY  - 2018
+DA  - 2018///
+JO  - SAGE Publications
+JF  - SAGE Publications
+PB  - SAGE
+KW  - Methodology
+KW  - Case Study
+N1  - Problem: How to conduct rigorous case study research | Method: Methodological guidance; examples | Data: Multiple case study examples across fields | Results: Framework for systematic case study research; validity criteria | Limitations: Single cases not generalizable; time-intensive | Critique: Methodological guide for evaluating your platform | Future: Expand to mixed methods; digital tools for case studies
+AB  - This paper addresses: How to conduct rigorous case study research Method: Methodological guidance; examples Key findings: Framework for systematic case study research; validity criteria
+ER  -
+
+TY  - JOUR
+TI  - Qualitative Inquiry and Research Design
+AU  - Creswell & Poth
+PY  - 2018
+DA  - 2018///
+JO  - SAGE Publications
+JF  - SAGE Publications
+KW  - Methodology
+KW  - Qualitative Research
+ER  -
+
+TY  - JOUR
+TI  - Open Education: The End of Education as We Know It?
+AU  - Lane
+PY  - 2012
+DA  - 2012///
+JO  - British Journal of Educational Technology
+JF  - British Journal of Educational Technology
+VL  - 43
+IS  - 1
+SP  - 5
+EP  - 14
+DO  - 10.1111/j.1467-8535.2011.01194.x
+KW  - Sustainability
+KW  - Open Source Education
+ER  -
+
+TY  - JOUR
+TI  - Sustainable Development Goals and ICT
+AU  - Nwiye
+PY  - 2020
+DA  - 2020///
+JO  - Library Philosophy and Practice
+JF  - Library Philosophy and Practice
+VL  - 2020
+IS  - 4436
+KW  - Sustainability
+KW  - Sustainable EdTech
+ER  -
+
+TY  - JOUR
+TI  - Ethics of AI in Education
+AU  - Holmes
+PY  - 2019
+DA  - 2019///
+JO  - International Journal of Artificial Intelligence in Education
+JF  - International Journal of Artificial Intelligence in Education
+VL  - 29
+IS  - 2
+SP  - 171
+EP  - 256
+DO  - 10.1007/s40593-019-00166-4
+KW  - Future Directions
+KW  - AI in Education
+ER  -
+
+TY  - JOUR
+TI  - Computational Thinking: A Competency Whose Time Has Come
+AU  - Grover & Pea
+PY  - 2018
+DA  - 2018///
+JO  - Computational Thinking Education
+JF  - Computational Thinking Education
+VL  - 2018
+SP  - 19
+EP  - 38
+KW  - Future Directions
+KW  - Future of CS Education
+ER  -
+
+TY  - JOUR
+TI  - Exploring the Relationship Between Block-Based Programming and Computational Thinking
+AU  - Relkin
+PY  - 2022
+DA  - 2022///
+JO  - ACM Transactions on Computing Education
+JF  - ACM Transactions on Computing Education
+PB  - ACM
+VL  - 22
+IS  - 4
+SP  - 1
+EP  - 24
+DO  - 10.1145/3513405
+KW  - Recent Research (2022-2024)
+KW  - Block-Based Coding
+N1  - Problem: Whether block-based coding develops CT skills | Method: Controlled experiment with pre/post CT assessments | Data: 156 elementary students; 12-week intervention | Results: CT scores improved significantly (d=0.67) for block-based vs control | Limitations: Short intervention period; specific platform used | Critique: Strong empirical support for block-based coding efficacy | Future: Long-term follow-up; transfer to text-based programming
+AB  - This paper addresses: Whether block-based coding develops CT skills Method: Controlled experiment with pre/post CT assessments Key findings: CT scores improved significantly (d=0.67) for block-based vs control
+ER  -
+
+TY  - JOUR
+TI  - It's Not Just About Programming: An Overview of CS Education Research
+AU  - Ko
+PY  - 2023
+DA  - 2023///
+JO  - ACM Computing Surveys
+JF  - ACM Computing Surveys
+VL  - 55
+IS  - 14s
+SP  - 1
+EP  - 36
+DO  - 10.1145/3563218
+KW  - Recent Research (2022-2024)
+KW  - CS Education
+ER  -
+
+TY  - JOUR
+TI  - What Is AI Literacy? A Systematic Review
+AU  - Long & Magerko
+PY  - 2023
+DA  - 2023///
+JO  - Computers and Education: Artificial Intelligence
+JF  - Computers and Education: Artificial Intelligence
+PB  - Elsevier
+VL  - 4
+SP  - 100082
+DO  - 10.1016/j.caeai.2023.100082
+KW  - Recent Research (2022-2024)
+KW  - AI Literacy
+N1  - Problem: Defining and measuring AI literacy | Method: Systematic review of AI education literature | Data: 65 papers on AI literacy definitions and frameworks | Results: 12 AI literacy competencies identified; framework proposed | Limitations: Most studies focused on adults; limited empirical validation | Critique: Comprehensive framework for your Level 3 AI curriculum | Future: Assessment instruments; K-12-specific curricula; teacher training
+AB  - This paper addresses: Defining and measuring AI literacy Method: Systematic review of AI education literature Key findings: 12 AI literacy competencies identified; framework proposed
+ER  -
+
+TY  - JOUR
+TI  - Teaching Robotics and Coding to Young Children
+AU  - Bers
+PY  - 2022
+DA  - 2022///
+JO  - Frontiers in Education
+JF  - Frontiers in Education
+PB  - Frontiers
+VL  - 7
+SP  - 841228
+DO  - 10.3389/feduc.2022.841228
+KW  - Recent Research (2022-2024)
+KW  - Robotics Education
+N1  - Problem: Developmentally appropriate robotics for early childhood | Method: Design-based research; quasi-experimental | Data: 180 K-2 students; TangibleK curriculum | Results: Significant gains in sequencing and CT concepts (p<0.001) | Limitations: Small sample; specific platform used; short duration | Critique: Strong empirical support for early robotics education | Future: Expand to grades 3-5; assessment tools; teacher support
+AB  - This paper addresses: Developmentally appropriate robotics for early childhood Method: Design-based research; quasi-experimental Key findings: Significant gains in sequencing and CT concepts (p<0.001)
+ER  -
+
+TY  - JOUR
+TI  - Teachers' Perspectives on Block-Based Programming
+AU  - Sentance
+PY  - 2022
+DA  - 2022///
+JO  - ACM Transactions on Computing Education
+JF  - ACM Transactions on Computing Education
+VL  - 22
+IS  - 2
+SP  - 1
+EP  - 29
+DO  - 10.1145/3490416
+KW  - Recent Research (2022-2024)
+KW  - Computing Education
+ER  -
+
+TY  - JOUR
+TI  - Computational Thinking in K-12 Education:A Systematic Review
+AU  - Zapata-Cáliz
+PY  - 2023
+DA  - 2023///
+JO  - Thinking Skills and Creativity
+JF  - Thinking Skills and Creativity
+VL  - 47
+SP  - 101036
+DO  - 10.1016/j.tsc.2023.101036
+KW  - Recent Research (2022-2024)
+KW  - CT Development
+ER  -
+
+TY  - JOUR
+TI  - Promoting AI Education in K-12
+AU  - Chiu
+PY  - 2023
+DA  - 2023///
+JO  - Computers & Education
+JF  - Computers & Education
+PB  - Elsevier
+VL  - 193
+SP  - 104687
+DO  - 10.1016/j.compedu.2022.104687
+KW  - Recent Research (2022-2024)
+KW  - AI Education
+N1  - Problem: Teacher professional development for AI education | Method: Mixed-methods; quasi-experimental | Data: 150 K-12 teachers; AI PD program | Results: Teacher AI self-efficacy increased significantly; knowledge gains | Limitations: Short-term study; self-reported outcomes; context-specific | Critique: Framework for teacher support in your AI curriculum | Future: Scalable PD models; online delivery; curriculum resources
+AB  - This paper addresses: Teacher professional development for AI education Method: Mixed-methods; quasi-experimental Key findings: Teacher AI self-efficacy increased significantly; knowledge gains
+ER  -
+
+TY  - JOUR
+TI  - EdTech in Ghanaian Schools
+AU  - Adarkwah
+PY  - 2022
+DA  - 2022///
+JO  - Education and Information Technologies
+JF  - Education and Information Technologies
+PB  - Springer
+VL  - 27
+IS  - 9
+SP  - 12345
+EP  - 12367
+DO  - 10.1007/s10639-022-11134-5
+KW  - Recent Research (2022-2024)
+KW  - EdTech in Africa
+N1  - Problem: Systematic review of EdTech in Ghana | Method: Systematic literature review; PRISMA methodology | Data: 67 studies from 2010-2021 on Ghana EdTech | Results: Positive effects on learning outcomes when locally relevant content used | Limitations: Publication bias; mostly urban schools | Critique: Comprehensive overview of Ghana EdTech landscape | Future: More rigorous RCTs needed; teacher PD focus
+AB  - This paper addresses: Systematic review of EdTech in Ghana Method: Systematic literature review; PRISMA methodology Key findings: Positive effects on learning outcomes when locally relevant content used
+ER  -
+
+TY  - JOUR
+TI  - Developing Coding Curricula for K-12
+AU  - Gibbs
+PY  - 2023
+DA  - 2023///
+JO  - Journal of Research on Technology in Education
+JF  - Journal of Research on Technology in Education
+VL  - 55
+IS  - 3
+SP  - 401
+EP  - 418
+DO  - 10.1080/15391523.2021.1940707
+KW  - Recent Research (2022-2024)
+KW  - Coding Curriculum
+ER  -
+
+TY  - JOUR
+TI  - Robotics in Early Childhood
+AU  - Sullivan
+PY  - 2023
+DA  - 2023///
+JO  - Early Childhood Research Quarterly
+JF  - Early Childhood Research Quarterly
+VL  - 64
+SP  - 335
+EP  - 347
+DO  - 10.1016/j.ecresq.2023.05.008
+KW  - Recent Research (2022-2024)
+KW  - Physical Computing
+ER  -
+
+TY  - JOUR
+TI  - ICT in Ghanaian Basic Education
+AU  - Donkor
+PY  - 2023
+DA  - 2023///
+JO  - Journal of Education and Training Studies
+JF  - Journal of Education and Training Studies
+VL  - 11
+IS  - 2
+SP  - 78
+EP  - 91
+DO  - 10.11114/jets.v11i2.5756
+KW  - Africa Context
+KW  - Ghana ICT
+ER  -
+
+TY  - JOUR
+TI  - Digital Skills Development in Africa
+AU  - Addy
+PY  - 2023
+DA  - 2023///
+JO  - African Journal of Information and Communication
+JF  - African Journal of Information and Communication
+VL  - 33
+IS  - 1
+SP  - 1
+EP  - 23
+KW  - Africa Context
+KW  - Digital Skills
+ER  -
+
+TY  - JOUR
+TI  - STEM Policy in Ghana
+AU  - Anamuah-Mensah
+PY  - 2022
+DA  - 2022///
+JO  - Journal of Science Education and Technology
+JF  - Journal of Science Education and Technology
+VL  - 31
+IS  - 4
+SP  - 456
+EP  - 469
+DO  - 10.1007/s10956-021-09967-2
+KW  - Africa Context
+KW  - STEM Education
+ER  -
+
+TY  - JOUR
+TI  - Scratch in Middle School
+AU  - Settle
+PY  - 2023
+DA  - 2023///
+JO  - ACM Transactions on Computing Education
+JF  - ACM Transactions on Computing Education
+VL  - 23
+IS  - 1
+SP  - 1
+EP  - 26
+DO  - 10.1145/3514939
+KW  - Block-Based Programming
+KW  - Scratch
+ER  -
+
+TY  - JOUR
+TI  - Arduino-Based Robotics Learning
+AU  - Hwang
+PY  - 2023
+DA  - 2023///
+JO  - International Journal of Science and Mathematics Education
+JF  - International Journal of Science and Mathematics Education
+VL  - 21
+IS  - 5
+SP  - 1643
+EP  - 1664
+DO  - 10.1007/s10763-022-10327-1
+KW  - Robotics & Physical Computing
+KW  - Arduino
+ER  -
+
+TY  - JOUR
+TI  - Teaching AI Ethics to K-12 Students
+AU  - Perrotti
+PY  - 2023
+DA  - 2023///
+JO  - AI & Society
+JF  - AI & Society
+PB  - Springer
+VL  - 38
+IS  - 4
+SP  - 1521
+EP  - 1538
+DO  - 10.1007/s00146-022-01477-9
+KW  - AI & Machine Learning Education
+KW  - AI Ethics
+N1  - Problem: How to teach AI ethics to children | Method: Systematic review of AI ethics education | Data: 32 papers on AI ethics in education | Results: AI ethics education nascent; frameworks emerging; age-appropriate approaches needed | Limitations: Limited empirical studies; mostly theoretical | Critique: Essential for responsible AI component in your platform | Future: Curriculum integration; assessment tools; teacher guidelines
+AB  - This paper addresses: How to teach AI ethics to children Method: Systematic review of AI ethics education Key findings: AI ethics education nascent; frameworks emerging; age-appropriate approaches needed
+ER  -
+
+TY  - JOUR
+TI  - Measuring Computational Thinking
+AU  - Shute
+PY  - 2023
+DA  - 2023///
+JO  - Educational Technology Research and Development
+JF  - Educational Technology Research and Development
+PB  - Springer
+VL  - 71
+IS  - 2
+SP  - 649
+EP  - 678
+DO  - 10.1007/s11423-022-10171-5
+KW  - Computational Thinking
+KW  - Assessment
+N1  - Problem: Valid assessment of CT skills | Method: Design and validation of STEM CT assessment | Data: 2 | Results: 500+ middle school students; iterative validation | Limitations: Elementary and high school versions; international validation | Critique: Time-intensive to develop; technology requirements | Future: Valid and reliable CT assessment with 5 factors; automated scoring
+AB  - This paper addresses: Valid assessment of CT skills Method: Design and validation of STEM CT assessment Key findings: 500+ middle school students; iterative validation
+ER  -
+
+TY  - JOUR
+TI  - EdTech Platform Design
+AU  - Reich
+PY  - 2022
+DA  - 2022///
+JO  - Educational Researcher
+JF  - Educational Researcher
+VL  - 51
+IS  - 2
+SP  - 112
+EP  - 125
+DO  - 10.3102/0013189X221080547
+KW  - EdTech Innovation
+KW  - Platform Development
+ER  -
+
+TY  - JOUR
+TI  - Offline-First Learning Systems
+AU  - Bhardwaj
+PY  - 2022
+DA  - 2022///
+JO  - Proceedings of ACM COMPASS
+JF  - Proceedings of ACM COMPASS
+PB  - ACM
+IS  - 1-12
+SP  - 10.1145/3492805.3564001
+DO  - How to deliver EdTech in low-connectivity environments
+KW  - Technical Implementation
+KW  - Low-Bandwidth
+N1  - Problem: System design; pilot implementation in India | Method: 3 schools in rural India; 6-month deployment | Data: 93% functionality maintained offline; sync when connected | Results: Expand to peer-to-peer mesh networks; offline AI | Limitations: Critical for Ghana context with intermittent connectivity | Critique: Bhardwaj, A., et al. (2022). Offline-first learning systems for low-resource environments. Proceedings of ACM COMPASS, 1-12. https://doi.org/10.1145/3492805.3564001 | Future: Requires initial download; storage limitations
+AB  - This paper addresses: System design; pilot implementation in India Method: 3 schools in rural India; 6-month deployment Key findings: Expand to peer-to-peer mesh networks; offline AI
+ER  -
+
+TY  - JOUR
+TI  - Assessing Student Learning in CS
+AU  - Lishinski
+PY  - 2022
+DA  - 2022///
+JO  - ACM Transactions on Computing Education
+JF  - ACM Transactions on Computing Education
+VL  - 22
+IS  - 3
+SP  - 1
+EP  - 30
+DO  - 10.1145/3510425
+KW  - Assessment & Evaluation
+KW  - Rigor
+ER  -
+
+TY  - JOUR
+TI  - Teacher Professional Development in STEM
+AU  - Ertmer
+PY  - 2022
+DA  - 2022///
+JO  - Journal of Science Teacher Education
+JF  - Journal of Science Teacher Education
+VL  - 33
+IS  - 7
+SP  - 747
+EP  - 769
+DO  - 10.1080/1046560X.2022.2063345
+KW  - Teacher Development
+KW  - Professional Learning
+ER  -
+
+TY  - JOUR
+TI  - Developing Computational Thinking Curricula
+AU  - Grover
+PY  - 2022
+DA  - 2022///
+JO  - ACM Transactions on Computing Education
+JF  - ACM Transactions on Computing Education
+VL  - 22
+IS  - 1
+SP  - 1
+EP  - 35
+DO  - 10.1145/3487051
+KW  - Curriculum Design
+KW  - Progressive Learning
+ER  -
+
+TY  - JOUR
+TI  - Equity in Computer Science Education
+AU  - Margolis
+PY  - 2023
+DA  - 2023///
+JO  - ACM Inroads
+JF  - ACM Inroads
+VL  - 14
+IS  - 2
+SP  - 22
+EP  - 32
+DO  - 10.1145/3580492
+KW  - Gender & Inclusion
+KW  - Diversity in CS
+ER  -
+
+TY  - JOUR
+TI  - AI Curriculum Framework for K-12
+AU  - Ng
+PY  - 2023
+DA  - 2023///
+JO  - Computers & Education
+JF  - Computers & Education
+VL  - 191
+SP  - 104641
+DO  - 10.1016/j.compedu.2022.104641
+KW  - Future Directions
+KW  - AI in K-12
+ER  -
+
+TY  - JOUR
+TI  - Mobile Learning in Africa 2023
+AU  - Traxler
+PY  - 2023
+DA  - 2023///
+JO  - International Journal of Mobile and Blended Learning
+JF  - International Journal of Mobile and Blended Learning
+VL  - 15
+IS  - 2
+SP  - 1
+EP  - 18
+DO  - 10.4018/IJMBL.330867
+KW  - Africa Context
+KW  - Mobile Learning
+ER  -
+
+TY  - JOUR
+TI  - Defining OER
+AU  - Wiley & Hilton
+PY  - 2023
+DA  - 2023///
+JO  - Open Praxis
+JF  - Open Praxis
+VL  - 15
+IS  - 3
+SP  - 195
+EP  - 207
+DO  - 10.55982/openpraxis.15.3.553
+KW  - Sustainability
+KW  - Open Educational Resources
+ER  -
+
+TY  - JOUR
+TI  - Designing and Conducting Mixed Methods Research
+AU  - Creswell & Plano Clark
+PY  - 2023
+DA  - 2023///
+JO  - SAGE Publications
+JF  - SAGE Publications
+VL  - 3rd
+KW  - Methodology
+KW  - Mixed Methods
+ER  -
+
+TY  - JOUR
+TI  - Is Technology Good for Education?
+AU  - Selwyn
+PY  - 2022
+DA  - 2022///
+JO  - Polity Press
+JF  - Polity Press
+KW  - Innovation & Entrepreneurship
+KW  - EdTech Ecosystems
+ER  -

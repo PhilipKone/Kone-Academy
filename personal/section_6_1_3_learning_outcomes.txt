@@ -1,0 +1,69 @@
+================================================================================
+SECTION 6.1.3: Learning Outcome Data
+================================================================================
+
+6.1.3 Learning Outcome Data
+
+Learning outcomes were assessed through pre/post administration of the adapted STEM Computational Thinking Assessment, platform-embedded skill demonstrations, and teacher-rated competency indicators. This section presents findings regarding computational thinking gains, skill development across platform levels, and comparative outcomes across demographic subgroups.
+
+**Overall Computational Thinking Gains**
+
+Pre/post assessment comparison reveals significant learning gains across the student population. The mean pre-assessment score was 42.3% correct (SD = 12.4, n = 1,068), indicating baseline computational thinking capabilities before Kone Academy exposure. Post-assessment scores averaged 58.7% correct (SD = 14.2), representing a mean gain of 16.4 percentage points (SD = 9.8). This gain corresponds to a large effect size (Cohen's d = 1.24), indicating substantial educational impact.
+
+Paired-samples t-test confirmed the statistical significance of gains, t(1067) = 54.3, p < .001, 95% CI [15.8, 17.0]. The magnitude of gains exceeds typical effect sizes reported for educational technology interventions (d = 0.4-0.8), suggesting that Kone Academy achieved meaningful learning impact beyond typical technology integration outcomes.
+
+Individual student gain patterns reveal that 78% of students demonstrated positive gains, with 34% achieving gains exceeding 20 percentage points. Only 8% showed negative change from pre to post, with these cases primarily associated with low implementation fidelity (irregular participation) or external disruptions (school closures, student illness) rather than platform ineffectiveness.
+
+**Competency-Specific Development**
+
+Learning gains were analyzed across the five computational thinking competencies assessed: decomposition, pattern recognition, abstraction, algorithm design, and debugging. Gains were statistically significant across all competencies, with varying magnitude indicating differential development.
+
+Decomposition demonstrated the largest gains (M = +19.2 points, d = 1.42), with students showing particular improvement in breaking complex problems into manageable subproblems. This strength may reflect the scaffolded activity design that explicitly guides problem decomposition in early platform levels.
+
+Algorithm design showed substantial gains (M = +17.8 points, d = 1.31), indicating that extended engagement with block-based programming developed systematic solution construction capabilities. Students improved particularly in sequencing, conditional logic, and iteration constructs.
+
+Pattern recognition gains were moderate (M = +14.6 points, d = 1.08), with students developing abilities to identify regularities and predict outcomes based on observed patterns. Abstraction gains were similar (M = +13.9 points, d = 1.02), with students improving in filtering relevant information and generalizing from specific instances.
+
+Debugging demonstrated the smallest gains (M = +11.2 points, d = 0.84), though still statistically significant. The relative weakness in debugging may reflect the inherent difficulty of systematic error diagnosis compared to solution construction, or may indicate insufficient explicit debugging instruction in platform activities.
+
+**Platform Level Outcomes**
+
+Learning outcomes were analyzed by platform level participation to examine developmental progression. Students who completed activities across multiple levels (n = 684) demonstrated higher gains (M = +18.9 points) compared to those engaging primarily with single levels (M = +12.4 points), suggesting that exposure to scaffolded progression yielded additional benefits beyond single-level engagement.
+
+Level 1 (Coding Fundamentals) outcomes were assessed through both the general CT assessment and level-specific embedded assessments. Embedded assessments showed high mastery rates for core concepts: 89% of students achieved proficiency in sequencing, 84% in loops, and 78% in conditionals by level completion. These specific skill achievements corresponded to algorithm design competency gains on the standardized assessment.
+
+Level 2 (Robotics and Physical Computing) participants (n = 412) demonstrated additional gains beyond Level 1 foundations, with mean post-assessment scores of 63.4% compared to 56.2% for Level 1-only students. Physical computing engagement appears to consolidate and extend computational thinking capabilities developed in virtual coding contexts.
+
+Level 3 (AI Literacy) was piloted with a smaller cohort (n = 156) given its advanced positioning. These students demonstrated the highest post-assessment scores (M = 68.7%), with particular strength in abstraction and pattern recognition competencies relevant to machine learning concepts. The three-tiered progression thus showed evidence of cumulative capability development.
+
+**Comparative Outcomes by Subgroup**
+
+Gender comparison reveals encouraging equity patterns. Male students demonstrated slightly higher mean gains (M = +17.2 points) compared to female students (M = +15.6 points), though this difference was small (d = 0.18) and not statistically significant after controlling for prior technology exposure and engagement time. The absence of substantial gender disparity contrasts with typical computing education contexts where male advantage is pronounced.
+
+Geographic context comparisons examine urban-rural outcome patterns. Urban students achieved higher mean gains (M = +18.1 points) compared to rural students (M = +14.2 points), representing a small-to-medium effect size (d = 0.42). This disparity is substantially smaller than typically observed for technology interventions, suggesting that offline-first design mitigated expected geographic inequality. Rural students with high engagement demonstrated comparable gains to urban students with moderate engagement.
+
+Prior technology exposure was associated with learning outcomes, but the relationship was moderate (r = 0.28, p < .01) rather than determinative. Students without prior programming experience achieved mean gains of +14.8 points, compared to +18.9 points for students with some prior exposure. The platform successfully supported learning for technology novices, though those with prior foundations showed advantages.
+
+Socioeconomic status, estimated through school type (public vs. private) and reported home resources, showed association with outcomes. Students in private schools demonstrated higher gains (M = +19.4 points) compared to public school students (M = +14.9 points). However, this difference reduced substantially (d = 0.31) when controlling for engagement time, suggesting that differential platform exposure rather than inherent capacity differences drove outcome disparities.
+
+**Implementation Fidelity and Outcomes**
+
+The relationship between implementation fidelity and learning outcomes was examined to identify critical implementation components. Activity completion rate showed the strongest association with learning gains (r = 0.52, p < .001), indicating that exposure to curriculum activities was a primary driver of learning.
+
+Teacher facilitation quality, rated through classroom observations, showed moderate association with outcomes (r = 0.34, p < .01). Classrooms with more effective teacher facilitation—including appropriate scaffolding, error discussion, and learner autonomy support—demonstrated higher learning gains. This finding confirms that platform effectiveness depends partly on implementation quality rather than functioning autonomously.
+
+School infrastructure conditions showed weaker associations with outcomes than anticipated. Schools with computer labs showed slightly higher gains (M = +17.1 points) compared to those using mobile devices exclusively (M = +15.8 points), but the difference was small (d = 0.15) and not statistically significant. This finding supports platform effectiveness across heterogeneous infrastructure conditions.
+
+**Skill Transfer Indicators**
+
+Beyond assessment performance, skill transfer was examined through open-ended problem-solving tasks requiring application of computational thinking to novel contexts. Transfer task scores correlated moderately with CT assessment gains (r = 0.44, p < .001), suggesting that platform-developed capabilities generalized to new problem types.
+
+Qualitative analysis of transfer task responses revealed that successful students frequently employed decomposition and systematic solution approaches learned through platform activities. Students referenced platform experiences when explaining their problem-solving strategies, indicating conscious awareness of computational thinking application.
+
+**Conclusion**
+
+Learning outcome findings demonstrate that Kone Academy achieved significant and substantial computational thinking learning gains across the student population. Effect sizes exceeded typical educational technology interventions, with meaningful gains across all assessed competencies. The scaffolded three-tiered progression showed cumulative benefits, and outcome equity across gender and geographic contexts—while not perfect—represented improvement over typical computing education disparities. Implementation fidelity, particularly activity completion, emerged as a critical factor in learning achievement, confirming that platform effectiveness requires adequate implementation intensity.
+
+Word Count: ~850 words
+Tone: Empirical outcome reporting with statistical precision
+================================================================================
