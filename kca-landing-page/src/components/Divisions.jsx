@@ -48,12 +48,12 @@ const Divisions = () => {
       </div>
 
       <div className="divisions-grid">
-        {divisions.map((div) => (
+        {divisions.map((div, index) => (
           <div key={div.id} className="division-card glass-panel">
             <div className="card-header">
               <div className="card-icon">{div.icon}</div>
               <div className="card-status">
-                <span className="status-dot"></span>
+                <span className="status-dot" style={{ animationDelay: `${index * 0.4}s` }}></span>
                 {div.status}
               </div>
             </div>

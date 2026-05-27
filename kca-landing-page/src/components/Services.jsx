@@ -1,11 +1,14 @@
 import React from 'react';
 import './Services.css';
 
+import { FaGraduationCap, FaChartBar, FaBookOpen, FaPython, FaMicrochip, FaCube, FaRobot } from 'react-icons/fa';
+import { SiCplusplus, SiR } from 'react-icons/si';
+
 const ServiceCard = ({ item }) => {
   return (
     <div className="service-item glass-panel">
       <div className="service-content">
-        <span className="service-icon">{item.icon}</span>
+        <span className="service-icon" style={{ color: 'var(--accent-primary)', fontSize: '2rem' }}>{item.icon}</span>
         <h4 className="service-title">{item.title}</h4>
         <p className="service-desc">{item.desc}</p>
         <div style={{ marginTop: 'auto', paddingTop: '1rem' }}>
@@ -35,25 +38,25 @@ const Services = () => {
     {
       category: 'Research',
       items: [
-        { title: 'Thesis Guidance', desc: 'End-to-end support for academic writing.', icon: '🎓' },
-        { title: 'Data Analysis', desc: 'Processing complex datasets with Python/R.', icon: '📊' },
-        { title: 'Publication', desc: 'Assistance with journal submissions.', icon: '✍️' }
+        { title: 'Thesis Guidance', desc: 'End-to-end support for academic writing.', icon: <FaGraduationCap /> },
+        { title: 'Data Analysis', desc: 'Processing complex datasets with Python/R.', icon: <FaChartBar /> },
+        { title: 'Publication', desc: 'Assistance with journal submissions.', icon: <FaBookOpen /> }
       ]
     },
     {
       category: 'Coding',
       items: [
-        { title: 'Python Masterclass', desc: 'From syntax to advanced algorithms.', icon: '🐍' },
-        { title: 'C / C++ School', desc: 'System programming and memory management.', icon: '💻' },
-        { title: 'R & MATLAB', desc: 'Statistical computing and data visualization.', icon: '📊' }
+        { title: 'Python Masterclass', desc: 'From syntax to advanced algorithms.', icon: <FaPython /> },
+        { title: 'C / C++ School', desc: 'System programming and memory management.', icon: <SiCplusplus /> },
+        { title: 'R & MATLAB', desc: 'Statistical computing and data visualization.', icon: <SiR /> }
       ]
     },
     {
       category: 'Engineering',
       items: [
-        { title: 'IoT Systems', desc: 'Arduino & ESP32 prototyping.', icon: '📡' },
-        { title: '3D Simulation', desc: 'CAD modeling for manufacturing.', icon: '🧊' },
-        { title: 'Robotics', desc: 'Control systems and automation.', icon: '🤖' }
+        { title: 'IoT Systems', desc: 'Arduino & ESP32 prototyping.', icon: <FaMicrochip /> },
+        { title: '3D Simulation', desc: 'CAD modeling for manufacturing.', icon: <FaCube /> },
+        { title: 'Robotics', desc: 'Control systems and automation.', icon: <FaRobot /> }
       ]
     }
   ];

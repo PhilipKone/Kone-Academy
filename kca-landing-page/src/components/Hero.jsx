@@ -17,7 +17,7 @@ const Hero = () => {
     <section className="hero" id="home">
       <div className="hero-container">
         <div className="hero-content">
-          <div className="badge">v1.1 Now Available</div>
+          <div className="badge">v1.2 Now Available</div>
           <h1 className="hero-title">
             Research. Coding.<br />
             <span className="text-gradient">Engineering.</span>

@@ -29,6 +29,7 @@
   height: 18px;
   color: var(--text-secondary);
   transition: transform 0.3s ease, color 0.2s;
+  transform-origin: center;
 }
 
 .theme-selector-trigger:hover .palette-icon,

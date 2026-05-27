@@ -39,7 +39,7 @@ Research, code, and engineer the future the right way.`,
 Engineered with precision by the Kone Academy developer collective.
 Thank you for exploring our ecosystem! 🚀`,
 
-  neofetch: `      .::::::::.     OS: KCA-OS v1.1.0
+  neofetch: `      .::::::::.     OS: KCA-OS v1.2.0
     .::'      '::.   Host: Kone Academy Collective
    .::          ::.  Ecosystem: Active / Online
    ::.   K C A  .::  Kernel: React 18 / Vite 5
@@ -48,7 +48,7 @@ Thank you for exploring our ecosystem! 🚀`,
 };
 
 const INITIAL_LINES = [
-  'Kone Academy [Version 1.1.0]',
+  'Kone Academy [Version 1.2.0]',
   'Initializing KCA-OS core services...',
   '✓ Research Engine (Kone Consult) loaded.',
   '✓ Coding Engine (Kone Code) active.',
