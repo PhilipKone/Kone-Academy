@@ -105,18 +105,14 @@ pre {
 
 .text-gradient {
     /* Solid color fallback for browsers that fail to clip background-to-text correctly */
-    color: var(--accent-primary);
-    background: linear-gradient(90deg, var(--accent-primary), var(--accent-secondary));
+    color: transparent;
+    background-image: linear-gradient(90deg, var(--accent-primary), var(--accent-secondary));
+    background-size: 100%;
     -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+    -moz-background-clip: text;
     background-clip: text;
-    /* Extra padding & negative margin to prevent glyph clipping in Edge */
-    padding-left: 0.2em;
-    margin-left: -0.2em;
-    padding-right: 0.2em;
-    margin-right: -0.2em;
+    -webkit-text-fill-color: transparent;
     display: inline-block;
-    vertical-align: bottom;
 }
 
 .d-flex {
