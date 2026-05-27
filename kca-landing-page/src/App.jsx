@@ -7,17 +7,24 @@ import Divisions from './components/Divisions';
 import Services from './components/Services';
 import CTA from './components/CTA';
 import Careers from './components/Careers';
+import FAQ from './components/FAQ';
 import Footer from './components/Footer';
 import InstallBanner from './components/InstallBanner';
 
 import LoadingScreen from './components/LoadingScreen';
 import InteractiveGrid from './components/InteractiveGrid';
 
+import { applyTheme } from './components/ThemeSelector';
+
 function App() {
   const [isInitializing, setIsInitializing] = React.useState(true);
   
   React.useEffect(() => {
     document.documentElement.setAttribute('data-theme', 'dark');
+    const savedTheme = localStorage.getItem('kca-neon-theme');
+    if (savedTheme) {
+      applyTheme(savedTheme);
+    }
   }, []);
 
   return (
@@ -32,6 +39,7 @@ function App() {
           <Divisions />
           <Services />
           <Careers />
+          <FAQ />
           <CTA />
           <Footer />
           <InstallBanner />

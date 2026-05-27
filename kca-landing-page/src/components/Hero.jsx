@@ -1,9 +1,18 @@
 import React from 'react';
-import TypingAnimation from './TypingAnimation';
+import InteractiveTerminal from './InteractiveTerminal';
 import HeroMoon from './HeroMoon';
 import './Hero.css';
 
 const Hero = () => {
+  const isPrerender = typeof window !== 'undefined' && (
+    window.navigator.userAgent === 'ReactSnap' ||
+    window.__PRERENDER_INJECTED
+  );
+
+  const docsUrl = (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') && !isPrerender
+    ? 'http://localhost:3001/docs?category=general'
+    : 'https://consult.koneacademy.io/docs?category=general';
+
   return (
     <section className="hero" id="home">
       <div className="hero-container">
@@ -19,30 +28,14 @@ const Hero = () => {
           </p>
           <div className="hero-actions">
             <a href="https://docs.google.com/forms/d/e/1FAIpQLSeXOBgnnnquQmQHHU1Kbyw9iYfK7gJ6Kyj5T5OctIcyy4fXSA/viewform?usp=header" target="_blank" rel="noreferrer" className="btn-primary big" style={{ textDecoration: 'none', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>Start Learning</a>
-            <a href={(window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1' ? 'http://localhost:3001' : 'https://consult.koneacademy.io') + "/docs?category=general"} target="_blank" rel="noreferrer" className="btn-secondary big" style={{ textDecoration: 'none', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+            <a href={docsUrl} target="_blank" rel="noreferrer" className="btn-secondary big" style={{ textDecoration: 'none', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
               View Documentation
             </a>
           </div>
         </div>
 
         <div className="hero-visual">
-          <div className="terminal-window glass-panel">
-            <div className="terminal-header">
-              <div className="dot red"></div>
-              <div className="dot yellow"></div>
-              <div className="dot green"></div>
-              <div className="terminal-title">bash — ka-cli</div>
-            </div>
-            <div className="terminal-body">
-              <div className="command-line">
-                <span className="prompt">user@ka:~$</span>
-                <span className="command"> init learning-path</span>
-              </div>
-              <div className="output">
-                <TypingAnimation />
-              </div>
-            </div>
-          </div>
+          <InteractiveTerminal />
         </div>
       </div>
 

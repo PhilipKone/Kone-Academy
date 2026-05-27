@@ -1,7 +1,7 @@
 .careers-section {
     padding: 100px 0;
     position: relative;
-    background: radial-gradient(circle at 50% 50%, rgba(188, 0, 255, 0.05) 0%, transparent 70%);
+    background: transparent;
 }
 
 .careers-grid {
@@ -25,8 +25,8 @@
 }
 
 .career-card.highlight {
-    border: 1px solid rgba(188, 0, 255, 0.2);
-    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3), 0 0 20px rgba(188, 0, 255, 0.1);
+    border: 1px solid var(--accent-primary);
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3), var(--shadow-glow);
 }
 
 .card-badge {
@@ -37,10 +37,11 @@
     font-weight: 800;
     letter-spacing: 0.1em;
     padding: 0.4rem 0.8rem;
-    background: rgba(188, 0, 255, 0.1);
-    color: var(--primary);
+    background: transparent;
+    color: var(--accent-primary);
     border-radius: 50px;
-    border: 1px solid rgba(188, 0, 255, 0.2);
+    border: 1px solid var(--accent-primary);
+    box-shadow: var(--shadow-glow);
 }
 
 .role-header {
@@ -53,7 +54,7 @@
 .role-icon {
     width: 60px;
     height: 60px;
-    background: linear-gradient(135deg, var(--primary), var(--secondary));
+    background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary));
     border-radius: 16px;
     display: flex;
     align-items: center;
@@ -97,7 +98,7 @@
 }
 
 .text-link {
-    color: var(--primary);
+    color: var(--accent-primary);
     text-decoration: none;
     font-weight: 600;
     transition: all 0.3s ease;
@@ -133,7 +134,7 @@
 
 .role-footer .btn-primary:hover {
     transform: translateY(-2px);
-    box-shadow: 0 5px 15px rgba(188, 0, 255, 0.3);
+    box-shadow: var(--shadow-glow);
 }
 
 @media (max-width: 576px) {

@@ -3,9 +3,19 @@ import './AppLauncher.css';
 
 /* ── App Data ─────────────────────────────────────────── */
 
+const isPrerender = typeof window !== 'undefined' && (
+  window.navigator.userAgent === 'ReactSnap' ||
+  window.__PRERENDER_INJECTED
+);
+
+const isLocal = typeof window !== 'undefined' && 
+  (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') && 
+  !isPrerender;
+
 const apps = [
   {
     name: 'Kone Consult',
+    description: 'Mentorship & research',
     logo: '/app-consult.svg',
     color: 'consult',
     glow: 'rgba(37, 99, 235, 0.12)',
@@ -13,6 +23,7 @@ const apps = [
   },
   {
     name: 'Kone Code',
+    description: 'Software development',
     logo: '/app-code.svg',
     color: 'code',
     glow: 'rgba(34, 197, 94, 0.12)',
@@ -20,6 +31,7 @@ const apps = [
   },
   {
     name: 'Kone Lab',
+    description: 'Hardware & embedded',
     logo: '/app-lab.svg',
     color: 'lab',
     glow: 'rgba(168, 85, 247, 0.12)',
@@ -27,6 +39,7 @@ const apps = [
   },
   {
     name: 'Kone Digital',
+    description: 'Cloud infrastructure',
     logo: '/app-digital.svg',
     color: 'digital',
     glow: 'rgba(0, 255, 255, 0.12)',
@@ -34,15 +47,17 @@ const apps = [
   },
   {
     name: 'Anim Studio',
+    description: '3D animation tools',
     logo: '/app-studio.svg',
     color: 'studio',
     glow: 'rgba(239, 68, 68, 0.12)',
-    url: window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1' 
+    url: isLocal 
          ? 'http://localhost:5175/#/anim-studio' 
          : 'https://lab.koneacademy.io/#/anim-studio',
   },
   {
     name: 'Kone Kids',
+    description: 'Early tech education',
     logo: '/app-kids.svg',
     color: 'kids',
     glow: 'rgba(245, 158, 11, 0.12)',
@@ -50,6 +65,7 @@ const apps = [
   },
   {
     name: 'Kone Shop',
+    description: 'Hardware store',
     logo: '/app-shop.svg',
     color: 'shop',
     glow: 'rgba(236, 72, 153, 0.12)',
@@ -57,6 +73,7 @@ const apps = [
   },
   {
     name: 'Kone Pay',
+    description: 'Secure transactions',
     logo: '/app-pay.svg',
     color: 'pay',
     glow: 'rgba(255, 215, 0, 0.12)',
@@ -113,14 +130,14 @@ const AppLauncher = () => {
       <div className={`app-launcher-dropdown ${isOpen ? 'open' : ''}`}>
         <div className="app-launcher-dropdown-header">Kone Ecosystem</div>
         <div className="app-grid">
-          {apps.map((app) => (
+          {apps.map((app, index) => (
             <a
               key={app.name}
               className="app-grid-item"
               href={app.url}
               target="_blank"
               rel="noopener noreferrer"
-              style={{ '--item-glow': app.glow }}
+              style={{ '--item-glow': app.glow, '--anim-delay': `${index * 0.08}s` }}
               onClick={() => setIsOpen(false)}
             >
               <div className={`app-icon app-icon--${app.color}`}>
@@ -130,7 +147,10 @@ const AppLauncher = () => {
                   className="app-icon-img"
                 />
               </div>
-              <span className="app-label">{app.name}</span>
+              <div className="app-text-content">
+                <span className="app-label">{app.name}</span>
+                {app.description && <span className="app-description">{app.description}</span>}
+              </div>
             </a>
           ))}
         </div>

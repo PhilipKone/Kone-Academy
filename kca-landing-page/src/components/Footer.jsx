@@ -1,15 +1,41 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import './Footer.css';
 import { FaGithub, FaDiscord, FaLinkedin, FaFacebook, FaInstagram, FaSlack, FaYoutube, FaTiktok } from 'react-icons/fa';
 import { FaXTwitter } from 'react-icons/fa6';
 
 const Footer = () => {
+  const [activeTheme, setActiveTheme] = useState('blue');
+
+  useEffect(() => {
+    const savedTheme = localStorage.getItem('kca-neon-theme') || 'blue';
+    setActiveTheme(savedTheme);
+
+    const handleThemeChange = (e) => {
+      setActiveTheme(e.detail);
+    };
+
+    window.addEventListener('themeChanged', handleThemeChange);
+    return () => {
+      window.removeEventListener('themeChanged', handleThemeChange);
+    };
+  }, []);
+
+  const themeLogoMap = {
+    blue: '/logo-circle-blue.svg',
+    green: '/logo-circle-green.svg',
+    pink: '/logo-circle-pink.svg',
+    orange: '/logo-circle-orange.svg',
+    purple: '/logo-circle-purple.svg',
+  };
+
+  const currentLogo = themeLogoMap[activeTheme] || '/logo-circle-blue.svg';
+
   return (
     <footer className="footer">
       <div className="footer-container">
         <div className="footer-brand">
           <div className="logo">
-            <img src="/logo-circle-blue.svg" alt="KCA Logo" className="logo-icon" />
+            <img src={currentLogo} alt="KCA Logo" className="logo-icon" style={{ width: '40px', height: '40px' }} />
             <span className="logo-text">Kone Academy</span>
           </div>
           <p className="footer-tagline">Research. Coding. Engineering.</p>

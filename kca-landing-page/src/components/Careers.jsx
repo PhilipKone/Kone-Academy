@@ -6,10 +6,10 @@ const Careers = () => {
   return (
     <section className="careers-section" id="careers">
       <div className="container">
-        <div className="section-header text-center mb-5">
-          <span className="badge-premium mb-3">CAREERS & INTERNSHIPS</span>
-          <h2 className="display-5 fw-bold text-white">Join the <span className="text-gradient">Collective</span></h2>
-          <p className="lead text-secondary mx-auto" style={{ maxWidth: '600px' }}>
+        <div className="section-header">
+          <span className="badge-premium mb-3" style={{ display: 'inline-block', marginBottom: '1rem' }}>CAREERS & INTERNSHIPS</span>
+          <h2 className="section-title">Join the <span className="text-gradient">Collective</span></h2>
+          <p className="section-subtitle">
             We don't just teach technology; we build it. Help us shape the future of engineering education.
           </p>
         </div>
@@ -36,11 +36,11 @@ const Careers = () => {
 
             <div className="role-features">
               <div className="feature">
-                <FiTarget className="text-primary" />
+                <FiTarget style={{ color: 'var(--accent-primary)' }} />
                 <span>Edge-case discovery & QA</span>
               </div>
               <div className="feature">
-                <FiActivity className="text-primary" />
+                <FiActivity style={{ color: 'var(--accent-primary)' }} />
                 <span>Performance Benchmarking</span>
               </div>
             </div>

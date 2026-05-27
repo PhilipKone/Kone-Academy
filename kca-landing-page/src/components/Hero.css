@@ -30,6 +30,21 @@
 }
 
 /* Left Content */
+@keyframes badgePulse {
+    0% {
+        box-shadow: 0 0 0px transparent;
+        border-color: rgba(88, 166, 255, 0.2);
+    }
+    50% {
+        box-shadow: var(--shadow-glow);
+        border-color: var(--accent-primary);
+    }
+    100% {
+        box-shadow: 0 0 0px transparent;
+        border-color: rgba(88, 166, 255, 0.2);
+    }
+}
+
 .badge {
     display: inline-block;
     padding: 0.25rem 0.75rem;
@@ -41,6 +56,7 @@
     font-weight: 600;
     margin-bottom: 1.5rem;
     font-family: var(--font-heading);
+    animation: badgePulse 3s infinite ease-in-out;
 }
 
 .hero-title {

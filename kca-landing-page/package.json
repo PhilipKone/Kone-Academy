@@ -25,7 +25,8 @@
                     "postbuild":  "react-snap",
                     "preview":  "vite preview",
                     "predeploy":  "npm run build",
-                    "deploy":  "gh-pages -d dist --dotfiles"
+                    "deploy":  "gh-pages -d dist --dotfiles",
+                    "postinstall":  "node patch-react-snap.cjs"
                 },
     "reactSnap":  {
                       "source":  "dist",

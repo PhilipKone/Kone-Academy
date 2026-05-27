@@ -2,7 +2,11 @@ import React from 'react';
 import './Divisions.css';
 
 const Divisions = () => {
-  const isLocal = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1';
+  const isPrerender = typeof window !== 'undefined' && (
+    window.navigator.userAgent === 'ReactSnap' ||
+    window.__PRERENDER_INJECTED
+  );
+  const isLocal = (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') && !isPrerender;
   const divisions = [
     {
       id: 'research',
