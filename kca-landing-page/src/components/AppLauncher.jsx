@@ -79,6 +79,16 @@ const apps = [
     glow: 'rgba(255, 215, 0, 0.12)',
     url: 'https://consult.koneacademy.io/pay',
   },
+  {
+    name: 'Kone Farms',
+    description: 'Smart agritech portal',
+    logo: '/app-farms.svg',
+    color: 'farms',
+    glow: 'rgba(16, 185, 129, 0.12)',
+    url: isLocal 
+         ? '/?page=farms' 
+         : 'https://farms.koneacademy.io',
+  },
 ];
 
 /* ── Component ────────────────────────────────────────── */
