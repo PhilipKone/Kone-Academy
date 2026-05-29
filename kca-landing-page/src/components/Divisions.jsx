@@ -37,6 +37,16 @@ const Divisions = () => {
       features: ['Arduino', '3D Simulation', 'Circuit Design'],
       status: 'Lab Access',
       link: isLocal ? 'http://localhost:5175/' : 'https://lab.koneacademy.io/'
+    },
+    {
+      id: 'farms',
+      title: 'Agritech & Food',
+      subtitle: 'Kone Farm',
+      icon: '🌾',
+      description: 'Tech-driven sustainable agriculture, IoT farming, and premium food products.',
+      features: ['Smart Farming', 'Non-GMO Foods', 'Kone Shito'],
+      status: 'Launch View',
+      link: '?page=farms'
     }
   ];
 
@@ -71,7 +81,12 @@ const Divisions = () => {
             </div>
 
             <div className="card-footer">
-              <a href={div.link} className="btn-link" target={div.link !== '#' ? "_blank" : "_self"} rel="noopener noreferrer">
+              <a 
+                href={div.link} 
+                className="btn-link" 
+                target={div.link.startsWith('?') ? "_self" : "_blank"} 
+                rel="noopener noreferrer"
+              >
                 Access Module &rarr;
               </a>
             </div>

@@ -13,11 +13,13 @@ import InstallBanner from './components/InstallBanner';
 
 import LoadingScreen from './components/LoadingScreen';
 import InteractiveGrid from './components/InteractiveGrid';
+import KoneFarms from './components/KoneFarms';
 
 import { applyTheme } from './components/ThemeSelector';
 
 function App() {
   const [isInitializing, setIsInitializing] = React.useState(true);
+  const [currentPage, setCurrentPage] = React.useState('home');
   
   React.useEffect(() => {
     document.documentElement.setAttribute('data-theme', 'dark');
@@ -25,25 +27,44 @@ function App() {
     if (savedTheme) {
       applyTheme(savedTheme);
     }
+
+    // Check url search params on load
+    const params = new URLSearchParams(window.location.search);
+    if (params.get('page') === 'farms') {
+      setCurrentPage('farms');
+    }
   }, []);
+
+  const handleBackToHome = () => {
+    window.history.pushState({}, '', '/');
+    setCurrentPage('home');
+  };
 
   return (
     <>
-      <LoadingScreen onFinished={() => setIsInitializing(false)} />
-      {!isInitializing && (
-        <div className="App animate-fade-in">
-          <InteractiveGrid />
-          <Header />
-          <Hero />
-          <Vision />
-          <Divisions />
-          <Services />
-          <Careers />
-          <FAQ />
-          <CTA />
-          <Footer />
-          <InstallBanner />
-        </div>
+      {currentPage === 'farms' ? (
+        <KoneFarms onBack={handleBackToHome} />
+      ) : (
+        <>
+          <LoadingScreen onFinished={() => setIsInitializing(false)} />
+          {!isInitializing && (
+            <div className="App animate-fade-in">
+              <InteractiveGrid />
+              <Header />
+              <main id="main-content">
+                <Hero />
+                <Vision />
+                <Divisions />
+                <Services />
+                <Careers />
+                <FAQ />
+                <CTA />
+              </main>
+              <Footer />
+              <InstallBanner />
+            </div>
+          )}
+        </>
       )}
     </>
   );
