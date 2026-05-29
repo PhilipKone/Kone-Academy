@@ -1,6 +1,5 @@
 import React from 'react';
 import InteractiveTerminal from './InteractiveTerminal';
-import HeroMoon from './HeroMoon';
 import './Hero.css';
 
 const Hero = () => {

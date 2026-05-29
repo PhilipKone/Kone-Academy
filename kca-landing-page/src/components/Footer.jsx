@@ -43,14 +43,14 @@ const Footer = () => {
 
         <div className="footer-links">
           <div className="link-group">
-            <h4>Platform</h4>
+            <h3>Platform</h3>
             <a href="#vision">Vision</a>
             <a href="#divisions">Divisions</a>
             <a href="#services">Services</a>
             <a href="#careers">Careers</a>
           </div>
           <div className="link-group">
-            <h4>Community</h4>
+            <h3>Community</h3>
             <div className="social-icons">
               <a href="https://x.com/koneacademy" aria-label="X"><FaXTwitter /></a>
               <a href="https://www.tiktok.com/@koneacademy?_r=1&_t=ZM-931L3z5lu71" aria-label="TikTok"><FaTiktok /></a>

@@ -59,7 +59,7 @@ const Careers = () => {
 
           {/* Coming Soon / General Interest */}
           <div className="career-card glass-panel-premium secondary">
-            <h4 className="text-white mb-3">Future Opportunities</h4>
+            <h3 className="text-white mb-3" style={{ fontSize: '1.25rem', fontFamily: 'var(--font-heading)', fontWeight: 700 }}>Future Opportunities</h3>
             <p className="text-secondary small">
               We are constantly expanding our divisions (Lab, Consult, Shop). If you are a specialist in robotics, physical engineering, or AI architecture, we want to hear from you.
             </p>

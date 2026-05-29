@@ -163,6 +163,7 @@ const InteractiveTerminal = () => {
               value={inputValue}
               onChange={(e) => setInputValue(e.target.value)}
               onKeyDown={handleKeyDown}
+              aria-label="Terminal prompt input"
               autoFocus
               autoComplete="off"
               autoCorrect="off"

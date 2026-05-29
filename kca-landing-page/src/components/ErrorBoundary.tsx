@@ -1,6 +1,4 @@
 import React, { Component, ErrorInfo, ReactNode } from 'react';
-import { collection, addDoc, serverTimestamp } from 'firebase/firestore';
-import { db } from '../firebase/config';
 
 interface Props {
   children?: ReactNode;
@@ -29,6 +27,9 @@ class ErrorBoundary extends Component<Props, State> {
     
     // Log the error to Firestore
     try {
+      const { collection, addDoc, serverTimestamp } = await import('firebase/firestore');
+      const { db } = await import('../firebase/config');
+
       await addDoc(collection(db, 'client_errors'), {
         appName: this.props.appName || 'Kone-Consult',
         errorMessage: error.message,
