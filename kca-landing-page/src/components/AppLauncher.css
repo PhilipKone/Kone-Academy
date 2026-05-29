@@ -238,7 +238,7 @@
 .app-icon--shop     { background: linear-gradient(135deg, #4a1a30, #ec4899); }
 .app-icon--pay      { background: linear-gradient(135deg, #4a3a1a, #FFD700); }
 .app-icon--academy  { background: linear-gradient(135deg, #1a3040, #58a6ff); }
-.app-icon--farms    { background: transparent !important; }
+.app-icon--farms    { background: linear-gradient(135deg, #061c15, #10b981); }
 
 .app-grid-item:hover .app-icon--consult { box-shadow: 0 4px 20px rgba(37, 99, 235, 0.35); }
 .app-grid-item:hover .app-icon--code    { box-shadow: 0 4px 20px rgba(34, 197, 94, 0.35); }
@@ -249,21 +249,7 @@
 .app-grid-item:hover .app-icon--shop    { box-shadow: 0 4px 20px rgba(236, 72, 153, 0.35); }
 .app-grid-item:hover .app-icon--pay     { box-shadow: 0 4px 20px rgba(255, 215, 0, 0.35); }
 .app-grid-item:hover .app-icon--academy { box-shadow: 0 4px 20px rgba(88, 166, 255, 0.35); }
-.app-grid-item:hover .app-icon--farms   { box-shadow: none !important; }
-
-/* Enlarge circular detailed farms logo */
-.app-grid-item[href*="farms"] .app-icon-img {
-  width: 36px;
-  height: 36px;
-  border-radius: 50%;
-  filter: drop-shadow(0 2px 6px rgba(16, 185, 129, 0.3));
-  transition: transform 0.25s ease;
-}
-
-.app-grid-item[href*="farms"]:hover .app-icon-img {
-  transform: scale(1.1);
-  filter: drop-shadow(0 4px 12px rgba(16, 185, 129, 0.5));
-}
+.app-grid-item:hover .app-icon--farms   { box-shadow: 0 4px 20px rgba(16, 185, 129, 0.35); }
 
 /* ── Click-outside overlay ──────────────────────────────── */
 
@@ -309,10 +295,7 @@
     height: 24px;
   }
 
-  .app-grid-item[href*="farms"] .app-icon-img {
-    width: 30px;
-    height: 30px;
-  }
+
 
   .app-label {
     font-size: 0.85rem;
