@@ -41,6 +41,7 @@
     --font-heading: 'Baloo 2', 'Nunito', sans-serif;
     --font-sans: 'Nunito', system-ui, -apple-system, sans-serif;
     --font-mono: 'JetBrains Mono', 'Fira Code', monospace;
+    color-scheme: dark;
 }
 
 [data-theme="dark"] {
