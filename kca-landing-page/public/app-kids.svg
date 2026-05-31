@@ -14,7 +14,7 @@
   </defs>
 
   <!-- Legs & Feet (Naturally Hanging VERTICALLY UNDER the desk) -->
-  <g filter="url(#soft-shadow)">
+  <g>
     <!-- WHITE Leg Stumps (Matching Reference) -->
     <path d="M 180 320 Q 180 350 180 375" stroke="white" stroke-width="24" stroke-linecap="round" fill="none" />
     <path d="M 220 320 Q 220 350 220 375" stroke="white" stroke-width="24" stroke-linecap="round" fill="none" />
@@ -25,7 +25,7 @@
   </g>
 
   <!-- Desk & Laptop -->
-  <g filter="url(#soft-shadow)">
+  <g>
     <!-- Desk -->
     <path d="M 50 280 L 350 280 L 370 340 L 30 340 Z" fill="#b45309" /> 
     <rect x="70" y="340" width="20" height="60" fill="#78350f" /> 
@@ -39,7 +39,7 @@
   </g>
 
   <!-- Mascot Body (Behind desk) -->
-  <g filter="url(#soft-shadow)">
+  <g>
     <path d="M 200 65 C 200 65 90 170 90 245 C 90 320 140 350 200 350 C 260 350 310 320 310 245 C 310 170 200 65 200 65 Z" fill="url(#body-radial)" />
     
     <!-- Eyes -->
@@ -56,7 +56,7 @@
   </g>
 
   <!-- Arms/Hands (In front of desk) -->
-  <g filter="url(#soft-shadow)">
+  <g>
     <!-- Arm (viewer's left) waving -->
     <path d="M 100 240 Q 60 210 40 240" stroke="#1d4ed8" stroke-width="26" stroke-linecap="round" fill="none" />
     <!-- GLOVE Hand -->
