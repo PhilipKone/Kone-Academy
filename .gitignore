@@ -80,6 +80,7 @@ scripts/
 tools/
 types/
 Kone-Digital/
+Kone-Warp/
 
 # Root-level Development Assets & Scripts
 # (Excludes assets inside kca-landing-page/)

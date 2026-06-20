@@ -86,8 +86,18 @@ const apps = [
     color: 'farms',
     glow: 'rgba(16, 185, 129, 0.12)',
     url: isLocal 
-         ? '/?page=farms' 
+         ? 'http://localhost:3002' 
          : 'https://farms.koneacademy.io',
+  },
+  {
+    name: 'Kone Warp',
+    description: 'Ultra-fast delivery & rides',
+    logo: '/app-warp.svg',
+    color: 'warp',
+    glow: 'rgba(236, 72, 153, 0.12)',
+    url: isLocal 
+         ? 'http://localhost:5176' 
+         : 'https://warp.koneacademy.io',
   },
 ];
 
