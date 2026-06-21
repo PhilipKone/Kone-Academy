@@ -116,11 +116,11 @@ Kone Lab transforms theoretical knowledge into tangible innovations:
 
 ---
 
-### 👶 4. Kone Kids — Youth Education (Coming Soon)
+### 👶 4. Kone Kids — Youth Education
 
 **Focus**: Technology education for younger learners
 
-Introducing STEM concepts through engaging, age-appropriate programs designed to inspire the next generation of innovators.
+Introducing STEM concepts (Coding, Robotics, and AI) through engaging, age-appropriate gamified missions designed to inspire the next generation of innovators.
 
 **[🔗 Learn More](https://kids.koneacademy.io/)**
 
