@@ -8,7 +8,17 @@ const TypingAnimation = () => {
   const [isDeleting, setIsDeleting] = useState(false);
   const pauseTimerRef = useRef(null);
 
+  const isPrerender = typeof window !== 'undefined' && (
+    window.navigator.userAgent === 'ReactSnap' ||
+    window.__PRERENDER_INJECTED
+  );
+
   useEffect(() => {
+    if (isPrerender) {
+      setCurrentText(words[0]);
+      return;
+    }
+
     const current = words[currentWordIndex];
     
     // Clear any existing pause timer

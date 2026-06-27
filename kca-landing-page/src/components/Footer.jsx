@@ -50,6 +50,12 @@ const Footer = () => {
             <a href="#careers">Careers</a>
           </div>
           <div className="link-group">
+            <h3>Research</h3>
+            <a href="https://consult.koneacademy.io/protocols">Methodology Protocols</a>
+            <a href="https://consult.koneacademy.io/docs">Documentation</a>
+            <a href="https://consult.koneacademy.io/blog">Academic Blog</a>
+          </div>
+          <div className="link-group">
             <h3>Ecosystem</h3>
             <a href="https://code.koneacademy.io">Kone Code</a>
             <a href="https://lab.koneacademy.io">Kone Lab</a>
