@@ -13,13 +13,19 @@ import InstallBanner from './components/InstallBanner';
 
 import LoadingScreen from './components/LoadingScreen';
 import InteractiveGrid from './components/InteractiveGrid';
-import KoneFarms from './components/KoneFarms';
-import LocalSEOPage from './pages/LocalSEOPage';
+
+const KoneFarms = React.lazy(() => import('./components/KoneFarms'));
+const LocalSEOPage = React.lazy(() => import('./pages/LocalSEOPage'));
 
 import { applyTheme } from './components/ThemeSelector';
 
 function App() {
-  const [isInitializing, setIsInitializing] = React.useState(true);
+  const isPrerender = typeof window !== 'undefined' && (
+    window.navigator.userAgent === 'ReactSnap' ||
+    window.__PRERENDER_INJECTED
+  );
+
+  const [isInitializing, setIsInitializing] = React.useState(!isPrerender);
   const [currentPage, setCurrentPage] = React.useState('home');
   const [localRoute, setLocalRoute] = React.useState(null);
   
@@ -54,9 +60,13 @@ function App() {
   return (
     <>
       {currentPage === 'farms' ? (
-        <KoneFarms onBack={handleBackToHome} />
+        <React.Suspense fallback={<LoadingScreen />}>
+          <KoneFarms onBack={handleBackToHome} />
+        </React.Suspense>
       ) : currentPage === 'local-seo' && localRoute ? (
-        <LocalSEOPage niche={localRoute.niche} city={localRoute.city} onBack={handleBackToHome} />
+        <React.Suspense fallback={<LoadingScreen />}>
+          <LocalSEOPage niche={localRoute.niche} city={localRoute.city} onBack={handleBackToHome} />
+        </React.Suspense>
       ) : (
         <>
           <LoadingScreen onFinished={() => setIsInitializing(false)} />
