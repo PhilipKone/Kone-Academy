@@ -2,8 +2,6 @@ import React from 'react';
 import InteractiveTerminal from './InteractiveTerminal';
 import './Hero.css';
 
-const HeroMoon = React.lazy(() => import('./HeroMoon'));
-
 const Hero = () => {
   const isPrerender = typeof window !== 'undefined' && (
     window.navigator.userAgent.includes('ReactSnap') ||
@@ -40,11 +38,6 @@ const Hero = () => {
         </div>
       </div>
 
-      {!isPrerender && (
-        <React.Suspense fallback={<div className="hero-moon-placeholder" />}>
-          <HeroMoon />
-        </React.Suspense>
-      )}
       <div className="hero-background-glow"></div>
     </section>
   );
