@@ -27,7 +27,8 @@
                     "preview":  "vite preview",
                     "predeploy":  "npm run build",
                     "deploy":  "gh-pages -d dist --dotfiles",
-                    "postinstall":  "node patch-react-snap.cjs"
+                    "postinstall":  "node patch-react-snap.cjs",
+                    "audit:lighthouse": "node ../scripts/lighthouse_audit.js"
                 },
     "reactSnap":  {
                       "source":  "dist",
