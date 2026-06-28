@@ -16,6 +16,7 @@
     "devDependencies":  {
                             "@vitejs/plugin-react":  "^4.2.0",
                             "gh-pages":  "^6.0.0",
+                            "googleapis": "^140.0.0",
                             "lighthouse":  "^12.1.0",
                             "react-snap":  "^1.23.0",
                             "vite":  "^5.0.0"
@@ -28,7 +29,8 @@
                     "predeploy":  "npm run build",
                     "deploy":  "gh-pages -d dist --dotfiles",
                     "postinstall":  "node patch-react-snap.cjs",
-                    "audit:lighthouse": "node ../scripts/lighthouse_audit.js"
+                    "audit:lighthouse": "node ../scripts/lighthouse_audit.js",
+                    "audit:gsc": "node ../scripts/search_console_audit.js"
                 },
     "reactSnap":  {
                       "source":  "dist",
