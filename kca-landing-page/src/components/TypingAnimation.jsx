@@ -9,7 +9,7 @@ const TypingAnimation = () => {
   const pauseTimerRef = useRef(null);
 
   const isPrerender = typeof window !== 'undefined' && (
-    window.navigator.userAgent === 'ReactSnap' ||
+    window.navigator.userAgent.includes('ReactSnap') ||
     window.__PRERENDER_INJECTED
   );
 

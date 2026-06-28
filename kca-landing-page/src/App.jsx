@@ -21,7 +21,7 @@ import { applyTheme } from './components/ThemeSelector';
 
 function App() {
   const isPrerender = typeof window !== 'undefined' && (
-    window.navigator.userAgent === 'ReactSnap' ||
+    window.navigator.userAgent.includes('ReactSnap') ||
     window.__PRERENDER_INJECTED
   );
 
@@ -69,8 +69,8 @@ function App() {
         </React.Suspense>
       ) : (
         <>
-          <LoadingScreen onFinished={() => setIsInitializing(false)} />
-          {!isInitializing && (
+          {!isPrerender && <LoadingScreen onFinished={() => setIsInitializing(false)} />}
+          {(!isInitializing || isPrerender) && (
             <div className="App animate-fade-in">
               <InteractiveGrid />
               <Header />

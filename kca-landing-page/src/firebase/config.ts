@@ -37,7 +37,7 @@ try {
     db = getFirestore(app);
     
     // Only initialize analytics if running in a browser environment and not prerendering
-    if (typeof window !== 'undefined' && window.navigator.userAgent !== 'ReactSnap') {
+    if (typeof window !== 'undefined' && !window.navigator.userAgent.includes('ReactSnap')) {
         analytics = getAnalytics(app);
     }
 } catch (error) {

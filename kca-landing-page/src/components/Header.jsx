@@ -11,7 +11,7 @@ const Header = () => {
 
   // Dynamically set login URL based on environment (with react-snap pre-render check)
   const isPrerender = typeof window !== 'undefined' && (
-    window.navigator.userAgent === 'ReactSnap' ||
+    window.navigator.userAgent.includes('ReactSnap') ||
     window.__PRERENDER_INJECTED
   );
 

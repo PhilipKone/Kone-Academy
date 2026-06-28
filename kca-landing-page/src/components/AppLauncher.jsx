@@ -4,7 +4,7 @@ import './AppLauncher.css';
 /* ── App Data ─────────────────────────────────────────── */
 
 const isPrerender = typeof window !== 'undefined' && (
-  window.navigator.userAgent === 'ReactSnap' ||
+  window.navigator.userAgent.includes('ReactSnap') ||
   window.__PRERENDER_INJECTED
 );
 

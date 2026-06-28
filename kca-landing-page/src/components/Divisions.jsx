@@ -3,7 +3,7 @@ import './Divisions.css';
 
 const Divisions = () => {
   const isPrerender = typeof window !== 'undefined' && (
-    window.navigator.userAgent === 'ReactSnap' ||
+    window.navigator.userAgent.includes('ReactSnap') ||
     window.__PRERENDER_INJECTED
   );
   const isLocal = (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') && !isPrerender;
