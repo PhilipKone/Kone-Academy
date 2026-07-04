@@ -1,0 +1,9 @@
+[submodule "Kone-Farms"]
+	path = Kone-Farms
+	url = https://github.com/PhilipKone/Kone-Farms.git
+[submodule "Kone-Shop"]
+	path = Kone-Shop
+	url = https://github.com/PhilipKone/Kone-Shop.git
+[submodule "anim-studio"]
+	path = anim-studio
+	url = https://github.com/PhilipKone/anim-studio.git
