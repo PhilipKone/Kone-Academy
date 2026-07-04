@@ -11,6 +11,7 @@ serviceAccountKey.json
 *.pem
 *.key
 credentials.json
+gsc-credentials.json
 
 # Dependencies
 node_modules/
