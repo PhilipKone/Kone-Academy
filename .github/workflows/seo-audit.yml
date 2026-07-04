@@ -13,8 +13,11 @@ jobs:
     steps:
     - name: Checkout Repository
       uses: actions/checkout@v4
-      with:
-        submodules: recursive # Ensure all subdomains are cloned
+
+    - name: Initialize Public Submodules
+      run: |
+        git submodule update --init --depth 1 Kone-Farms
+        git submodule update --init --depth 1 Kone-Shop
 
     - name: Set up Python
       uses: actions/setup-python@v5
