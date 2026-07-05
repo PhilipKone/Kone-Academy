@@ -16,6 +16,9 @@ import InteractiveGrid from './components/InteractiveGrid';
 
 const KoneFarms = React.lazy(() => import('./components/KoneFarms'));
 const LocalSEOPage = React.lazy(() => import('./pages/LocalSEOPage'));
+const TrainingHub = React.lazy(() => import('./pages/TrainingHub'));
+const Protocols = React.lazy(() => import('./pages/Protocols'));
+const Documentation = React.lazy(() => import('./pages/Documentation'));
 
 import { applyTheme } from './components/ThemeSelector';
 
@@ -28,6 +31,36 @@ function App() {
   const [isInitializing, setIsInitializing] = React.useState(!isPrerender);
   const [currentPage, setCurrentPage] = React.useState('home');
   const [localRoute, setLocalRoute] = React.useState(null);
+  const [docRoute, setDocRoute] = React.useState({ category: null, subcategory: null, slug: null });
+
+  const parseRoute = () => {
+    const path = window.location.pathname;
+    const pathParts = path.split('/').filter(Boolean);
+    
+    if (pathParts[0] === 'academy' && pathParts[1] && pathParts[2]) {
+      setLocalRoute({ niche: pathParts[1], city: pathParts[2] });
+      setCurrentPage('local-seo');
+    } else if (pathParts[0] === 'training') {
+      setCurrentPage('training');
+    } else if (pathParts[0] === 'protocols') {
+      setCurrentPage('protocols');
+    } else if (pathParts[0] === 'docs') {
+      setCurrentPage('docs');
+      setDocRoute({
+        category: pathParts[1] || null,
+        subcategory: pathParts[2] || null,
+        slug: pathParts[3] || null
+      });
+    } else {
+      const params = new URLSearchParams(window.location.search);
+      if (params.get('page') === 'farms') {
+        setCurrentPage('farms');
+      } else {
+        setCurrentPage('home');
+        setLocalRoute(null);
+      }
+    }
+  };
   
   React.useEffect(() => {
     document.documentElement.setAttribute('data-theme', 'dark');
@@ -36,25 +69,22 @@ function App() {
       applyTheme(savedTheme);
     }
 
-    // Parse path: /academy/:niche/:city
-    const path = window.location.pathname;
-    const pathParts = path.split('/').filter(Boolean);
-    if (pathParts[0] === 'academy' && pathParts[1] && pathParts[2]) {
-      setLocalRoute({ niche: pathParts[1], city: pathParts[2] });
-      setCurrentPage('local-seo');
-    } else {
-      // Check url search params on load
-      const params = new URLSearchParams(window.location.search);
-      if (params.get('page') === 'farms') {
-        setCurrentPage('farms');
-      }
-    }
+    parseRoute();
+
+    window.addEventListener('popstate', parseRoute);
+    return () => {
+      window.removeEventListener('popstate', parseRoute);
+    };
   }, []);
 
   const handleBackToHome = () => {
     window.history.pushState({}, '', '/');
-    setCurrentPage('home');
-    setLocalRoute(null);
+    parseRoute();
+  };
+
+  const handleDocNavigate = (cat, subcat, slg) => {
+    window.history.pushState({}, '', `/docs/${cat}/${subcat}/${slg}`);
+    parseRoute();
   };
 
   return (
@@ -66,6 +96,24 @@ function App() {
       ) : currentPage === 'local-seo' && localRoute ? (
         <React.Suspense fallback={<LoadingScreen />}>
           <LocalSEOPage niche={localRoute.niche} city={localRoute.city} onBack={handleBackToHome} />
+        </React.Suspense>
+      ) : currentPage === 'training' ? (
+        <React.Suspense fallback={<LoadingScreen />}>
+          <TrainingHub onBack={handleBackToHome} />
+        </React.Suspense>
+      ) : currentPage === 'protocols' ? (
+        <React.Suspense fallback={<LoadingScreen />}>
+          <Protocols onBack={handleBackToHome} />
+        </React.Suspense>
+      ) : currentPage === 'docs' ? (
+        <React.Suspense fallback={<LoadingScreen />}>
+          <Documentation 
+            category={docRoute.category} 
+            subcategory={docRoute.subcategory} 
+            slug={docRoute.slug} 
+            onBack={handleBackToHome} 
+            onNavigate={handleDocNavigate}
+          />
         </React.Suspense>
       ) : (
         <>
@@ -94,5 +142,6 @@ function App() {
 }
 
 export default App;
+
 
 

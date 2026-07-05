@@ -30,11 +30,18 @@ const Footer = () => {
 
   const currentLogo = themeLogoMap[activeTheme] || '/logo-circle-blue.svg';
 
+  const handleNav = (e, path) => {
+    e.preventDefault();
+    window.history.pushState({}, '', path);
+    window.dispatchEvent(new Event('popstate'));
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
   return (
     <footer className="footer">
       <div className="footer-container">
         <div className="footer-brand">
-          <div className="logo">
+          <div className="logo" onClick={(e) => handleNav(e, '/')} style={{ cursor: 'pointer' }}>
             <img src={currentLogo} alt="KCA Logo" className="logo-icon" style={{ width: '40px', height: '40px' }} />
             <span className="logo-text">Kone Academy</span>
           </div>
@@ -44,15 +51,15 @@ const Footer = () => {
         <div className="footer-links">
           <div className="link-group">
             <h3>Platform</h3>
+            <a href="/training" onClick={(e) => handleNav(e, '/training')}>Academy Courses</a>
             <a href="#vision">Vision</a>
             <a href="#divisions">Divisions</a>
             <a href="#services">Services</a>
-            <a href="#careers">Careers</a>
           </div>
           <div className="link-group">
             <h3>Research</h3>
-            <a href="https://consult.koneacademy.io/protocols">Methodology Protocols</a>
-            <a href="https://consult.koneacademy.io/docs">Documentation</a>
+            <a href="/protocols" onClick={(e) => handleNav(e, '/protocols')}>Methodology Protocols</a>
+            <a href="/docs" onClick={(e) => handleNav(e, '/docs')}>Documentation</a>
             <a href="https://consult.koneacademy.io/blog">Academic Blog</a>
           </div>
           <div className="link-group">
@@ -72,7 +79,6 @@ const Footer = () => {
             <div className="social-icons">
               <a href="https://x.com/koneacademy" aria-label="X"><FaXTwitter /></a>
               <a href="https://www.tiktok.com/@koneacademy?_r=1&_t=ZM-931L3z5lu71" aria-label="TikTok"><FaTiktok /></a>
-              {/* <a href="https://github.com/PhilipKone/Kone-Academy" aria-label="GitHub"><FaGithub /></a> */}
               <a href="https://discord.gg/Ab4SCxPgUK" target="_blank" rel="noreferrer" aria-label="Discord"><FaDiscord /></a>
               <a href="https://www.linkedin.com/company/konecodeacdemy/?viewAsMember=true" aria-label="LinkedIn"><FaLinkedin /></a>
               <a href="https://www.facebook.com/profile.php?id=61584327765846" aria-label="Facebook"><FaFacebook /></a>
@@ -91,3 +97,4 @@ const Footer = () => {
 };
 
 export default Footer;
+

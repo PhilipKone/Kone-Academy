@@ -57,12 +57,19 @@ const Header = () => {
     setIsMobileMenuOpen(false);
   };
 
+  const handleNav = (e, path) => {
+    e.preventDefault();
+    window.history.pushState({}, '', path);
+    window.dispatchEvent(new Event('popstate'));
+    setIsMobileMenuOpen(false);
+  };
+
   return (
     <header className={`header ${scrolled ? 'scrolled' : ''}`}>
       <div className="header-container">
-        <div className="logo">
-          <img src={currentLogo} alt="KCA Logo" className="logo-icon" style={{ width: '40px', height: '40px' }} />
-          <span className="logo-text">Kone Academy</span>
+        <div className="logo" onClick={(e) => handleNav(e, '/')}>
+          <img src={currentLogo} alt="KCA Logo" className="logo-icon" style={{ width: '40px', height: '40px', cursor: 'pointer' }} />
+          <span className="logo-text" style={{ cursor: 'pointer' }}>Kone Academy</span>
         </div>
 
         <div className="mobile-toggle" onClick={toggleMobileMenu}>
@@ -70,17 +77,17 @@ const Header = () => {
         </div>
 
         <nav className={`nav-menu ${isMobileMenuOpen ? 'active' : ''}`}>
+          <a href="/training" className="nav-link" onClick={(e) => handleNav(e, '/training')}>Courses</a>
+          <a href="/protocols" className="nav-link" onClick={(e) => handleNav(e, '/protocols')}>Research</a>
+          <a href="/docs" className="nav-link" onClick={(e) => handleNav(e, '/docs')}>Docs</a>
           <a href="#vision" className="nav-link" onClick={closeMobileMenu}>Vision</a>
           <a href="#divisions" className="nav-link" onClick={closeMobileMenu}>Divisions</a>
-          <a href="#services" className="nav-link" onClick={closeMobileMenu}>Services</a>
-          <a href="#careers" className="nav-link" onClick={closeMobileMenu}>Careers</a>
           <div className="mobile-actions">
             <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', gap: '1rem', marginBottom: '1rem' }}>
               <AppLauncher />
               <ThemeSelector />
             </div>
             <a href={loginUrl} className="btn-login" style={{ display: 'block', marginBottom: '1rem', textAlign: 'center', textDecoration: 'none', color: 'var(--text-primary)' }}>Login</a>
-            {/* <a href="https://github.com/PhilipKone/Kone-Academy" target="_blank" rel="noreferrer" className="btn-github">GitHub</a> */}
             <a href="https://docs.google.com/forms/d/e/1FAIpQLSeXOBgnnnquQmQHHU1Kbyw9iYfK7gJ6Kyj5T5OctIcyy4fXSA/viewform?usp=header" target="_blank" rel="noreferrer" className="btn-primary" style={{ textDecoration: 'none', display: 'inline-block', textAlign: 'center' }}>Get Started</a>
           </div>
         </nav>
@@ -89,9 +96,6 @@ const Header = () => {
           <AppLauncher />
           <ThemeSelector />
           <a href={loginUrl} className="btn-login" style={{ marginRight: '1rem', textDecoration: 'none', color: 'var(--text-primary)', fontWeight: '500' }}>Login</a>
-          {/* <a href="https://github.com/PhilipKone/Kone-Academy" target="_blank" rel="noreferrer" className="btn-github">
-            GitHub
-          </a> */}
           <a href="https://docs.google.com/forms/d/e/1FAIpQLSeXOBgnnnquQmQHHU1Kbyw9iYfK7gJ6Kyj5T5OctIcyy4fXSA/viewform?usp=header" target="_blank" rel="noreferrer" className="btn-primary" style={{ textDecoration: 'none' }}>Get Started</a>
         </div>
       </div>
@@ -100,4 +104,5 @@ const Header = () => {
 };
 
 export default Header;
+
 
