@@ -14,6 +14,16 @@ const isLocal = typeof window !== 'undefined' &&
 
 const apps = [
   {
+    name: 'Kone Technologies',
+    description: 'Corporate parent brand',
+    logo: '/favicon.svg',
+    color: 'tech',
+    glow: 'rgba(188, 0, 255, 0.12)',
+    url: isLocal 
+         ? 'http://localhost:5178' 
+         : 'https://konetech.koneacademy.io',
+  },
+  {
     name: 'Kone Consult',
     description: 'Mentorship & research',
     logo: '/app-consult.svg',
