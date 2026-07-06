@@ -139,6 +139,15 @@
     </div>
   </noscript>
   <script type="module" src="/src/main.jsx"></script>
+  <script>
+    if ('serviceWorker' in navigator && !navigator.userAgent.includes('ReactSnap')) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('/sw.js')
+          .then(reg => console.log('[Kone AI] SW registered:', reg.scope))
+          .catch(err => console.warn('[Kone AI] SW registration failed:', err));
+      });
+    }
+  </script>
 </body>
 
 </html>
