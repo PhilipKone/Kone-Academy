@@ -107,38 +107,33 @@ const Documentation = ({ category, subcategory, slug, onBack, onNavigate }) => {
 
   // Renders the left navigation sidebar
   const Sidebar = () => (
-    <div className="doc-sidebar p-4 d-flex flex-column h-100" style={{ background: '#090B10', borderRight: '1px solid rgba(255,255,255,0.05)' }}>
-      <div className="mb-4">
-        <h5 className="small text-secondary uppercase fw-bold tracking-wider mb-3">Filter Guides</h5>
-        <div className="input-group">
-          <span className="input-group-text bg-dark border-secondary text-secondary">
-            <FaSearch />
-          </span>
+    <div className="doc-sidebar">
+      <div className="sidebar-search-group">
+        <h5 className="sidebar-search-title">Filter Guides</h5>
+        <div className="search-input-wrapper">
+          <FaSearch style={{ color: 'rgba(255,255,255,0.4)', flexShrink: 0 }} />
           <input 
             type="text" 
-            className="form-control bg-dark border-secondary text-white small" 
             placeholder="Search docs..."
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
-            style={{ fontSize: '0.85rem' }}
           />
         </div>
       </div>
 
-      <div className="flex-grow-1 overflow-auto pe-1">
+      <div className="sidebar-links-container">
         {/* Code Errors Group */}
-        <div className="mb-4">
-          <h6 className="small text-primary fw-bold mb-2 d-flex align-items-center gap-2">
+        <div style={{ marginBottom: '24px' }}>
+          <h6 style={{ color: 'var(--neon-blue)', fontSize: '0.85rem', fontWeight: 700, marginBottom: '12px', display: 'flex', alignItems: 'center', gap: '8px' }}>
             <FaCode /> Coding Errors
           </h6>
-          <div className="d-flex flex-column gap-1">
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '4px' }}>
             {filteredErrors.map(item => (
               <a 
                 key={item.slug}
                 href={`/docs/code/errors/${item.slug}`}
                 onClick={(e) => handleNavClick(e, 'code', 'errors', item.slug)}
-                className={`text-start text-decoration-none small p-2 ${slug === item.slug ? 'active-doc-link text-white' : 'inactive-doc-link text-secondary'}`}
-                style={{ fontSize: '0.85rem', display: 'block' }}
+                className={slug === item.slug ? 'active-doc-link' : 'inactive-doc-link'}
               >
                 {item.slug.replace(/-/g, ' ')}
               </a>
@@ -148,17 +143,16 @@ const Documentation = ({ category, subcategory, slug, onBack, onNavigate }) => {
 
         {/* Tech Stacks Group */}
         <div>
-          <h6 className="small text-success fw-bold mb-2 d-flex align-items-center gap-2">
+          <h6 style={{ color: 'var(--neon-green)', fontSize: '0.85rem', fontWeight: 700, marginBottom: '12px', display: 'flex', alignItems: 'center', gap: '8px' }}>
             <FaFlask /> Architecture Stacks
           </h6>
-          <div className="d-flex flex-column gap-1">
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '4px' }}>
             {filteredStacks.map(item => (
               <a 
                 key={item.slug}
                 href={`/docs/consult/architecture/${item.slug}`}
                 onClick={(e) => handleNavClick(e, 'consult', 'architecture', item.slug)}
-                className={`text-start text-decoration-none small p-2 ${slug === item.slug ? 'active-doc-link text-white' : 'inactive-doc-link text-secondary'}`}
-                style={{ fontSize: '0.85rem', display: 'block' }}
+                className={slug === item.slug ? 'active-doc-link' : 'inactive-doc-link'}
               >
                 {item.slug.replace(/-/g, ' ')}
               </a>
@@ -170,46 +164,43 @@ const Documentation = ({ category, subcategory, slug, onBack, onNavigate }) => {
   );
 
   return (
-    <div className="docs-page-wrapper d-flex flex-column" style={{ minHeight: '100vh', background: '#0A0F1E', color: '#e2e8f0' }}>
+    <div className="docs-page-wrapper">
       
       {/* Upper header action bar */}
-      <div className="d-flex justify-content-between align-items-center px-4 py-3 border-bottom border-secondary-subtle" style={{ background: '#090B10' }}>
+      <div className="docs-header-bar">
         <button 
           onClick={onBack}
-          className="btn btn-link text-white d-flex align-items-center gap-2 p-0 text-decoration-none"
+          className="docs-header-btn"
         >
           <FaChevronLeft /> Back to Main Hub
         </button>
         <span className="small text-secondary">Kone Academy Docs Hub (pSEO System)</span>
       </div>
 
-      <div className="flex-grow-1 d-flex">
+      <div className="docs-main-layout">
         {/* Left Navigation Sidebar */}
-        <div style={{ width: '280px', flexShrink: 0 }}>
-          <Sidebar />
-        </div>
+        <Sidebar />
 
         {/* Right Main Content Area */}
-        <div className="flex-grow-1 p-4 p-md-5 overflow-auto" style={{ maxHeight: 'calc(100vh - 60px)' }}>
+        <div className="docs-content-container">
           {activeContent ? (
             <motion.div 
               key={slug}
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.2 }}
-              className="max-w-content mx-auto"
-              style={{ maxWidth: '800px' }}
+              className="max-w-content"
             >
-              <h1 className="h2 text-white fw-bold mb-4">{activeContent.title}</h1>
+              <h1 className="h2 text-white fw-bold mb-4 text-gradient-docs">{activeContent.title}</h1>
               
               {activeType === 'error' ? (
                 // --- Error Details Rendering ---
                 <div>
-                  <div className="glass-card bg-danger-subtle border border-danger-subtle p-3 mb-4 rounded d-flex align-items-center gap-3">
-                    <FaExclamationTriangle className="text-danger fs-3" />
+                  <div className="alert-card danger mb-4">
+                    <FaExclamationTriangle className="text-danger fs-3" style={{ flexShrink: 0 }} />
                     <div>
-                      <strong className="text-danger d-block">Error Code:</strong>
-                      <code className="text-white bg-dark px-2 py-1 rounded small">{activeContent.errorText}</code>
+                      <strong className="text-danger d-block mb-1" style={{ fontSize: '0.85rem' }}>Error Console Output:</strong>
+                      <code>{activeContent.errorText}</code>
                     </div>
                   </div>
 
@@ -224,30 +215,50 @@ const Documentation = ({ category, subcategory, slug, onBack, onNavigate }) => {
                   </div>
 
                   {/* Buggy Code vs Clean Code Diffs */}
-                  <div className="row g-4 mb-5">
-                    <div className="col-lg-6">
-                      <h4 className="small text-danger uppercase fw-bold mb-2">❌ Buggy Code</h4>
-                      <pre className="bg-dark p-3 rounded border border-danger-subtle overflow-auto" style={{ maxHeight: '350px', fontSize: '0.85rem' }}>
-                        <code className="text-danger-subtle">{activeContent.badCode}</code>
-                      </pre>
+                  <div className="code-panel-deck">
+                    <div>
+                      <h4 className="small text-danger-subtle uppercase fw-bold mb-2">❌ Buggy Code</h4>
+                      <div className="ide-window buggy">
+                        <div className="ide-header">
+                          <div className="ide-dots">
+                            <span className="ide-dot red"></span>
+                            <span className="ide-dot yellow"></span>
+                            <span className="ide-dot green"></span>
+                          </div>
+                          <span className="ide-title">broken_implementation.js</span>
+                        </div>
+                        <pre className="ide-body">
+                          <code>{activeContent.badCode}</code>
+                        </pre>
+                      </div>
                     </div>
-                    <div className="col-lg-6">
-                      <h4 className="small text-success uppercase fw-bold mb-2">✅ Correct Code</h4>
-                      <pre className="bg-dark p-3 rounded border border-success-subtle overflow-auto" style={{ maxHeight: '350px', fontSize: '0.85rem' }}>
-                        <code className="text-success-subtle">{activeContent.goodCode}</code>
-                      </pre>
+                    <div>
+                      <h4 className="small text-success-subtle uppercase fw-bold mb-2">✅ Correct Code</h4>
+                      <div className="ide-window correct">
+                        <div className="ide-header">
+                          <div className="ide-dots">
+                            <span className="ide-dot red"></span>
+                            <span className="ide-dot yellow"></span>
+                            <span className="ide-dot green"></span>
+                          </div>
+                          <span className="ide-title">fixed_implementation.js</span>
+                        </div>
+                        <pre className="ide-body">
+                          <code>{activeContent.goodCode}</code>
+                        </pre>
+                      </div>
                     </div>
                   </div>
 
                   {/* High-conversion CTA to IDE */}
-                  <div className="glass-card p-4 rounded text-center" style={{ background: 'rgba(59,130,246,0.1)', border: '1px solid rgba(59,130,246,0.2)' }}>
-                    <h4 className="h5 text-white fw-bold mb-3">Want to test this solution?</h4>
-                    <p className="text-secondary small mb-4">Open the clean code snippet inside the Kone Code editor and compile it directly inside your browser.</p>
+                  <div className="seo-card text-center" style={{ background: 'rgba(59,130,246,0.03)', borderColor: 'rgba(59,130,246,0.1)', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '12px' }}>
+                    <h4 className="h5 text-white fw-bold mb-1">Want to test this solution?</h4>
+                    <p className="text-secondary small mb-3">Open the clean code snippet inside the Kone Code editor and compile it directly inside your browser.</p>
                     <a 
                       href={`https://code.koneacademy.io/ide?template=${slug}`}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="btn btn-primary d-inline-flex align-items-center gap-2 fw-bold"
+                      className="pulse-cta-blue"
                     >
                       Open in Kone Code Editor <FaExternalLinkAlt />
                     </a>
@@ -256,10 +267,10 @@ const Documentation = ({ category, subcategory, slug, onBack, onNavigate }) => {
               ) : (
                 // --- Tech Stack Details Rendering ---
                 <div>
-                  <div className="glass-card bg-success-subtle border border-success-subtle p-3 mb-4 rounded d-flex align-items-center gap-3">
-                    <FaLightbulb className="text-success fs-3" />
+                  <div className="alert-card success mb-4">
+                    <FaLightbulb className="text-success fs-3" style={{ flexShrink: 0 }} />
                     <div>
-                      <strong className="text-success d-block">Architecture Focus:</strong>
+                      <strong className="text-success d-block mb-1" style={{ fontSize: '0.85rem' }}>Architecture target:</strong>
                       <span className="text-white small">{activeContent.target}</span>
                     </div>
                   </div>
@@ -271,7 +282,7 @@ const Documentation = ({ category, subcategory, slug, onBack, onNavigate }) => {
 
                   <div className="mb-4">
                     <h3 className="h5 text-success fw-bold mb-2">Recommended Tech Stack</h3>
-                    <p className="text-white bg-dark p-3 rounded border border-secondary" style={{ fontSize: '0.95rem' }}>{activeContent.recommendation}</p>
+                    <p className="text-white bg-dark p-3 rounded border border-secondary" style={{ fontSize: '0.85rem', fontFamily: 'Fira Code, monospace', margin: 0 }}>{activeContent.recommendation}</p>
                   </div>
 
                   <div className="mb-4">
@@ -281,9 +292,9 @@ const Documentation = ({ category, subcategory, slug, onBack, onNavigate }) => {
 
                   <div className="mb-5">
                     <h3 className="h5 text-success fw-bold mb-3">Engineering Checklist</h3>
-                    <div className="d-flex flex-column gap-2">
+                    <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
                       {activeContent.checklist.map((item, i) => (
-                        <div key={i} className="d-flex align-items-start gap-2 text-secondary small">
+                        <div key={i} style={{ display: 'flex', alignItems: 'flex-start', gap: '8px' }} className="text-secondary small">
                           <FaCheckCircle className="text-success mt-1" style={{ flexShrink: 0 }} />
                           <span>{item}</span>
                         </div>
@@ -292,14 +303,14 @@ const Documentation = ({ category, subcategory, slug, onBack, onNavigate }) => {
                   </div>
 
                   {/* High-conversion CTA to Consult */}
-                  <div className="glass-card p-4 rounded text-center" style={{ background: 'rgba(16,185,129,0.1)', border: '1px solid rgba(16,185,129,0.2)' }}>
-                    <h4 className="h5 text-white fw-bold mb-3">Need custom implementation help?</h4>
-                    <p className="text-secondary small mb-4">Book a consultation session with Kone Consult to design and deploy this tech stack for your project.</p>
+                  <div className="seo-card text-center" style={{ background: 'rgba(16,185,129,0.03)', borderColor: 'rgba(16,185,129,0.1)', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '12px' }}>
+                    <h4 className="h5 text-white fw-bold mb-1">Need custom implementation help?</h4>
+                    <p className="text-secondary small mb-3">Book a consultation session with Kone Consult to design and deploy this tech stack for your project.</p>
                     <a 
                       href="https://consult.koneacademy.io/contact"
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="btn btn-success d-inline-flex align-items-center gap-2 fw-bold"
+                      className="pulse-cta-green"
                     >
                       Book a Tech Consultation <FaExternalLinkAlt />
                     </a>
@@ -309,27 +320,23 @@ const Documentation = ({ category, subcategory, slug, onBack, onNavigate }) => {
             </motion.div>
           ) : (
             // --- Empty / Landing State for Documentation Hub ---
-            <div className="text-center max-w-content mx-auto py-5" style={{ maxWidth: '600px' }}>
+            <div className="text-center max-w-content" style={{ padding: '40px 0' }}>
               <div className="icon mb-4 text-primary" style={{ fontSize: '4rem' }}>
                 <FaBookOpen />
               </div>
-              <h2 className="fw-bold text-white mb-3">Kone Academy Documentation Hub</h2>
-              <p className="lead text-secondary mb-5">
+              <h2 className="fw-bold text-white mb-3 text-gradient-docs">Kone Academy Documentation Hub</h2>
+              <p className="lead text-secondary" style={{ maxWidth: '600px', margin: '0 auto 40px auto' }}>
                 Welcome to our centralized repository of coding troubleshooting guides, agritech telemetry specs, and startup architecture templates.
               </p>
               
-              <div className="row g-4 text-start">
-                <div className="col-md-6">
-                  <div className="glass-card p-3 h-100" style={{ border: '1px solid rgba(255,255,255,0.05)', background: 'rgba(30, 41, 59, 0.2)' }}>
-                    <h4 className="h6 text-primary fw-bold mb-2">🔧 Developer Errors</h4>
-                    <p className="text-secondary small mb-0">Learn how to identify, debug, and resolve common React, JavaScript, and Python errors using our Web IDE.</p>
-                  </div>
+              <div className="landing-cards-grid">
+                <div className="seo-card">
+                  <h4 className="h6 text-primary fw-bold mb-2">🔧 Developer Errors</h4>
+                  <p className="text-secondary small mb-0">Learn how to identify, debug, and resolve common React, JavaScript, and Python errors using our Web IDE.</p>
                 </div>
-                <div className="col-md-6">
-                  <div className="glass-card p-3 h-100" style={{ border: '1px solid rgba(255,255,255,0.05)', background: 'rgba(30, 41, 59, 0.2)' }}>
-                    <h4 className="h6 text-success fw-bold mb-2">⚡ Startup Architectures</h4>
-                    <p className="text-secondary small mb-0">Explore vetted software stacks and high-scale time-series agritech telemetry infrastructure designs.</p>
-                  </div>
+                <div className="seo-card">
+                  <h4 className="h6 text-success fw-bold mb-2">⚡ Startup Architectures</h4>
+                  <p className="text-secondary small mb-0">Explore vetted software stacks and high-scale time-series agritech telemetry infrastructure designs.</p>
                 </div>
               </div>
             </div>

@@ -34,6 +34,9 @@
     },
     "reactSnap": {
         "source": "dist",
+        "delay": 1000,
+        "port": 45681,
+        "timeout": 120000,
         "puppeteerArgs": [
             "--no-sandbox",
             "--disable-setuid-sandbox"
