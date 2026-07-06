@@ -88,7 +88,8 @@ const Documentation = ({ category, subcategory, slug, onBack, onNavigate }) => {
   }, [activeContent, activeType]);
 
   // Sidebar navigation click
-  const handleNavClick = (cat, subcat, slg) => {
+  const handleNavClick = (e, cat, subcat, slg) => {
+    if (e) e.preventDefault();
     window.history.pushState({}, '', `/docs/${cat}/${subcat}/${slg}`);
     onNavigate(cat, subcat, slg);
   };
@@ -132,14 +133,15 @@ const Documentation = ({ category, subcategory, slug, onBack, onNavigate }) => {
           </h6>
           <div className="d-flex flex-column gap-1">
             {filteredErrors.map(item => (
-              <button 
+              <a 
                 key={item.slug}
-                onClick={() => handleNavClick('code', 'errors', item.slug)}
-                className={`btn btn-link text-start text-decoration-none small p-2 ${slug === item.slug ? 'active-doc-link text-white' : 'inactive-doc-link text-secondary'}`}
-                style={{ fontSize: '0.85rem' }}
+                href={`/docs/code/errors/${item.slug}`}
+                onClick={(e) => handleNavClick(e, 'code', 'errors', item.slug)}
+                className={`text-start text-decoration-none small p-2 ${slug === item.slug ? 'active-doc-link text-white' : 'inactive-doc-link text-secondary'}`}
+                style={{ fontSize: '0.85rem', display: 'block' }}
               >
                 {item.slug.replace(/-/g, ' ')}
-              </button>
+              </a>
             ))}
           </div>
         </div>
@@ -151,14 +153,15 @@ const Documentation = ({ category, subcategory, slug, onBack, onNavigate }) => {
           </h6>
           <div className="d-flex flex-column gap-1">
             {filteredStacks.map(item => (
-              <button 
+              <a 
                 key={item.slug}
-                onClick={() => handleNavClick('consult', 'architecture', item.slug)}
-                className={`btn btn-link text-start text-decoration-none small p-2 ${slug === item.slug ? 'active-doc-link text-white' : 'inactive-doc-link text-secondary'}`}
-                style={{ fontSize: '0.85rem' }}
+                href={`/docs/consult/architecture/${item.slug}`}
+                onClick={(e) => handleNavClick(e, 'consult', 'architecture', item.slug)}
+                className={`text-start text-decoration-none small p-2 ${slug === item.slug ? 'active-doc-link text-white' : 'inactive-doc-link text-secondary'}`}
+                style={{ fontSize: '0.85rem', display: 'block' }}
               >
                 {item.slug.replace(/-/g, ' ')}
-              </button>
+              </a>
             ))}
           </div>
         </div>
