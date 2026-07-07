@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import './Footer.css';
-import { FaGithub, FaDiscord, FaLinkedin, FaFacebook, FaInstagram, FaSlack, FaYoutube, FaTiktok } from 'react-icons/fa';
+import { FaGithub, FaDiscord, FaLinkedin, FaFacebook, FaInstagram, FaSlack, FaYoutube, FaTiktok, FaWhatsapp } from 'react-icons/fa';
 import { FaXTwitter } from 'react-icons/fa6';
 
 const Footer = () => {
@@ -52,6 +52,7 @@ const Footer = () => {
           <div className="link-group">
             <h3>Platform</h3>
             <a href="/training" onClick={(e) => handleNav(e, '/training')}>Academy Courses</a>
+            <a href="/sitemap" onClick={(e) => handleNav(e, '/sitemap')}>Sitemap</a>
             <a href="#vision">Vision</a>
             <a href="#divisions">Divisions</a>
             <a href="#services">Services</a>
@@ -79,6 +80,7 @@ const Footer = () => {
             <div className="social-icons">
               <a href="https://x.com/koneacademy" aria-label="X"><FaXTwitter /></a>
               <a href="https://www.tiktok.com/@koneacademy?_r=1&_t=ZM-931L3z5lu71" aria-label="TikTok"><FaTiktok /></a>
+              <a href="https://whatsapp.com/channel/0029VbBdOevJf05WDhlsoj17" target="_blank" rel="noreferrer" aria-label="WhatsApp"><FaWhatsapp /></a>
               <a href="https://discord.gg/Ab4SCxPgUK" target="_blank" rel="noreferrer" aria-label="Discord"><FaDiscord /></a>
               <a href="https://www.linkedin.com/company/konecodeacdemy/?viewAsMember=true" aria-label="LinkedIn"><FaLinkedin /></a>
               <a href="https://www.facebook.com/profile.php?id=61584327765846" aria-label="Facebook"><FaFacebook /></a>

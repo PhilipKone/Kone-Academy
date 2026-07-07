@@ -19,6 +19,7 @@ const LocalSEOPage = React.lazy(() => import('./pages/LocalSEOPage'));
 const TrainingHub = React.lazy(() => import('./pages/TrainingHub'));
 const Protocols = React.lazy(() => import('./pages/Protocols'));
 const Documentation = React.lazy(() => import('./pages/Documentation'));
+const Sitemap = React.lazy(() => import('./pages/Sitemap'));
 
 import { applyTheme } from './components/ThemeSelector';
 
@@ -44,6 +45,8 @@ function App() {
       setCurrentPage('training');
     } else if (pathParts[0] === 'protocols') {
       setCurrentPage('protocols');
+    } else if (pathParts[0] === 'sitemap') {
+      setCurrentPage('sitemap');
     } else if (pathParts[0] === 'docs') {
       setCurrentPage('docs');
       setDocRoute({
@@ -104,6 +107,10 @@ function App() {
       ) : currentPage === 'protocols' ? (
         <React.Suspense fallback={<LoadingScreen />}>
           <Protocols onBack={handleBackToHome} />
+        </React.Suspense>
+      ) : currentPage === 'sitemap' ? (
+        <React.Suspense fallback={<LoadingScreen />}>
+          <Sitemap onBack={handleBackToHome} />
         </React.Suspense>
       ) : currentPage === 'docs' ? (
         <React.Suspense fallback={<LoadingScreen />}>

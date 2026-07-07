@@ -1,0 +1,253 @@
+/* --- Sitemap Page Styling --- */
+
+:root {
+  --neon-blue: #00e5ff;
+  --neon-green: #39ff14;
+  --neon-purple: #bd00ff;
+  --neon-orange: #ff9f1a;
+  --glass-bg: rgba(10, 15, 30, 0.7);
+  --glass-border: rgba(255, 255, 255, 0.05);
+  --glass-glow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+  --bg-darker: #060913;
+}
+
+.sitemap-page {
+  background-color: var(--bg-darker);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  color: #e2e8f0;
+  font-family: 'Nunito', 'Outfit', 'Inter', sans-serif;
+}
+
+.sitemap-content-area {
+  flex: 1;
+  padding: 80px 24px;
+  background-image: 
+    radial-gradient(circle at 10% 20%, rgba(99, 102, 241, 0.08), transparent 50%),
+    radial-gradient(circle at 90% 80%, rgba(16, 185, 129, 0.05), transparent 50%);
+}
+
+.sitemap-max-w {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.sitemap-title-wrapper {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.sitemap-title {
+  font-size: 3rem;
+  font-weight: 800;
+  margin-bottom: 16px;
+  background: linear-gradient(135deg, #ffffff 0%, #a5b4fc 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.sitemap-subtitle {
+  color: rgba(255,255,255,0.6);
+  font-size: 1.1rem;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* Central Link Grid */
+.sitemap-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 32px;
+  margin-bottom: 80px;
+}
+
+.sitemap-column {
+  background: rgba(10, 15, 30, 0.4);
+  border: 1px solid var(--glass-border);
+  border-radius: 16px;
+  padding: 32px;
+  backdrop-filter: blur(20px);
+  box-shadow: var(--glass-glow);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.sitemap-column:hover {
+  transform: translateY(-4px);
+  border-color: rgba(255, 255, 255, 0.1);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.5), 0 0 20px rgba(99, 102, 241, 0.05);
+}
+
+.sitemap-column-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin-bottom: 24px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* Category Color-coding */
+.sitemap-column.platforms .sitemap-column-title { color: var(--neon-blue); }
+.sitemap-column.docs .sitemap-column-title { color: var(--neon-purple); }
+.sitemap-column.architectures .sitemap-column-title { color: var(--neon-green); }
+.sitemap-column.company .sitemap-column-title { color: var(--neon-orange); }
+
+.sitemap-link-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.sitemap-item {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.sitemap-link {
+  color: rgba(255, 255, 255, 0.7);
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.95rem;
+  transition: all 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.sitemap-link:hover {
+  color: #fff;
+  transform: translateX(4px);
+}
+
+.sitemap-link svg {
+  font-size: 0.8rem;
+  opacity: 0.5;
+  transition: opacity 0.2s;
+}
+
+.sitemap-link:hover svg {
+  opacity: 1;
+}
+
+.sitemap-link-desc {
+  font-size: 0.8rem;
+  color: rgba(255, 255, 255, 0.4);
+  padding-left: 0;
+}
+
+/* --- Features Showcase Section (WhatsApp Style Card Slider) --- */
+.showcase-section {
+  padding: 80px 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.showcase-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: 40px;
+}
+
+.showcase-header-left h3 {
+  font-size: 2.2rem;
+  font-weight: 800;
+  margin-bottom: 8px;
+  color: #fff;
+}
+
+.showcase-header-left p {
+  color: rgba(255, 255, 255, 0.5);
+  margin: 0;
+}
+
+.slider-controls {
+  display: flex;
+  gap: 12px;
+}
+
+.slider-btn {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(255,255,255,0.02);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.slider-btn:hover {
+  background: #fff;
+  color: #000;
+}
+
+.showcase-slider {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+@media (max-width: 992px) {
+  .showcase-slider {
+    grid-template-columns: 1fr;
+  }
+}
+
+.showcase-card {
+  background: #0d1222;
+  border: 1px solid rgba(255, 255, 255, 0.04);
+  border-radius: 20px;
+  overflow: hidden;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.showcase-card:hover {
+  transform: translateY(-6px);
+  border-color: rgba(255, 255, 255, 0.08);
+}
+
+.showcase-card-img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+}
+
+.showcase-card-content {
+  padding: 24px;
+}
+
+.showcase-card-title {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 8px;
+}
+
+.showcase-card-desc {
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.5);
+  margin-bottom: 16px;
+  line-height: 1.5;
+}
+
+.showcase-card-link {
+  color: var(--neon-blue);
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 0.85rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.showcase-card-link:hover {
+  color: #fff;
+}
