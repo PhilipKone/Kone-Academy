@@ -231,7 +231,7 @@ const Sitemap = ({ onBack }) => {
             <div className="showcase-slider">
               
               <div className="showcase-card">
-                <img src="/logos/warp_logo.svg" alt="Kone Code" className="showcase-card-img" style={{ background: '#0a0f1d', padding: '20px' }} />
+                <img src="/app-code.svg" alt="Kone Code" className="showcase-card-img" style={{ background: '#0a0f1d', padding: '20px' }} />
                 <div className="showcase-card-content">
                   <h4 className="showcase-card-title">Kone Code Compiler</h4>
                   <p className="showcase-card-desc">
@@ -244,7 +244,7 @@ const Sitemap = ({ onBack }) => {
               </div>
 
               <div className="showcase-card">
-                <img src="/logos/farms_logo.svg" alt="Kone Farms" className="showcase-card-img" style={{ background: '#0a0f1d', padding: '20px' }} />
+                <img src="/app-farms.svg" alt="Kone Farms" className="showcase-card-img" style={{ background: '#0a0f1d', padding: '20px' }} />
                 <div className="showcase-card-content">
                   <h4 className="showcase-card-title">Kone Farms Telemetry</h4>
                   <p className="showcase-card-desc">
@@ -257,7 +257,7 @@ const Sitemap = ({ onBack }) => {
               </div>
 
               <div className="showcase-card">
-                <img src="/favicon.svg" alt="Kone AI" className="showcase-card-img" style={{ background: '#0a0f1d', padding: '30px', width: '100%', height: '200px' }} />
+                <img src="/app-ai.svg" alt="Kone AI" className="showcase-card-img" style={{ background: '#0a0f1d', padding: '30px', width: '100%', height: '200px' }} />
                 <div className="showcase-card-content">
                   <h4 className="showcase-card-title">Kone AI agentic Workflows</h4>
                   <p className="showcase-card-desc">
