@@ -16,7 +16,7 @@ const apps = [
   {
     name: 'Kone Technologies',
     description: 'Corporate parent brand',
-    logo: '/favicon.svg',
+    logo: '/logo-tech.svg',
     color: 'tech',
     glow: 'rgba(188, 0, 255, 0.12)',
     url: isLocal 
