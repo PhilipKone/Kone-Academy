@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import './Sitemap.css';
 import { 
   FaGlobe, 
@@ -17,6 +17,17 @@ import { codingErrors } from '../data/codingErrors';
 import { techStacks } from '../data/techStacks';
 
 const Sitemap = ({ onBack }) => {
+  const sliderRef = useRef(null);
+
+  const scrollSlider = (direction) => {
+    if (sliderRef.current) {
+      const scrollAmount = 304; // card width (280) + gap (24)
+      sliderRef.current.scrollBy({
+        left: direction === 'left' ? -scrollAmount : scrollAmount,
+        behavior: 'smooth'
+      });
+    }
+  };
 
   const handleLinkClick = (e, path) => {
     // Intercept client-side routing to keep SPA navigation smooth
@@ -223,12 +234,12 @@ const Sitemap = ({ onBack }) => {
                 <p>Learn more about what you can build inside the Kone Academy ecosystem.</p>
               </div>
               <div className="slider-controls">
-                <button className="slider-btn"><FaChevronLeft /></button>
-                <button className="slider-btn"><FaChevronRight /></button>
+                <button onClick={() => scrollSlider('left')} className="slider-btn" aria-label="Slide Left"><FaChevronLeft /></button>
+                <button onClick={() => scrollSlider('right')} className="slider-btn" aria-label="Slide Right"><FaChevronRight /></button>
               </div>
             </div>
 
-            <div className="showcase-slider">
+            <div className="showcase-slider" ref={sliderRef}>
               
               <div className="showcase-card">
                 <img src="/app-code.svg" alt="Kone Code" className="showcase-card-img" style={{ background: '#0a0f1d', padding: '20px' }} />
