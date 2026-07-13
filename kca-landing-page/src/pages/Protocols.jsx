@@ -1,11 +1,10 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { 
-  FaBookMedical, FaBuilding, FaLaptopCode, FaExternalLinkAlt, 
-  FaSearch, FaTimes, FaFlask, FaShieldAlt, FaCalendarAlt, FaFileContract,
-  FaGithub, FaChevronLeft, FaInfoCircle
+  FaSearch, FaTimes, FaChevronLeft, FaInfoCircle
 } from 'react-icons/fa';
 import { protocols } from '../data/protocols';
+import './Protocols.css';
 
 const getNormalizedCategory = (category) => {
   const cat = (category || '').toLowerCase();
@@ -29,39 +28,33 @@ const Protocols = ({ onBack }) => {
   });
 
   return (
-    <div className="page-container position-relative container py-5" style={{ minHeight: '100vh', color: '#e2e8f0' }}>
+    <div className="page-container">
       <div className="page-background-glow" />
 
       {/* Back Button */}
-      <button 
-        onClick={onBack}
-        className="btn btn-link text-white d-flex align-items-center gap-2 mb-4 p-0 text-decoration-none"
-        style={{ zIndex: 10, position: 'relative' }}
-      >
+      <button onClick={onBack} className="btn-back-home">
         <FaChevronLeft /> Back to Home
       </button>
 
       <motion.div
-        className="text-center section-title"
+        className="section-title-container"
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
       >
-        <div className="badge mb-3">RESEARCH & COMPLIANCE</div>
-        <h1 className="text-gradient mb-3 display-4">Technical Protocols</h1>
+        <div className="badge-compliance">RESEARCH & COMPLIANCE</div>
+        <h1 className="text-gradient mb-3 display-4 fw-bold">Technical Protocols</h1>
         <p className="lead text-secondary mb-4" style={{ maxWidth: '600px', margin: '0 auto' }}>
           Standardized telemetry, clinical, and software development protocols engineered by Kone Academy and Labs.
         </p>
 
         {/* Search Bar */}
-        <div className="d-flex justify-content-center mb-4">
-          <div className="input-group" style={{ maxWidth: '400px' }}>
-            <span className="input-group-text bg-dark border-secondary text-secondary">
-              <FaSearch />
-            </span>
+        <div className="search-wrapper">
+          <div className="search-input-container">
+            <FaSearch className="search-icon" />
             <input 
               type="text" 
-              className="form-control bg-dark border-secondary text-white" 
+              className="search-input-field" 
               placeholder="Search protocols..."
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
@@ -70,11 +63,11 @@ const Protocols = ({ onBack }) => {
         </div>
 
         {/* Filter Pills */}
-        <div className="nav-tabs-premium mb-5 d-flex justify-content-center gap-3">
+        <div className="nav-filters">
           {['All', 'Academic', 'Business', 'Software'].map(category => (
             <button
               key={category}
-              className={`tab-btn-premium ${activeFilter === category ? 'active' : ''}`}
+              className={`filter-pill ${activeFilter === category ? 'active' : ''}`}
               onClick={() => setActiveFilter(category)}
             >
               {category}
@@ -84,34 +77,33 @@ const Protocols = ({ onBack }) => {
       </motion.div>
 
       {/* Protocol List Grid */}
-      <div className="row g-4 justify-content-center">
+      <div className="protocols-grid">
         <AnimatePresence>
           {filteredProtocols.map((proto) => (
             <motion.div 
               key={proto.id} 
-              className="col-md-6"
               layout
-              initial={{ opacity: 0, scale: 0.9 }}
+              initial={{ opacity: 0, scale: 0.95 }}
               animate={{ opacity: 1, scale: 1 }}
-              exit={{ opacity: 0, scale: 0.9 }}
+              exit={{ opacity: 0, scale: 0.95 }}
               transition={{ duration: 0.2 }}
             >
-              <div className="glass-card hover-y p-4 h-100 d-flex flex-column" style={{ background: 'rgba(30, 41, 59, 0.4)', border: '1px solid rgba(255,255,255,0.05)', borderRadius: '12px' }}>
-                <div className="d-flex justify-content-between align-items-start mb-3">
-                  <span className="badge bg-secondary">{proto.category}</span>
-                  <span className="small text-secondary">{proto.institution}</span>
+              <div className={`protocol-card ${getNormalizedCategory(proto.category)}`}>
+                <div className="card-top-row">
+                  <span className="tag-category">{proto.category}</span>
+                  <span className="institution-text">{proto.institution}</span>
                 </div>
-                <h3 className="h5 text-white fw-bold mb-2">{proto.title}</h3>
-                <p className="text-secondary small mb-3 flex-grow-1">{proto.description}</p>
-                <div className="mb-4">
-                  <strong className="small text-white me-2">Tools:</strong>
+                <h3 className="protocol-title">{proto.title}</h3>
+                <p className="protocol-desc">{proto.description}</p>
+                <div className="tools-box">
+                  <span className="tools-title">Tools:</span>
                   {proto.tools.split(',').map((tool, i) => (
-                    <span key={i} className="badge bg-dark text-info me-1">{tool.trim()}</span>
+                    <span key={i} className="tool-capsule">{tool.trim()}</span>
                   ))}
                 </div>
 
                 <button 
-                  className="btn btn-outline-primary btn-sm w-100 d-flex align-items-center justify-content-center gap-2"
+                  className="btn-view-spec"
                   onClick={() => setSelectedProtocol(proto)}
                 >
                   <FaInfoCircle /> View Specifications
@@ -126,44 +118,45 @@ const Protocols = ({ onBack }) => {
       <AnimatePresence>
         {selectedProtocol && (
           <motion.div 
-            className="modal-overlay" 
+            className="modal-backdrop" 
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            style={{ position: 'fixed', top: 0, left: 0, right: 0, bottom: 0, background: 'rgba(0,0,0,0.85)', zIndex: 1000, display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '20px' }}
           >
             <motion.div 
-              className="glass-card p-4 text-white" 
-              initial={{ y: 50 }}
-              animate={{ y: 0 }}
-              exit={{ y: 50 }}
-              style={{ maxWidth: '600px', width: '100%', background: '#0f172a', border: '1px solid rgba(255,255,255,0.1)', borderRadius: '16px', maxHeight: '90vh', overflowY: 'auto' }}
+              className="modal-card" 
+              initial={{ y: 50, opacity: 0 }}
+              animate={{ y: 0, opacity: 1 }}
+              exit={{ y: 50, opacity: 0 }}
+              transition={{ type: 'spring', damping: 25, stiffness: 350 }}
             >
-              <div className="d-flex justify-content-between align-items-center mb-4">
-                <h4 className="fw-bold mb-0 text-gradient">{selectedProtocol.title}</h4>
-                <button className="btn btn-link text-white p-0" onClick={() => setSelectedProtocol(null)}>
+              <div className="modal-header">
+                <h4 className="modal-title text-gradient">{selectedProtocol.title}</h4>
+                <button className="btn-close-modal" onClick={() => setSelectedProtocol(null)} aria-label="Close modal">
                   <FaTimes size={20} />
                 </button>
               </div>
 
-              <div className="mb-4">
-                <h5 className="text-primary small uppercase fw-bold mb-2">Methodology</h5>
-                <p className="text-secondary small">{selectedProtocol.details.methodology}</p>
+              <div className="modal-body">
+                <div>
+                  <h5 className="modal-section-title">Methodology</h5>
+                  <p className="modal-text">{selectedProtocol.details.methodology}</p>
+                </div>
+
+                <div>
+                  <h5 className="modal-section-title">Data Processing</h5>
+                  <p className="modal-text">{selectedProtocol.details.dataProcessing}</p>
+                </div>
+
+                <div>
+                  <h5 className="modal-section-title">Compliance & Data Protection</h5>
+                  <p className="modal-text">{selectedProtocol.details.compliance}</p>
+                </div>
               </div>
 
-              <div className="mb-4">
-                <h5 className="text-primary small uppercase fw-bold mb-2">Data Processing</h5>
-                <p className="text-secondary small">{selectedProtocol.details.dataProcessing}</p>
-              </div>
-
-              <div className="mb-4">
-                <h5 className="text-primary small uppercase fw-bold mb-2">Compliance & Data Protection</h5>
-                <p className="text-secondary small">{selectedProtocol.details.compliance}</p>
-              </div>
-
-              <div className="d-flex justify-content-between align-items-center pt-3 border-top border-secondary">
-                <span className="small text-secondary">Timeline: {selectedProtocol.details.timeline}</span>
-                <button className="btn btn-secondary btn-sm" onClick={() => setSelectedProtocol(null)}>Close</button>
+              <div className="modal-footer">
+                <span className="modal-timeline">Timeline: {selectedProtocol.details.timeline}</span>
+                <button className="btn-close-footer" onClick={() => setSelectedProtocol(null)}>Close</button>
               </div>
             </motion.div>
           </motion.div>
