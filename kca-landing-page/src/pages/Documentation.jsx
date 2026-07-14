@@ -191,7 +191,7 @@ const Documentation = ({ category, subcategory, slug, onBack, onNavigate }) => {
               transition={{ duration: 0.2 }}
               className="max-w-content"
             >
-              <h1 className="h2 text-white fw-bold mb-4 text-gradient-docs">{activeContent.title}</h1>
+              <h1 className="h2 fw-bold mb-4 text-gradient-docs">{activeContent.title}</h1>
               
               {activeType === 'error' ? (
                 // --- Error Details Rendering ---
@@ -321,20 +321,28 @@ const Documentation = ({ category, subcategory, slug, onBack, onNavigate }) => {
           ) : (
             // --- Empty / Landing State for Documentation Hub ---
             <div className="text-center max-w-content" style={{ padding: '40px 0' }}>
-              <div className="icon mb-4 text-primary" style={{ fontSize: '4rem' }}>
+              <div className="landing-hero-icon-wrapper">
                 <FaBookOpen />
               </div>
-              <h2 className="fw-bold text-white mb-3 text-gradient-docs">Kone Academy Documentation Hub</h2>
+              <h2 className="fw-bold mb-3 text-gradient-docs">Kone Academy Documentation Hub</h2>
               <p className="lead text-secondary" style={{ maxWidth: '600px', margin: '0 auto 40px auto' }}>
                 Welcome to our centralized repository of coding troubleshooting guides, agritech telemetry specs, and startup architecture templates.
               </p>
               
               <div className="landing-cards-grid">
-                <div className="seo-card">
+                <div 
+                  className="seo-card" 
+                  style={{ cursor: 'pointer' }}
+                  onClick={(e) => handleNavClick(e, 'code', 'errors', codingErrors[0].slug)}
+                >
                   <h4 className="h6 text-primary fw-bold mb-2">🔧 Developer Errors</h4>
                   <p className="text-secondary small mb-0">Learn how to identify, debug, and resolve common React, JavaScript, and Python errors using our Web IDE.</p>
                 </div>
-                <div className="seo-card">
+                <div 
+                  className="seo-card" 
+                  style={{ cursor: 'pointer' }}
+                  onClick={(e) => handleNavClick(e, 'consult', 'architecture', techStacks[0].slug)}
+                >
                   <h4 className="h6 text-success fw-bold mb-2">⚡ Startup Architectures</h4>
                   <p className="text-secondary small mb-0">Explore vetted software stacks and high-scale time-series agritech telemetry infrastructure designs.</p>
                 </div>
