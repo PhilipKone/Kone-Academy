@@ -8,6 +8,7 @@
         "@react-three/fiber": "^8.18.0",
         "firebase": "^12.12.1",
         "framer-motion": "^12.38.0",
+        "prismjs": "^1.30.0",
         "react": "^18.2.0",
         "react-dom": "^18.2.0",
         "react-icons": "^5.5.0",
@@ -27,7 +28,7 @@
         "postbuild": "react-snap || echo 'Pre-rendering timed out, deploying SPA...'",
         "preview": "vite preview",
         "predeploy": "npm run build",
-        "deploy": "gh-pages -d dist --dotfiles",
+        "deploy": "gh-pages -d dist --dotfiles -f",
         "postinstall": "node patch-react-snap.cjs",
         "audit:lighthouse": "node ../scripts/lighthouse_audit.js",
         "audit:gsc": "node ../scripts/search_console_audit.js"

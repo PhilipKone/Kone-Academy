@@ -4,6 +4,9 @@ import {
   FaChevronLeft, FaSearch, FaBook, FaCode, FaFlask, FaCheckCircle, 
   FaExclamationTriangle, FaLightbulb, FaExternalLinkAlt, FaBookOpen
 } from 'react-icons/fa';
+import Prism from 'prismjs';
+import 'prismjs/themes/prism-tomorrow.css';
+import 'prismjs/components/prism-python';
 import { codingErrors } from '../data/codingErrors';
 import { techStacks } from '../data/techStacks';
 import './Documentation.css';
@@ -27,6 +30,24 @@ const removeJSONLD = (schemaId) => {
   }
 };
 
+const formatSlugLabel = (slug, type) => {
+  if (type === 'error') {
+    if (slug === 'js-cannot-read-properties-of-undefined-map') return 'JS: TypeError Cannot Read Map';
+    if (slug === 'react-hook-useeffect-missing-dependency') return 'React: useEffect Dependency';
+    if (slug === 'python-keyerror') return 'Python: KeyError';
+  } else {
+    if (slug === 'fintech-app-tech-stack') return 'Fintech App Architecture';
+    if (slug === 'saas-mvp-tech-stack') return 'SaaS MVP Fast Stack';
+    if (slug === 'iot-telemetry-tech-stack') return 'IoT Telemetry Architecture';
+  }
+  return slug.split('-').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ');
+};
+
+const getLanguageClass = (slug) => {
+  if (slug.includes('python')) return 'language-python';
+  return 'language-javascript';
+};
+
 const Documentation = ({ category, subcategory, slug, onBack, onNavigate }) => {
   const [searchQuery, setSearchQuery] = useState('');
 
@@ -42,7 +63,7 @@ const Documentation = ({ category, subcategory, slug, onBack, onNavigate }) => {
     activeType = 'stack';
   }
 
-  // 2. SEO & Schema injection on Mount/Update
+  // 2. SEO, Schema & Prism injection on Mount/Update
   useEffect(() => {
     if (activeContent) {
       // Dynamic Title & Description for Googlebot / ReactSnap
@@ -81,6 +102,11 @@ const Documentation = ({ category, subcategory, slug, onBack, onNavigate }) => {
     } else {
       document.title = "Kone Academy | Documentation Hub";
     }
+
+    // Highlight code blocks after rendering
+    setTimeout(() => {
+      Prism.highlightAll();
+    }, 50);
 
     return () => {
       removeJSONLD('pseo-jsonld');
@@ -135,7 +161,7 @@ const Documentation = ({ category, subcategory, slug, onBack, onNavigate }) => {
                 onClick={(e) => handleNavClick(e, 'code', 'errors', item.slug)}
                 className={slug === item.slug ? 'active-doc-link' : 'inactive-doc-link'}
               >
-                {item.slug.replace(/-/g, ' ')}
+                {formatSlugLabel(item.slug, 'error')}
               </a>
             ))}
           </div>
@@ -154,7 +180,7 @@ const Documentation = ({ category, subcategory, slug, onBack, onNavigate }) => {
                 onClick={(e) => handleNavClick(e, 'consult', 'architecture', item.slug)}
                 className={slug === item.slug ? 'active-doc-link' : 'inactive-doc-link'}
               >
-                {item.slug.replace(/-/g, ' ')}
+                {formatSlugLabel(item.slug, 'stack')}
               </a>
             ))}
           </div>
@@ -205,19 +231,19 @@ const Documentation = ({ category, subcategory, slug, onBack, onNavigate }) => {
                   </div>
 
                   <div className="mb-4">
-                    <h3 className="h5 text-primary fw-bold mb-2">Why It Happens (The Cause)</h3>
+                    <h3 className="h5 text-gradient-blue fw-bold mb-2">Why It Happens (The Cause)</h3>
                     <p className="text-secondary">{activeContent.cause}</p>
                   </div>
 
                   <div className="mb-4">
-                    <h3 className="h5 text-primary fw-bold mb-2">How to Fix It</h3>
+                    <h3 className="h5 text-gradient-blue fw-bold mb-2">How to Fix It</h3>
                     <p className="text-secondary" style={{ whiteSpace: 'pre-line' }}>{activeContent.solution}</p>
                   </div>
 
                   {/* Buggy Code vs Clean Code Diffs */}
                   <div className="code-panel-deck">
                     <div>
-                      <h4 className="small text-danger-subtle uppercase fw-bold mb-2">❌ Buggy Code</h4>
+                      <div className="code-panel-badge error">❌ Buggy Code</div>
                       <div className="ide-window buggy">
                         <div className="ide-header">
                           <div className="ide-dots">
@@ -225,15 +251,15 @@ const Documentation = ({ category, subcategory, slug, onBack, onNavigate }) => {
                             <span className="ide-dot yellow"></span>
                             <span className="ide-dot green"></span>
                           </div>
-                          <span className="ide-title">broken_implementation.js</span>
+                          <span className="ide-title">{slug.includes('python') ? 'broken_impl.py' : 'broken_impl.js'}</span>
                         </div>
                         <pre className="ide-body">
-                          <code>{activeContent.badCode}</code>
+                          <code className={getLanguageClass(slug)}>{activeContent.badCode}</code>
                         </pre>
                       </div>
                     </div>
                     <div>
-                      <h4 className="small text-success-subtle uppercase fw-bold mb-2">✅ Correct Code</h4>
+                      <div className="code-panel-badge success">✅ Correct Code</div>
                       <div className="ide-window correct">
                         <div className="ide-header">
                           <div className="ide-dots">
@@ -241,10 +267,10 @@ const Documentation = ({ category, subcategory, slug, onBack, onNavigate }) => {
                             <span className="ide-dot yellow"></span>
                             <span className="ide-dot green"></span>
                           </div>
-                          <span className="ide-title">fixed_implementation.js</span>
+                          <span className="ide-title">{slug.includes('python') ? 'fixed_impl.py' : 'fixed_impl.js'}</span>
                         </div>
                         <pre className="ide-body">
-                          <code>{activeContent.goodCode}</code>
+                          <code className={getLanguageClass(slug)}>{activeContent.goodCode}</code>
                         </pre>
                       </div>
                     </div>
@@ -276,22 +302,34 @@ const Documentation = ({ category, subcategory, slug, onBack, onNavigate }) => {
                   </div>
 
                   <div className="mb-4">
-                    <h3 className="h5 text-success fw-bold mb-2">Summary</h3>
+                    <h3 className="h5 text-gradient-green fw-bold mb-2">Summary</h3>
                     <p className="text-secondary">{activeContent.summary}</p>
                   </div>
 
                   <div className="mb-4">
-                    <h3 className="h5 text-success fw-bold mb-2">Recommended Tech Stack</h3>
-                    <p className="text-white bg-dark p-3 rounded border border-secondary" style={{ fontSize: '0.85rem', fontFamily: 'Fira Code, monospace', margin: 0 }}>{activeContent.recommendation}</p>
+                    <h3 className="h5 text-gradient-green fw-bold mb-2">Recommended Tech Stack</h3>
+                    <div className="ide-window" style={{ maxHeight: 'none', borderColor: 'rgba(57, 255, 20, 0.25)' }}>
+                      <div className="ide-header" style={{ background: '#0d1326' }}>
+                        <div className="ide-dots">
+                          <span className="ide-dot red"></span>
+                          <span className="ide-dot yellow"></span>
+                          <span className="ide-dot green"></span>
+                        </div>
+                        <span className="ide-title">recommended_stack.sh</span>
+                      </div>
+                      <pre className="ide-body" style={{ maxHeight: 'none', background: '#090e1a' }}>
+                        <code className="language-typescript">{activeContent.recommendation}</code>
+                      </pre>
+                    </div>
                   </div>
 
                   <div className="mb-4">
-                    <h3 className="h5 text-success fw-bold mb-2">Architecture Workflow</h3>
+                    <h3 className="h5 text-gradient-green fw-bold mb-2">Architecture Workflow</h3>
                     <p className="text-secondary" style={{ whiteSpace: 'pre-line' }}>{activeContent.architecture}</p>
                   </div>
 
                   <div className="mb-5">
-                    <h3 className="h5 text-success fw-bold mb-3">Engineering Checklist</h3>
+                    <h3 className="h5 text-gradient-green fw-bold mb-3">Engineering Checklist</h3>
                     <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
                       {activeContent.checklist.map((item, i) => (
                         <div key={i} style={{ display: 'flex', alignItems: 'flex-start', gap: '8px' }} className="text-secondary small">
