@@ -66,3 +66,113 @@
 .horizontal-scroll-container {
     padding-top: 2rem;
 }
+
+/* Back Button Glass Capsule */
+.back-btn-capsule {
+  background: rgba(255, 255, 255, 0.03) !important;
+  border: 1px solid rgba(255, 255, 255, 0.08) !important;
+  padding: 8px 16px !important;
+  border-radius: 20px !important;
+  color: #fff !important;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 600;
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1) !important;
+  text-decoration: none;
+  outline: none;
+}
+
+.back-btn-capsule:hover {
+  background: rgba(255, 255, 255, 0.08) !important;
+  border-color: #00e5ff !important;
+  box-shadow: 0 0 15px rgba(0, 229, 255, 0.12) !important;
+  transform: translateY(-1px) !important;
+  color: #fff !important;
+}
+
+/* Premium Action Buttons on Cards */
+.enroll-btn {
+  background: linear-gradient(135deg, #00e5ff, #bd00ff) !important;
+  color: #060913 !important;
+  border: none !important;
+  font-weight: 750 !important;
+  border-radius: 10px !important;
+  padding: 10px 16px !important;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1) !important;
+  box-shadow: 0 4px 15px rgba(0, 229, 255, 0.15) !important;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  font-size: 0.85rem;
+  cursor: pointer;
+}
+
+.enroll-btn:hover {
+  transform: translateY(-1.5px) !important;
+  box-shadow: 0 6px 20px rgba(0, 229, 255, 0.35) !important;
+  filter: brightness(1.1) !important;
+}
+
+.watch-btn {
+  background: rgba(255, 255, 255, 0.03) !important;
+  color: #fff !important;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  font-weight: 600 !important;
+  border-radius: 10px !important;
+  padding: 10px 16px !important;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1) !important;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  font-size: 0.85rem;
+  cursor: pointer;
+}
+
+.watch-btn:hover {
+  background: rgba(255, 255, 255, 0.08) !important;
+  border-color: #ef4444 !important;
+  box-shadow: 0 0 15px rgba(239, 68, 68, 0.15) !important;
+  transform: translateY(-1.5px) !important;
+}
+
+/* Waffle Nav Tabs Premium Filters */
+.nav-tabs-premium {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin-bottom: 40px;
+}
+
+.tab-btn-premium {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 10px 22px;
+  border-radius: 30px;
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 0.9rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  outline: none;
+}
+
+.tab-btn-premium:hover {
+  color: #fff;
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.2);
+  transform: translateY(-1px);
+}
+
+.tab-btn-premium.active {
+  color: #060913 !important;
+  background: linear-gradient(135deg, #00e5ff, #bd00ff) !important;
+  border-color: transparent !important;
+  box-shadow: 0 4px 15px rgba(0, 229, 255, 0.3) !important;
+}

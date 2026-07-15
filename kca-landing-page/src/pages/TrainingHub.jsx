@@ -66,12 +66,11 @@ const CourseCard = ({ title, division, icon, description, skills, rating, review
           href="https://docs.google.com/forms/d/e/1FAIpQLSeXOBgnnnquQmQHHU1Kbyw9iYfK7gJ6Kyj5T5OctIcyy4fXSA/viewform?usp=header"
           target="_blank"
           rel="noreferrer"
-          className="btn btn-primary btn-sm w-100 d-flex align-items-center justify-content-center gap-2"
-          style={{ fontWeight: 'bold' }}
+          className="enroll-btn w-100"
         >
           Enroll Now
         </a>
-        <a href={youtubeLink} target="_blank" rel="noopener noreferrer" className="btn btn-outline-light text-white btn-sm w-100 d-flex align-items-center justify-content-center gap-2">
+        <a href={youtubeLink} target="_blank" rel="noopener noreferrer" className="watch-btn w-100">
           <FaYoutube size={16} className="text-danger" /> Watch on YouTube
         </a>
       </div>
@@ -113,7 +112,7 @@ const TrainingHub = ({ onBack }) => {
       {/* Back Button */}
       <button 
         onClick={onBack}
-        className="btn btn-link text-white d-flex align-items-center gap-2 mb-4 p-0 text-decoration-none"
+        className="back-btn-capsule mb-4"
         style={{ zIndex: 10, position: 'relative' }}
       >
         <FaChevronLeft /> Back to Home
