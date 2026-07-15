@@ -158,3 +158,48 @@
         margin-bottom: 1rem;
     }
 }
+
+/* Future Divisions List Styling */
+.future-divisions-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin-top: 1rem;
+}
+
+.future-division-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  padding: 0.75rem 1rem;
+  border-radius: 12px;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.future-division-item:hover {
+  background: rgba(255, 255, 255, 0.05);
+  border-color: rgba(255, 255, 255, 0.1);
+  transform: translateX(2px);
+}
+
+.future-division-icon {
+  font-size: 1.25rem;
+}
+
+.future-division-name {
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: #fff;
+  margin: 0 0 2px 0;
+  font-family: var(--font-heading);
+}
+
+.future-division-desc {
+  font-size: 0.75rem;
+  color: var(--text-secondary);
+  opacity: 0.75;
+  margin: 0;
+  line-height: 1.35;
+}

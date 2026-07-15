@@ -59,11 +59,36 @@ const Careers = () => {
 
           {/* Coming Soon / General Interest */}
           <div className="career-card glass-panel-premium secondary">
-            <h3 className="text-white mb-3" style={{ fontSize: '1.25rem', fontFamily: 'var(--font-heading)', fontWeight: 700 }}>Future Opportunities</h3>
-            <p className="text-secondary small">
-              We are constantly expanding our divisions (Lab, Consult, Shop). If you are a specialist in robotics, physical engineering, or AI architecture, we want to hear from you.
+            <h3 className="text-white mb-2" style={{ fontSize: '1.25rem', fontFamily: 'var(--font-heading)', fontWeight: 700 }}>Future Opportunities</h3>
+            <p className="text-secondary small mb-3">
+              We are constantly expanding our divisions. If you are a specialist in physical engineering, system design, or smart commerce, apply to join our talent pool:
             </p>
-            <div className="mt-auto pt-4">
+            
+            <div className="future-divisions-list mb-4">
+              <div className="future-division-item">
+                <span className="future-division-icon">🤖</span>
+                <div>
+                  <h4 className="future-division-name">Kone Lab</h4>
+                  <p className="future-division-desc">Robotics, IoT telemetry & embedded circuits.</p>
+                </div>
+              </div>
+              <div className="future-division-item">
+                <span className="future-division-icon">☁️</span>
+                <div>
+                  <h4 className="future-division-name">Kone Consult</h4>
+                  <p className="future-division-desc">Enterprise system architecture & cloud cost ops.</p>
+                </div>
+              </div>
+              <div className="future-division-item">
+                <span className="future-division-icon">🛒</span>
+                <div>
+                  <h4 className="future-division-name">Kone Shop</h4>
+                  <p className="future-division-desc">E-commerce storefront for hardware & merchandise.</p>
+                </div>
+              </div>
+            </div>
+
+            <div className="mt-auto">
               <a href="mailto:philipkone45@gmail.com" className="text-link">General Application →</a>
             </div>
           </div>
