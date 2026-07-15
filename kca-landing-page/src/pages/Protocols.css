@@ -36,25 +36,31 @@
 
 /* Back Button */
 .btn-back-home {
-  background: transparent;
-  border: none;
-  color: rgba(255, 255, 255, 0.7);
+  background: rgba(255, 255, 255, 0.03) !important;
+  border: 1px solid rgba(255, 255, 255, 0.08) !important;
+  padding: 8px 16px !important;
+  border-radius: 20px !important;
+  color: #fff !important;
   display: inline-flex;
   align-items: center;
   gap: 8px;
   font-weight: 600;
-  font-size: 0.95rem;
+  font-size: 0.85rem;
   cursor: pointer;
-  transition: all 0.2s ease;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1) !important;
   text-decoration: none;
   margin-bottom: 40px;
   position: relative;
   z-index: 10;
+  outline: none;
 }
 
 .btn-back-home:hover {
-  color: #fff;
-  transform: translateX(-4px);
+  background: rgba(255, 255, 255, 0.08) !important;
+  border-color: #00e5ff !important;
+  box-shadow: 0 0 15px rgba(0, 229, 255, 0.12) !important;
+  transform: translateY(-1px) !important;
+  color: #fff !important;
 }
 
 .btn-back-home svg {
@@ -160,6 +166,7 @@
   font-weight: 600;
   cursor: pointer;
   transition: all 0.25s ease;
+  outline: none;
 }
 
 .filter-pill:hover {
@@ -170,10 +177,11 @@
 }
 
 .filter-pill.active {
-  background: linear-gradient(135deg, rgba(0, 229, 255, 0.18), rgba(99, 102, 241, 0.18));
-  border-color: var(--neon-blue);
-  color: #fff;
-  box-shadow: 0 0 15px rgba(0, 229, 255, 0.15);
+  color: #060913 !important;
+  background: linear-gradient(135deg, #00e5ff, #bd00ff) !important;
+  border-color: transparent !important;
+  box-shadow: 0 4px 15px rgba(0, 229, 255, 0.3) !important;
+  font-weight: 700;
 }
 
 /* Protocols Card Grid */
@@ -327,10 +335,11 @@
 }
 
 .btn-view-spec:hover {
-  background: linear-gradient(135deg, rgba(0, 229, 255, 0.15), rgba(99, 102, 241, 0.15));
-  border-color: var(--neon-blue);
-  box-shadow: 0 0 15px rgba(0, 229, 255, 0.15);
-  transform: translateY(-1px);
+  background: linear-gradient(135deg, #00e5ff, #bd00ff) !important;
+  color: #060913 !important;
+  border-color: transparent !important;
+  box-shadow: 0 4px 15px rgba(0, 229, 255, 0.3) !important;
+  transform: translateY(-1.5px) !important;
 }
 
 /* Modal Overlay & Card Styling */
