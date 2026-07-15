@@ -87,16 +87,7 @@
     background: rgba(255, 255, 255, 0.1);
 }
 
-.btn-primary {
-    background: var(--accent-primary);
-    color: #fff;
-    border: none;
-    padding: 0.5rem 1.2rem;
-    border-radius: 6px;
-    font-weight: 600;
-    font-size: 0.9rem;
-    transition: all 0.2s;
-}
+
 
 .header {
     position: fixed;
@@ -206,21 +197,7 @@
     background: rgba(255, 255, 255, 0.1);
 }
 
-.btn-primary {
-    background: var(--accent-primary);
-    color: #fff;
-    border: none;
-    padding: 0.5rem 1.2rem;
-    border-radius: 6px;
-    font-weight: 600;
-    font-size: 0.9rem;
-    transition: all 0.2s;
-}
 
-.btn-primary:hover {
-    filter: brightness(1.1);
-    box-shadow: var(--shadow-glow);
-}
 
 /* Mobile Toggle */
 .mobile-toggle {

@@ -128,3 +128,39 @@ button {
     font-family: var(--font-sans);
     cursor: pointer;
 }
+
+/* Premium Buttons Styling */
+.btn-primary {
+  background: linear-gradient(135deg, #00e5ff, #bd00ff) !important;
+  color: #060913 !important;
+  border: none !important;
+  border-radius: 8px !important;
+  font-weight: 750 !important;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1) !important;
+  box-shadow: 0 4px 15px rgba(0, 229, 255, 0.15) !important;
+  cursor: pointer;
+}
+
+.btn-primary:hover {
+  transform: translateY(-1.5px) !important;
+  box-shadow: 0 6px 20px rgba(0, 229, 255, 0.35) !important;
+  filter: brightness(1.15) !important;
+  color: #060913 !important;
+}
+
+.btn-secondary {
+  background: rgba(255, 255, 255, 0.03) !important;
+  color: #fff !important;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  border-radius: 8px !important;
+  font-weight: 600 !important;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1) !important;
+  cursor: pointer;
+}
+
+.btn-secondary:hover {
+  background: rgba(255, 255, 255, 0.08) !important;
+  border-color: #00e5ff !important;
+  box-shadow: 0 0 15px rgba(0, 229, 255, 0.12) !important;
+  transform: translateY(-1.5px) !important;
+}

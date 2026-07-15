@@ -1,5 +1,6 @@
 import React from 'react';
 import InteractiveTerminal from './InteractiveTerminal';
+import HeroMoon from './HeroMoon';
 import './Hero.css';
 
 const Hero = () => {
@@ -8,12 +9,17 @@ const Hero = () => {
     window.__PRERENDER_INJECTED
   );
 
-  const docsUrl = (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') && !isPrerender
-    ? 'http://localhost:3001/docs?category=general'
-    : 'https://consult.koneacademy.io/docs?category=general';
+  const handleDocsClick = (e) => {
+    e.preventDefault();
+    window.history.pushState({}, '', '/docs');
+    window.dispatchEvent(new Event('popstate'));
+  };
 
   return (
     <section className="hero" id="home">
+      {/* 3D background active companion */}
+      {!isPrerender && <HeroMoon />}
+
       <div className="hero-container">
         <div className="hero-content">
           <div className="badge">v1.2 Now Available</div>
@@ -27,7 +33,7 @@ const Hero = () => {
           </p>
           <div className="hero-actions">
             <a href="https://docs.google.com/forms/d/e/1FAIpQLSeXOBgnnnquQmQHHU1Kbyw9iYfK7gJ6Kyj5T5OctIcyy4fXSA/viewform?usp=header" target="_blank" rel="noreferrer" className="btn-primary big" style={{ textDecoration: 'none', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>Start Learning</a>
-            <a href={docsUrl} target="_blank" rel="noreferrer" className="btn-secondary big" style={{ textDecoration: 'none', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+            <a href="/docs" onClick={handleDocsClick} className="btn-secondary big" style={{ textDecoration: 'none', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
               View Documentation
             </a>
           </div>
