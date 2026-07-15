@@ -1,6 +1,5 @@
 import React from 'react';
 import InteractiveTerminal from './InteractiveTerminal';
-import HeroMoon from './HeroMoon';
 import './Hero.css';
 
 const Hero = () => {
@@ -17,12 +16,9 @@ const Hero = () => {
 
   return (
     <section className="hero" id="home">
-      {/* 3D background active companion */}
-      {!isPrerender && <HeroMoon />}
-
       <div className="hero-container">
         <div className="hero-content">
-          <div className="badge">v1.2 Now Available</div>
+          <div className="badge">v1.3 Now Available</div>
           <h1 className="hero-title">
             Research. Coding.<br />
             <span className="text-gradient">Engineering.</span>
