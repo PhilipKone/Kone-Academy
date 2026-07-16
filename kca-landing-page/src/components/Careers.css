@@ -4,6 +4,13 @@
     background: transparent;
 }
 
+.container {
+    max-width: 1200px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
 .careers-grid {
     display: grid;
     grid-template-columns: 1.5fr 1fr;
