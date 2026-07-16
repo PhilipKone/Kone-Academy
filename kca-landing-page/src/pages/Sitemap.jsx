@@ -13,7 +13,7 @@ import {
 import { motion } from 'framer-motion';
 
 // Import our programmatic datasets
-import { codingErrors } from '../data/codingErrors';
+import { ecosystemGuides } from '../data/ecosystemGuides';
 import { techStacks } from '../data/techStacks';
 
 const Sitemap = ({ onBack }) => {
@@ -147,18 +147,18 @@ const Sitemap = ({ onBack }) => {
                   <a href="/docs" onClick={(e) => handleLinkClick(e, '/docs')} className="sitemap-link">
                     Documentation Index
                   </a>
-                  <span className="sitemap-link-desc">Central dashboard for error logs and blueprints.</span>
+                  <span className="sitemap-link-desc">Central dashboard for guides, blueprints, and labs.</span>
                 </div>
-                {codingErrors.map(item => (
+                {ecosystemGuides.map(item => (
                   <div key={item.slug} className="sitemap-item">
                     <a 
-                      href={`/docs/code/errors/${item.slug}`} 
-                      onClick={(e) => handleLinkClick(e, `/docs/code/errors/${item.slug}`)} 
+                      href={`/docs/code/guides/${item.slug}`} 
+                      onClick={(e) => handleLinkClick(e, `/docs/code/guides/${item.slug}`)} 
                       className="sitemap-link"
                     >
                       {item.title}
                     </a>
-                    <span className="sitemap-link-desc">Troubleshooting guide for console output: <code>{item.errorText}</code>.</span>
+                    <span className="sitemap-link-desc">{item.cause}</span>
                   </div>
                 ))}
               </div>

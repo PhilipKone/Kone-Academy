@@ -7,7 +7,7 @@ import {
 import Prism from 'prismjs';
 import 'prismjs/themes/prism-tomorrow.css';
 import 'prismjs/components/prism-python';
-import { codingErrors } from '../data/codingErrors';
+import { ecosystemGuides } from '../data/ecosystemGuides';
 import { techStacks } from '../data/techStacks';
 import './Documentation.css';
 
@@ -31,10 +31,10 @@ const removeJSONLD = (schemaId) => {
 };
 
 const formatSlugLabel = (slug, type) => {
-  if (type === 'error') {
-    if (slug === 'js-cannot-read-properties-of-undefined-map') return 'JS: TypeError Cannot Read Map';
-    if (slug === 'react-hook-useeffect-missing-dependency') return 'React: useEffect Dependency';
-    if (slug === 'python-keyerror') return 'Python: KeyError';
+  if (type === 'guide') {
+    if (slug === 'getting-started') return 'Getting Started & Onboarding';
+    if (slug === 'remote-labs') return 'Remote Labs Access';
+    if (slug === 'git-workflows') return 'Git Collaboration Workflow';
   } else {
     if (slug === 'fintech-app-tech-stack') return 'Fintech App Architecture';
     if (slug === 'saas-mvp-tech-stack') return 'SaaS MVP Fast Stack';
@@ -45,7 +45,7 @@ const formatSlugLabel = (slug, type) => {
 
 const getLanguageClass = (slug) => {
   if (slug.includes('python')) return 'language-python';
-  return 'language-javascript';
+  return 'language-bash';
 };
 
 const Documentation = ({ category, subcategory, slug, onBack, onNavigate }) => {
@@ -53,11 +53,11 @@ const Documentation = ({ category, subcategory, slug, onBack, onNavigate }) => {
 
   // 1. Determine active content
   let activeContent = null;
-  let activeType = null; // 'error' or 'stack'
+  let activeType = null; // 'guide' or 'stack'
 
-  if (category === 'code' && subcategory === 'errors' && slug) {
-    activeContent = codingErrors.find(item => item.slug === slug);
-    activeType = 'error';
+  if (category === 'code' && subcategory === 'guides' && slug) {
+    activeContent = ecosystemGuides.find(item => item.slug === slug);
+    activeType = 'guide';
   } else if (category === 'consult' && subcategory === 'architecture' && slug) {
     activeContent = techStacks.find(item => item.slug === slug);
     activeType = 'stack';
@@ -75,7 +75,7 @@ const Documentation = ({ category, subcategory, slug, onBack, onNavigate }) => {
       }
 
       // Dynamic JSON-LD Schema
-      if (activeType === 'error') {
+      if (activeType === 'guide') {
         const schema = {
           "@context": "https://schema.org",
           "@type": "HowTo",
@@ -121,9 +121,10 @@ const Documentation = ({ category, subcategory, slug, onBack, onNavigate }) => {
   };
 
   // Filter lists based on search
-  const filteredErrors = codingErrors.filter(item => 
+  const filteredGuides = ecosystemGuides.filter(item => 
     item.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
-    item.errorText.toLowerCase().includes(searchQuery.toLowerCase())
+    item.errorText.toLowerCase().includes(searchQuery.toLowerCase()) ||
+    item.cause.toLowerCase().includes(searchQuery.toLowerCase())
   );
 
   const filteredStacks = techStacks.filter(item => 
@@ -148,43 +149,53 @@ const Documentation = ({ category, subcategory, slug, onBack, onNavigate }) => {
       </div>
 
       <div className="sidebar-links-container">
-        {/* Code Errors Group */}
-        <div style={{ marginBottom: '24px' }}>
-          <h6 style={{ color: 'var(--neon-blue)', fontSize: '0.85rem', fontWeight: 700, marginBottom: '12px', display: 'flex', alignItems: 'center', gap: '8px' }}>
-            <FaCode /> Coding Errors
-          </h6>
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '4px' }}>
-            {filteredErrors.map(item => (
-              <a 
-                key={item.slug}
-                href={`/docs/code/errors/${item.slug}`}
-                onClick={(e) => handleNavClick(e, 'code', 'errors', item.slug)}
-                className={slug === item.slug ? 'active-doc-link' : 'inactive-doc-link'}
-              >
-                {formatSlugLabel(item.slug, 'error')}
-              </a>
-            ))}
+        {filteredGuides.length === 0 && filteredStacks.length === 0 && (
+          <div className="sidebar-no-results">
+            No guides match your search query.
           </div>
-        </div>
+        )}
+
+        {/* Ecosystem Guides Group */}
+        {filteredGuides.length > 0 && (
+          <div style={{ marginBottom: '24px' }}>
+            <h6 style={{ color: 'var(--neon-blue)', fontSize: '0.85rem', fontWeight: 700, marginBottom: '12px', display: 'flex', alignItems: 'center', gap: '8px' }}>
+              <FaBookOpen /> Ecosystem Guides
+            </h6>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '4px' }}>
+              {filteredGuides.map(item => (
+                <a 
+                  key={item.slug}
+                  href={`/docs/code/guides/${item.slug}`}
+                  onClick={(e) => handleNavClick(e, 'code', 'guides', item.slug)}
+                  className={slug === item.slug ? 'active-doc-link' : 'inactive-doc-link'}
+                >
+                  {formatSlugLabel(item.slug, 'guide')}
+                </a>
+              ))}
+            </div>
+          </div>
+        )}
 
         {/* Tech Stacks Group */}
-        <div>
-          <h6 style={{ color: 'var(--neon-green)', fontSize: '0.85rem', fontWeight: 700, marginBottom: '12px', display: 'flex', alignItems: 'center', gap: '8px' }}>
-            <FaFlask /> Architecture Stacks
-          </h6>
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '4px' }}>
-            {filteredStacks.map(item => (
-              <a 
-                key={item.slug}
-                href={`/docs/consult/architecture/${item.slug}`}
-                onClick={(e) => handleNavClick(e, 'consult', 'architecture', item.slug)}
-                className={slug === item.slug ? 'active-doc-link' : 'inactive-doc-link'}
-              >
-                {formatSlugLabel(item.slug, 'stack')}
-              </a>
-            ))}
+        {filteredStacks.length > 0 && (
+          <div>
+            <h6 style={{ color: 'var(--neon-green)', fontSize: '0.85rem', fontWeight: 700, marginBottom: '12px', display: 'flex', alignItems: 'center', gap: '8px' }}>
+              <FaFlask /> Architecture Stacks
+            </h6>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '4px' }}>
+              {filteredStacks.map(item => (
+                <a 
+                  key={item.slug}
+                  href={`/docs/consult/architecture/${item.slug}`}
+                  onClick={(e) => handleNavClick(e, 'consult', 'architecture', item.slug)}
+                  className={slug === item.slug ? 'active-doc-link' : 'inactive-doc-link'}
+                >
+                  {formatSlugLabel(item.slug, 'stack')}
+                </a>
+              ))}
+            </div>
           </div>
-        </div>
+        )}
       </div>
     </div>
   );
@@ -200,10 +211,10 @@ const Documentation = ({ category, subcategory, slug, onBack, onNavigate }) => {
         >
           <FaChevronLeft /> Back to Main Hub
         </button>
-        <span className="small text-secondary">Kone Academy Docs Hub (pSEO System)</span>
+        <span className="small text-secondary">Kone Academy Docs Hub</span>
       </div>
 
-      <div className="docs-main-layout">
+      <div className={`docs-main-layout ${slug ? 'has-active-doc' : ''}`}>
         {/* Left Navigation Sidebar */}
         <Sidebar />
 
@@ -217,33 +228,43 @@ const Documentation = ({ category, subcategory, slug, onBack, onNavigate }) => {
               transition={{ duration: 0.2 }}
               className="max-w-content"
             >
+              {/* Mobile Back Link */}
+              <button 
+                onClick={(e) => handleNavClick(e, null, null, null)}
+                className="mobile-back-link"
+              >
+                <FaChevronLeft /> Back to Guides List
+              </button>
+
               <h1 className="h2 fw-bold mb-4 text-gradient-docs">{activeContent.title}</h1>
               
-              {activeType === 'error' ? (
-                // --- Error Details Rendering ---
+              {activeType === 'guide' ? (
+                // --- Guide Details Rendering ---
                 <div>
-                  <div className="alert-card danger mb-4">
-                    <FaExclamationTriangle className="text-danger fs-3" style={{ flexShrink: 0 }} />
+                  <div className="alert-card info mb-4" style={{ background: 'rgba(88,166,255,0.05)', borderColor: 'rgba(88,166,255,0.15)', borderLeft: '4px solid var(--accent-primary)', display: 'flex', gap: '16px', padding: '1.25rem', borderRadius: '8px' }}>
+                    <FaBookOpen className="text-info fs-3" style={{ flexShrink: 0, color: 'var(--accent-primary)' }} />
                     <div>
-                      <strong className="text-danger d-block mb-1" style={{ fontSize: '0.85rem' }}>Error Console Output:</strong>
-                      <code>{activeContent.errorText}</code>
+                      <strong className="text-info d-block mb-1" style={{ fontSize: '0.85rem', color: 'var(--accent-primary)' }}>Key Reference Command / Concept:</strong>
+                      <code style={{ background: 'rgba(0,0,0,0.3)', padding: '0.2rem 0.5rem', borderRadius: '4px', color: '#fff' }}>{activeContent.errorText}</code>
                     </div>
                   </div>
 
                   <div className="mb-4">
-                    <h3 className="h5 text-gradient-blue fw-bold mb-2">Why It Happens (The Cause)</h3>
-                    <p className="text-secondary">{activeContent.cause}</p>
+                    <h3 className="h5 text-gradient-blue fw-bold mb-2">Overview & Purpose</h3>
+                    <p className="text-secondary" style={{ lineHeight: '1.6' }}>{activeContent.cause}</p>
                   </div>
 
                   <div className="mb-4">
-                    <h3 className="h5 text-gradient-blue fw-bold mb-2">How to Fix It</h3>
-                    <p className="text-secondary" style={{ whiteSpace: 'pre-line' }}>{activeContent.solution}</p>
+                    <h3 className="h5 text-gradient-blue fw-bold mb-2">Execution Guidelines</h3>
+                    <p className="text-secondary" style={{ whiteSpace: 'pre-line', lineHeight: '1.6' }}>{activeContent.solution}</p>
                   </div>
 
-                  {/* Buggy Code vs Clean Code Diffs */}
+                  {/* Visual Setup / Flow Comparison */}
                   <div className="code-panel-deck">
                     <div>
-                      <div className="code-panel-badge error">❌ Buggy Code</div>
+                      <div className="code-panel-badge error" style={{ background: 'rgba(248,81,73,0.1)', color: 'var(--accent-danger)', border: '1px solid rgba(248,81,73,0.2)' }}>
+                        {slug === 'getting-started' ? '❌ Traditional Model' : slug === 'remote-labs' ? '❌ Local Setup' : '❌ Bad Flow'}
+                      </div>
                       <div className="ide-window buggy">
                         <div className="ide-header">
                           <div className="ide-dots">
@@ -251,15 +272,17 @@ const Documentation = ({ category, subcategory, slug, onBack, onNavigate }) => {
                             <span className="ide-dot yellow"></span>
                             <span className="ide-dot green"></span>
                           </div>
-                          <span className="ide-title">{slug.includes('python') ? 'broken_impl.py' : 'broken_impl.js'}</span>
+                          <span className="ide-title">{slug === 'getting-started' ? 'traditional_classroom.txt' : slug === 'remote-labs' ? 'local_serial.sh' : 'direct_push.sh'}</span>
                         </div>
-                        <pre className="ide-body">
-                          <code className={getLanguageClass(slug)}>{activeContent.badCode}</code>
+                        <pre className="ide-body" style={{ background: '#090e1a' }}>
+                          <code className="language-bash">{activeContent.badCode}</code>
                         </pre>
                       </div>
                     </div>
                     <div>
-                      <div className="code-panel-badge success">✅ Correct Code</div>
+                      <div className="code-panel-badge success" style={{ background: 'rgba(63,185,80,0.1)', color: 'var(--accent-success)', border: '1px solid rgba(63,185,80,0.2)' }}>
+                        {slug === 'getting-started' ? '✅ Kone Academy Model' : slug === 'remote-labs' ? '✅ Remote Flash Gateway' : '✅ Best Practice Workflow'}
+                      </div>
                       <div className="ide-window correct">
                         <div className="ide-header">
                           <div className="ide-dots">
@@ -267,26 +290,26 @@ const Documentation = ({ category, subcategory, slug, onBack, onNavigate }) => {
                             <span className="ide-dot yellow"></span>
                             <span className="ide-dot green"></span>
                           </div>
-                          <span className="ide-title">{slug.includes('python') ? 'fixed_impl.py' : 'fixed_impl.js'}</span>
+                          <span className="ide-title">{slug === 'getting-started' ? 'kone_cohort_learning.txt' : slug === 'remote-labs' ? 'remote_flashing.sh' : 'team_pull_request.sh'}</span>
                         </div>
-                        <pre className="ide-body">
-                          <code className={getLanguageClass(slug)}>{activeContent.goodCode}</code>
+                        <pre className="ide-body" style={{ background: '#090e1a' }}>
+                          <code className="language-bash">{activeContent.goodCode}</code>
                         </pre>
                       </div>
                     </div>
                   </div>
 
-                  {/* High-conversion CTA to IDE */}
-                  <div className="seo-card text-center" style={{ background: 'rgba(59,130,246,0.03)', borderColor: 'rgba(59,130,246,0.1)', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '12px' }}>
-                    <h4 className="h5 text-white fw-bold mb-1">Want to test this solution?</h4>
-                    <p className="text-secondary small mb-3">Open the clean code snippet inside the Kone Code editor and compile it directly inside your browser.</p>
+                  {/* High-conversion CTA to Platform Workspace */}
+                  <div className="seo-card text-center" style={{ background: 'rgba(59,130,246,0.03)', borderColor: 'rgba(59,130,246,0.1)', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '12px', marginTop: '2.5rem' }}>
+                    <h4 className="h5 text-white fw-bold mb-1">Ready to start practicing?</h4>
+                    <p className="text-secondary small mb-3">Initialize your local projects and connect them to our remote infrastructure sandbox.</p>
                     <a 
-                      href={`https://code.koneacademy.io/ide?template=${slug}`}
+                      href="https://code.koneacademy.io/"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="pulse-cta-blue"
                     >
-                      Open in Kone Code Editor <FaExternalLinkAlt />
+                      Open Workspace <FaExternalLinkAlt />
                     </a>
                   </div>
                 </div>
@@ -364,24 +387,24 @@ const Documentation = ({ category, subcategory, slug, onBack, onNavigate }) => {
               </div>
               <h2 className="fw-bold mb-3 text-gradient-docs">Kone Academy Documentation Hub</h2>
               <p className="lead text-secondary" style={{ maxWidth: '600px', margin: '0 auto 40px auto' }}>
-                Welcome to our centralized repository of coding troubleshooting guides, agritech telemetry specs, and startup architecture templates.
+                Welcome to our centralized repository of onboarding materials, remote lab guides, and production architecture blueprints.
               </p>
               
               <div className="landing-cards-grid">
                 <div 
                   className="seo-card" 
                   style={{ cursor: 'pointer' }}
-                  onClick={(e) => handleNavClick(e, 'code', 'errors', codingErrors[0].slug)}
+                  onClick={(e) => handleNavClick(e, 'code', 'guides', ecosystemGuides[0].slug)}
                 >
-                  <h4 className="h6 text-primary fw-bold mb-2">🔧 Developer Errors</h4>
-                  <p className="text-secondary small mb-0">Learn how to identify, debug, and resolve common React, JavaScript, and Python errors using our Web IDE.</p>
+                  <h4 className="h6 text-primary fw-bold mb-2">📚 Ecosystem Guides</h4>
+                  <p className="text-secondary small mb-0">Learn how to get onboarded, configure remote lab hardware, and submit pull requests for code reviews.</p>
                 </div>
                 <div 
                   className="seo-card" 
                   style={{ cursor: 'pointer' }}
                   onClick={(e) => handleNavClick(e, 'consult', 'architecture', techStacks[0].slug)}
                 >
-                  <h4 className="h6 text-success fw-bold mb-2">⚡ Startup Architectures</h4>
+                  <h4 className="h6 text-success fw-bold mb-2">⚡ Architecture Blueprints</h4>
                   <p className="text-secondary small mb-0">Explore vetted software stacks and high-scale time-series agritech telemetry infrastructure designs.</p>
                 </div>
               </div>
