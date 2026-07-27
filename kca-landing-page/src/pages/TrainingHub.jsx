@@ -38,7 +38,7 @@ const iconMap = {
 };
 
 const CourseCard = ({ course, onSelectCourse }) => {
-  const { title, division, icon, description, skills, duration, colorClass, youtubeLink } = course;
+  const { title, division, icon, description, skills, level, duration, colorClass, youtubeLink } = course;
   const IconComponent = iconMap[icon] || FaGraduationCap;
 
   return (
@@ -68,23 +68,23 @@ const CourseCard = ({ course, onSelectCourse }) => {
       </div>
 
       {/* Card Footer Metadata */}
-      <div className="card-meta-footer mt-auto pt-3 border-top border-secondary-subtle d-flex justify-content-between align-items-center">
-        <span className="extra-small text-cyan fw-bold d-inline-flex align-items-center">
-          <FaCheckCircle className="me-1 text-success" /> Live Remote Labs
+      <div className="card-meta-footer mt-auto pt-3 pb-1 border-top border-secondary-subtle d-flex justify-content-between align-items-center mb-3">
+        <span className="extra-small text-secondary fw-semibold">
+          Level: <strong className="text-white ms-1">{level}</strong>
         </span>
-        <span className="duration-chip text-secondary small fw-semibold">
+        <span className="duration-chip text-cyan extra-small fw-bold d-inline-flex align-items-center gap-1.5">
           <FaClock className="me-1" /> {duration}
         </span>
       </div>
 
-      <div className="d-flex flex-column gap-2 mt-3">
+      <div className="d-flex flex-column gap-2">
         <button
           onClick={() => onSelectCourse(course)}
-          className="enroll-btn w-100"
+          className="enroll-btn w-100 d-inline-flex align-items-center justify-content-center gap-2"
         >
           <FaLayerGroup size={14} /> View Syllabus & Projects
         </button>
-        <a href={youtubeLink} target="_blank" rel="noopener noreferrer" className="watch-btn w-100">
+        <a href={youtubeLink} target="_blank" rel="noopener noreferrer" className="watch-btn w-100 text-center d-inline-flex align-items-center justify-content-center gap-2">
           <FaYoutube size={15} className="text-danger" /> Watch Intro on YouTube
         </a>
       </div>
