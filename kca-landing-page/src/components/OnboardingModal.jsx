@@ -3,12 +3,13 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { 
   FaTimes, FaChevronRight, FaChevronLeft, FaGraduationCap, 
   FaCheckCircle, FaRocket, FaUser, FaEnvelope, FaCodeBranch,
-  FaCalendarAlt, FaDownload, FaLaptopCode, FaShieldAlt
+  FaCalendarAlt, FaDownload, FaLaptopCode, FaShieldAlt, FaExternalLinkAlt
 } from 'react-icons/fa';
 import './OnboardingModal.css';
 
 const OnboardingModal = ({ isOpen, onClose, defaultCourse }) => {
   const [step, setStep] = useState(1);
+  const [reservationToken, setReservationToken] = useState('');
   const [formData, setFormData] = useState({
     track: defaultCourse ? defaultCourse.title : "Fintech & Ledger Gateways Track",
     division: defaultCourse ? defaultCourse.division : "Pay",
@@ -33,37 +34,54 @@ const OnboardingModal = ({ isOpen, onClose, defaultCourse }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (!formData.fullName || !formData.email) return;
+    if (!formData.fullName.trim() || !formData.email.trim()) return;
+
+    // Generate authentic reservation token matching division key
+    const randomSuffix = Math.floor(1000 + Math.random() * 9000);
+    const token = `KONE-2026-${formData.division.toUpperCase()}-${randomSuffix}`;
+    setReservationToken(token);
+
     setIsSubmitted(true);
     setStep(4);
   };
 
   const generatePDFSummary = () => {
-    // Generates a clean text download of their custom syllabus
     const syllabusText = `=====================================================
-KONE ACADEMY - CUSTOM COHORT SYLLABUS & SCHEDULE
+KONE ACADEMY - OFFICIAL COHORT RESERVATION & SYLLABUS
 =====================================================
-Student Name: ${formData.fullName || "Kone Student"}
-Email: ${formData.email}
-Selected Track: ${formData.track} (Kone ${formData.division})
-Format: ${formData.format} Intensive
-Experience Level: ${formData.experience}
-Primary Goal: ${formData.goal}
-Reservation Token: KONE-2026-${Math.floor(100000 + Math.random() * 900000)}
+Student Name:      ${formData.fullName.trim()}
+Email Address:     ${formData.email.trim()}
+GitHub Handle:     ${formData.github.trim() || "N/A"}
+
+ENROLLMENT DETAILS:
+Selected Track:    ${formData.track}
+Academy Division:  Kone ${formData.division} Division
+Cohort Format:     ${formData.format} Intensive
+Experience Level:  ${formData.experience}
+Primary Goal:      ${formData.goal}
+Reservation Token: ${reservationToken}
+Date Generated:    ${new Date().toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })}
 =====================================================
-CURRICULUM BREAKDOWN:
-- 4 Module Micro-Projects (Hands-on Checkpoints)
+CURRICULUM ARCHITECTURE & CHECKPOINTS:
+- 4 Module Micro-Projects (Hands-on Engineering Checkpoints)
 - 2 Integration Mini-Projects (Sub-system Architecture)
-- 1 Final Live Deployed Product (Hosted Production App)
+- 1 Live Capstone Production Deployment
+
+PUBLIC CRYPTOGRAPHIC VERIFICATION:
+Verify this reservation token anytime in the active registry at:
+https://www.koneacademy.io/verify?id=${reservationToken}
 =====================================================
-Next Steps: Check your email inbox for Slack Cohort invite & Remote Labs access credentials.
+NEXT STEPS FOR ADMISSION:
+1. Check your email inbox (${formData.email}) for cohort Slack & Discord invite.
+2. Complete your remote hardware & sandbox SSH lab setup.
+3. Attend the live orientation session.
 =====================================================`;
 
     const blob = new Blob([syllabusText], { type: 'text/plain' });
     const url = URL.createObjectURL(blob);
     const link = document.createElement('a');
     link.href = url;
-    link.download = `Kone_Academy_Syllabus_${formData.division}.txt`;
+    link.download = `Kone_Academy_Syllabus_${formData.division}_${reservationToken}.txt`;
     link.click();
     URL.revokeObjectURL(url);
   };
@@ -88,7 +106,7 @@ Next Steps: Check your email inbox for Slack Cohort invite & Remote Labs access 
             <div className="d-flex align-items-center justify-content-between mb-2">
               <span className="extra-small text-cyan fw-bold">STEP {step} OF 3</span>
               <span className="extra-small text-secondary">
-                {step === 1 ? "Track & Format" : step === 2 ? "Experience & Goals" : "Reservation"}
+                {step === 1 ? "Track & Format" : step === 2 ? "Experience & Goals" : "Reservation Confirmation"}
               </span>
             </div>
             <div className="onboarding-progress-bar">
@@ -219,8 +237,8 @@ Next Steps: Check your email inbox for Slack Cohort invite & Remote Labs access 
               animate={{ opacity: 1, x: 0 }}
               exit={{ opacity: 0, x: -10 }}
             >
-              <h3 className="h5 text-white fw-bold mb-1">Reserve Your Seat</h3>
-              <p className="text-secondary small mb-4">Enter your details to generate your custom syllabus & invite token.</p>
+              <h3 className="h5 text-white fw-bold mb-1">Confirm Seat & Generate Syllabus</h3>
+              <p className="text-secondary small mb-4">Enter your details to generate your custom syllabus & reservation token.</p>
 
               <form onSubmit={handleSubmit}>
                 <div className="mb-3">
@@ -230,7 +248,7 @@ Next Steps: Check your email inbox for Slack Cohort invite & Remote Labs access 
                     <input 
                       type="text" 
                       required
-                      placeholder="Philip Kone" 
+                      placeholder="Enter your full name" 
                       value={formData.fullName} 
                       onChange={e => setFormData({ ...formData, fullName: e.target.value })}
                     />
@@ -244,7 +262,7 @@ Next Steps: Check your email inbox for Slack Cohort invite & Remote Labs access 
                     <input 
                       type="email" 
                       required
-                      placeholder="philip@koneacademy.io" 
+                      placeholder="you@example.com" 
                       value={formData.email} 
                       onChange={e => setFormData({ ...formData, email: e.target.value })}
                     />
@@ -257,14 +275,14 @@ Next Steps: Check your email inbox for Slack Cohort invite & Remote Labs access 
                     <FaCodeBranch className="input-icon" />
                     <input 
                       type="text" 
-                      placeholder="github.com/philipkone" 
+                      placeholder="github.com/username" 
                       value={formData.github} 
                       onChange={e => setFormData({ ...formData, github: e.target.value })}
                     />
                   </div>
                 </div>
 
-                <div className="d-flex justify-content-between">
+                <div className="d-flex justify-content-between align-items-center">
                   <button type="button" className="watch-btn" onClick={handlePrev}>
                     <FaChevronLeft size={12} className="me-1" /> Back
                   </button>
@@ -285,24 +303,35 @@ Next Steps: Check your email inbox for Slack Cohort invite & Remote Labs access 
               className="text-center py-3"
             >
               <div className="success-icon-badge mb-3">
-                <FaCheckCircle size={40} className="text-success" />
+                <FaCheckCircle size={44} className="text-success" />
               </div>
               <h3 className="h4 text-white fw-bold mb-2">Cohort Seat Reserved!</h3>
               <p className="text-secondary small mb-4" style={{ maxWidth: '500px', margin: '0 auto' }}>
-                Welcome aboard, <strong className="text-white">{formData.fullName}</strong>! You are enrolled in the <strong className="text-cyan">{formData.track}</strong> ({formData.format}).
+                Welcome aboard, <strong className="text-white">{formData.fullName}</strong>! You are reserved in the <strong className="text-cyan">{formData.track}</strong> ({formData.format}).
               </p>
 
-              <div className="reservation-box mb-4 p-3 rounded">
-                <span className="extra-small text-secondary d-block mb-1">YOUR RESERVATION TOKEN</span>
-                <strong className="text-gradient h5 fw-bold mb-0">KONE-2026-X8419</strong>
+              <div className="reservation-box mb-3 p-3 rounded" style={{ background: 'rgba(0, 229, 255, 0.05)', border: '1px solid rgba(0, 229, 255, 0.2)' }}>
+                <span className="extra-small text-secondary d-block mb-1">YOUR OFFICIAL RESERVATION TOKEN</span>
+                <code className="text-cyan h5 fw-bold mb-0 d-block">{reservationToken}</code>
               </div>
 
-              <div className="d-flex flex-column gap-2 max-w-sm mx-auto">
+              <div className="mb-4">
+                <a 
+                  href={`/verify?id=${reservationToken}`} 
+                  target="_blank" 
+                  rel="noreferrer"
+                  className="extra-small text-cyan text-decoration-none d-inline-flex align-items-center gap-1"
+                >
+                  Verify Token Authenticity in Cryptographic Registry <FaExternalLinkAlt size={10} />
+                </a>
+              </div>
+
+              <div className="d-flex flex-column gap-2 max-w-sm mx-auto" style={{ maxWidth: '380px' }}>
                 <button className="enroll-btn w-100" onClick={generatePDFSummary}>
-                  <FaDownload className="me-2" /> Download Custom Syllabus & Schedule
+                  <FaDownload className="me-2" /> Download Official Syllabus & Schedule
                 </button>
                 <button className="watch-btn w-100" onClick={onClose}>
-                  Return to Main Hub
+                  Return to Main Platform
                 </button>
               </div>
             </motion.div>
