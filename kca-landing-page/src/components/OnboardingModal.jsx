@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { createPortal } from 'react-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { 
   FaTimes, FaChevronRight, FaChevronLeft, FaGraduationCap, 
@@ -22,6 +23,17 @@ const OnboardingModal = ({ isOpen, onClose, defaultCourse }) => {
   });
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [isNotifying, setIsNotifying] = useState(false);
+
+  useEffect(() => {
+    if (isOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+    return () => {
+      document.body.style.overflow = '';
+    };
+  }, [isOpen]);
 
   if (!isOpen) return null;
 
@@ -233,25 +245,31 @@ Support desk: support@koneacademy.io
             </motion.div>
           )}
 
-          {/* STEP 2: Experience Level & Goals */}
           {step === 2 && (
             <motion.div 
               key="step2"
               initial={{ opacity: 0, x: 10 }}
               animate={{ opacity: 1, x: 0 }}
-              exit={{ opacity: 0, x: -10 }}
             >
-              <h3 className="h5 text-white fw-bold mb-1">Your Background & Goals</h3>
-              <p className="text-secondary small mb-4">Help us tailor your 4 Micro-Projects and Capstone build.</p>
+              <h4 className="h6 text-cyan fw-bold mb-3">Step 1: Confirm Chosen Technology Niche</h4>
+              <div className="form-group mb-3">
+                <label className="form-label text-secondary small fw-semibold">Target Technology Track</label>
+                <input 
+                  type="text" 
+                  className="form-control glass-input" 
+                  value={formData.track}
+                  readOnly
+                />
+              </div>
 
-              <div className="mb-4">
-                <label className="form-label text-secondary small fw-bold">Current Experience Level</label>
+              <div className="form-group mb-4">
+                <label className="form-label text-secondary small fw-semibold">Self-Assessed Experience Level</label>
                 <div className="d-flex gap-2 flex-wrap">
-                  {['Beginner', 'Intermediate', 'Advanced'].map(lvl => (
+                  {['Beginner', 'Intermediate', 'Advanced'].map((lvl) => (
                     <button
                       key={lvl}
                       type="button"
-                      className={`pill-select-btn ${formData.experience === lvl ? 'active' : ''}`}
+                      className={`btn btn-sm ${formData.experience === lvl ? 'btn-cyan' : 'btn-outline-glass'}`}
                       onClick={() => setFormData({ ...formData, experience: lvl })}
                     >
                       {lvl}
@@ -260,147 +278,151 @@ Support desk: support@koneacademy.io
                 </div>
               </div>
 
-              <div className="mb-4">
-                <label className="form-label text-secondary small fw-bold">Primary Outcome Goal</label>
-                <div className="d-flex gap-2 flex-wrap">
-                  {['Upskilling', 'Career Switch', 'Startup MVP', 'Academic Research'].map(g => (
-                    <button
-                      key={g}
-                      type="button"
-                      className={`pill-select-btn ${formData.goal === g ? 'active' : ''}`}
-                      onClick={() => setFormData({ ...formData, goal: g })}
-                    >
-                      {g}
-                    </button>
-                  ))}
+              <button className="enroll-btn w-100" onClick={handleNext}>
+                Continue to Learning Format <FaChevronRight className="ms-1" />
+              </button>
+            </motion.div>
+          )}
+
+          {step === 2 && (
+            <motion.div
+              key="step2"
+              initial={{ opacity: 0, x: 10 }}
+              animate={{ opacity: 1, x: 0 }}
+              exit={{ opacity: 0, x: -10 }}
+            >
+              <h4 className="h6 text-cyan fw-bold mb-3">Step 2: Select Delivery & Mentorship Model</h4>
+              
+              <div className="format-options-grid mb-4">
+                <div 
+                  className={`format-card ${formData.format === 'Cohort' ? 'selected' : ''}`}
+                  onClick={() => setFormData({ ...formData, format: 'Cohort' })}
+                >
+                  <div className="fw-bold text-white mb-1"><FaCalendarAlt className="me-1 text-cyan" /> Live Cohort Labs</div>
+                  <div className="text-secondary extra-small">Scheduled live remote engineering labs with instructor code reviews.</div>
+                </div>
+
+                <div 
+                  className={`format-card ${formData.format === 'Self-Paced' ? 'selected' : ''}`}
+                  onClick={() => setFormData({ ...formData, format: 'Self-Paced' })}
+                >
+                  <div className="fw-bold text-white mb-1"><FaLaptopCode className="me-1 text-warning" /> Asynchronous Access</div>
+                  <div className="text-secondary extra-small">24/7 access to curriculum micro-projects, repos, and Discord support.</div>
                 </div>
               </div>
 
-              <div className="d-flex justify-content-between">
-                <button className="watch-btn" onClick={handlePrev}>
-                  <FaChevronLeft size={12} className="me-1" /> Back
+              <div className="d-flex gap-2">
+                <button className="watch-btn w-50" onClick={handlePrev}>
+                  <FaChevronLeft className="me-1" /> Back
                 </button>
-                <button className="enroll-btn px-4" onClick={handleNext}>
-                  Next Step <FaChevronRight size={12} className="ms-1" />
+                <button className="enroll-btn w-50" onClick={handleNext}>
+                  Next <FaChevronRight className="ms-1" />
                 </button>
               </div>
             </motion.div>
           )}
 
-          {/* STEP 3: Contact & Reservation Details */}
           {step === 3 && (
-            <motion.div 
+            <motion.div
               key="step3"
               initial={{ opacity: 0, x: 10 }}
               animate={{ opacity: 1, x: 0 }}
               exit={{ opacity: 0, x: -10 }}
             >
-              <h3 className="h5 text-white fw-bold mb-1">Confirm Seat & Generate Syllabus</h3>
-              <p className="text-secondary small mb-4">Enter your details to generate your custom syllabus & reservation token.</p>
+              <h4 className="h6 text-cyan fw-bold mb-3">Step 3: Student Registry Verification</h4>
+              
+              <div className="form-group mb-3">
+                <label className="form-label text-secondary small fw-semibold"><FaUser className="me-1" /> Full Name</label>
+                <input 
+                  type="text" 
+                  className="form-control glass-input"
+                  placeholder="e.g. Philip Kone"
+                  value={formData.fullName}
+                  onChange={e => setFormData({ ...formData, fullName: e.target.value })}
+                  required
+                />
+              </div>
 
-              <form onSubmit={handleSubmit}>
-                <div className="mb-3">
-                  <label className="form-label text-secondary small">Full Name *</label>
-                  <div className="input-glass-wrapper">
-                    <FaUser className="input-icon" />
-                    <input 
-                      type="text" 
-                      required
-                      placeholder="Enter your full name" 
-                      value={formData.fullName} 
-                      onChange={e => setFormData({ ...formData, fullName: e.target.value })}
-                    />
-                  </div>
-                </div>
+              <div className="form-group mb-3">
+                <label className="form-label text-secondary small fw-semibold"><FaEnvelope className="me-1" /> Student Email Address</label>
+                <input 
+                  type="email" 
+                  className="form-control glass-input"
+                  placeholder="name@company.com"
+                  value={formData.email}
+                  onChange={e => setFormData({ ...formData, email: e.target.value })}
+                  required
+                />
+              </div>
 
-                <div className="mb-3">
-                  <label className="form-label text-secondary small">Email Address *</label>
-                  <div className="input-glass-wrapper">
-                    <FaEnvelope className="input-icon" />
-                    <input 
-                      type="email" 
-                      required
-                      placeholder="yourname@domain.com" 
-                      value={formData.email} 
-                      onChange={e => setFormData({ ...formData, email: e.target.value })}
-                    />
-                  </div>
-                </div>
+              <div className="form-group mb-4">
+                <label className="form-label text-secondary small fw-semibold"><FaCodeBranch className="me-1" /> GitHub Profile Handle (Optional)</label>
+                <input 
+                  type="text" 
+                  className="form-control glass-input"
+                  placeholder="@username"
+                  value={formData.github}
+                  onChange={e => setFormData({ ...formData, github: e.target.value })}
+                />
+              </div>
 
-                <div className="mb-4">
-                  <label className="form-label text-secondary small">GitHub Handle (Optional)</label>
-                  <div className="input-glass-wrapper">
-                    <FaCodeBranch className="input-icon" />
-                    <input 
-                      type="text" 
-                      placeholder="github.com/username" 
-                      value={formData.github} 
-                      onChange={e => setFormData({ ...formData, github: e.target.value })}
-                    />
-                  </div>
-                </div>
-
-                <div className="d-flex justify-content-between align-items-center">
-                  <button type="button" className="watch-btn" onClick={handlePrev}>
-                    <FaChevronLeft size={12} className="me-1" /> Back
-                  </button>
-                  <button type="submit" className="enroll-btn px-4">
-                    Confirm Seat & Generate Syllabus
-                  </button>
-                </div>
-              </form>
+              <div className="d-flex gap-2">
+                <button className="watch-btn w-35" onClick={handlePrev}>
+                  <FaChevronLeft className="me-1" /> Back
+                </button>
+                <button 
+                  className="enroll-btn w-65" 
+                  onClick={handleSubmit}
+                  disabled={!formData.fullName || !formData.email || isNotifying}
+                >
+                  {isNotifying ? (
+                    <span>Dispatching Token...</span>
+                  ) : (
+                    <span><FaRocket className="me-1" /> Confirm Seat & Generate Token</span>
+                  )}
+                </button>
+              </div>
             </motion.div>
           )}
 
-          {/* STEP 4: Success & Download Card */}
           {step === 4 && (
-            <motion.div 
+            <motion.div
               key="step4"
-              initial={{ opacity: 0, scale: 0.95 }}
+              initial={{ opacity: 0, scale: 0.96 }}
               animate={{ opacity: 1, scale: 1 }}
               className="text-center py-3"
             >
               <div className="success-icon-badge mb-3">
-                <FaCheckCircle size={44} className="text-success" />
+                <FaCheckCircle className="text-success" size={48} />
               </div>
-              <h3 className="h4 text-white fw-bold mb-2">Cohort Seat Reserved!</h3>
-              <p className="text-secondary small mb-4" style={{ maxWidth: '500px', margin: '0 auto' }}>
-                Welcome aboard, <strong className="text-white">{formData.fullName}</strong>! You are reserved in the <strong className="text-cyan">{formData.track}</strong> ({formData.format}).
+
+              <h4 className="h5 text-white fw-bold mb-2">Student Seat Officially Reserved</h4>
+              <p className="text-secondary small mb-3">
+                Your reservation token has been cryptographically recorded in the student registry database.
               </p>
 
-              <div className="reservation-box mb-3 p-3 rounded" style={{ background: 'rgba(0, 229, 255, 0.05)', border: '1px solid rgba(0, 229, 255, 0.2)' }}>
-                <span className="extra-small text-secondary d-block mb-1">YOUR OFFICIAL RESERVATION TOKEN</span>
-                <code className="text-cyan h5 fw-bold mb-0 d-block">{reservationToken}</code>
-              </div>
-
-              <div className="mb-4">
+              <div className="token-display-box p-3 mb-3 glass-card text-center">
+                <div className="extra-small text-secondary mb-1">RESERVATION DIVISION TOKEN</div>
+                <div className="h4 text-cyan fw-bold letter-spacing-2 mb-1">{reservationToken}</div>
                 <a 
                   href={`/verify?id=${reservationToken}`} 
                   target="_blank" 
                   rel="noreferrer"
                   className="extra-small text-cyan text-decoration-none d-inline-flex align-items-center gap-1"
                 >
-                  Verify Token Authenticity in Cryptographic Registry <FaExternalLinkAlt size={10} />
+                  Verify Authenticity <FaExternalLinkAlt size={10} />
                 </a>
               </div>
 
-              <p className="extra-small text-muted mb-3">
-                📩 Admin notification dispatched to <strong className="text-secondary">philipkone45@gmail.com</strong> & <strong className="text-secondary">phconsultgh@gmail.com</strong>
-              </p>
-
-              <div className="d-flex flex-column gap-2 max-w-sm mx-auto" style={{ maxWidth: '380px' }}>
-                <button className="enroll-btn w-100" onClick={generatePDFSummary}>
-                  <FaDownload className="me-2" /> Download Official Syllabus & Schedule
-                </button>
-                <button className="watch-btn w-100" onClick={onClose}>
-                  Return to Main Platform
-                </button>
-              </div>
+              <button className="enroll-btn w-100" onClick={generatePDFSummary}>
+                <FaDownload className="me-2" /> Download Syllabus
+              </button>
             </motion.div>
           )}
         </AnimatePresence>
       </motion.div>
-    </div>
+    </div>,
+    document.body
   );
 };
 

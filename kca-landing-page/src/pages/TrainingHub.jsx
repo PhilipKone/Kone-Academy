@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { createPortal } from 'react-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { 
   FaYoutube, FaGraduationCap, FaCode, FaFlask, FaChartBar, FaStar, 
@@ -101,18 +102,25 @@ const CourseCard = ({ course, onSelectCourse }) => {
 };
 
 const CourseDetailsModal = ({ course, onClose, onOpenOnboarding }) => {
+  useEffect(() => {
+    document.body.style.overflow = 'hidden';
+    return () => {
+      document.body.style.overflow = '';
+    };
+  }, []);
+
   if (!course) return null;
 
   const IconComponent = iconMap[course.icon] || FaGraduationCap;
 
-  return (
+  return createPortal(
     <div className="modal-overlay" onClick={onClose}>
       <motion.div 
         className="modal-content-glass" 
         onClick={e => e.stopPropagation()}
-        initial={{ opacity: 0, scale: 0.95, y: 20 }}
+        initial={{ opacity: 0, scale: 0.95, y: 0 }}
         animate={{ opacity: 1, scale: 1, y: 0 }}
-        exit={{ opacity: 0, scale: 0.95, y: 20 }}
+        exit={{ opacity: 0, scale: 0.95, y: 0 }}
         transition={{ duration: 0.25 }}
       >
         <button className="modal-close-btn" onClick={onClose} aria-label="Close modal">
@@ -212,7 +220,8 @@ const CourseDetailsModal = ({ course, onClose, onOpenOnboarding }) => {
           </button>
         </div>
       </motion.div>
-    </div>
+    </div>,
+    document.body
   );
 };
 
@@ -322,7 +331,7 @@ const TrainingHub = ({ onBack }) => {
 
       {/* Pathfinder Quiz Modal Overlay */}
       <AnimatePresence>
-        {showPathfinderModal && (
+        {showPathfinderModal && createPortal(
           <div className="modal-overlay" onClick={() => setShowPathfinderModal(false)}>
             <motion.div 
               className="modal-content-glass"
@@ -342,7 +351,8 @@ const TrainingHub = ({ onBack }) => {
                 }} 
               />
             </motion.div>
-          </div>
+          </div>,
+          document.body
         )}
       </AnimatePresence>
 
