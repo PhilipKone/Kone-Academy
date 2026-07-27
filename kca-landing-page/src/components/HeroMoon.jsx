@@ -109,8 +109,8 @@ const HeroMoon = () => {
       <Canvas camera={{ position: [0, 0, 6], fov: 45 }} dpr={[1, 2]} alpha>
         <ambientLight intensity={0.2} />
         
-        {/* Weightless Floating Physics */}
-        <Float speed={2} rotationIntensity={0.5} floatIntensity={1}>
+        {/* Anchored 3D Physics */}
+        <Float speed={0} rotationIntensity={0.2} floatIntensity={0}>
             <EggCrystal mouseRef={mouseRef} />
         </Float>
       </Canvas>
