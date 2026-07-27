@@ -195,13 +195,13 @@ const CourseDetailsModal = ({ course, onClose, onOpenOnboarding }) => {
 
         {/* 1 Final Product */}
         <div className="mb-4 final-product-banner">
-          <h4 className="h6 text-success fw-bold mb-2 d-flex align-items-center gap-2">
-            <FaRocket /> Final Live Deployed Product
-          </h4>
-          <h5 className="h6 text-white fw-bold mb-1">{course.finalProduct.title}</h5>
+          <div className="extra-small text-success fw-bold text-uppercase letter-spacing-1 mb-1 d-inline-flex align-items-center">
+            <FaRocket style={{ marginRight: '6px' }} /> Capstone Project Build
+          </div>
+          <h4 className="h5 text-white fw-bold mb-2">{course.finalProduct.title}</h4>
           <p className="text-secondary small mb-3">{course.finalProduct.description}</p>
           <div className="stack-badge text-cyan">
-            <strong>Stack:</strong> {course.finalProduct.stack}
+            <strong className="me-1">Tech Stack:</strong> {course.finalProduct.stack}
           </div>
         </div>
 

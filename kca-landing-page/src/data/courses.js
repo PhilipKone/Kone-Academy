@@ -23,9 +23,9 @@ export const courses = [
       { title: "Mini Project 2: Merchant Checkout Portal UI", description: "Build an interactive React payment checkout UI supporting cards & mobile money." }
     ],
     finalProduct: {
-      title: "Live Deployed Kone Pay Payment Gateway",
+      title: "Kone Pay Payment Gateway",
       description: "Full-stack PCI-compliant payment gateway with real-time merchant dashboard and live webhooks.",
-      stack: "Go, PostgreSQL, Redis, React, TailWind, Vercel & Railway"
+      stack: "Go, PostgreSQL, Redis, React, Tailwind CSS, Vercel & Railway"
     }
   },
   {
@@ -52,7 +52,7 @@ export const courses = [
       { title: "Mini Project 2: Farm Real-Time Monitor UI", description: "Build a responsive dashboard displaying live soil charts and automated watering alerts." }
     ],
     finalProduct: {
-      title: "Live Deployed Kone Farms Smart Agriculture Portal",
+      title: "Kone Farms Smart Agriculture Portal",
       description: "Live agritech portal displaying active sensory telemetry from Volta Region crop fields.",
       stack: "ESP32, MQTT, TimescaleDB, Express, React, Chart.js"
     }
@@ -81,7 +81,7 @@ export const courses = [
       { title: "Mini Project 2: Driver & Passenger Tracking UI", description: "Build a React real-time tracking interface showing live vehicle paths." }
     ],
     finalProduct: {
-      title: "Live Deployed Kone Warp Ride & Logistics Web App",
+      title: "Kone Warp Ride & Logistics Web App",
       description: "Production-ready geospatial delivery platform with live driver tracking and instant fare estimation.",
       stack: "Node.js, WebSockets, Redis GEO, React Native, Mapbox API"
     }
@@ -110,7 +110,7 @@ export const courses = [
       { title: "Mini Project 2: Canvas Animation Toolbar", description: "Build a keyframe animation controller for interactive 3D web presentations." }
     ],
     finalProduct: {
-      title: "Live Deployed Anim Studio WebGL 3D Configurator",
+      title: "Anim Studio WebGL 3D Configurator",
       description: "Interactive 3D web studio canvas allowing users to customize, illuminate, and animate 3D objects in browser.",
       stack: "Three.js, React Three Fiber, GLSL, Vite, Vercel"
     }
@@ -139,7 +139,7 @@ export const courses = [
       { title: "Mini Project 2: Contextual AI Assistant UI", description: "Build a modern chat dashboard with markdown rendering and source citations." }
     ],
     finalProduct: {
-      title: "Live Deployed Kone AI Copilot & Knowledge Search Engine",
+      title: "Kone AI Copilot & Knowledge Search Engine",
       description: "Production RAG assistant capable of answering complex documentation queries in under 500ms.",
       stack: "Python, FastAPI, PyTorch, Qdrant, React, Tailwind"
     }
@@ -168,7 +168,7 @@ export const courses = [
       { title: "Mini Project 2: Statistical Research Dashboard", description: "Build an interactive web dashboard rendering automated regression charts." }
     ],
     finalProduct: {
-      title: "Live Deployed Kone Consult Interactive Research Portal",
+      title: "Kone Consult Interactive Research Portal",
       description: "Public research hub hosting interactive statistical analyses, clinical protocols, and automated report generators.",
       stack: "Python, SciPy, R-Markdown, React, Plotly"
     }
@@ -197,7 +197,7 @@ export const courses = [
       { title: "Mini Project 2: 3D CAD Enclosure Model", description: "Design a precision 3D printable protective enclosure in Fusion 360." }
     ],
     finalProduct: {
-      title: "Live Deployed Kone Lab Hardware Prototyping Dashboard",
+      title: "Kone Lab Hardware Prototyping Dashboard",
       description: "Remote lab access portal allowing learners to compile firmware and monitor physical telemetry boards live.",
       stack: "Embedded C++, KiCAD, Fusion 360, Node.js, React"
     }
@@ -226,7 +226,7 @@ export const courses = [
       { title: "Mini Project 2: Responsive Frontend Application", description: "Build a sleek, dark-mode React single-page app with glassmorphic UI." }
     ],
     finalProduct: {
-      title: "Live Deployed Kone Code Full-Stack Web Application",
+      title: "Kone Code Full-Stack Web Application",
       description: "Production SaaS application featuring user auth, database persistence, and automated cloud deployments.",
       stack: "TypeScript, React, Node.js, PostgreSQL, Tailwind, Vercel"
     }
@@ -255,7 +255,7 @@ export const courses = [
       { title: "Mini Project 2: Kubernetes Cluster Manifests", description: "Write K8s deployment, service, and ingress manifests for zero-downtime rolling updates." }
     ],
     finalProduct: {
-      title: "Live Deployed Kone Digital Cloud Infrastructure Suite",
+      title: "Kone Digital Cloud Infrastructure Suite",
       description: "Auto-scaling, self-healing cloud infrastructure hosting multi-tenant web microservices.",
       stack: "Docker, Kubernetes, AWS, Terraform, Prometheus, Grafana"
     }
@@ -284,7 +284,7 @@ export const courses = [
       { title: "Mini Project 2: Remote Micro:bit Telemetry Bot", description: "Program a physical/simulated robot to navigate line tracks." }
     ],
     finalProduct: {
-      title: "Live Deployed Kone Kids Interactive STEM Arcade",
+      title: "Kone Kids Interactive STEM Arcade",
       description: "Engaging web platform where young students play, edit, and publish their own Scratch and Micro:bit creations.",
       stack: "Scratch, Blockly, JavaScript, HTML Canvas"
     }
@@ -313,7 +313,7 @@ export const courses = [
       { title: "Mini Project 2: Hardware Storefront UI", description: "Build a sleek e-commerce shopping interface with cart drawers and live search." }
     ],
     finalProduct: {
-      title: "Live Deployed Kone Shop Tech Hardware Storefront",
+      title: "Kone Shop Tech Hardware Storefront",
       description: "Full-stack e-commerce application selling IoT hardware, micro-controllers, and developer gear.",
       stack: "React, Node.js, Stripe, PostgreSQL, Tailwind, Vercel"
     }
@@ -342,7 +342,7 @@ export const courses = [
       { title: "Mini Project 2: Enterprise Blueprint & Threat Model", description: "Draw complete Mermaid.js system architecture and threat boundary diagrams." }
     ],
     finalProduct: {
-      title: "Live Deployed Kone Tech Enterprise Architecture Hub",
+      title: "Kone Tech Enterprise Architecture Hub",
       description: "Comprehensive system design repository featuring interactive architecture diagrams and security compliance checkers.",
       stack: "React, Mermaid.js, Node.js, Security Audit Tools"
     }
