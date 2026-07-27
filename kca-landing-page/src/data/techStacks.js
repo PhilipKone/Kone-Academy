@@ -86,10 +86,10 @@ export const techStacks = [
   },
   {
     slug: "academic-research-analytics-tech-stack",
-    title: "Kone Consult: Academic Research & Statistical Modeling Pipeline",
-    target: "Data Science, Academic Research & Statistical Synthesis (Kone Consult)",
+    title: "Kone Consult: Research & Statistical Modeling Pipeline",
+    target: "Data Science, Research & Statistical Synthesis (Kone Consult)",
     difficulty: "Scientific Computing & Rigor",
-    summary: "Academic and corporate research platforms process survey datasets, run complex Monte Carlo risk simulations, and output publication-grade statistical reports.",
+    summary: "Corporate and institutional research platforms process survey datasets, run complex Monte Carlo risk simulations, and output publication-grade statistical reports.",
     recommendation: "Languages: Python & R. Core Libraries: Pandas, SciPy, NumPy, ggplot2. Statistical Tools: SPSS. Report Generation: LaTeX & R-Markdown.",
     architecture: `1. Data Cleaning Layer: Automated Python ETL scripts standardizing survey responses and handling missing values.
 2. Statistical Engine: R & SciPy executing ANOVA, regression analysis, and Monte Carlo probability simulations.

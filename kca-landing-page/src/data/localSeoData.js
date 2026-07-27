@@ -40,9 +40,9 @@ export const localSeoData = {
       ctaLink: "https://farms.koneacademy.io"
     },
     "research-consulting": {
-      name: "Academic Research & Data Analytics",
+      name: "Research & Data Analytics",
       tagline: "Empowering innovation through high-performance research craftsmanship.",
-      description: "Professional research assistance, advanced statistical data analysis, and technical consulting. Your trusted partner for academic and corporate research excellence.",
+      description: "Professional research assistance, advanced statistical data analysis, and technical consulting. Your trusted partner for corporate research excellence.",
       features: [
         "Advanced Data Modeling",
         "Methodological Rigor",

@@ -146,12 +146,12 @@ export const courses = [
   },
   {
     id: "course-consult",
-    title: "Academic Research & Data Analytics",
+    title: "Research & Data Analytics",
     division: "Consult",
     category: "AI & Research",
     icon: "FaChartBar",
     techStackSlug: "academic-research-analytics-tech-stack",
-    description: "Master quantitative research methods, SPSS statistical modeling, Python Pandas data synthesis, and thesis publication standards.",
+    description: "Master quantitative research methods, SPSS statistical modeling, Python Pandas data synthesis, and publication standards.",
     skills: ["Python", "R", "SPSS", "Pandas", "Monte Carlo", "LaTeX"],
     level: "All Levels",
     duration: "10 Weeks",
@@ -161,7 +161,7 @@ export const courses = [
       { title: "Micro 1: Data Cleaning & Wrangling", description: "Sanitize raw survey datasets, resolve missing values, and normalize features." },
       { title: "Micro 2: Hypothesis Testing in R", description: "Execute ANOVA, T-Tests, and Chi-Square statistical validation." },
       { title: "Micro 3: Monte Carlo Risk Model", description: "Run 10,000 simulation runs in SciPy to model operational probability." },
-      { title: "Micro 4: LaTeX Citation Engine", description: "Format academic papers adhering to APA/IEEE citation standards." }
+      { title: "Micro 4: LaTeX Citation Engine", description: "Format research papers adhering to APA/IEEE citation standards." }
     ],
     miniProjects: [
       { title: "Mini Project 1: Automated Data Cleaning Pipeline", description: "Build a Python CLI utility for dataset validation and export." },

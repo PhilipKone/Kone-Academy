@@ -43,7 +43,7 @@ const QUESTIONS = [
       { label: "Land a High-Paying Engineering Role", icon: FaRocket, goal: "Career" },
       { label: "Build & Launch My Own Startup MVP", icon: FaCube, goal: "Startup" },
       { label: "Upskill in My Current Corporate Role", icon: FaCogs, goal: "Upskill" },
-      { label: "Publish Academic Research & Data Models", icon: FaChartBar, goal: "Research" }
+      { label: "Publish Research & Data Models", icon: FaChartBar, goal: "Research" }
     ]
   }
 ];

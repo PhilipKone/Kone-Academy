@@ -22,7 +22,7 @@ We empower developers, researchers, and hardware builders with 12 specialized co
 3.  [Warp]     Geospatial Dispatch Logistics (NodeJS, Redis GEO, Leaflet)
 4.  [Studio]   3D WebGL & Shader Graphics (Three.js, GLSL, R3F)
 5.  [AI]       Neural RAG Vector Search (Python, PyTorch, Qdrant)
-6.  [Consult]  Academic Research Analytics (R, Python, LaTeX, SciPy)
+6.  [Consult]  Research & Data Analytics (R, Python, LaTeX, SciPy)
 7.  [Lab]      Embedded Hardware Prototyping (Embedded C++, KiCAD)
 8.  [Code]     Full-Stack SaaS Web Apps (React, TypeScript, Postgres)
 9.  [Digital]  Cloud DevOps & Kubernetes (Docker, K8s, Terraform)
