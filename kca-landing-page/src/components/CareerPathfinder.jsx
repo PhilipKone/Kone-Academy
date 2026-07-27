@@ -110,9 +110,9 @@ const CareerPathfinder = ({ onSelectTrack }) => {
           {currentStep < QUESTIONS.length ? (
             <motion.div
               key={currentStep}
-              initial={{ opacity: 0, x: 15 }}
-              animate={{ opacity: 1, x: 0 }}
-              exit={{ opacity: 0, x: -15 }}
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -10 }}
               transition={{ duration: 0.2 }}
             >
               <h4 className="h5 text-white fw-bold mb-1">{q.title}</h4>

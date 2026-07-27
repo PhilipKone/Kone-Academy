@@ -48,8 +48,7 @@
 .connection-path-glow {
   stroke: url(#glowGrad);
   stroke-width: 2.5px;
-  stroke-dasharray: 8 16;
-  animation: pulseFlow 4s linear infinite;
+  opacity: 0.6;
   fill: none;
 }
 

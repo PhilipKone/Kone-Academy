@@ -193,9 +193,9 @@ Support desk: support@koneacademy.io
           {step === 1 && (
             <motion.div 
               key="step1"
-              initial={{ opacity: 0, x: 10 }}
-              animate={{ opacity: 1, x: 0 }}
-              exit={{ opacity: 0, x: -10 }}
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -10 }}
             >
               <h3 className="h5 text-white fw-bold mb-1">Select Cohort Format</h3>
               <p className="text-secondary small mb-4">
@@ -287,9 +287,9 @@ Support desk: support@koneacademy.io
           {step === 2 && (
             <motion.div
               key="step2"
-              initial={{ opacity: 0, x: 10 }}
-              animate={{ opacity: 1, x: 0 }}
-              exit={{ opacity: 0, x: -10 }}
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -10 }}
             >
               <h4 className="h6 text-cyan fw-bold mb-3">Step 2: Select Delivery & Mentorship Model</h4>
               
@@ -325,9 +325,9 @@ Support desk: support@koneacademy.io
           {step === 3 && (
             <motion.div
               key="step3"
-              initial={{ opacity: 0, x: 10 }}
-              animate={{ opacity: 1, x: 0 }}
-              exit={{ opacity: 0, x: -10 }}
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -10 }}
             >
               <h4 className="h6 text-cyan fw-bold mb-3">Step 3: Student Registry Verification</h4>
               
