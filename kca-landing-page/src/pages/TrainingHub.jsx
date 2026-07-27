@@ -38,7 +38,7 @@ const iconMap = {
 };
 
 const CourseCard = ({ course, onSelectCourse }) => {
-  const { title, division, icon, description, skills, rating, reviews, duration, colorClass, youtubeLink } = course;
+  const { title, division, icon, description, skills, duration, colorClass, youtubeLink } = course;
   const IconComponent = iconMap[icon] || FaGraduationCap;
 
   return (
@@ -69,10 +69,10 @@ const CourseCard = ({ course, onSelectCourse }) => {
 
       {/* Card Footer Metadata */}
       <div className="card-meta-footer mt-auto pt-3 border-top border-secondary-subtle d-flex justify-content-between align-items-center">
-        <span className="rating-text text-warning small fw-semibold">
-          <FaStar className="me-1" /> {rating} <span className="reviews-count text-secondary ms-1">({reviews})</span>
+        <span className="extra-small text-cyan fw-bold d-inline-flex align-items-center">
+          <FaCheckCircle className="me-1 text-success" /> Live Remote Labs
         </span>
-        <span className="duration-chip text-secondary small">
+        <span className="duration-chip text-secondary small fw-semibold">
           <FaClock className="me-1" /> {duration}
         </span>
       </div>
@@ -137,10 +137,8 @@ const CourseDetailsModal = ({ course, onClose, onOpenOnboarding }) => {
             <strong className="stat-value text-white">{course.duration}</strong>
           </div>
           <div className="modal-stat-card">
-            <span className="stat-label">RATING</span>
-            <strong className="stat-value text-warning">
-              <FaStar className="me-1 mb-1" /> {course.rating} <span className="text-secondary fw-normal">({course.reviews} reviews)</span>
-            </strong>
+            <span className="stat-label">CURRICULUM BUILDS</span>
+            <strong className="stat-value text-cyan">4 Micro + 2 Mini + 1 Capstone</strong>
           </div>
         </div>
 
