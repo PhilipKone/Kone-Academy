@@ -68,11 +68,11 @@ const CourseCard = ({ course, onSelectCourse }) => {
       </div>
 
       {/* Card Footer Metadata */}
-      <div className="card-meta-footer mt-auto pt-3 pb-1 border-top border-secondary-subtle d-flex justify-content-between align-items-center mb-3">
+      <div className="card-meta-footer mt-auto pt-3 pb-1 border-top border-secondary-subtle d-flex justify-content-between align-items-center gap-3 mb-3">
         <span className="extra-small text-secondary fw-semibold">
           Level: <strong className="text-white ms-1">{level}</strong>
         </span>
-        <span className="duration-chip text-cyan extra-small fw-bold d-inline-flex align-items-center">
+        <span className="duration-chip text-cyan extra-small fw-bold">
           <FaClock style={{ marginRight: '6px' }} />
           <span>{duration}</span>
         </span>
