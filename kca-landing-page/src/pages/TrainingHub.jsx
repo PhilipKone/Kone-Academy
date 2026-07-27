@@ -72,20 +72,28 @@ const CourseCard = ({ course, onSelectCourse }) => {
         <span className="extra-small text-secondary fw-semibold">
           Level: <strong className="text-white ms-1">{level}</strong>
         </span>
-        <span className="duration-chip text-cyan extra-small fw-bold d-inline-flex align-items-center gap-1.5">
-          <FaClock className="me-1" /> {duration}
+        <span className="duration-chip text-cyan extra-small fw-bold d-inline-flex align-items-center">
+          <FaClock style={{ marginRight: '6px' }} />
+          <span>{duration}</span>
         </span>
       </div>
 
       <div className="d-flex flex-column gap-2">
         <button
           onClick={() => onSelectCourse(course)}
-          className="enroll-btn w-100 d-inline-flex align-items-center justify-content-center gap-2"
+          className="enroll-btn w-100 d-inline-flex align-items-center justify-content-center"
         >
-          <FaLayerGroup size={14} /> View Syllabus & Projects
+          <FaLayerGroup size={14} style={{ marginRight: '8px' }} />
+          <span>View Syllabus & Projects</span>
         </button>
-        <a href={youtubeLink} target="_blank" rel="noopener noreferrer" className="watch-btn w-100 text-center d-inline-flex align-items-center justify-content-center gap-2">
-          <FaYoutube size={15} className="text-danger" /> Watch Intro on YouTube
+        <a 
+          href={youtubeLink} 
+          target="_blank" 
+          rel="noopener noreferrer" 
+          className="watch-btn w-100 text-center d-inline-flex align-items-center justify-content-center"
+        >
+          <FaYoutube size={15} className="text-danger" style={{ marginRight: '8px' }} />
+          <span>Watch Intro on YouTube</span>
         </a>
       </div>
     </div>

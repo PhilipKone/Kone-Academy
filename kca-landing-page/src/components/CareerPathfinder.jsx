@@ -127,7 +127,7 @@ const CareerPathfinder = ({ onSelectTrack }) => {
                       className="pathfinder-opt-btn"
                       onClick={() => handleOptionSelect(opt)}
                     >
-                      {Icon && <Icon className="opt-icon text-cyan" />}
+                      {Icon && <Icon className="opt-icon text-cyan" style={{ marginRight: '10px' }} />}
                       <span className="opt-label text-white">{opt.label}</span>
                       <FaChevronRight className="arrow-icon ms-auto text-secondary" size={12} />
                     </button>
@@ -146,10 +146,12 @@ const CareerPathfinder = ({ onSelectTrack }) => {
               >
                 <div className="d-flex flex-wrap align-items-center justify-content-between mb-3 gap-2">
                   <span className="match-score-badge">
-                    <FaCheckCircle className="me-1" /> 98% MATCH RECOMMENDED TRACK
+                    <FaCheckCircle style={{ marginRight: '6px' }} />
+                    <span>98% MATCH RECOMMENDED TRACK</span>
                   </span>
                   <button className="reset-quiz-btn" onClick={handleReset}>
-                    <FaRedo className="me-1" /> Retake Quiz
+                    <FaRedo style={{ marginRight: '6px' }} />
+                    <span>Retake Quiz</span>
                   </button>
                 </div>
 
@@ -173,10 +175,11 @@ const CareerPathfinder = ({ onSelectTrack }) => {
 
                 <div className="d-flex flex-wrap gap-3 align-items-center">
                   <button 
-                    className="enroll-btn px-4 flex-grow-1 text-center"
+                    className="enroll-btn px-4 flex-grow-1 text-center d-inline-flex align-items-center justify-content-center"
                     onClick={() => onSelectTrack(matchedCourse)}
                   >
-                    <FaRocket className="me-2" /> Enroll in {matchedCourse.division} Track
+                    <FaRocket style={{ marginRight: '8px' }} />
+                    <span>Enroll in {matchedCourse.division} Track</span>
                   </button>
                 </div>
               </motion.div>
