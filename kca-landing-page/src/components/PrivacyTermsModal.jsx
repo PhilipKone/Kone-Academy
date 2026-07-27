@@ -92,7 +92,7 @@ const PrivacyTermsModal = ({ isOpen, onClose, initialTab = 'privacy' }) => {
 
                 <h3 className="doc-section-heading">5. Data Deletion & Privacy Enquiries</h3>
                 <p className="doc-text">
-                  You retain full ownership of your data. You may request complete deletion of your registration records at any time by emailing <code>support@koneacademy.io</code>.
+                  You retain full ownership of your data. You may request complete deletion of your registration records at any time by emailing <code>phconsultgh@gmail.com</code> or <code>philipkone45@gmail.com</code>.
                 </p>
               </motion.div>
             ) : (

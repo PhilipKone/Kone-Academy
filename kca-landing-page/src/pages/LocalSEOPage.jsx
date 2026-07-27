@@ -141,7 +141,7 @@ export const LocalSEOPage = ({ niche, city, onBack }) => {
             <h3>Local Contact Information</h3>
             <p><strong>Address:</strong> {cityInfo.address}</p>
             <p><strong>Inquiries:</strong> {cityInfo.phone}</p>
-            <p><strong>Support:</strong> support@koneacademy.io</p>
+            <p><strong>Support:</strong> phconsultgh@gmail.com | philipkone45@gmail.com</p>
           </div>
         </section>
       </main>

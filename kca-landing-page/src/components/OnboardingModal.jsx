@@ -21,6 +21,7 @@ const OnboardingModal = ({ isOpen, onClose, defaultCourse }) => {
     github: ""
   });
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [isNotifying, setIsNotifying] = useState(false);
 
   if (!isOpen) return null;
 
@@ -32,6 +33,39 @@ const OnboardingModal = ({ isOpen, onClose, defaultCourse }) => {
     if (step > 1) setStep(prev => prev - 1);
   };
 
+  const dispatchAdminNotification = async (payload) => {
+    try {
+      setIsNotifying(true);
+      // Formspree / Webhook dispatch target for philipkone45@gmail.com
+      const endpoint = 'https://formspree.io/f/xovjepzq'; 
+      await fetch(endpoint, {
+        method: 'POST',
+        headers: { 
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+        },
+        body: JSON.stringify({
+          _subject: `🎓 New Student Cohort Reservation: ${payload.fullName} (${payload.track})`,
+          adminEmails: ['philipkone45@gmail.com', 'phconsultgh@gmail.com'],
+          studentName: payload.fullName,
+          studentEmail: payload.email,
+          githubHandle: payload.github || 'Not provided',
+          track: payload.track,
+          division: payload.division,
+          format: payload.format,
+          experience: payload.experience,
+          goal: payload.goal,
+          reservationToken: payload.token,
+          submittedAt: new Date().toISOString()
+        })
+      });
+    } catch (err) {
+      console.warn('Admin dispatch notification fallback:', err);
+    } finally {
+      setIsNotifying(false);
+    }
+  };
+
   const handleSubmit = (e) => {
     e.preventDefault();
     if (!formData.fullName.trim() || !formData.email.trim()) return;
@@ -40,6 +74,31 @@ const OnboardingModal = ({ isOpen, onClose, defaultCourse }) => {
     const randomSuffix = Math.floor(1000 + Math.random() * 9000);
     const token = `KONE-2026-${formData.division.toUpperCase()}-${randomSuffix}`;
     setReservationToken(token);
+
+    const recordPayload = {
+      fullName: formData.fullName.trim(),
+      email: formData.email.trim(),
+      github: formData.github.trim(),
+      track: formData.track,
+      division: formData.division,
+      format: formData.format,
+      experience: formData.experience,
+      goal: formData.goal,
+      token: token,
+      date: new Date().toISOString()
+    };
+
+    // Save persistent local admin record
+    try {
+      const existing = JSON.parse(localStorage.getItem('kone_academy_reservations') || '[]');
+      existing.push(recordPayload);
+      localStorage.setItem('kone_academy_reservations', JSON.stringify(existing));
+    } catch (err) {
+      console.warn('Storage log:', err);
+    }
+
+    // Trigger instant email notification dispatch to philipkone45@gmail.com
+    dispatchAdminNotification(recordPayload);
 
     setIsSubmitted(true);
     setStep(4);
@@ -71,10 +130,9 @@ PUBLIC CRYPTOGRAPHIC VERIFICATION:
 Verify this reservation token anytime in the active registry at:
 https://www.koneacademy.io/verify?id=${reservationToken}
 =====================================================
-NEXT STEPS FOR ADMISSION:
-1. Check your email inbox (${formData.email}) for cohort Slack & Discord invite.
-2. Complete your remote hardware & sandbox SSH lab setup.
-3. Attend the live orientation session.
+ADMIN CONTACT & DISPATCH:
+Notification delivered to: philipkone45@gmail.com
+Support desk: support@koneacademy.io
 =====================================================`;
 
     const blob = new Blob([syllabusText], { type: 'text/plain' });
@@ -262,7 +320,7 @@ NEXT STEPS FOR ADMISSION:
                     <input 
                       type="email" 
                       required
-                      placeholder="you@example.com" 
+                      placeholder="yourname@domain.com" 
                       value={formData.email} 
                       onChange={e => setFormData({ ...formData, email: e.target.value })}
                     />
@@ -325,6 +383,10 @@ NEXT STEPS FOR ADMISSION:
                   Verify Token Authenticity in Cryptographic Registry <FaExternalLinkAlt size={10} />
                 </a>
               </div>
+
+              <p className="extra-small text-muted mb-3">
+                📩 Admin notification dispatched to <strong className="text-secondary">philipkone45@gmail.com</strong> & <strong className="text-secondary">phconsultgh@gmail.com</strong>
+              </p>
 
               <div className="d-flex flex-column gap-2 max-w-sm mx-auto" style={{ maxWidth: '380px' }}>
                 <button className="enroll-btn w-100" onClick={generatePDFSummary}>

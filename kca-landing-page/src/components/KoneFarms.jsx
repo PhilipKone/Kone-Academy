@@ -352,7 +352,7 @@ export default function KoneFarms({ onBack }) {
 
               <div style={{ textAlign: 'left', fontSize: '0.85rem', color: '#94a3b8', lineHeight: 1.5 }}>
                 <strong style={{ display: 'block', color: 'white', marginBottom: '0.25rem' }}>💡 Bulk Discount Offer:</strong>
-                Orders over **10 boxes** qualify for free shipping and a **10% wholesale discount** on invoices! Contact our wholesale desk directly at `farms@koneacademy.io` for custom arrangements.
+                Orders over **10 boxes** qualify for free shipping and a **10% wholesale discount** on invoices! Contact our wholesale desk directly at `phconsultgh@gmail.com` or `philipkone45@gmail.com` for custom arrangements.
               </div>
             </div>
 
