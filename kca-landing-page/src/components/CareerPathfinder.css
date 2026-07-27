@@ -1,0 +1,161 @@
+/* Career Pathfinder Quiz Styling */
+.pathfinder-card-wrapper {
+  background: rgba(15, 23, 42, 0.85);
+  border: 1px solid rgba(0, 229, 255, 0.2);
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.5), 0 0 30px rgba(0, 229, 255, 0.08);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+.pathfinder-header {
+  background: rgba(10, 15, 30, 0.9);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.pathfinder-badge-icon {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: rgba(0, 229, 255, 0.1);
+  color: #00e5ff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.1rem;
+}
+
+.pathfinder-options-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+}
+
+@media (max-width: 768px) {
+  .pathfinder-options-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.pathfinder-opt-btn {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 14px 16px;
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  cursor: pointer;
+  text-align: left;
+  transition: all 0.2s ease;
+}
+
+.pathfinder-opt-btn:hover {
+  background: rgba(0, 229, 255, 0.08);
+  border-color: rgba(0, 229, 255, 0.35);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(0, 229, 255, 0.12);
+}
+
+.opt-icon {
+  font-size: 1.2rem;
+  flex-shrink: 0;
+}
+
+.opt-label {
+  font-size: 0.88rem;
+  font-weight: 600;
+}
+
+/* Result Box */
+.match-score-badge {
+  display: inline-flex;
+  align-items: center;
+  background: rgba(34, 197, 94, 0.1);
+  border: 1px solid rgba(34, 197, 94, 0.3);
+  color: #22c55e;
+  font-size: 0.72rem;
+  font-weight: 750;
+  padding: 5px 14px;
+  border-radius: 20px;
+  letter-spacing: 0.04em;
+}
+
+.reset-quiz-btn {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: #94a3b8;
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 5px 12px;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.reset-quiz-btn:hover {
+  background: rgba(255, 255, 255, 0.08);
+  color: #fff;
+}
+
+.result-details-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+}
+
+@media (max-width: 768px) {
+  .result-details-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.detail-card {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 12px 14px;
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+}
+
+.detail-lbl {
+  font-size: 0.7rem;
+  color: #94a3b8;
+  font-weight: 600;
+}
+
+.detail-val {
+  font-size: 0.92rem;
+  margin-top: 2px;
+}
+
+@media (max-width: 480px) {
+  .pathfinder-header {
+    padding: 1rem 1.2rem !important;
+  }
+
+  .pathfinder-body {
+    padding: 1.2rem 1rem !important;
+  }
+
+  .pathfinder-opt-btn {
+    padding: 12px 14px !important;
+    gap: 10px !important;
+  }
+
+  .opt-label {
+    font-size: 0.82rem !important;
+  }
+
+  .opt-icon {
+    font-size: 1.05rem !important;
+  }
+
+  .match-score-badge {
+    font-size: 0.68rem !important;
+    padding: 4px 10px !important;
+  }
+}
+

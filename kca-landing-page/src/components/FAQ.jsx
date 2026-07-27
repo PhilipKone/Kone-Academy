@@ -12,7 +12,7 @@ const faqs = [
   },
   {
     question: "Is the curriculum suitable for beginners?",
-    answer: "Absolutely. We offer specialized learning paths that take you from foundational concepts in Linux and Networking, all the way to advanced DevOps, Cybersecurity, and Cloud Architectures."
+    answer: "Absolutely. We offer specialized learning paths that take you from foundational concepts, all the way to advanced Linux, Networking, DevOps, Cybersecurity, and Cloud Architectures."
   },
   {
     question: "Are the courses self-paced?",
@@ -38,37 +38,37 @@ const FAQ = () => {
           <h2 className="faq-title">Frequently Asked Questions</h2>
           <p className="faq-subtitle">Everything you need to know to get started.</p>
         </div>
-        
+
         <div className="faq-accordion">
           {faqs.map((faq, index) => (
-            <div 
-              key={index} 
+            <div
+              key={index}
               className={`faq-item ${activeIndex === index ? 'active' : ''}`}
             >
-              <button 
-                className="faq-question" 
+              <button
+                className="faq-question"
                 onClick={() => toggleAccordion(index)}
                 aria-expanded={activeIndex === index}
               >
                 <span>{faq.question}</span>
                 <span className="faq-icon">
-                  <svg 
-                    xmlns="http://www.w3.org/2000/svg" 
-                    width="24" 
-                    height="24" 
-                    viewBox="0 0 24 24" 
-                    fill="none" 
-                    stroke="currentColor" 
-                    strokeWidth="2" 
-                    strokeLinecap="round" 
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    strokeLinecap="round"
                     strokeLinejoin="round"
                   >
                     <polyline points="6 9 12 15 18 9"></polyline>
                   </svg>
                 </span>
               </button>
-              
-              <div 
+
+              <div
                 className="faq-answer-wrapper"
                 style={{
                   maxHeight: activeIndex === index ? '200px' : '0',

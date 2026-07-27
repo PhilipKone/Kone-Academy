@@ -13,6 +13,8 @@ import InstallBanner from './components/InstallBanner';
 
 import LoadingScreen from './components/LoadingScreen';
 import InteractiveGrid from './components/InteractiveGrid';
+import OnboardingModal from './components/OnboardingModal';
+import PrivacyTermsModal from './components/PrivacyTermsModal';
 
 const KoneFarms = React.lazy(() => import('./components/KoneFarms'));
 const LocalSEOPage = React.lazy(() => import('./pages/LocalSEOPage'));
@@ -20,6 +22,7 @@ const TrainingHub = React.lazy(() => import('./pages/TrainingHub'));
 const Protocols = React.lazy(() => import('./pages/Protocols'));
 const Documentation = React.lazy(() => import('./pages/Documentation'));
 const Sitemap = React.lazy(() => import('./pages/Sitemap'));
+const CertificateValidator = React.lazy(() => import('./components/CertificateValidator'));
 
 import { applyTheme } from './components/ThemeSelector';
 
@@ -33,6 +36,8 @@ function App() {
   const [currentPage, setCurrentPage] = React.useState('home');
   const [localRoute, setLocalRoute] = React.useState(null);
   const [docRoute, setDocRoute] = React.useState({ category: null, subcategory: null, slug: null });
+  const [globalOnboarding, setGlobalOnboarding] = React.useState(false);
+  const [privacyModal, setPrivacyModal] = React.useState({ isOpen: false, tab: 'privacy' });
 
   const parseRoute = () => {
     const path = window.location.pathname;
@@ -45,6 +50,8 @@ function App() {
       setCurrentPage('training');
     } else if (pathParts[0] === 'protocols') {
       setCurrentPage('protocols');
+    } else if (pathParts[0] === 'verify') {
+      setCurrentPage('verify');
     } else if (pathParts[0] === 'sitemap') {
       setCurrentPage('sitemap');
     } else if (pathParts[0] === 'docs') {
@@ -90,6 +97,10 @@ function App() {
     parseRoute();
   };
 
+  const handleOpenOnboarding = () => {
+    setGlobalOnboarding(true);
+  };
+
   return (
     <>
       {currentPage === 'farms' ? (
@@ -107,6 +118,10 @@ function App() {
       ) : currentPage === 'protocols' ? (
         <React.Suspense fallback={<LoadingScreen />}>
           <Protocols onBack={handleBackToHome} />
+        </React.Suspense>
+      ) : currentPage === 'verify' ? (
+        <React.Suspense fallback={<LoadingScreen />}>
+          <CertificateValidator onBack={handleBackToHome} />
         </React.Suspense>
       ) : currentPage === 'sitemap' ? (
         <React.Suspense fallback={<LoadingScreen />}>
@@ -126,24 +141,40 @@ function App() {
         <>
           {!isPrerender && <LoadingScreen onFinished={() => setIsInitializing(false)} />}
           {(!isInitializing || isPrerender) && (
-            <div className="App animate-fade-in">
-              <InteractiveGrid />
-              <Header />
-              <main id="main-content">
-                <Hero />
-                <Vision />
-                <Divisions />
-                <Services />
-                <Careers />
-                <FAQ />
-                <CTA />
-              </main>
-              <Footer />
-              <InstallBanner />
-            </div>
+            <>
+              <Header onOpenOnboarding={handleOpenOnboarding} />
+              <div className="App animate-fade-in">
+                <InteractiveGrid />
+                <main id="main-content">
+                  <Hero onOpenOnboarding={handleOpenOnboarding} />
+                  <Vision />
+                  <Divisions />
+                  <Services onOpenOnboarding={handleOpenOnboarding} />
+                  <Careers />
+                  <FAQ />
+                  <CTA onOpenOnboarding={handleOpenOnboarding} />
+                </main>
+                <Footer 
+                  onOpenPrivacy={() => setPrivacyModal({ isOpen: true, tab: 'privacy' })}
+                  onOpenTerms={() => setPrivacyModal({ isOpen: true, tab: 'terms' })}
+                />
+                <InstallBanner />
+              </div>
+            </>
           )}
         </>
       )}
+
+      <OnboardingModal 
+        isOpen={globalOnboarding} 
+        onClose={() => setGlobalOnboarding(false)} 
+      />
+
+      <PrivacyTermsModal 
+        isOpen={privacyModal.isOpen} 
+        initialTab={privacyModal.tab}
+        onClose={() => setPrivacyModal({ isOpen: false, tab: 'privacy' })} 
+      />
     </>
   );
 }

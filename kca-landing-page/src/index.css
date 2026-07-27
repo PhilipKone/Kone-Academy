@@ -164,3 +164,19 @@ button {
   box-shadow: 0 0 15px rgba(0, 229, 255, 0.12) !important;
   transform: translateY(-1.5px) !important;
 }
+
+@media (max-width: 768px) {
+  body, #root, .app-container, .main-layout, .docs-page-wrapper, .landing-page {
+    padding-bottom: 64px !important;
+  }
+  
+  /* Flatten glass panels and cards for edge-to-edge mobile app feel */
+  .glass-panel, .card, .terminal-window, .app-launcher-panel, .pathfinder-card {
+    border-radius: 0px !important;
+    border-left: none !important;
+    border-right: none !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    width: 100% !important;
+  }
+}

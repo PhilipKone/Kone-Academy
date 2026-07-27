@@ -1,0 +1,162 @@
+/* Native Onboarding Modal Styling */
+.onboarding-modal-glass {
+  background: rgba(15, 23, 42, 0.98);
+  border: 1px solid rgba(0, 229, 255, 0.25);
+  border-radius: 24px;
+  padding: 2.2rem;
+  max-width: 640px;
+  width: 100%;
+  position: relative;
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.7), 0 0 35px rgba(0, 229, 255, 0.15);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+}
+
+.onboarding-progress-bar {
+  width: 100%;
+  height: 4px;
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #00e5ff, #bd00ff);
+  transition: width 0.3s ease;
+}
+
+/* Format Cards Grid */
+.format-options-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.format-card {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 14px;
+  padding: 14px 16px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.format-card:hover,
+.format-card.active {
+  background: rgba(0, 229, 255, 0.06);
+  border-color: rgba(0, 229, 255, 0.35);
+  box-shadow: 0 0 20px rgba(0, 229, 255, 0.1);
+}
+
+.format-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: rgba(0, 229, 255, 0.1);
+  color: #00e5ff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  font-size: 1.1rem;
+}
+
+/* Pill Select Buttons */
+.pill-select-btn {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: #cbd5e1;
+  font-size: 0.8rem;
+  font-weight: 600;
+  padding: 8px 16px;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.pill-select-btn:hover,
+.pill-select-btn.active {
+  background: rgba(189, 0, 255, 0.15);
+  border-color: rgba(189, 0, 255, 0.4);
+  color: #e879f9;
+  box-shadow: 0 0 15px rgba(189, 0, 255, 0.2);
+}
+
+/* Glass Inputs */
+.input-glass-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.input-icon {
+  position: absolute;
+  left: 14px;
+  color: rgba(255, 255, 255, 0.35);
+  font-size: 0.9rem;
+}
+
+.input-glass-wrapper input {
+  width: 100%;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  padding: 10px 14px 10px 40px;
+  color: #fff;
+  font-size: 0.9rem;
+  outline: none;
+  transition: all 0.2s ease;
+}
+
+.input-glass-wrapper input:focus {
+  border-color: #00e5ff;
+  background: rgba(0, 229, 255, 0.03);
+  box-shadow: 0 0 15px rgba(0, 229, 255, 0.15);
+}
+
+/* Success Card */
+.reservation-box {
+  background: rgba(0, 229, 255, 0.05);
+  border: 1px solid rgba(0, 229, 255, 0.2);
+}
+
+.success-icon-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  background: rgba(34, 197, 94, 0.1);
+  border: 1px solid rgba(34, 197, 94, 0.3);
+}
+
+@media (max-width: 640px) {
+  .onboarding-modal-glass {
+    padding: 1.4rem 1.2rem;
+    border-radius: 20px;
+    max-height: 90vh;
+    overflow-y: auto;
+  }
+
+  .format-card {
+    padding: 10px 12px;
+    gap: 10px;
+  }
+
+  .format-icon {
+    width: 32px;
+    height: 32px;
+    font-size: 0.95rem;
+  }
+
+  .pill-select-btn {
+    font-size: 0.75rem;
+    padding: 6px 12px;
+  }
+}
+

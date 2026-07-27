@@ -2,7 +2,7 @@ import React from 'react';
 import InteractiveTerminal from './InteractiveTerminal';
 import './Hero.css';
 
-const Hero = () => {
+const Hero = ({ onOpenOnboarding }) => {
   const isPrerender = typeof window !== 'undefined' && (
     window.navigator.userAgent.includes('ReactSnap') ||
     window.__PRERENDER_INJECTED
@@ -28,7 +28,7 @@ const Hero = () => {
             <span className="text-white">Research, code, and engineer the future the right way.</span>
           </p>
           <div className="hero-actions">
-            <a href="https://docs.google.com/forms/d/e/1FAIpQLSeXOBgnnnquQmQHHU1Kbyw9iYfK7gJ6Kyj5T5OctIcyy4fXSA/viewform?usp=header" target="_blank" rel="noreferrer" className="btn-primary big" style={{ textDecoration: 'none', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>Start Learning</a>
+            <button onClick={onOpenOnboarding} className="btn-primary big" style={{ border: 'none', cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>Start Learning</button>
             <a href="/docs" onClick={handleDocsClick} className="btn-secondary big" style={{ textDecoration: 'none', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
               View Documentation
             </a>
@@ -36,7 +36,7 @@ const Hero = () => {
         </div>
 
         <div className="hero-visual">
-          <InteractiveTerminal />
+          <InteractiveTerminal onOpenOnboarding={onOpenOnboarding} />
         </div>
       </div>
 

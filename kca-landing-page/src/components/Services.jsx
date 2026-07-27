@@ -4,7 +4,7 @@ import './Services.css';
 import { FaGraduationCap, FaChartBar, FaBookOpen, FaPython, FaMicrochip, FaCube, FaRobot } from 'react-icons/fa';
 import { SiCplusplus, SiR } from 'react-icons/si';
 
-const ServiceCard = ({ item }) => {
+const ServiceCard = ({ item, onOpenOnboarding }) => {
   return (
     <div className="service-item glass-panel">
       <div className="service-content">
@@ -12,37 +12,29 @@ const ServiceCard = ({ item }) => {
         <h4 className="service-title">{item.title}</h4>
         <p className="service-desc">{item.desc}</p>
         <div style={{ marginTop: 'auto', paddingTop: '1rem' }}>
-          <a
-            href="https://docs.google.com/forms/d/e/1FAIpQLSeXOBgnnnquQmQHHU1Kbyw9iYfK7gJ6Kyj5T5OctIcyy4fXSA/viewform?usp=header"
-            target="_blank"
-            rel="noreferrer"
+          <button
+            onClick={onOpenOnboarding}
             className="btn-primary"
             style={{
               display: 'block',
+              width: '100%',
               textAlign: 'center',
-              textDecoration: 'none',
+              border: 'none',
+              cursor: 'pointer',
               padding: '0.5rem',
               fontSize: '0.85rem'
             }}
           >
             Request Service
-          </a>
+          </button>
         </div>
       </div>
     </div>
   );
 };
 
-const Services = () => {
+const Services = ({ onOpenOnboarding }) => {
   const services = [
-    {
-      category: 'Research',
-      items: [
-        { title: 'Thesis Guidance', desc: 'End-to-end support for academic writing.', icon: <FaGraduationCap /> },
-        { title: 'Data Analysis', desc: 'Processing complex datasets with Python/R.', icon: <FaChartBar /> },
-        { title: 'Publication', desc: 'Assistance with journal submissions.', icon: <FaBookOpen /> }
-      ]
-    },
     {
       category: 'Coding',
       items: [
@@ -75,7 +67,7 @@ const Services = () => {
               <h3 className="category-title">{category.category}</h3>
               <div className="category-grid">
                 {category.items.map((item, i) => (
-                  <ServiceCard key={i} item={item} />
+                  <ServiceCard key={i} item={item} onOpenOnboarding={onOpenOnboarding} />
                 ))}
               </div>
             </div>

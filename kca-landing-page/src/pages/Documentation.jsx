@@ -9,6 +9,7 @@ import 'prismjs/themes/prism-tomorrow.css';
 import 'prismjs/components/prism-python';
 import { ecosystemGuides } from '../data/ecosystemGuides';
 import { techStacks } from '../data/techStacks';
+import ArchitectureVisualizer from '../components/ArchitectureVisualizer';
 import './Documentation.css';
 
 // Helper to inject JSON-LD schema dynamically into the document head (crucial for pSEO indexation)
@@ -328,6 +329,8 @@ const Documentation = ({ category, subcategory, slug, onBack, onNavigate }) => {
                     <h3 className="h5 text-gradient-green fw-bold mb-2">Summary</h3>
                     <p className="text-secondary">{activeContent.summary}</p>
                   </div>
+
+                  <ArchitectureVisualizer slug={slug} />
 
                   <div className="mb-4">
                     <h3 className="h5 text-gradient-green fw-bold mb-2">Recommended Tech Stack</h3>

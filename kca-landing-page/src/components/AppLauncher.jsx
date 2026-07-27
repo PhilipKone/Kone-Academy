@@ -8,8 +8,8 @@ const isPrerender = typeof window !== 'undefined' && (
   window.__PRERENDER_INJECTED
 );
 
-const isLocal = typeof window !== 'undefined' && 
-  (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') && 
+const isLocal = typeof window !== 'undefined' &&
+  (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') &&
   !isPrerender;
 
 const apps = [
@@ -19,13 +19,13 @@ const apps = [
     logo: '/logo-tech.svg',
     color: 'tech',
     glow: 'rgba(188, 0, 255, 0.12)',
-    url: isLocal 
-         ? 'http://localhost:5178' 
-         : 'https://konetech.koneacademy.io',
+    url: isLocal
+      ? 'http://localhost:5178'
+      : 'https://konetech.koneacademy.io',
   },
   {
     name: 'Kone Consult',
-    description: 'Mentorship & research',
+    description: 'Data Analysis & research',
     logo: '/app-consult.svg',
     color: 'consult',
     glow: 'rgba(37, 99, 235, 0.12)',
@@ -61,9 +61,9 @@ const apps = [
     logo: '/app-studio.svg',
     color: 'studio',
     glow: 'rgba(239, 68, 68, 0.12)',
-    url: isLocal 
-         ? 'http://localhost:5175/#/anim-studio' 
-         : 'https://lab.koneacademy.io/#/anim-studio',
+    url: isLocal
+      ? 'http://localhost:5175/#/anim-studio'
+      : 'https://lab.koneacademy.io/#/anim-studio',
   },
   {
     name: 'Kone Kids',
@@ -95,9 +95,9 @@ const apps = [
     logo: '/app-farms.svg',
     color: 'farms',
     glow: 'rgba(16, 185, 129, 0.12)',
-    url: isLocal 
-         ? 'http://localhost:3002' 
-         : 'https://farms.koneacademy.io',
+    url: isLocal
+      ? 'http://localhost:3002'
+      : 'https://farms.koneacademy.io',
   },
   {
     name: 'Kone Warp',
@@ -105,9 +105,9 @@ const apps = [
     logo: '/app-warp.svg',
     color: 'warp',
     glow: 'rgba(236, 72, 153, 0.12)',
-    url: isLocal 
-         ? 'http://localhost:5176' 
-         : 'https://warp.koneacademy.io',
+    url: isLocal
+      ? 'http://localhost:5176'
+      : 'https://warp.koneacademy.io',
   },
   {
     name: 'Kone AI',
@@ -115,9 +115,9 @@ const apps = [
     logo: '/app-ai.svg',
     color: 'ai',
     glow: 'rgba(188, 0, 255, 0.12)',
-    url: isLocal 
-         ? 'http://localhost:5177' 
-         : 'https://ai.koneacademy.io',
+    url: isLocal
+      ? 'http://localhost:5177'
+      : 'https://ai.koneacademy.io',
   },
 ];
 

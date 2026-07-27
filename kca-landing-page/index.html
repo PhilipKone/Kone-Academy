@@ -15,6 +15,20 @@
   <meta name="author" content="Kone Academy" />
   <link rel="canonical" href="https://www.koneacademy.io/" />
 
+  <!-- Single Page Apps for GitHub Pages URL Handler -->
+  <script type="text/javascript">
+    (function(l) {
+      if (l.search[1] === '/' ) {
+        var decoded = l.search.slice(1).split('&').map(function(s) { 
+          return s.replace(/~and~/g, '&')
+        }).join('?');
+        window.history.replaceState(null, null,
+            l.pathname.slice(0, -1) + decoded + l.hash
+        );
+      }
+    }(window.location));
+  </script>
+
   <!-- Open Graph / Facebook -->
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://www.koneacademy.io/" />
@@ -50,110 +64,12 @@
       "url": "https://www.koneacademy.io/"
     }
   </script>
-  <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "LocalBusiness",
-      "name": "Kone Academy",
-      "image": "https://www.koneacademy.io/og-image.png",
-      "@id": "https://www.koneacademy.io/",
-      "url": "https://www.koneacademy.io/",
-      "telephone": "+233551993820",
-      "priceRange": "$$",
-      "address": {
-        "@type": "PostalAddress",
-        "streetAddress": "Digital Address: GA-123-4567",
-        "addressLocality": "Accra",
-        "addressRegion": "Greater Accra",
-        "postalCode": "00233",
-        "addressCountry": "GH"
-      },
-      "geo": {
-        "@type": "GeoCoordinates",
-        "latitude": 5.6037,
-        "longitude": -0.1870
-      },
-      "openingHoursSpecification": {
-        "@type": "OpeningHoursSpecification",
-        "dayOfWeek": [
-          "Monday",
-          "Tuesday",
-          "Wednesday",
-          "Thursday",
-          "Friday"
-        ],
-        "opens": "09:00",
-        "closes": "17:00"
-      },
-      "sameAs": [
-        "https://kids.koneacademy.io/",
-        "https://consult.koneacademy.io/",
-        "https://code.koneacademy.io/",
-        "https://lab.koneacademy.io/",
-        "https://digital.koneacademy.io/",
-        "https://shop.koneacademy.io/",
-        "https://farms.koneacademy.io/",
-        "https://warp.koneacademy.io/",
-        "https://ai.koneacademy.io/",
-        "https://www.linkedin.com/company/konecodeacdemy/",
-        "https://www.facebook.com/profile.php?id=61584327765846",
-        "https://www.instagram.com/koneacademy",
-        "https://x.com/koneacademy",
-        "https://www.tiktok.com/@koneacademy",
-        "https://youtube.com/@koneacademy"
-      ]
-    }
-  </script>
-  <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "ItemList",
-      "name": "Kone Academy Services",
-      "itemListElement": [
-        {
-          "@type": "SiteNavigationElement",
-          "position": 1,
-          "name": "Kone Consult - Research",
-          "url": "https://consult.koneacademy.io/"
-        },
-        {
-          "@type": "SiteNavigationElement",
-          "position": 2,
-          "name": "Kone Code - Software",
-          "url": "https://code.koneacademy.io/"
-        },
-        {
-          "@type": "SiteNavigationElement",
-          "position": 3,
-          "name": "Kone Lab - Engineering",
-          "url": "https://lab.koneacademy.io/"
-        },
-        {
-          "@type": "SiteNavigationElement",
-          "position": 4,
-          "name": "Kone Pay - Checkout",
-          "url": "https://consult.koneacademy.io/pay"
-        }
-      ]
-    }
-  </script>
 </head>
 
 <body>
   <noscript>You need to enable JavaScript to run this app.</noscript>
   <div id="root"></div>
   <script type="module" src="/src/index.jsx"></script>
-  <script>
-    if ('serviceWorker' in navigator && !navigator.userAgent.includes('ReactSnap')) {
-      window.addEventListener('load', () => {
-        navigator.serviceWorker.register('./sw.js').then(registration => {
-          console.log('SW registered: ', registration);
-        }).catch(registrationError => {
-          console.log('SW registration failed: ', registrationError);
-        });
-      });
-    }
-  </script>
 </body>
 
 </html>

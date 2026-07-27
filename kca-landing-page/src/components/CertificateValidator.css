@@ -1,0 +1,230 @@
+/* Cryptographic Certificate Validator Styling */
+.cert-validator-wrapper {
+  background: rgba(15, 23, 42, 0.85);
+  border: 1px solid rgba(0, 229, 255, 0.2);
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.5), 0 0 30px rgba(0, 229, 255, 0.08);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+.cert-header-bar {
+  background: rgba(10, 15, 30, 0.9);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.cert-shield-badge {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: rgba(0, 229, 255, 0.1);
+  color: #00e5ff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  box-shadow: 0 0 15px rgba(0, 229, 255, 0.15);
+}
+
+.sample-token-btn {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: #cbd5e1;
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 5px 12px;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.sample-token-btn:hover,
+.sample-token-btn.active {
+  background: rgba(0, 229, 255, 0.12);
+  border-color: rgba(0, 229, 255, 0.35);
+  color: #00e5ff;
+  box-shadow: 0 0 15px rgba(0, 229, 255, 0.15);
+}
+
+/* Search Bar Input */
+.cert-search-form {
+  width: 100%;
+}
+
+.cert-input-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+.cert-input-wrapper .search-icon {
+  position: absolute;
+  left: 16px;
+  color: rgba(255, 255, 255, 0.35);
+  font-size: 1rem;
+}
+
+.cert-search-input {
+  width: 100%;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 14px;
+  padding: 12px 140px 12px 46px;
+  color: #fff;
+  font-size: 0.92rem;
+  outline: none;
+  transition: all 0.2s ease;
+}
+
+.cert-search-input:focus {
+  border-color: #00e5ff;
+  background: rgba(0, 229, 255, 0.03);
+  box-shadow: 0 0 20px rgba(0, 229, 255, 0.15);
+}
+
+.cert-submit-btn {
+  position: absolute;
+  right: 6px;
+  background: linear-gradient(135deg, #00e5ff, #bd00ff);
+  color: #060913;
+  border: none;
+  font-weight: 750;
+  font-size: 0.8rem;
+  padding: 8px 16px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.cert-submit-btn:hover {
+  filter: brightness(1.1);
+  box-shadow: 0 0 15px rgba(0, 229, 255, 0.3);
+}
+
+/* Certificate Display Card */
+.cert-card-display {
+  background: rgba(10, 16, 30, 0.85);
+  border: 1px solid rgba(0, 229, 255, 0.3);
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.6), 0 0 30px rgba(0, 229, 255, 0.1);
+}
+
+.cert-card-top {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  background: linear-gradient(180deg, rgba(0, 229, 255, 0.05) 0%, rgba(0, 0, 0, 0) 100%);
+}
+
+.cert-status-badge {
+  display: inline-flex;
+  align-items: center;
+  background: rgba(34, 197, 94, 0.1);
+  border: 1px solid rgba(34, 197, 94, 0.3);
+  font-size: 0.7rem;
+  font-weight: 750;
+  padding: 4px 12px;
+  border-radius: 20px;
+  letter-spacing: 0.04em;
+}
+
+.cert-grid-info {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+@media (max-width: 768px) {
+  .cert-grid-info {
+    grid-template-columns: 1fr;
+  }
+}
+
+.cert-meta-card {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 12px 14px;
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+}
+
+.meta-lbl {
+  font-size: 0.68rem;
+  color: #94a3b8;
+  font-weight: 600;
+}
+
+.meta-val {
+  font-size: 0.92rem;
+  margin-top: 2px;
+}
+
+/* Verified Micro Projects Grid */
+.projects-verified-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+}
+
+@media (max-width: 768px) {
+  .projects-verified-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.verified-proj-pill {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 8px 12px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+}
+
+.cert-footer-signature {
+  background: rgba(6, 10, 20, 0.9);
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.crypto-hash-code {
+  background: rgba(0, 229, 255, 0.06);
+  padding: 4px 8px;
+  border-radius: 6px;
+  border: 1px solid rgba(0, 229, 255, 0.15);
+  font-family: monospace;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 640px) {
+  .cert-search-input {
+    padding-right: 110px;
+    font-size: 0.82rem;
+  }
+
+  .cert-submit-btn {
+    padding: 6px 10px;
+    font-size: 0.75rem;
+  }
+}
+
+/* Print Styles */
+@media print {
+  body * {
+    visibility: hidden;
+  }
+  .cert-card-display, .cert-card-display * {
+    visibility: visible;
+  }
+  .cert-card-display {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    background: #0f172a !important;
+    color: #fff !important;
+    border: 2px solid #00e5ff !important;
+  }
+}

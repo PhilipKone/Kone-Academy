@@ -3,7 +3,7 @@ import './Footer.css';
 import { FaGithub, FaDiscord, FaLinkedin, FaFacebook, FaInstagram, FaSlack, FaYoutube, FaTiktok, FaWhatsapp } from 'react-icons/fa';
 import { FaXTwitter } from 'react-icons/fa6';
 
-const Footer = () => {
+const Footer = ({ onOpenPrivacy, onOpenTerms }) => {
   const [activeTheme, setActiveTheme] = useState('blue');
 
   useEffect(() => {
@@ -52,10 +52,10 @@ const Footer = () => {
           <div className="link-group">
             <h3>Platform</h3>
             <a href="/training" onClick={(e) => handleNav(e, '/training')}>Academy Courses</a>
+            <a href="/verify" onClick={(e) => handleNav(e, '/verify')}>Verify Credentials</a>
             <a href="/sitemap" onClick={(e) => handleNav(e, '/sitemap')}>Sitemap</a>
             <a href="#vision">Vision</a>
             <a href="#divisions">Divisions</a>
-            <a href="#services">Services</a>
           </div>
           <div className="link-group">
             <h3>Research</h3>
@@ -92,7 +92,11 @@ const Footer = () => {
         </div>
       </div>
       <div className="footer-bottom">
-        <p>&copy; {new Date().getFullYear()} Kone Academy. Open Source License.</p>
+        <p>
+          &copy; {new Date().getFullYear()} Kone Academy. Open Source License. &nbsp;|&nbsp; 
+          <button onClick={onOpenPrivacy} style={{ background: 'none', border: 'none', color: '#94a3b8', cursor: 'pointer', padding: 0, textDecoration: 'underline', fontSize: '0.85rem' }}>Privacy Policy</button> &nbsp;|&nbsp; 
+          <button onClick={onOpenTerms} style={{ background: 'none', border: 'none', color: '#94a3b8', cursor: 'pointer', padding: 0, textDecoration: 'underline', fontSize: '0.85rem' }}>Terms of Service</button>
+        </p>
       </div>
     </footer>
   );

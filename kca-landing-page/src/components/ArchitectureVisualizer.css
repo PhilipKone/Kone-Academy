@@ -1,0 +1,203 @@
+/* Architecture Blueprint Visualizer Styling */
+.arch-visualizer-container {
+  background: rgba(13, 27, 42, 0.35);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 16px;
+  padding: 1.5rem;
+  margin-top: 1.5rem;
+  margin-bottom: 2rem;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+.visualizer-grid-canvas {
+  position: relative;
+  width: 100%;
+  margin-bottom: 1.5rem;
+  padding: 10px 0;
+  overflow: hidden;
+}
+
+.flow-lines-wrapper {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  transform: translateY(-50%);
+  z-index: 1;
+  pointer-events: none;
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.flow-connections-svg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+}
+
+.connection-path-base {
+  stroke: rgba(255, 255, 255, 0.08);
+  stroke-width: 2px;
+  fill: none;
+}
+
+.connection-path-glow {
+  stroke: url(#glowGrad);
+  stroke-width: 2.5px;
+  stroke-dasharray: 8 16;
+  animation: pulseFlow 4s linear infinite;
+  fill: none;
+}
+
+@keyframes pulseFlow {
+  from {
+    stroke-dashoffset: 0;
+  }
+  to {
+    stroke-dashoffset: -24;
+  }
+}
+
+/* Node layout */
+.visualizer-nodes-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  z-index: 2;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.node-card-column {
+  flex: 1;
+  min-width: 150px;
+}
+
+.visualizer-node-item {
+  background: rgba(15, 23, 42, 0.85);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 12px;
+  padding: 10px 14px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+  position: relative;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+.visualizer-node-item:hover {
+  background: rgba(25, 35, 60, 0.9);
+  border-color: rgba(0, 229, 255, 0.4);
+  box-shadow: 0 4px 20px rgba(0, 229, 255, 0.15);
+}
+
+.active-node {
+  background: rgba(0, 229, 255, 0.05) !important;
+  border-color: #00e5ff !important;
+  box-shadow: 0 0 25px rgba(0, 229, 255, 0.25) !important;
+}
+
+.node-icon-circle {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.05);
+  color: #94a3b8;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: all 0.2s ease;
+}
+
+.visualizer-node-item:hover .node-icon-circle,
+.active-node .node-icon-circle {
+  background: rgba(0, 229, 255, 0.1);
+  color: #00e5ff;
+}
+
+.node-info-text {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  overflow: hidden;
+}
+
+.node-badge-label {
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: #fff;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.node-subtitle-label {
+  font-size: 0.68rem;
+  color: #94a3b8;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.node-chevron-link {
+  position: absolute;
+  right: -12px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: rgba(255, 255, 255, 0.15);
+  font-size: 0.75rem;
+  pointer-events: none;
+}
+
+/* Node description display drawer */
+.node-details-glass-panel {
+  background: rgba(0, 229, 255, 0.04);
+  border: 1px solid rgba(0, 229, 255, 0.18);
+  border-radius: 12px;
+  padding: 16px;
+  box-shadow: 0 4px 20px rgba(0, 229, 255, 0.05);
+}
+
+.details-badge-glow {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: rgba(0, 229, 255, 0.1);
+  color: #00e5ff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.node-details-placeholder-panel {
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 12px;
+  padding: 16px;
+  text-align: center;
+}
+
+/* Responsive Visualizer */
+@media (max-width: 768px) {
+  .visualizer-nodes-row {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 12px;
+  }
+
+  .node-chevron-link {
+    display: none;
+  }
+
+  .flow-lines-wrapper {
+    display: none;
+  }
+}

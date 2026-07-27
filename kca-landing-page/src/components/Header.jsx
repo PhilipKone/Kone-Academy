@@ -1,13 +1,22 @@
 import React, { useState, useEffect } from 'react';
-import { FaBars, FaTimes } from 'react-icons/fa';
+import { FaBars, FaTimes, FaHome, FaGraduationCap, FaFlask, FaBook, FaUser } from 'react-icons/fa';
 import AppLauncher from './AppLauncher';
 import ThemeSelector from './ThemeSelector';
 import './Header.css';
 
-const Header = () => {
+const Header = ({ onOpenOnboarding }) => {
   const [scrolled, setScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [activeTheme, setActiveTheme] = useState('blue');
+  const [currentPath, setCurrentPath] = useState(window.location.pathname);
+
+  useEffect(() => {
+    const handleLocationChange = () => {
+      setCurrentPath(window.location.pathname);
+    };
+    window.addEventListener('popstate', handleLocationChange);
+    return () => window.removeEventListener('popstate', handleLocationChange);
+  }, []);
 
   // Dynamically set login URL based on environment (with react-snap pre-render check)
   const isPrerender = typeof window !== 'undefined' && (
@@ -62,9 +71,11 @@ const Header = () => {
     window.history.pushState({}, '', path);
     window.dispatchEvent(new Event('popstate'));
     setIsMobileMenuOpen(false);
+    setCurrentPath(path);
   };
 
   return (
+    <>
     <header className={`header ${scrolled ? 'scrolled' : ''}`}>
       <div className="header-container">
         <div className="logo" onClick={(e) => handleNav(e, '/')}>
@@ -88,7 +99,7 @@ const Header = () => {
               <ThemeSelector />
             </div>
             <a href={loginUrl} className="btn-login" style={{ display: 'block', marginBottom: '1rem', textAlign: 'center', textDecoration: 'none', color: 'var(--text-primary)' }}>Login</a>
-            <a href="https://docs.google.com/forms/d/e/1FAIpQLSeXOBgnnnquQmQHHU1Kbyw9iYfK7gJ6Kyj5T5OctIcyy4fXSA/viewform?usp=header" target="_blank" rel="noreferrer" className="btn-primary" style={{ textDecoration: 'none', display: 'inline-block', textAlign: 'center' }}>Get Started</a>
+            <button onClick={() => { closeMobileMenu(); onOpenOnboarding(); }} className="btn-primary" style={{ border: 'none', cursor: 'pointer', display: 'inline-block', textAlign: 'center', width: '100%' }}>Get Started</button>
           </div>
         </nav>
 
@@ -96,13 +107,36 @@ const Header = () => {
           <AppLauncher />
           <ThemeSelector />
           <a href={loginUrl} className="btn-login" style={{ marginRight: '1rem', textDecoration: 'none', color: 'var(--text-primary)', fontWeight: '500' }}>Login</a>
-          <a href="https://docs.google.com/forms/d/e/1FAIpQLSeXOBgnnnquQmQHHU1Kbyw9iYfK7gJ6Kyj5T5OctIcyy4fXSA/viewform?usp=header" target="_blank" rel="noreferrer" className="btn-primary" style={{ textDecoration: 'none' }}>Get Started</a>
+          <button onClick={onOpenOnboarding} className="btn-primary" style={{ border: 'none', cursor: 'pointer' }}>Get Started</button>
         </div>
       </div>
     </header>
+
+    {/* Mobile Bottom Navigation Bar */}
+    <div className="mobile-bottom-nav">
+      <a href="/" className={`mobile-nav-item ${currentPath === '/' ? 'active' : ''}`} onClick={(e) => handleNav(e, '/')}>
+        <FaHome />
+        <span>Home</span>
+      </a>
+      <a href="/training" className={`mobile-nav-item ${currentPath === '/training' ? 'active' : ''}`} onClick={(e) => handleNav(e, '/training')}>
+        <FaGraduationCap />
+        <span>Courses</span>
+      </a>
+      <a href="/protocols" className={`mobile-nav-item ${currentPath === '/protocols' ? 'active' : ''}`} onClick={(e) => handleNav(e, '/protocols')}>
+        <FaFlask />
+        <span>Research</span>
+      </a>
+      <a href="/docs" className={`mobile-nav-item ${currentPath.startsWith('/docs') ? 'active' : ''}`} onClick={(e) => handleNav(e, '/docs')}>
+        <FaBook />
+        <span>Docs</span>
+      </a>
+      <a href={loginUrl} className={`mobile-nav-item ${currentPath === '/login' ? 'active' : ''}`}>
+        <FaUser />
+        <span>Login</span>
+      </a>
+    </div>
+    </>
   );
 };
 
 export default Header;
-
-

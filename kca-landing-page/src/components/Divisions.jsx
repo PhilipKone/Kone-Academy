@@ -14,7 +14,7 @@ const Divisions = () => {
       subtitle: 'Kone Consult',
       icon: '🔬',
       description: 'Research, data analysis, and mentorship.',
-      features: ['Topic Selection', 'Data Analysis', 'Writing'],
+      features: ['Data Analysis', 'Writing'],
       status: 'Active',
       link: isLocal ? 'http://localhost:3001/' : 'https://consult.koneacademy.io/'
     },
@@ -24,7 +24,7 @@ const Divisions = () => {
       subtitle: 'Kone Code',
       icon: '💻',
       description: 'Software development and general programming from Python to C++ and R.',
-      features: ['Python Masterclass', 'Web Development', 'Data Science'],
+      features: ['Web Development', 'Data Science'],
       status: 'Enrollment Open',
       link: isLocal ? 'http://localhost:5174/' : 'https://code.koneacademy.io/'
     },
@@ -34,7 +34,7 @@ const Divisions = () => {
       subtitle: 'Kone Lab',
       icon: '🛠️',
       description: 'Practical engineering, 3D modeling, and embedded systems.',
-      features: ['Arduino', '3D Simulation', 'Circuit Design'],
+      features: ['Hardware Prototyping', '3D Simulation', 'Circuit Design'],
       status: 'Lab Access',
       link: isLocal ? 'http://localhost:5175/' : 'https://lab.koneacademy.io/'
     }
@@ -71,10 +71,10 @@ const Divisions = () => {
             </div>
 
             <div className="card-footer">
-              <a 
-                href={div.link} 
-                className="btn-link" 
-                target={div.link.startsWith('?') ? "_self" : "_blank"} 
+              <a
+                href={div.link}
+                className="btn-link"
+                target={div.link.startsWith('?') ? "_self" : "_blank"}
                 rel="noopener noreferrer"
               >
                 Access Module &rarr;
