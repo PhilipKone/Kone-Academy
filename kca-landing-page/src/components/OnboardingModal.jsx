@@ -35,6 +35,16 @@ const OnboardingModal = ({ isOpen, onClose, defaultCourse }) => {
     };
   }, [isOpen]);
 
+  useEffect(() => {
+    if (defaultCourse) {
+      setFormData(prev => ({
+        ...prev,
+        track: defaultCourse.title,
+        division: defaultCourse.division || "Pay"
+      }));
+    }
+  }, [defaultCourse]);
+
   if (!isOpen) return null;
 
   const handleNext = () => {
@@ -109,6 +119,21 @@ const OnboardingModal = ({ isOpen, onClose, defaultCourse }) => {
       console.warn('Storage log:', err);
     }
 
+    // Save to Firebase Firestore Cloud Database
+    try {
+      import('firebase/firestore').then(async ({ collection, addDoc, serverTimestamp }) => {
+        const { db } = await import('../firebase/config');
+        if (db) {
+          await addDoc(collection(db, 'student_reservations'), {
+            ...recordPayload,
+            createdAt: serverTimestamp()
+          });
+        }
+      }).catch(err => console.warn('Firebase Cloud storage log:', err));
+    } catch (e) {
+      console.warn('Firebase Cloud init:', e);
+    }
+
     // Trigger instant email notification dispatch to philipkone45@gmail.com
     dispatchAdminNotification(recordPayload);
 
@@ -156,7 +181,7 @@ Support desk: support@koneacademy.io
     URL.revokeObjectURL(url);
   };
 
-  return (
+  return createPortal(
     <div className="modal-overlay" onClick={onClose}>
       <motion.div 
         className="onboarding-modal-glass" 
@@ -176,7 +201,7 @@ Support desk: support@koneacademy.io
             <div className="d-flex align-items-center justify-content-between mb-2">
               <span className="extra-small text-cyan fw-bold">STEP {step} OF 3</span>
               <span className="extra-small text-secondary">
-                {step === 1 ? "Track & Format" : step === 2 ? "Experience & Goals" : "Reservation Confirmation"}
+                — {step === 1 ? "Track & Format" : step === 2 ? "Experience & Goals" : "Reservation Confirmation"}
               </span>
             </div>
             <div className="onboarding-progress-bar">
@@ -210,7 +235,7 @@ Support desk: support@koneacademy.io
                   <div className="format-icon"><FaCalendarAlt /></div>
                   <div>
                     <strong className="text-white d-block small">Full-Time Live Cohort</strong>
-                    <span className="extra-small text-secondary">12 Weeks • Live Code Reviews & Mentorship</span>
+                    <span className="extra-small text-secondary d-block mt-1">12 Weeks • Live Code Reviews & Mentorship</span>
                   </div>
                 </div>
 
@@ -221,7 +246,7 @@ Support desk: support@koneacademy.io
                   <div className="format-icon"><FaLaptopCode /></div>
                   <div>
                     <strong className="text-white d-block small">Self-Paced Intensive</strong>
-                    <span className="extra-small text-secondary">Flexible Schedule • 24/7 Remote Lab Access</span>
+                    <span className="extra-small text-secondary d-block mt-1">Flexible Schedule • 24/7 Remote Lab Access</span>
                   </div>
                 </div>
 
@@ -232,7 +257,7 @@ Support desk: support@koneacademy.io
                   <div className="format-icon"><FaShieldAlt /></div>
                   <div>
                     <strong className="text-white d-block small">Corporate Team Training</strong>
-                    <span className="extra-small text-secondary">Custom Architecture & Team Onboarding</span>
+                    <span className="extra-small text-secondary d-block mt-1">Custom Architecture & Team Onboarding</span>
                   </div>
                 </div>
               </div>
