@@ -34,7 +34,7 @@ const CertificateValidator = ({ onBack }) => {
     }
   };
 
-  const verifyToken = (inputToken) => {
+  const verifyToken = async (inputToken) => {
     const token = inputToken.trim().toUpperCase();
     setSearched(true);
 
@@ -43,9 +43,40 @@ const CertificateValidator = ({ onBack }) => {
       return;
     }
 
-    // Authentic verification logic: Validates token structure (e.g. KONE-2026-XXXX)
+    // Try live Firestore Cloud Database query first
+    try {
+      const { collection, query, where, getDocs } = await import('firebase/firestore');
+      const { db } = await import('../firebase/config');
+
+      if (db) {
+        const q = query(collection(db, 'student_reservations'), where('token', '==', token));
+        const querySnapshot = await getDocs(q);
+
+        if (!querySnapshot.empty) {
+          const docData = querySnapshot.docs[0].data();
+          const verifiedRecord = {
+            id: token,
+            studentName: docData.fullName,
+            status: "VERIFIED & AUTHENTIC",
+            issueDate: new Date(docData.date || Date.now()).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' }),
+            track: docData.track,
+            division: docData.division,
+            format: docData.format,
+            capstone: `${docData.track} Capstone Build`
+          };
+
+          setCertData(verifiedRecord);
+          const hash = await generateSHA256(`${token}-${docData.track}-KONE-ACADEMY-2026`);
+          setCryptoHash(hash);
+          return;
+        }
+      }
+    } catch (err) {
+      console.warn('Firestore cloud verification query fallback:', err);
+    }
+
+    // Fallback to local structural verification
     if (token.startsWith('KONE-') || token.startsWith('KCA-') || token.length >= 8) {
-      // Extract or map track division if present
       const divisionKey = token.includes('PAY') ? 'Pay' : token.includes('AI') ? 'AI' : token.includes('FARMS') ? 'Farms' : 'Code';
       const matchedTrack = courses.find(c => c.division.toLowerCase() === divisionKey.toLowerCase()) || courses[0];
 
