@@ -74,6 +74,14 @@ const Header = ({ onOpenOnboarding }) => {
     setCurrentPath(path);
   };
 
+  const handleGetStarted = (e) => {
+    if (e) e.preventDefault();
+    window.history.pushState({}, '', '/training');
+    window.dispatchEvent(new Event('popstate'));
+    setIsMobileMenuOpen(false);
+    setCurrentPath('/training');
+  };
+
   return (
     <>
     <header className={`header ${scrolled ? 'scrolled' : ''}`}>
@@ -99,7 +107,7 @@ const Header = ({ onOpenOnboarding }) => {
               <ThemeSelector />
             </div>
             <a href={loginUrl} className="btn-login" style={{ display: 'block', marginBottom: '1rem', textAlign: 'center', textDecoration: 'none', color: 'var(--text-primary)' }}>Login</a>
-            <button onClick={() => { closeMobileMenu(); onOpenOnboarding(); }} className="btn-primary" style={{ border: 'none', cursor: 'pointer', display: 'inline-block', textAlign: 'center', width: '100%' }}>Get Started</button>
+            <button onClick={handleGetStarted} className="btn-primary" style={{ border: 'none', cursor: 'pointer', display: 'inline-block', textAlign: 'center', width: '100%' }}>Get Started</button>
           </div>
         </nav>
 
@@ -107,7 +115,7 @@ const Header = ({ onOpenOnboarding }) => {
           <AppLauncher />
           <ThemeSelector />
           <a href={loginUrl} className="btn-login" style={{ marginRight: '1rem', textDecoration: 'none', color: 'var(--text-primary)', fontWeight: '500' }}>Login</a>
-          <button onClick={onOpenOnboarding} className="btn-primary" style={{ border: 'none', cursor: 'pointer' }}>Get Started</button>
+          <button onClick={handleGetStarted} className="btn-primary" style={{ border: 'none', cursor: 'pointer' }}>Get Started</button>
         </div>
       </div>
     </header>

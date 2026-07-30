@@ -14,6 +14,12 @@ const Hero = ({ onOpenOnboarding }) => {
     window.dispatchEvent(new Event('popstate'));
   };
 
+  const handleStartLearning = (e) => {
+    e.preventDefault();
+    window.history.pushState({}, '', '/training');
+    window.dispatchEvent(new Event('popstate'));
+  };
+
   return (
     <section className="hero" id="home">
       <div className="hero-container">
@@ -28,7 +34,7 @@ const Hero = ({ onOpenOnboarding }) => {
             <span className="text-white">Research, code, and engineer the future the right way.</span>
           </p>
           <div className="hero-actions">
-            <button onClick={onOpenOnboarding} className="btn-primary big" style={{ border: 'none', cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>Start Learning</button>
+            <button onClick={handleStartLearning} className="btn-primary big" style={{ border: 'none', cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>Start Learning</button>
             <a href="/docs" onClick={handleDocsClick} className="btn-secondary big" style={{ textDecoration: 'none', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
               View Documentation
             </a>
