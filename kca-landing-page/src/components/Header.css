@@ -214,7 +214,18 @@
 
 @media (max-width: 768px) {
     .mobile-toggle {
-        display: none !important; /* Hide old menu toggle */
+        display: flex !important;
+        align-items: center;
+        justify-content: center;
+        width: 40px;
+        height: 40px;
+        border-radius: 12px;
+        background: rgba(255, 255, 255, 0.06);
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        color: var(--text-primary);
+        font-size: 1.2rem;
+        cursor: pointer;
+        z-index: 1002;
     }
 
     .desktop-only {
@@ -222,15 +233,49 @@
     }
 
     .nav-menu {
-        display: none !important; /* Hide slide-out drawer menu completely */
+        position: fixed;
+        top: 65px;
+        right: 15px;
+        width: calc(100vw - 30px);
+        max-width: 320px;
+        background: rgba(13, 17, 28, 0.95);
+        border: 1px solid rgba(0, 229, 255, 0.2);
+        border-radius: 20px;
+        padding: 1.5rem;
+        flex-direction: column;
+        gap: 1.2rem;
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.7);
+        display: none !important;
+        z-index: 1001;
+    }
+
+    .nav-menu.active {
+        display: flex !important;
+        animation: drawerSlide 0.25s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
+
+    @keyframes drawerSlide {
+        from {
+            opacity: 0;
+            transform: translateY(-10px) scale(0.96);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0) scale(1);
+        }
     }
 
     .nav-link {
-        font-size: 1.5rem;
+        font-size: 1.05rem;
+        padding: 0.5rem 0;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.06);
     }
 
     .mobile-actions {
-        display: none;
+        display: block !important;
+        margin-top: 0.5rem;
     }
 }
 
