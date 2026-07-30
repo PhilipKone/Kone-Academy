@@ -3,13 +3,21 @@
 .cert-validator-page-container {
   min-height: 100vh;
   background: #060913;
-  padding-top: 80px;
+  padding: 100px 20px 60px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
   position: relative;
   z-index: 10;
+  box-sizing: border-box;
 }
 
-.max-w-3xl {
-  max-width: 800px;
+.cert-main-container {
+  width: 100%;
+  max-width: 760px;
+  margin: 0 auto;
+  box-sizing: border-box;
 }
 
 .cert-back-btn {
@@ -35,18 +43,27 @@
 }
 
 .cert-validator-wrapper {
-  background: rgba(15, 23, 42, 0.9);
-  border: 1px solid rgba(0, 229, 255, 0.2);
+  width: 100%;
+  background: rgba(15, 23, 42, 0.95);
+  border: 1px solid rgba(0, 229, 255, 0.25);
   border-radius: 24px;
   overflow: hidden;
   box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6), 0 0 40px rgba(0, 229, 255, 0.08);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
+  box-sizing: border-box;
 }
 
 .cert-header-bar {
   background: linear-gradient(180deg, rgba(10, 15, 30, 0.95) 0%, rgba(6, 9, 19, 0.8) 100%);
   border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 2.5rem 2rem 2rem 2rem;
+  text-align: center;
+}
+
+.cert-body-content {
+  padding: 2.5rem 2rem;
+  box-sizing: border-box;
 }
 
 .cert-shield-badge {

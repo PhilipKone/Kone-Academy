@@ -113,10 +113,10 @@ const CertificateValidator = ({ onBack }) => {
 
   return (
     <div className="cert-validator-page-container">
-      <div className="container py-4 py-md-5">
+      <div className="cert-main-container">
         
         {/* Navigation & Header */}
-        <div className="max-w-3xl mx-auto mb-4 d-flex align-items-center justify-content-between flex-wrap gap-3">
+        <div className="d-flex align-items-center justify-content-between flex-wrap gap-3 mb-4">
           {onBack ? (
             <button onClick={onBack} className="cert-back-btn">
               <FaArrowLeft className="me-2" /> Back to Main Site
@@ -126,15 +126,15 @@ const CertificateValidator = ({ onBack }) => {
               <FaArrowLeft className="me-2" /> Back to Home
             </a>
           )}
-          <span className="badge bg-dark bg-opacity-70 text-cyan border border-cyan border-opacity-30 rounded-pill px-3 py-2 small fw-bold">
+          <span className="badge bg-dark bg-opacity-80 text-cyan border border-cyan border-opacity-30 rounded-pill px-3 py-2 small fw-bold">
             <FaLock className="me-1 text-success" /> Live Firestore Ledger 2026
           </span>
         </div>
 
         {/* Main Certificate Card Wrapper */}
-        <div className="cert-validator-wrapper max-w-3xl mx-auto">
+        <div className="cert-validator-wrapper">
           {/* Header Bar */}
-          <div className="cert-header-bar p-4 p-md-5 text-center">
+          <div className="cert-header-bar">
             <div className="cert-shield-badge mx-auto mb-3">
               <FaShieldAlt />
             </div>
@@ -164,14 +164,14 @@ const CertificateValidator = ({ onBack }) => {
           </div>
 
           {/* Body Results Content */}
-          <div className="cert-body-content p-4 p-md-5">
+          <div className="cert-body-content">
             <AnimatePresence mode="wait">
               {!searched && !certData ? (
                 <motion.div 
                   key="initial"
                   initial={{ opacity: 0, y: 10 }}
                   animate={{ opacity: 1, y: 0 }}
-                  className="text-center py-4"
+                  className="text-center py-3"
                 >
                   <div className="cert-lock-icon mx-auto mb-3">
                     <FaLock />
@@ -186,15 +186,15 @@ const CertificateValidator = ({ onBack }) => {
                   key="notfound"
                   initial={{ opacity: 0, y: 10 }}
                   animate={{ opacity: 1, y: 0 }}
-                  className="cert-error-box p-4 rounded-4 text-center border border-danger border-opacity-30 bg-danger bg-opacity-10"
+                  className="cert-error-box text-center border border-danger border-opacity-30 bg-danger bg-opacity-10"
                 >
                   <div className="text-danger fw-bold h5 mb-2 d-flex align-items-center justify-content-center gap-2">
                     <FaInfoCircle /> Unverified Token Identifier
                   </div>
-                  <p className="text-secondary small mb-3">
+                  <p className="text-secondary small mb-2">
                     No registered certificate matching token <strong className="text-white">"{searchId}"</strong> was found in the active 2026 ledger.
                   </p>
-                  <div className="extra-small text-secondary">
+                  <div className="extra-small text-secondary opacity-75">
                     Please double-check your token ID from your profile card or enrollment receipt.
                   </div>
                 </motion.div>
