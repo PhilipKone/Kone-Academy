@@ -221,10 +221,10 @@ const CertificateValidator = ({ onBack }) => {
                       </span>
                     </div>
 
-                    <div className="text-md-end">
-                      <span className="extra-small text-secondary d-block">ISSUING AUTHORITY</span>
-                      <strong className="text-white small fw-bold">Kone Academy</strong>
-                      <span className="extra-small text-cyan d-block mt-1 font-monospace">ID: {certData.id}</span>
+                    <div className="text-start text-md-end">
+                      <span className="extra-small text-secondary d-block uppercase-lbl mb-1">ISSUING AUTHORITY</span>
+                      <strong className="text-white small fw-bold d-block mb-1">Kone Academy</strong>
+                      <span className="extra-small text-cyan font-monospace d-block">ID: {certData.id}</span>
                     </div>
                   </div>
 
