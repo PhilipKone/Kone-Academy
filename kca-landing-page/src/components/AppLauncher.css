@@ -284,22 +284,27 @@
 @media (max-width: 768px) {
   .app-launcher-dropdown {
     position: fixed !important;
-    top: 75px !important;
-    left: 12px !important;
-    right: 12px !important;
-    width: calc(100vw - 24px) !important;
-    max-width: 380px !important;
+    top: 70px !important;
+    left: 16px !important;
+    right: 16px !important;
+    width: auto !important;
+    max-width: 400px !important;
     margin: 0 auto !important;
-    max-height: calc(100vh - 160px) !important;
+    box-sizing: border-box !important;
+    max-height: calc(100vh - 150px) !important;
     overflow-y: auto !important;
-    background: rgba(10, 13, 22, 0.98) !important;
-    border: 1px solid rgba(0, 229, 255, 0.3) !important;
+    background: rgba(12, 16, 26, 0.98) !important;
+    border: 1px solid rgba(0, 229, 255, 0.35) !important;
     border-radius: 20px !important;
-    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.9), 0 0 0 1px rgba(0, 229, 255, 0.2) !important;
+    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.95), 0 0 30px rgba(0, 229, 255, 0.15) !important;
     z-index: 3000 !important;
     transform: translateY(-8px) scale(0.97) !important;
-    padding: 1.25rem !important;
+    padding: 1.1rem !important;
     -webkit-overflow-scrolling: touch;
+  }
+
+  .app-launcher-dropdown * {
+    box-sizing: border-box !important;
   }
 
   .app-launcher-dropdown.open {
@@ -309,12 +314,19 @@
   .app-grid {
     grid-template-columns: 1fr;
     gap: 0.4rem;
+    width: 100% !important;
+  }
+
+  .app-grid-item {
+    width: 100% !important;
+    box-sizing: border-box !important;
   }
 
   .app-icon {
     width: 36px;
     height: 36px;
     border-radius: 10px;
+    flex-shrink: 0;
   }
 
   .app-icon svg {
@@ -323,6 +335,26 @@
   }
 
   .app-icon-img {
+    width: 24px;
+    height: 24px;
+  }
+
+  .app-text-content {
+    min-width: 0;
+    flex: 1;
+  }
+
+  .app-label {
+    font-size: 0.85rem;
+    white-space: normal !important;
+    word-break: break-word;
+  }
+
+  .app-description {
+    white-space: normal !important;
+    word-break: break-word;
+  }
+}
     width: 24px;
     height: 24px;
   }
