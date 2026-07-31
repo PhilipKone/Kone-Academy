@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { FaPalette } from 'react-icons/fa';
 import './ThemeSelector.css';
 
 export interface ThemeOption {
@@ -93,10 +94,7 @@ const ThemeSelector: React.FC = () => {
           boxShadow: `0 0 10px ${currentThemeObj.glow}`,
         }}
       >
-        <span
-          className="theme-dot-current"
-          style={{ background: currentThemeObj.primary }}
-        />
+        <FaPalette className="palette-icon" style={{ color: currentThemeObj.primary }} />
       </button>
 
       {isOpen && (

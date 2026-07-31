@@ -1,4 +1,5 @@
 import React from 'react';
+import { FaGraduationCap, FaBook } from 'react-icons/fa';
 import InteractiveTerminal from './InteractiveTerminal';
 import './Hero.css';
 
@@ -7,11 +8,6 @@ interface HeroProps {
 }
 
 const Hero: React.FC<HeroProps> = ({ onOpenOnboarding }) => {
-  const isPrerender = typeof window !== 'undefined' && (
-    window.navigator.userAgent.includes('ReactSnap') ||
-    (window as any).__PRERENDER_INJECTED
-  );
-
   const handleDocsClick = (e: React.MouseEvent) => {
     e.preventDefault();
     window.history.pushState({}, '', '/docs');
@@ -38,9 +34,13 @@ const Hero: React.FC<HeroProps> = ({ onOpenOnboarding }) => {
             <span className="text-white">Research, code, and engineer the future the right way.</span>
           </p>
           <div className="hero-actions">
-            <button onClick={handleStartLearning} className="btn-primary big" style={{ border: 'none', cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>Start Learning</button>
-            <a href="/docs" onClick={handleDocsClick} className="btn-secondary big" style={{ textDecoration: 'none', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-              View Documentation
+            <button onClick={handleStartLearning} className="btn-primary cute-pill" style={{ border: 'none', cursor: 'pointer' }}>
+              <FaGraduationCap className="btn-icon" />
+              <span>Start Learning</span>
+            </button>
+            <a href="/docs" onClick={handleDocsClick} className="btn-secondary cute-pill" style={{ textDecoration: 'none' }}>
+              <FaBook className="btn-icon" />
+              <span>View Docs</span>
             </a>
           </div>
         </div>
