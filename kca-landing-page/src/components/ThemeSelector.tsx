@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react';
-import { FaPalette } from 'react-icons/fa';
+import React, { useState, useEffect, useRef } from 'react';
+import { FaPalette, FaCheck } from 'react-icons/fa';
 import './ThemeSelector.css';
 
 export interface ThemeOption {
@@ -67,12 +67,39 @@ export const applyTheme = (themeId: string) => {
 const ThemeSelector: React.FC = () => {
   const [activeTheme, setActiveTheme] = useState<string>('blue');
   const [isOpen, setIsOpen] = useState<boolean>(false);
+  const containerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const savedTheme = localStorage.getItem('kca-neon-theme') || 'blue';
     setActiveTheme(savedTheme);
     applyTheme(savedTheme);
   }, []);
+
+  // Close dropdown on click outside or escape key safely
+  useEffect(() => {
+    if (!isOpen) return;
+
+    const handleClickOutside = (e: MouseEvent) => {
+      if (containerRef.current && !containerRef.current.contains(e.target as Node)) {
+        setIsOpen(false);
+      }
+    };
+
+    const handleEscape = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') setIsOpen(false);
+    };
+
+    const timer = setTimeout(() => {
+      document.addEventListener('mousedown', handleClickOutside);
+      document.addEventListener('keydown', handleEscape);
+    }, 0);
+
+    return () => {
+      clearTimeout(timer);
+      document.removeEventListener('mousedown', handleClickOutside);
+      document.removeEventListener('keydown', handleEscape);
+    };
+  }, [isOpen]);
 
   const handleSelectTheme = (themeId: string) => {
     setActiveTheme(themeId);
@@ -83,10 +110,13 @@ const ThemeSelector: React.FC = () => {
   const currentThemeObj = themes.find((t) => t.id === activeTheme) || themes[0];
 
   return (
-    <div className="theme-selector-container">
+    <div className="theme-selector-container" ref={containerRef}>
       <button
-        className="theme-selector-trigger"
-        onClick={() => setIsOpen(!isOpen)}
+        className={`theme-selector-trigger ${isOpen ? 'active' : ''}`}
+        onClick={(e) => {
+          e.stopPropagation();
+          setIsOpen((prev) => !prev);
+        }}
         title="Change Neon Theme"
         aria-label="Change Neon Theme"
         style={{
@@ -97,30 +127,34 @@ const ThemeSelector: React.FC = () => {
         <FaPalette className="palette-icon" style={{ color: currentThemeObj.primary }} />
       </button>
 
-      {isOpen && (
-        <div className="theme-dropdown glass-panel">
-          <div className="theme-dropdown-header">NEON THEMES</div>
-          <div className="theme-options-grid">
-            {themes.map((t) => (
+      <div className={`theme-selector-dropdown ${isOpen ? 'open' : ''}`}>
+        <div className="theme-selector-dropdown-header">NEON THEMES</div>
+        <div className="theme-options-list">
+          {themes.map((t) => {
+            const isActive = activeTheme === t.id;
+            return (
               <button
                 key={t.id}
-                className={`theme-option-btn ${activeTheme === t.id ? 'active' : ''}`}
-                onClick={() => handleSelectTheme(t.id)}
-                style={{
-                  '--theme-color': t.primary,
-                  '--theme-glow': t.glow,
-                } as React.CSSProperties}
+                className={`theme-option-item ${isActive ? 'active' : ''}`}
+                onClick={(e) => {
+                  e.stopPropagation();
+                  handleSelectTheme(t.id);
+                }}
               >
                 <span
-                  className="theme-swatch"
-                  style={{ background: t.primary }}
+                  className="color-dot"
+                  style={{
+                    background: t.primary,
+                    boxShadow: isActive ? `0 0 10px ${t.glow}` : `0 0 4px ${t.glow}`,
+                  }}
                 />
-                <span className="theme-name">{t.name}</span>
+                <span className="theme-label">{t.name}</span>
+                {isActive && <FaCheck className="check-mark" style={{ color: t.primary }} />}
               </button>
-            ))}
-          </div>
+            );
+          })}
         </div>
-      )}
+      </div>
     </div>
   );
 };
