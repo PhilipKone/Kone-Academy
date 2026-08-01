@@ -12,7 +12,8 @@
 
 .docs-page-wrapper {
   background-color: var(--bg-darker);
-  height: 100vh;
+  min-height: 100vh;
+  min-height: 100dvh;
   display: flex;
   flex-direction: column;
   overflow: hidden;
@@ -528,21 +529,31 @@
     display: inline-flex;
   }
 
+  .docs-page-wrapper {
+    overflow: auto !important;
+  }
+
   .docs-main-layout {
     flex-direction: column;
-    height: calc(100vh - 60px) !important;
+    height: auto !important;
+    min-height: calc(100dvh - 60px) !important;
+    overflow: visible !important;
   }
 
   .doc-sidebar {
     width: 100% !important;
-    height: 100% !important;
+    height: auto !important;
+    min-height: calc(100dvh - 60px) !important;
     border-right: none;
     padding: 20px;
+    -webkit-overflow-scrolling: touch;
   }
 
   .docs-content-container {
     padding: 24px 20px;
-    height: 100% !important;
+    height: auto !important;
+    min-height: calc(100dvh - 60px) !important;
+    -webkit-overflow-scrolling: touch;
   }
 
   /* Master-Detail display toggle */

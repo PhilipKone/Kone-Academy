@@ -10,7 +10,7 @@ const TypingAnimation = () => {
 
   const isPrerender = typeof window !== 'undefined' && (
     window.navigator.userAgent.includes('ReactSnap') ||
-    window.__PRERENDER_INJECTED
+    (window as any).__PRERENDER_INJECTED
   );
 
   useEffect(() => {

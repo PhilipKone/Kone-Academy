@@ -260,7 +260,7 @@ const TrainingHub = ({ onBack }) => {
     hidden: { y: 16, opacity: 0, scale: 0.97 },
     visible: { 
       y: 0, opacity: 1, scale: 1,
-      transition: { duration: 0.3, ease: [0.19, 1, 0.22, 1] }
+      transition: { duration: 0.3, ease: [0.19, 1, 0.22, 1] as any }
     }
   };
 

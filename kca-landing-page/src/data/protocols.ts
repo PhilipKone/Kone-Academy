@@ -1,4 +1,25 @@
-export const protocols = [
+export interface ProtocolDetails {
+  methodology: string;
+  dataProcessing: string;
+  compliance: string;
+  timeline: string;
+}
+
+export interface Protocol {
+  id: string;
+  title: string;
+  description: string;
+  tools: string;
+  category: string;
+  division: string;
+  institution: string;
+  imageUrl: string;
+  liveUrl: string;
+  status: string;
+  details: ProtocolDetails;
+}
+
+export const protocols: Protocol[] = [
   {
     id: "proto-1",
     title: "Accra Maternal Health Telemetry Protocol",

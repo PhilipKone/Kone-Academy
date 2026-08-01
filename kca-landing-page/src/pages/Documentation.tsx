@@ -14,7 +14,7 @@ import './Documentation.css';
 
 // Helper to inject JSON-LD schema dynamically into the document head (crucial for pSEO indexation)
 const injectJSONLD = (schemaId, schemaData) => {
-  let scriptEl = document.getElementById(schemaId);
+  let scriptEl = document.getElementById(schemaId) as HTMLScriptElement | null;
   if (!scriptEl) {
     scriptEl = document.createElement('script');
     scriptEl.id = schemaId;
@@ -34,12 +34,15 @@ const removeJSONLD = (schemaId) => {
 const formatSlugLabel = (slug, type) => {
   if (type === 'guide') {
     if (slug === 'getting-started') return 'Getting Started & Onboarding';
-    if (slug === 'remote-labs') return 'Remote Labs Access';
-    if (slug === 'git-workflows') return 'Git Collaboration Workflow';
+    if (slug === 'kone-code-setup') return 'Kone Code IDE Setup';
+    if (slug === 'remote-labs') return 'Kone Lab Hardware Access';
+    if (slug === 'git-workflows') return 'Git Workflows & Standards';
+    if (slug === 'certificate-verification') return 'Certificate Verification';
   } else {
-    if (slug === 'fintech-app-tech-stack') return 'Fintech App Architecture';
-    if (slug === 'saas-mvp-tech-stack') return 'SaaS MVP Fast Stack';
-    if (slug === 'iot-telemetry-tech-stack') return 'IoT Telemetry Architecture';
+    if (slug === 'kone-code-architecture') return 'Kone Code IDE Architecture';
+    if (slug === 'kone-lab-telemetry-stack') return 'Kone Lab Telemetry Architecture';
+    if (slug === 'kone-ai-learning-stack') return 'Kone AI Learning Architecture';
+    if (slug === 'kone-digital-platform-stack') return 'Kone Digital Portal Architecture';
   }
   return slug.split('-').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ');
 };
@@ -124,7 +127,7 @@ const Documentation = ({ category, subcategory, slug, onBack, onNavigate }) => {
   // Filter lists based on search
   const filteredGuides = ecosystemGuides.filter(item => 
     item.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
-    item.errorText.toLowerCase().includes(searchQuery.toLowerCase()) ||
+    (item.errorText && item.errorText.toLowerCase().includes(searchQuery.toLowerCase())) ||
     item.cause.toLowerCase().includes(searchQuery.toLowerCase())
   );
 
@@ -245,8 +248,8 @@ const Documentation = ({ category, subcategory, slug, onBack, onNavigate }) => {
                   <div className="alert-card info mb-4" style={{ background: 'rgba(88,166,255,0.05)', borderColor: 'rgba(88,166,255,0.15)', borderLeft: '4px solid var(--accent-primary)', display: 'flex', gap: '16px', padding: '1.25rem', borderRadius: '8px' }}>
                     <FaBookOpen className="text-info fs-3" style={{ flexShrink: 0, color: 'var(--accent-primary)' }} />
                     <div>
-                      <strong className="text-info d-block mb-1" style={{ fontSize: '0.85rem', color: 'var(--accent-primary)' }}>Key Reference Command / Concept:</strong>
-                      <code style={{ background: 'rgba(0,0,0,0.3)', padding: '0.2rem 0.5rem', borderRadius: '4px', color: '#fff' }}>{activeContent.errorText}</code>
+                      <strong className="text-info d-block mb-1" style={{ fontSize: '0.85rem', color: 'var(--accent-primary)' }}>Guide Category:</strong>
+                      <span className="text-white small fw-bold">{activeContent.badge || 'Kone Academy Student Guide'}</span>
                     </div>
                   </div>
 
@@ -256,61 +259,52 @@ const Documentation = ({ category, subcategory, slug, onBack, onNavigate }) => {
                   </div>
 
                   <div className="mb-4">
-                    <h3 className="h5 text-gradient-blue fw-bold mb-2">Execution Guidelines</h3>
+                    <h3 className="h5 text-gradient-blue fw-bold mb-2">Step-by-Step Instructions</h3>
                     <p className="text-secondary" style={{ whiteSpace: 'pre-line', lineHeight: '1.6' }}>{activeContent.solution}</p>
                   </div>
 
-                  {/* Visual Setup / Flow Comparison */}
-                  <div className="code-panel-deck">
-                    <div>
-                      <div className="code-panel-badge error" style={{ background: 'rgba(248,81,73,0.1)', color: 'var(--accent-danger)', border: '1px solid rgba(248,81,73,0.2)' }}>
-                        {slug === 'getting-started' ? '❌ Traditional Model' : slug === 'remote-labs' ? '❌ Local Setup' : '❌ Bad Flow'}
-                      </div>
-                      <div className="ide-window buggy">
-                        <div className="ide-header">
-                          <div className="ide-dots">
-                            <span className="ide-dot red"></span>
-                            <span className="ide-dot yellow"></span>
-                            <span className="ide-dot green"></span>
-                          </div>
-                          <span className="ide-title">{slug === 'getting-started' ? 'traditional_classroom.txt' : slug === 'remote-labs' ? 'local_serial.sh' : 'direct_push.sh'}</span>
+                  {/* Visual Comparison Cards */}
+                  {activeContent.oldModelItems && activeContent.newModelItems && (
+                    <div className="code-panel-deck">
+                      <div className="seo-card" style={{ background: 'rgba(239,68,68,0.03)', borderColor: 'rgba(239,68,68,0.15)' }}>
+                        <div className="code-panel-badge error" style={{ background: 'rgba(248,81,73,0.1)', color: 'var(--accent-danger)', border: '1px solid rgba(248,81,73,0.2)', marginBottom: '1rem' }}>
+                          ❌ {activeContent.oldModelTitle || 'Old Method'}
                         </div>
-                        <pre className="ide-body" style={{ background: '#090e1a' }}>
-                          <code className="language-bash">{activeContent.badCode}</code>
-                        </pre>
+                        <ul className="list-unstyled mb-0" style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
+                          {activeContent.oldModelItems.map((item, idx) => (
+                            <li key={idx} className="small text-secondary" style={{ display: 'flex', gap: '8px', alignItems: 'flex-start' }}>
+                              <span style={{ color: '#ef4444' }}>•</span> {item}
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+
+                      <div className="seo-card" style={{ background: 'rgba(16,185,129,0.03)', borderColor: 'rgba(16,185,129,0.15)' }}>
+                        <div className="code-panel-badge success" style={{ background: 'rgba(63,185,80,0.1)', color: 'var(--accent-success)', border: '1px solid rgba(63,185,80,0.2)', marginBottom: '1rem' }}>
+                          ✅ {activeContent.newModelTitle || 'Kone Academy Solution'}
+                        </div>
+                        <ul className="list-unstyled mb-0" style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
+                          {activeContent.newModelItems.map((item, idx) => (
+                            <li key={idx} className="small text-white" style={{ display: 'flex', gap: '8px', alignItems: 'flex-start' }}>
+                              <FaCheckCircle style={{ color: '#10b981', flexShrink: 0, marginTop: '2px' }} /> {item}
+                            </li>
+                          ))}
+                        </ul>
                       </div>
                     </div>
-                    <div>
-                      <div className="code-panel-badge success" style={{ background: 'rgba(63,185,80,0.1)', color: 'var(--accent-success)', border: '1px solid rgba(63,185,80,0.2)' }}>
-                        {slug === 'getting-started' ? '✅ Kone Academy Model' : slug === 'remote-labs' ? '✅ Remote Flash Gateway' : '✅ Best Practice Workflow'}
-                      </div>
-                      <div className="ide-window correct">
-                        <div className="ide-header">
-                          <div className="ide-dots">
-                            <span className="ide-dot red"></span>
-                            <span className="ide-dot yellow"></span>
-                            <span className="ide-dot green"></span>
-                          </div>
-                          <span className="ide-title">{slug === 'getting-started' ? 'kone_cohort_learning.txt' : slug === 'remote-labs' ? 'remote_flashing.sh' : 'team_pull_request.sh'}</span>
-                        </div>
-                        <pre className="ide-body" style={{ background: '#090e1a' }}>
-                          <code className="language-bash">{activeContent.goodCode}</code>
-                        </pre>
-                      </div>
-                    </div>
-                  </div>
+                  )}
 
                   {/* High-conversion CTA to Platform Workspace */}
                   <div className="seo-card text-center" style={{ background: 'rgba(59,130,246,0.03)', borderColor: 'rgba(59,130,246,0.1)', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '12px', marginTop: '2.5rem' }}>
                     <h4 className="h5 text-white fw-bold mb-1">Ready to start practicing?</h4>
-                    <p className="text-secondary small mb-3">Initialize your local projects and connect them to our remote infrastructure sandbox.</p>
+                    <p className="text-secondary small mb-3">Explore interactive courses and connect with cohort learning mentors.</p>
                     <a 
                       href="https://code.koneacademy.io/"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="pulse-cta-blue"
                     >
-                      Open Workspace <FaExternalLinkAlt />
+                      Open Student Workspace <FaExternalLinkAlt />
                     </a>
                   </div>
                 </div>

@@ -1,4 +1,33 @@
-export const courses = [
+export interface CourseProject {
+  title: string;
+  description: string;
+  stack?: string;
+}
+
+export interface MicroProject {
+  title: string;
+  description: string;
+}
+
+export interface Course {
+  id: string;
+  title: string;
+  division: string;
+  category: string;
+  icon: string;
+  techStackSlug: string;
+  description: string;
+  skills: string[];
+  level: string;
+  duration: string;
+  colorClass: string;
+  youtubeLink: string;
+  microProjects: MicroProject[];
+  miniProjects: MicroProject[];
+  finalProduct: CourseProject;
+}
+
+export const courses: Course[] = [
   {
     id: "course-pay",
     title: "Fintech & Ledger Gateways Track",

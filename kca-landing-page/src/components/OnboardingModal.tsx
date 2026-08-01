@@ -8,7 +8,13 @@ import {
 } from 'react-icons/fa';
 import './OnboardingModal.css';
 
-const OnboardingModal = ({ isOpen, onClose, defaultCourse }) => {
+interface OnboardingModalProps {
+  isOpen: boolean;
+  onClose: () => void;
+  defaultCourse?: any;
+}
+
+const OnboardingModal: React.FC<OnboardingModalProps> = ({ isOpen, onClose, defaultCourse }) => {
   const [step, setStep] = useState(1);
   const [reservationToken, setReservationToken] = useState('');
   const [formData, setFormData] = useState({

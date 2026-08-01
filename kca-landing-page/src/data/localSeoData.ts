@@ -1,4 +1,33 @@
-export const localSeoData = {
+export interface NicheData {
+  name: string;
+  tagline: string;
+  description: string;
+  features: string[];
+  ctaText: string;
+  ctaLink: string;
+}
+
+export interface CityData {
+  cityName: string;
+  country: string;
+  address: string;
+  phone: string;
+  mapCoords: {
+    lat: number;
+    lng: number;
+  };
+}
+
+export interface LocalSeoData {
+  niches: {
+    [key: string]: NicheData;
+  };
+  cities: {
+    [key: string]: CityData;
+  };
+}
+
+export const localSeoData: LocalSeoData = {
   niches: {
     "software-engineering": {
       name: "Software Engineering & AI",
