@@ -287,20 +287,21 @@
     top: 70px !important;
     left: 16px !important;
     right: 16px !important;
-    width: auto !important;
-    max-width: 400px !important;
+    width: calc(100vw - 32px) !important;
+    max-width: 440px !important;
     margin: 0 auto !important;
     box-sizing: border-box !important;
-    max-height: calc(100vh - 150px) !important;
+    max-height: calc(100vh - 160px) !important;
     overflow-y: auto !important;
+    overscroll-behavior: contain !important;
+    -webkit-overflow-scrolling: touch !important;
     background: rgba(12, 16, 26, 0.98) !important;
     border: 1px solid rgba(0, 229, 255, 0.35) !important;
     border-radius: 20px !important;
     box-shadow: 0 25px 60px rgba(0, 0, 0, 0.95), 0 0 30px rgba(0, 229, 255, 0.15) !important;
-    z-index: 3000 !important;
+    z-index: 10000 !important;
     transform: translateY(-8px) scale(0.97) !important;
     padding: 1.1rem !important;
-    -webkit-overflow-scrolling: touch;
   }
 
   .app-launcher-dropdown * {
