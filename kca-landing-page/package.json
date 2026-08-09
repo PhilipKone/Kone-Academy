@@ -41,6 +41,17 @@
         "delay": 1000,
         "port": 45681,
         "timeout": 120000,
+        "include": [
+            "/",
+            "/school",
+            "/blog",
+            "/blog/computational-thinking-structured-logic",
+            "/blog/physical-ai-microcontrollers-robotics",
+            "/blog/digital-ai-llms-compute",
+            "/sitemap",
+            "/training",
+            "/docs"
+        ],
         "puppeteerArgs": [
             "--no-sandbox",
             "--disable-setuid-sandbox"

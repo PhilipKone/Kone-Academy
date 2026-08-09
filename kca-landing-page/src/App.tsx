@@ -24,6 +24,8 @@ const Documentation = React.lazy(() => import('./pages/Documentation'));
 const Sitemap = React.lazy(() => import('./pages/Sitemap'));
 const CertificateValidator = React.lazy(() => import('./components/CertificateValidator'));
 const SchoolPage = React.lazy(() => import('./pages/SchoolPage'));
+const BlogsPage = React.lazy(() => import('./pages/BlogsPage'));
+const BlogPostPage = React.lazy(() => import('./pages/BlogPostPage'));
 
 import { applyTheme } from './components/ThemeSelector';
 
@@ -45,9 +47,11 @@ function App() {
   );
 
   const [isInitializing, setIsInitializing] = React.useState<boolean>(!isPrerender);
+  const [mounted, setMounted] = React.useState<boolean>(false);
   const [currentPage, setCurrentPage] = React.useState<string>('home');
   const [localRoute, setLocalRoute] = React.useState<LocalRoute | null>(null);
   const [docRoute, setDocRoute] = React.useState<DocRoute>({ category: null, subcategory: null, slug: null });
+  const [blogSlug, setBlogSlug] = React.useState<string>('');
   const [globalOnboarding, setGlobalOnboarding] = React.useState<boolean>(false);
   const [privacyModal, setPrivacyModal] = React.useState<{ isOpen: boolean; tab: 'privacy' | 'terms' }>({ isOpen: false, tab: 'privacy' });
 
@@ -66,6 +70,13 @@ function App() {
       setCurrentPage('verify');
     } else if (pathParts[0] === 'school') {
       setCurrentPage('school');
+    } else if (pathParts[0] === 'blog') {
+      if (pathParts[1]) {
+        setBlogSlug(pathParts[1]);
+        setCurrentPage('blog-post');
+      } else {
+        setCurrentPage('blog');
+      }
     } else if (pathParts[0] === 'sitemap') {
       setCurrentPage('sitemap');
     } else if (pathParts[0] === 'docs') {
@@ -94,6 +105,7 @@ function App() {
     }
 
     parseRoute();
+    setMounted(true);
 
     window.addEventListener('popstate', parseRoute);
     return () => {
@@ -103,6 +115,16 @@ function App() {
 
   const handleBackToHome = () => {
     window.history.pushState({}, '', '/');
+    parseRoute();
+  };
+
+  const handleNavigateBlogPost = (slug: string) => {
+    window.history.pushState({}, '', `/blog/${slug}`);
+    parseRoute();
+  };
+
+  const handleBackToBlogFeed = () => {
+    window.history.pushState({}, '', '/blog');
     parseRoute();
   };
 
@@ -141,6 +163,14 @@ function App() {
         <React.Suspense fallback={<LoadingScreen />}>
           <SchoolPage onBack={handleBackToHome} />
         </React.Suspense>
+      ) : currentPage === 'blog' ? (
+        <React.Suspense fallback={<LoadingScreen />}>
+          <BlogsPage onBack={handleBackToHome} onNavigatePost={handleNavigateBlogPost} />
+        </React.Suspense>
+      ) : currentPage === 'blog-post' ? (
+        <React.Suspense fallback={<LoadingScreen />}>
+          <BlogPostPage slug={blogSlug} onBack={handleBackToBlogFeed} />
+        </React.Suspense>
       ) : currentPage === 'sitemap' ? (
         <React.Suspense fallback={<LoadingScreen />}>
           <Sitemap onBack={handleBackToHome} />
@@ -157,29 +187,25 @@ function App() {
         </React.Suspense>
       ) : (
         <>
-          {!isPrerender && <LoadingScreen onFinished={() => setIsInitializing(false)} />}
-          {(!isInitializing || isPrerender) && (
-            <>
-              <Header onOpenOnboarding={handleOpenOnboarding} />
-              <div className="App animate-fade-in">
-                <InteractiveGrid />
-                <main id="main-content">
-                  <Hero onOpenOnboarding={handleOpenOnboarding} />
-                  <Vision />
-                  <Divisions />
-                  <Services onOpenOnboarding={handleOpenOnboarding} />
-                  <Careers />
-                  <FAQ />
-                  <CTA onOpenOnboarding={handleOpenOnboarding} />
-                </main>
-                <Footer 
-                  onOpenPrivacy={() => setPrivacyModal({ isOpen: true, tab: 'privacy' })}
-                  onOpenTerms={() => setPrivacyModal({ isOpen: true, tab: 'terms' })}
-                />
-                <InstallBanner />
-              </div>
-            </>
-          )}
+          <Header onOpenOnboarding={handleOpenOnboarding} />
+          <div className="App animate-fade-in">
+            <InteractiveGrid />
+            <main id="main-content">
+              <Hero onOpenOnboarding={handleOpenOnboarding} />
+              <Vision />
+              <Divisions />
+              <Services onOpenOnboarding={handleOpenOnboarding} />
+              <Careers />
+              <FAQ />
+              <CTA onOpenOnboarding={handleOpenOnboarding} />
+            </main>
+            <Footer 
+              onOpenPrivacy={() => setPrivacyModal({ isOpen: true, tab: 'privacy' })}
+              onOpenTerms={() => setPrivacyModal({ isOpen: true, tab: 'terms' })}
+            />
+            <InstallBanner />
+          </div>
+          {mounted && !isPrerender && <LoadingScreen />}
         </>
       )}
 

@@ -8,10 +8,15 @@ const LoadingScreen: React.FC<LoadingScreenProps> = ({ onFinished }) => {
     const [isVisible, setIsVisible] = useState(true);
 
     useEffect(() => {
+        const isPrerender = typeof window !== 'undefined' && (
+            window.navigator.userAgent.includes('ReactSnap') ||
+            (window as any).__PRERENDER_INJECTED
+        );
+        const delay = isPrerender ? 0 : 2200;
         const timer = setTimeout(() => {
             setIsVisible(false);
-            if (onFinished) setTimeout(onFinished, 500);
-        }, 2200);
+            if (onFinished) setTimeout(onFinished, isPrerender ? 0 : 500);
+        }, delay);
 
         return () => clearTimeout(timer);
     }, [onFinished]);

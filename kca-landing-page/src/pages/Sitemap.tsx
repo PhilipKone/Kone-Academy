@@ -15,6 +15,7 @@ import { motion } from 'framer-motion';
 // Import our programmatic datasets
 import { ecosystemGuides } from '../data/ecosystemGuides';
 import { techStacks } from '../data/techStacks';
+import { staticBlogs } from '../data/blogs';
 
 const Sitemap = ({ onBack }) => {
   const sliderRef = useRef(null);
@@ -197,6 +198,25 @@ const Sitemap = ({ onBack }) => {
                   </a>
                   <span className="sitemap-link-desc">Interactive curriculum and professional code modules.</span>
                 </div>
+                <div className="sitemap-item">
+                  <a href="/school" onClick={(e) => handleLinkClick(e, '/school')} className="sitemap-link">
+                    Kone School
+                  </a>
+                  <span className="sitemap-link-desc">Core digital curriculum and AI hardware pathway nodes.</span>
+                </div>
+                <div className="sitemap-item">
+                  <a href="/blog" onClick={(e) => handleLinkClick(e, '/blog')} className="sitemap-link">
+                    Insights Blog Hub
+                  </a>
+                  <span className="sitemap-link-desc">Articles on GenAI engineering, physics labs, and tutorials.</span>
+                </div>
+                {staticBlogs.map(blog => (
+                  <div key={blog.slug} className="sitemap-item" style={{ paddingLeft: '12px', borderLeft: '1px solid rgba(168, 85, 247, 0.2)' }}>
+                    <a href={`/blog/${blog.slug}`} onClick={(e) => handleLinkClick(e, `/blog/${blog.slug}`)} className="sitemap-link" style={{ fontSize: '0.85rem' }}>
+                      → {blog.title}
+                    </a>
+                  </div>
+                ))}
                 <div className="sitemap-item">
                   <a href="/protocols" onClick={(e) => handleLinkClick(e, '/protocols')} className="sitemap-link">
                     Research Protocols
