@@ -188,7 +188,7 @@ const SchoolPage: React.FC<SchoolPageProps> = ({ onBack }) => {
   const ActiveNodeIcon = activeNode.icon;
 
   const handleWhatsappCTA = () => {
-    const message = encodeURIComponent("Hello Kone Academy, I am willing to learn, build, and grow! I would like to register early for the Kone Academy School program.");
+    const message = encodeURIComponent("Hello Kone Academy, I am willing to learn, build, and grow! I would like to register early for the Kone School program.");
     window.open(`https://wa.me/233551993820?text=${message}`, '_blank', 'noopener,noreferrer');
   };
 
@@ -208,7 +208,7 @@ const SchoolPage: React.FC<SchoolPageProps> = ({ onBack }) => {
 
       {/* Hero Section */}
       <div className="school-hero animate-fade-in">
-        <span className="school-badge">Kone Academy School</span>
+        <span className="school-badge">Kone School</span>
         <h1 className="school-title">Unlimited Growth</h1>
         <p className="school-subtitle">
           A project-driven curriculum designed to build absolute mastery in core digital logic, computer science fundamentals, and artificial intelligence pathways.
