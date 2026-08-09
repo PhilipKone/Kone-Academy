@@ -24,7 +24,7 @@ export const staticBlogs: BlogPost[] = [
     slug: "computational-thinking-structured-logic",
     category: "Code",
     excerpt: "Mastering loop patterns, conditional branches, and modular algorithms before writing syntax. Learn how to think like a compiler.",
-    imageUrl: "/assets/blog/ka_blog_logic.jpg",
+    imageUrl: "/assets/blog/ka_blog_logic.webp",
     readTime: 8,
     author: {
       name: "Philip Kone",
@@ -87,7 +87,7 @@ This exercise simulates a **Bubble Sort** algorithm. By mapping it out manually,
     slug: "physical-ai-microcontrollers-robotics",
     category: "Lab",
     excerpt: "Moving from the browser sandbox to real-world electrical grids. A deep dive into wiring protocols, sensors, and actuators.",
-    imageUrl: "/assets/blog/ka_blog_robotics.jpg",
+    imageUrl: "/assets/blog/ka_blog_robotics.webp",
     readTime: 10,
     author: {
       name: "Kone Academy Lab",
@@ -138,7 +138,7 @@ At Kone School, we are engineering the future where Large Language Models connec
     slug: "digital-ai-llms-compute",
     category: "Lab",
     excerpt: "How neural networks digest data, mathematical weights, and massive compute to generate predictions. Demystifying the LLM pipeline.",
-    imageUrl: "/assets/blog/ka_blog_digital.jpg",
+    imageUrl: "/assets/blog/ka_blog_digital.webp",
     readTime: 12,
     author: {
       name: "Philip Kone",
