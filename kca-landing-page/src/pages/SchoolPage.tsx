@@ -208,6 +208,7 @@ const SchoolPage: React.FC<SchoolPageProps> = ({ onBack }) => {
 
       {/* Hero Section */}
       <div className="school-hero animate-fade-in">
+        <img src="/kone-school-logo.jpeg" alt="Kone School Logo" className="school-hero-logo" />
         <span className="school-badge">Kone School</span>
         <h1 className="school-title">Unlimited Growth</h1>
         <p className="school-subtitle">
