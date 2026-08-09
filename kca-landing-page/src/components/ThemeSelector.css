@@ -143,3 +143,85 @@
   font-size: 0.75rem;
   flex-shrink: 0;
 }
+
+@media (max-width: 768px) {
+  .theme-selector-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+
+  .theme-selector-trigger {
+    display: none !important;
+  }
+
+  .theme-selector-dropdown {
+    position: static !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    transform: none !important;
+    pointer-events: auto !important;
+    width: 100% !important;
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+    padding: 0 !important;
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 0.4rem !important;
+  }
+
+  .theme-selector-dropdown-header {
+    display: block !important;
+    padding-bottom: 0.2rem !important;
+    border-bottom: none !important;
+    margin-bottom: 0 !important;
+    text-align: center;
+    font-size: 0.75rem !important;
+    letter-spacing: 0.1em !important;
+  }
+
+  .theme-options-list {
+    flex-direction: row !important;
+    overflow-x: auto !important;
+    -webkit-overflow-scrolling: touch;
+    gap: 0.5rem !important;
+    padding: 0.3rem 0.5rem !important;
+    width: 100% !important;
+    justify-content: flex-start;
+    scrollbar-width: none; /* Hide scrollbar for Firefox */
+  }
+
+  .theme-options-list::-webkit-scrollbar {
+    display: none; /* Hide scrollbar for Safari/Chrome */
+  }
+
+  .theme-option-item {
+    width: auto !important;
+    flex-shrink: 0 !important;
+    background: rgba(255, 255, 255, 0.04) !important;
+    border: 1px solid rgba(255, 255, 255, 0.08) !important;
+    padding: 0.4rem 0.75rem !important;
+    border-radius: 20px !important;
+    gap: 0.5rem !important;
+  }
+
+  .theme-option-item:hover {
+    transform: none !important;
+    background: rgba(255, 255, 255, 0.08) !important;
+  }
+
+  .theme-option-item.active {
+    background: rgba(255, 255, 255, 0.08) !important;
+    border-color: var(--accent-primary) !important;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.03) !important;
+  }
+
+  .theme-label {
+    font-size: 0.78rem !important;
+  }
+
+  .check-mark {
+    display: none !important;
+  }
+}

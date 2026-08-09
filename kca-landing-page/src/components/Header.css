@@ -276,6 +276,16 @@
     .mobile-actions {
         display: block !important;
         margin-top: 0.5rem;
+        width: 100%;
+    }
+
+    .mobile-actions-row {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+        margin-bottom: 1rem;
+        width: 100%;
     }
 }
 

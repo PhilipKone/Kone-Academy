@@ -107,7 +107,7 @@ const Header: React.FC<HeaderProps> = ({ onOpenOnboarding }) => {
           <a href="#vision" className="nav-link" onClick={closeMobileMenu}>Vision</a>
           <a href="#divisions" className="nav-link" onClick={closeMobileMenu}>Divisions</a>
           <div className="mobile-actions">
-            <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', gap: '1rem', marginBottom: '1rem' }}>
+            <div className="mobile-actions-row">
               <AppLauncher />
               <ThemeSelector />
             </div>
