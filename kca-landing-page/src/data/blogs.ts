@@ -29,7 +29,7 @@ export const staticBlogs: BlogPost[] = [
     author: {
       name: "Philip Kone",
       role: "Head of Engineering",
-      avatar: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=100&auto=format&fit=crop&q=80"
+      avatar: "/assets/blog/author_philip.webp"
     },
     publishedAt: "2026-08-08",
     content: `# Computational Thinking: The Art of Structured Logic
@@ -92,7 +92,7 @@ This exercise simulates a **Bubble Sort** algorithm. By mapping it out manually,
     author: {
       name: "Kone Academy Lab",
       role: "Hardware Core Team",
-      avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&auto=format&fit=crop&q=80"
+      avatar: "/assets/blog/author_philip.webp"
     },
     publishedAt: "2026-08-05",
     content: `# Physical AI: Connecting Code to Microcontrollers
@@ -143,7 +143,7 @@ At Kone School, students learn to bridge the gap between high-level programming 
     author: {
       name: "Philip Kone",
       role: "Strategic Lead",
-      avatar: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=100&auto=format&fit=crop&q=80"
+      avatar: "/assets/blog/author_philip.webp"
     },
     publishedAt: "2026-08-01",
     content: `# Digital AI: Decoupling Large Language Models and Compute
