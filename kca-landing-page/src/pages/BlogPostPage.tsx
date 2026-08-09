@@ -120,13 +120,29 @@ const BlogPostPage: React.FC<BlogPostPageProps> = ({ slug, onBack }) => {
   }
 
   // Simple custom Markdown to HTML Parser to avoid heavy bundle dependencies
+  const applyInline = (text: string) => {
+    return text
+      .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
+      .replace(/(?<!\*)\*(?!\*)(.+?)(?<!\*)\*(?!\*)/g, '<em>$1</em>')
+      .replace(/`(.*?)`/g, '<code>$1</code>')
+      .replace(/\[(.*?)\]\((.*?)\)/g, '<a href="$2" target="_blank" rel="noopener noreferrer">$1</a>');
+  };
+
   const parseMarkdown = (markdown: string) => {
     if (!markdown) return '';
     const lines = markdown.split('\n');
     let inList = false;
+    let listType: 'ul' | 'ol' = 'ul';
     let inCodeBlock = false;
     let codeContent: string[] = [];
     let html = '';
+
+    const closeList = () => {
+      if (inList) {
+        html += listType === 'ol' ? '</ol>' : '</ul>';
+        inList = false;
+      }
+    };
 
     for (let i = 0; i < lines.length; i++) {
       const line = lines[i];
@@ -150,60 +166,73 @@ const BlogPostPage: React.FC<BlogPostPageProps> = ({ slug, onBack }) => {
 
       // Horizontal lines
       if (line === '---') {
-        if (inList) { html += '</ul>'; inList = false; }
+        closeList();
         html += '<hr />';
         continue;
       }
 
       // Headings
-      if (line.startsWith('# ')) {
-        if (inList) { html += '</ul>'; inList = false; }
-        html += `<h2 style="font-size: 2rem; margin-top: 3.5rem; margin-bottom: 1.5rem; font-weight: 800; color: #fff;">${line.substring(2)}</h2>`;
+      if (line.startsWith('### ')) {
+        closeList();
+        html += `<h3>${applyInline(line.substring(4))}</h3>`;
         continue;
       }
       if (line.startsWith('## ')) {
-        if (inList) { html += '</ul>'; inList = false; }
-        html += `<h2>${line.substring(3)}</h2>`;
+        closeList();
+        html += `<h2>${applyInline(line.substring(3))}</h2>`;
         continue;
       }
-      if (line.startsWith('### ')) {
-        if (inList) { html += '</ul>'; inList = false; }
-        html += `<h3>${line.substring(4)}</h3>`;
+      if (line.startsWith('# ')) {
+        closeList();
+        html += `<h2 style="font-size: 2rem; margin-top: 3.5rem; margin-bottom: 1.5rem; font-weight: 800; color: #fff;">${applyInline(line.substring(2))}</h2>`;
         continue;
       }
 
       // Blockquotes
       if (line.startsWith('> ')) {
-        if (inList) { html += '</ul>'; inList = false; }
-        html += `<blockquote><p>${line.substring(2)}</p></blockquote>`;
+        closeList();
+        html += `<blockquote><p>${applyInline(line.substring(2))}</p></blockquote>`;
         continue;
       }
 
-      // Unordered lists
-      if (line.startsWith('* ') || line.startsWith('- ')) {
-        if (!inList) { html += '<ul>'; inList = true; }
-        html += `<li>${line.substring(2)}</li>`;
+      // Unordered lists — match * or - followed by one or more spaces
+      const ulMatch = line.match(/^[*\-]\s+(.*)/);
+      if (ulMatch) {
+        if (!inList || listType !== 'ul') {
+          closeList();
+          html += '<ul>';
+          inList = true;
+          listType = 'ul';
+        }
+        html += `<li>${applyInline(ulMatch[1])}</li>`;
+        continue;
+      }
+
+      // Ordered lists — match 1. or 1) followed by spaces
+      const olMatch = line.match(/^\d+[.)]\s+(.*)/);
+      if (olMatch) {
+        if (!inList || listType !== 'ol') {
+          closeList();
+          html += '<ol>';
+          inList = true;
+          listType = 'ol';
+        }
+        html += `<li>${applyInline(olMatch[1])}</li>`;
         continue;
       }
 
       // Paragraph spaces
       if (line.trim() === '') {
-        if (inList) { html += '</ul>'; inList = false; }
+        closeList();
         continue;
       }
 
-      if (inList) { html += '</ul>'; inList = false; }
-
-      // Bold, inline code, and standard link references
-      let processedLine = line
-        .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
-        .replace(/`(.*?)`/g, '<code>$1</code>')
-        .replace(/\[(.*?)\]\((.*?)\)/g, '<a href="$2" target="_blank" rel="noopener noreferrer">$1</a>');
-
-      html += `<p>${processedLine}</p>`;
+      closeList();
+      html += `<p>${applyInline(line)}</p>`;
     }
 
-    if (inList) html += '</ul>';
+    closeList();
+    if (inCodeBlock) html += `<pre><code>${codeContent.join('\n')}</code></pre>`;
     return html;
   };
 
