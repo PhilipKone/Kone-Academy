@@ -101,6 +101,7 @@ const Header: React.FC<HeaderProps> = ({ onOpenOnboarding }) => {
 
         <nav className={`nav-menu ${isMobileMenuOpen ? 'active' : ''}`}>
           <a href="/training" className="nav-link" onClick={(e) => handleNav(e, '/training')}>Courses</a>
+          <a href="/school" className="nav-link" onClick={(e) => handleNav(e, '/school')}>School</a>
           <a href="https://consult.koneacademy.io/" className="nav-link">Consulting</a>
           <a href="/docs" className="nav-link" onClick={(e) => handleNav(e, '/docs')}>Docs</a>
           <a href="#vision" className="nav-link" onClick={closeMobileMenu}>Vision</a>

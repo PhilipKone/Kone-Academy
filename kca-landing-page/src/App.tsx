@@ -23,6 +23,7 @@ const Protocols = React.lazy(() => import('./pages/Protocols'));
 const Documentation = React.lazy(() => import('./pages/Documentation'));
 const Sitemap = React.lazy(() => import('./pages/Sitemap'));
 const CertificateValidator = React.lazy(() => import('./components/CertificateValidator'));
+const SchoolPage = React.lazy(() => import('./pages/SchoolPage'));
 
 import { applyTheme } from './components/ThemeSelector';
 
@@ -63,6 +64,8 @@ function App() {
       setCurrentPage('protocols');
     } else if (pathParts[0] === 'verify') {
       setCurrentPage('verify');
+    } else if (pathParts[0] === 'school') {
+      setCurrentPage('school');
     } else if (pathParts[0] === 'sitemap') {
       setCurrentPage('sitemap');
     } else if (pathParts[0] === 'docs') {
@@ -133,6 +136,10 @@ function App() {
       ) : currentPage === 'verify' ? (
         <React.Suspense fallback={<LoadingScreen />}>
           <CertificateValidator onBack={handleBackToHome} />
+        </React.Suspense>
+      ) : currentPage === 'school' ? (
+        <React.Suspense fallback={<LoadingScreen />}>
+          <SchoolPage onBack={handleBackToHome} />
         </React.Suspense>
       ) : currentPage === 'sitemap' ? (
         <React.Suspense fallback={<LoadingScreen />}>
