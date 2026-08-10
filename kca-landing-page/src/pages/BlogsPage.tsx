@@ -160,8 +160,26 @@ const BlogsPage: React.FC<BlogsPageProps> = ({ onBack, onNavigatePost }) => {
 
       {/* Blogs Grid */}
       {isLoading ? (
-        <div style={{ display: 'flex', justifyContent: 'center', margin: '4rem 0' }}>
-          <div className="loader-ring" />
+        <div className="blogs-grid">
+          {[1, 2, 3, 4, 5, 6].map((n) => (
+            <div key={n} className="blog-card-skeleton">
+              <div className="skeleton-img skeleton-shimmer" />
+              <div className="skeleton-body">
+                <div className="skeleton-badge skeleton-shimmer" />
+                <div className="skeleton-title skeleton-shimmer" />
+                <div className="skeleton-title-short skeleton-shimmer" />
+                <div className="skeleton-excerpt-line skeleton-shimmer" style={{ marginTop: '8px' }} />
+                <div className="skeleton-excerpt-short skeleton-shimmer" />
+                <div className="skeleton-footer">
+                  <div className="skeleton-author">
+                    <div className="skeleton-avatar skeleton-shimmer" />
+                    <div className="skeleton-author-name skeleton-shimmer" />
+                  </div>
+                  <div className="skeleton-readtime skeleton-shimmer" />
+                </div>
+              </div>
+            </div>
+          ))}
         </div>
       ) : (
         <AnimatePresence mode="popLayout">

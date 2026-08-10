@@ -648,3 +648,134 @@
     padding: 2.2rem 1.5rem;
   }
 }
+
+/* ============================================================== */
+/* LINKEDIN-STYLE SKELETON SHIMMER LOADERS */
+/* ============================================================== */
+
+@keyframes skeleton-shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+.skeleton-shimmer {
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0.02) 0%,
+    rgba(255, 255, 255, 0.08) 50%,
+    rgba(255, 255, 255, 0.02) 100%
+  );
+  background-size: 200% 100%;
+  animation: skeleton-shimmer 1.6s infinite ease-in-out;
+  border-radius: 8px;
+}
+
+/* Skeleton Card Structure */
+.blog-card-skeleton {
+  background: rgba(30, 41, 59, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 20px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  height: 420px;
+}
+
+.skeleton-img {
+  width: 100%;
+  height: 200px;
+  border-radius: 0;
+}
+
+.skeleton-body {
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  gap: 12px;
+}
+
+.skeleton-badge {
+  width: 70px;
+  height: 16px;
+  border-radius: 20px;
+}
+
+.skeleton-title {
+  width: 90%;
+  height: 22px;
+  border-radius: 6px;
+}
+
+.skeleton-title-short {
+  width: 60%;
+  height: 22px;
+  border-radius: 6px;
+}
+
+.skeleton-excerpt-line {
+  width: 100%;
+  height: 14px;
+  border-radius: 4px;
+}
+
+.skeleton-excerpt-short {
+  width: 75%;
+  height: 14px;
+  border-radius: 4px;
+}
+
+.skeleton-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: auto;
+  padding-top: 1rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.04);
+}
+
+.skeleton-author {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.skeleton-avatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+}
+
+.skeleton-author-name {
+  width: 80px;
+  height: 14px;
+  border-radius: 4px;
+}
+
+.skeleton-readtime {
+  width: 60px;
+  height: 14px;
+  border-radius: 4px;
+}
+
+/* Article Page Skeleton Structure */
+.post-skeleton-wrapper {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 4rem 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.skeleton-hero-img {
+  width: 100%;
+  height: 380px;
+  border-radius: 20px;
+  margin: 1.5rem 0;
+}
+

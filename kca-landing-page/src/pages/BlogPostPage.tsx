@@ -117,8 +117,24 @@ const BlogPostPage: React.FC<BlogPostPageProps> = ({ slug, onBack }) => {
 
   if (isLoading) {
     return (
-      <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', minHeight: '100vh' }}>
-        <div className="loader-ring" />
+      <div className="post-skeleton-wrapper">
+        <div className="skeleton-badge skeleton-shimmer" style={{ width: '110px', height: '32px', borderRadius: '30px' }} />
+        <div className="skeleton-badge skeleton-shimmer" style={{ width: '90px', height: '14px', marginTop: '12px' }} />
+        <div className="skeleton-title skeleton-shimmer" style={{ height: '36px', marginTop: '8px' }} />
+        <div className="skeleton-title-short skeleton-shimmer" style={{ height: '36px' }} />
+        <div className="post-author-card" style={{ marginTop: '16px', background: 'rgba(255,255,255,0.02)' }}>
+          <div className="skeleton-author">
+            <div className="skeleton-avatar skeleton-shimmer" style={{ width: '44px', height: '44px' }} />
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '6px' }}>
+              <div className="skeleton-author-name skeleton-shimmer" style={{ width: '120px', height: '16px' }} />
+              <div className="skeleton-author-name skeleton-shimmer" style={{ width: '90px', height: '12px' }} />
+            </div>
+          </div>
+        </div>
+        <div className="skeleton-hero-img skeleton-shimmer" />
+        <div className="skeleton-excerpt-line skeleton-shimmer" style={{ height: '16px' }} />
+        <div className="skeleton-excerpt-line skeleton-shimmer" style={{ height: '16px' }} />
+        <div className="skeleton-excerpt-short skeleton-shimmer" style={{ height: '16px' }} />
       </div>
     );
   }
