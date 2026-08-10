@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { FaSearch, FaChevronRight, FaArrowLeft, FaClock, FaCalendarAlt } from 'react-icons/fa';
 import { staticBlogs, BlogPost } from '../data/blogs';
+import { updatePageMeta } from '../utils/seo';
 import './BlogsPage.css';
 
 interface BlogsPageProps {
@@ -14,6 +15,16 @@ const BlogsPage: React.FC<BlogsPageProps> = ({ onBack, onNavigatePost }) => {
   const [selectedCategory, setSelectedCategory] = useState<string>('All');
   const [searchQuery, setSearchQuery] = useState<string>('');
   const [isLoading, setIsLoading] = useState<boolean>(true);
+
+  useEffect(() => {
+    updatePageMeta({
+      title: 'Kone Academy Blog | Ecosystem Insights',
+      description: 'Explore research notes, system engineering breakthroughs, and curriculum announcements from the Kone Code, Lab, and School team.',
+      image: '/assets/blog/ka_blog_logic.jpg',
+      url: '/blog',
+      type: 'website',
+    });
+  }, []);
 
   useEffect(() => {
     const fetchBlogs = async () => {

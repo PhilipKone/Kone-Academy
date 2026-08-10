@@ -5,6 +5,7 @@ import {
   FaLinkedinIn, FaTwitter, FaUser, FaShareAlt 
 } from 'react-icons/fa';
 import { staticBlogs, BlogPost } from '../data/blogs';
+import { updatePageMeta } from '../utils/seo';
 import './BlogsPage.css';
 
 interface BlogPostPageProps {
@@ -16,6 +17,22 @@ const BlogPostPage: React.FC<BlogPostPageProps> = ({ slug, onBack }) => {
   const [post, setPost] = useState<BlogPost | null>(null);
   const [isLoading, setIsLoading] = useState<boolean>(true);
   const [scrollProgress, setScrollProgress] = useState<number>(0);
+
+  // Update dynamic head Open Graph meta tags when post loads
+  useEffect(() => {
+    if (post) {
+      const socialImage = post.imageUrl.replace(/\.(webp|png)$/, '.jpg');
+      updatePageMeta({
+        title: post.title,
+        description: post.excerpt,
+        image: socialImage,
+        url: `/blog/${post.slug}`,
+        type: 'article',
+        author: post.author.name,
+        publishedTime: post.publishedAt,
+      });
+    }
+  }, [post]);
 
   useEffect(() => {
     const fetchPost = async () => {
