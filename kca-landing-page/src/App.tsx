@@ -164,11 +164,11 @@ function App() {
           <SchoolPage onBack={handleBackToHome} />
         </React.Suspense>
       ) : currentPage === 'blog' ? (
-        <React.Suspense fallback={<LoadingScreen />}>
+        <React.Suspense fallback={<div className="blogs-container"><div className="loader-ring" style={{ margin: '4rem auto' }} /></div>}>
           <BlogsPage onBack={handleBackToHome} onNavigatePost={handleNavigateBlogPost} />
         </React.Suspense>
       ) : currentPage === 'blog-post' ? (
-        <React.Suspense fallback={<LoadingScreen />}>
+        <React.Suspense fallback={<div className="post-wrapper"><div className="loader-ring" style={{ margin: '8rem auto' }} /></div>}>
           <BlogPostPage slug={blogSlug} onBack={handleBackToBlogFeed} />
         </React.Suspense>
       ) : currentPage === 'sitemap' ? (

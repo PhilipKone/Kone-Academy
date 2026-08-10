@@ -36,28 +36,25 @@ const BlogPostPage: React.FC<BlogPostPageProps> = ({ slug, onBack }) => {
   }, [post]);
 
   useEffect(() => {
+    const staticMatch = staticBlogs.find(b => b.slug === slug) || null;
+    if (staticMatch) {
+      setPost(staticMatch);
+      setIsLoading(false);
+    }
+
     const fetchPost = async () => {
       try {
         const isPrerender = typeof window !== 'undefined' && (
           window.navigator.userAgent.includes('ReactSnap') ||
           (window as any).__PRERENDER_INJECTED
         );
-        const staticMatch = staticBlogs.find(b => b.slug === slug);
-        if (isPrerender) {
-          if (staticMatch) setPost(staticMatch);
-          setIsLoading(false);
-          return;
-        }
+        if (isPrerender) return;
 
         // Dynamically import Firebase and Firestore to avoid background connections during pre-render
         const { db } = await import('../firebase/config');
         const { collection, getDocs, query, where } = await import('firebase/firestore');
         
-        if (!db || typeof db.app === 'undefined' || !db.app.name) {
-          if (staticMatch) setPost(staticMatch);
-          setIsLoading(false);
-          return;
-        }
+        if (!db || typeof db.app === 'undefined' || !db.app.name) return;
 
         const blogsRef = collection(db, 'blogs');
         const q = query(
@@ -86,13 +83,9 @@ const BlogPostPage: React.FC<BlogPostPageProps> = ({ slug, onBack }) => {
             },
             publishedAt: data.publishedAt || new Date().toISOString().split('T')[0]
           });
-        } else if (staticMatch) {
-          setPost(staticMatch);
         }
       } catch (err) {
         console.warn('Firestore single post fetch error, falling back to static post data:', err);
-        const staticMatch = staticBlogs.find(b => b.slug === slug);
-        if (staticMatch) setPost(staticMatch);
       } finally {
         setIsLoading(false);
       }
