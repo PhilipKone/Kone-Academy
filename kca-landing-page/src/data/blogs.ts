@@ -27,7 +27,7 @@ export const staticBlogs: BlogPost[] = [
     imageUrl: "/assets/blog/ka_blog_logic.webp",
     readTime: 8,
     author: {
-      name: "Philip Kone",
+      name: "Philip Hotor",
       role: "Head of Engineering",
       avatar: "/assets/blog/author_philip.webp"
     },
@@ -141,7 +141,7 @@ At Kone School, students learn to bridge the gap between high-level programming 
     imageUrl: "/assets/blog/ka_blog_digital.webp",
     readTime: 12,
     author: {
-      name: "Philip Kone",
+      name: "Philip Hotor",
       role: "Strategic Lead",
       avatar: "/assets/blog/author_philip.webp"
     },
