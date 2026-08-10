@@ -77,12 +77,21 @@ export function updatePageMeta({
   setMeta('property', 'og:image:height', '630');
   setMeta('property', 'og:site_name', 'Kone Academy');
 
-  // Twitter / X
+  // Twitter / X Card Optimization
   setMeta('name', 'twitter:card', 'summary_large_image');
+  setMeta('property', 'twitter:card', 'summary_large_image');
+  setMeta('name', 'twitter:site', '@koneacademy');
+  setMeta('name', 'twitter:creator', '@Philkone1');
   setMeta('name', 'twitter:title', title);
+  setMeta('property', 'twitter:title', title);
   setMeta('name', 'twitter:description', description);
+  setMeta('property', 'twitter:description', description);
   setMeta('name', 'twitter:image', fullImageUrl);
+  setMeta('property', 'twitter:image', fullImageUrl);
+  setMeta('name', 'twitter:image:src', fullImageUrl);
+  setMeta('property', 'twitter:image:src', fullImageUrl);
   setMeta('name', 'twitter:url', fullPageUrl);
+  setMeta('property', 'twitter:url', fullPageUrl);
 
   // Article Specific Meta
   if (type === 'article') {
