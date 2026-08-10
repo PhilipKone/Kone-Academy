@@ -2,8 +2,9 @@ import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { 
   FaArrowLeft, FaClock, FaCalendarAlt, FaWhatsapp, 
-  FaLinkedinIn, FaTwitter, FaUser, FaShareAlt 
+  FaLinkedinIn, FaUser, FaShareAlt 
 } from 'react-icons/fa';
+import { FaXTwitter } from 'react-icons/fa6';
 import { staticBlogs, BlogPost } from '../data/blogs';
 import { updatePageMeta } from '../utils/seo';
 import './BlogsPage.css';
@@ -337,13 +338,13 @@ const BlogPostPage: React.FC<BlogPostPageProps> = ({ slug, onBack }) => {
             <FaLinkedinIn size={16} />
           </a>
           <a 
-            href={`https://twitter.com/intent/tweet?text=${shareTitle}&url=${shareUrl}`} 
+            href={`https://x.com/intent/post?text=${shareTitle}&url=${shareUrl}`} 
             target="_blank" 
             rel="noopener noreferrer" 
             className="share-btn twitter"
-            title="Share on Twitter/X"
+            title="Share on X"
           >
-            <FaTwitter size={15} />
+            <FaXTwitter size={15} />
           </a>
         </div>
 
