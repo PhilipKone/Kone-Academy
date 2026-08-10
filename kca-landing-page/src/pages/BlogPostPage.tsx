@@ -14,8 +14,9 @@ interface BlogPostPageProps {
 }
 
 const BlogPostPage: React.FC<BlogPostPageProps> = ({ slug, onBack }) => {
-  const [post, setPost] = useState<BlogPost | null>(null);
-  const [isLoading, setIsLoading] = useState<boolean>(true);
+  const initialMatch = staticBlogs.find(b => b.slug === slug) || null;
+  const [post, setPost] = useState<BlogPost | null>(initialMatch);
+  const [isLoading, setIsLoading] = useState<boolean>(!initialMatch);
   const [scrollProgress, setScrollProgress] = useState<number>(0);
 
   // Update dynamic head Open Graph meta tags when post loads

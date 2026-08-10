@@ -14,7 +14,7 @@ const BlogsPage: React.FC<BlogsPageProps> = ({ onBack, onNavigatePost }) => {
   const [blogs, setBlogs] = useState<BlogPost[]>(staticBlogs);
   const [selectedCategory, setSelectedCategory] = useState<string>('All');
   const [searchQuery, setSearchQuery] = useState<string>('');
-  const [isLoading, setIsLoading] = useState<boolean>(true);
+  const [isLoading, setIsLoading] = useState<boolean>(false);
 
   useEffect(() => {
     updatePageMeta({
