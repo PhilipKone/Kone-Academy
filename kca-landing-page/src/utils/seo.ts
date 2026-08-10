@@ -57,14 +57,22 @@ export function updatePageMeta({
   // Standard Meta Tags
   setMeta('name', 'description', description);
 
+  // Determine correct mime-type for WhatsApp & Facebook parsers
+  const mimeType = fullImageUrl.endsWith('.png') 
+    ? 'image/png' 
+    : fullImageUrl.endsWith('.webp') 
+    ? 'image/webp' 
+    : 'image/jpeg';
+
   // Open Graph / WhatsApp / Facebook
   setMeta('property', 'og:type', type);
   setMeta('property', 'og:title', title);
   setMeta('property', 'og:description', description);
   setMeta('property', 'og:url', fullPageUrl);
   setMeta('property', 'og:image', fullImageUrl);
+  setMeta('property', 'og:image:url', fullImageUrl);
   setMeta('property', 'og:image:secure_url', fullImageUrl);
-  setMeta('property', 'og:image:type', 'image/jpeg');
+  setMeta('property', 'og:image:type', mimeType);
   setMeta('property', 'og:image:width', '1200');
   setMeta('property', 'og:image:height', '630');
   setMeta('property', 'og:site_name', 'Kone Academy');
