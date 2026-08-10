@@ -1,5 +1,6 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { updatePageMeta } from '../utils/seo';
 import { 
   FaChevronLeft, FaBookOpen, FaPenNib, FaVolumeUp, FaCalculator, 
   FaLightbulb, FaWhatsapp, FaBrain, FaCogs, FaMicrochip, FaRobot, 
@@ -183,6 +184,16 @@ interface SchoolPageProps {
 
 const SchoolPage: React.FC<SchoolPageProps> = ({ onBack }) => {
   const [selectedNodeId, setSelectedNodeId] = useState<string>("chatbots");
+
+  useEffect(() => {
+    updatePageMeta({
+      title: 'Kone School | Digital Curriculum & AI Hardware Pathways',
+      description: 'Project-driven technology education. Build core digital apps, master physical microcontrollers, and explore AI hardware compute pathways at Kone School.',
+      image: '/assets/school/kone_school_og.jpg',
+      url: '/school',
+      type: 'website',
+    });
+  }, []);
 
   const activeNode = pathwayNodes.find(node => node.id === selectedNodeId) || pathwayNodes[0];
   const ActiveNodeIcon = activeNode.icon;
