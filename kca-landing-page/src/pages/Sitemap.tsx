@@ -221,7 +221,7 @@ const Sitemap = ({ onBack }) => {
                   <a href="/protocols" onClick={(e) => handleLinkClick(e, '/protocols')} className="sitemap-link">
                     Research Protocols
                   </a>
-                  <span className="sitemap-link-desc">Academic studies and industrial engineering specifications.</span>
+                  <span className="sitemap-link-desc">Research studies and industrial engineering specifications.</span>
                 </div>
                 <div className="sitemap-item">
                   <a href="https://www.koneacademy.io/.well-known/security.txt" className="sitemap-link" target="_blank" rel="noopener noreferrer">
