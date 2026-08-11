@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { 
   FaArrowLeft, FaClock, FaCalendarAlt, FaWhatsapp, 
-  FaLinkedinIn, FaUser, FaShareAlt 
+  FaLinkedinIn, FaLinkedin, FaUser, FaShareAlt 
 } from 'react-icons/fa';
 import { FaXTwitter } from 'react-icons/fa6';
 import { staticBlogs, BlogPost } from '../data/blogs';
@@ -298,19 +298,30 @@ const BlogPostPage: React.FC<BlogPostPageProps> = ({ slug, onBack }) => {
 
         {/* Author Card Block */}
         <div className="post-author-card">
-          <div className="post-author-profile">
-            {post.author.avatar ? (
-              <img src={post.author.avatar} alt={post.author.name} className="post-author-img" />
-            ) : (
-              <div className="post-author-img" style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', background: 'rgba(255,255,255,0.05)' }}>
-                <FaUser />
+          <a 
+            href={post.author.linkedinUrl || "https://www.linkedin.com/in/philip-kone"} 
+            target="_blank" 
+            rel="noopener noreferrer" 
+            className="post-author-card-link"
+            title={`Connect with ${post.author.name} on LinkedIn`}
+          >
+            <div className="post-author-profile">
+              {post.author.avatar ? (
+                <img src={post.author.avatar} alt={post.author.name} className="post-author-img" />
+              ) : (
+                <div className="post-author-img" style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', background: 'rgba(255,255,255,0.05)' }}>
+                  <FaUser />
+                </div>
+              )}
+              <div className="post-author-details">
+                <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
+                  <span className="post-author-name">{post.author.name}</span>
+                  <FaLinkedin size={13} style={{ color: '#0a66c2' }} />
+                </div>
+                <span className="post-author-role">{post.author.role}</span>
               </div>
-            )}
-            <div className="post-author-details">
-              <span className="post-author-name">{post.author.name}</span>
-              <span className="post-author-role">{post.author.role}</span>
             </div>
-          </div>
+          </a>
           <span className="blog-card-readtime" style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
             <FaClock size={12} />
             {post.readTime} min read

@@ -406,6 +406,46 @@
   color: #64748b;
 }
 
+/* Clickable Author Links */
+.blog-author-link {
+  text-decoration: none;
+  transition: all 0.2s ease;
+  padding: 4px 8px;
+  margin-left: -8px;
+  border-radius: 12px;
+}
+
+.blog-author-link:hover {
+  background: rgba(10, 102, 194, 0.15);
+}
+
+.blog-author-link:hover .blog-author-name {
+  color: #38bdf8;
+}
+
+.post-author-card-link {
+  text-decoration: none;
+  display: inline-flex;
+  padding: 6px 12px;
+  margin-left: -12px;
+  border-radius: 16px;
+  transition: all 0.25s ease;
+}
+
+.post-author-card-link:hover {
+  background: rgba(10, 102, 194, 0.15);
+  box-shadow: 0 4px 15px rgba(10, 102, 194, 0.15);
+}
+
+.post-author-card-link:hover .post-author-name {
+  color: #38bdf8;
+}
+
+.post-author-card-link:hover .post-author-img {
+  border-color: #0a66c2;
+  box-shadow: 0 0 10px rgba(10, 102, 194, 0.4);
+}
+
 /* Floating sharing widget (Desktop only) */
 .post-share-layout {
   position: absolute;
