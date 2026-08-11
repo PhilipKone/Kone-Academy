@@ -27,6 +27,7 @@ const CertificateValidator = React.lazy(() => import('./components/CertificateVa
 const SchoolPage = React.lazy(() => import('./pages/SchoolPage'));
 const BlogsPage = React.lazy(() => import('./pages/BlogsPage'));
 const BlogPostPage = React.lazy(() => import('./pages/BlogPostPage'));
+const AuthorPage = React.lazy(() => import('./pages/AuthorPage'));
 
 import { applyTheme } from './components/ThemeSelector';
 
@@ -78,6 +79,8 @@ function App() {
       } else {
         setCurrentPage('blog');
       }
+    } else if (pathParts[0] === 'author') {
+      setCurrentPage('author-philip');
     } else if (pathParts[0] === 'sitemap') {
       setCurrentPage('sitemap');
     } else if (pathParts[0] === 'docs') {
@@ -171,6 +174,10 @@ function App() {
       ) : currentPage === 'blog-post' ? (
         <React.Suspense fallback={<BlogPostSkeleton />}>
           <BlogPostPage slug={blogSlug} onBack={handleBackToBlogFeed} />
+        </React.Suspense>
+      ) : currentPage === 'author-philip' ? (
+        <React.Suspense fallback={<BlogPostSkeleton />}>
+          <AuthorPage onBack={handleBackToBlogFeed} onNavigatePost={handleNavigateBlogPost} />
         </React.Suspense>
       ) : currentPage === 'sitemap' ? (
         <React.Suspense fallback={<LoadingScreen />}>

@@ -298,12 +298,15 @@ const BlogPostPage: React.FC<BlogPostPageProps> = ({ slug, onBack }) => {
 
         {/* Author Card Block */}
         <div className="post-author-card">
-          <a 
-            href={post.author.linkedinUrl || "https://www.linkedin.com/in/philip-kone"} 
-            target="_blank" 
-            rel="noopener noreferrer" 
+          <div 
             className="post-author-card-link"
-            title={`Connect with ${post.author.name} on LinkedIn`}
+            onClick={(e) => {
+              e.preventDefault();
+              window.history.pushState({}, '', '/author/philip-hotor');
+              window.dispatchEvent(new Event('popstate'));
+            }}
+            title={`View ${post.author.name}'s Profile & Publications`}
+            style={{ cursor: 'pointer' }}
           >
             <div className="post-author-profile">
               {post.author.avatar ? (
@@ -321,7 +324,7 @@ const BlogPostPage: React.FC<BlogPostPageProps> = ({ slug, onBack }) => {
                 <span className="post-author-role">{post.author.role}</span>
               </div>
             </div>
-          </a>
+          </div>
           <span className="blog-card-readtime" style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
             <FaClock size={12} />
             {post.readTime} min read

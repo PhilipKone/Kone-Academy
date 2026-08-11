@@ -207,13 +207,15 @@ const BlogsPage: React.FC<BlogsPageProps> = ({ onBack, onNavigatePost }) => {
                     <h3 className="blog-card-title">{blog.title}</h3>
                     <p className="blog-card-excerpt">{blog.excerpt}</p>
                     <div className="blog-card-footer">
-                      <a 
-                        href={blog.author.linkedinUrl || "https://www.linkedin.com/in/philip-kone"} 
-                        target="_blank" 
-                        rel="noopener noreferrer" 
+                      <div 
                         className="blog-author-info blog-author-link"
-                        onClick={(e) => e.stopPropagation()}
-                        title={`Connect with ${blog.author.name} on LinkedIn`}
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          window.history.pushState({}, '', '/author/philip-hotor');
+                          window.dispatchEvent(new Event('popstate'));
+                        }}
+                        title={`View ${blog.author.name}'s Profile & Publications`}
+                        style={{ cursor: 'pointer' }}
                       >
                         {blog.author.avatar && (
                           <img 
@@ -223,7 +225,7 @@ const BlogsPage: React.FC<BlogsPageProps> = ({ onBack, onNavigatePost }) => {
                           />
                         )}
                         <span className="blog-author-name">{blog.author.name}</span>
-                      </a>
+                      </div>
                       <span className="blog-card-readtime">{blog.readTime} min read</span>
                     </div>
                   </div>
