@@ -15,6 +15,7 @@ import LoadingScreen from './components/LoadingScreen';
 import InteractiveGrid from './components/InteractiveGrid';
 import OnboardingModal from './components/OnboardingModal';
 import PrivacyTermsModal from './components/PrivacyTermsModal';
+import { BlogHubSkeleton, BlogPostSkeleton } from './components/BlogSkeleton';
 
 const KoneFarms = React.lazy(() => import('./components/KoneFarms'));
 const LocalSEOPage = React.lazy(() => import('./pages/LocalSEOPage'));
@@ -164,11 +165,11 @@ function App() {
           <SchoolPage onBack={handleBackToHome} />
         </React.Suspense>
       ) : currentPage === 'blog' ? (
-        <React.Suspense fallback={<div className="blogs-container"><div className="loader-ring" style={{ margin: '4rem auto' }} /></div>}>
+        <React.Suspense fallback={<BlogHubSkeleton />}>
           <BlogsPage onBack={handleBackToHome} onNavigatePost={handleNavigateBlogPost} />
         </React.Suspense>
       ) : currentPage === 'blog-post' ? (
-        <React.Suspense fallback={<div className="post-wrapper"><div className="loader-ring" style={{ margin: '8rem auto' }} /></div>}>
+        <React.Suspense fallback={<BlogPostSkeleton />}>
           <BlogPostPage slug={blogSlug} onBack={handleBackToBlogFeed} />
         </React.Suspense>
       ) : currentPage === 'sitemap' ? (
