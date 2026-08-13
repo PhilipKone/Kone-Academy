@@ -27,7 +27,8 @@
     },
     "scripts": {
         "dev": "vite",
-        "build": "vite build",
+        "prebuild": "node scripts/generate_rss.cjs",
+        "build": "npm run prebuild && vite build",
         "postbuild": "react-snap || echo 'Pre-rendering timed out, deploying SPA...'",
         "preview": "vite preview",
         "predeploy": "npm run build",

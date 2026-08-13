@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>Kone Academy Research &amp; Insights</title>
+  <subtitle>Pioneering research notes, system engineering breakthroughs, and curriculum announcements.</subtitle>
+  <link href="https://www.koneacademy.io/atom.xml" rel="self" />
+  <link href="https://www.koneacademy.io/blog" />
+  <updated>2026-08-13T05:22:29.122Z</updated>
+  <id>https://www.koneacademy.io/blog</id>
+  <author>
+    <name>Philip Hotor</name>
+    <email>philipkone45@gmail.com</email>
+    <uri>https://www.koneacademy.io/author/philip-hotor</uri>
+  </author>
+  <entry>
+    <title><![CDATA[Computational Thinking: The Art of Structured Logic]]></title>
+    <link href="https://www.koneacademy.io/blog/computational-thinking-structured-logic" />
+    <id>https://www.koneacademy.io/blog/computational-thinking-structured-logic</id>
+    <updated>2026-08-08T00:00:00Z</updated>
+    <summary><![CDATA[Mastering loop patterns, conditional branches, and modular algorithms before writing syntax. Learn how to think like a compiler.]]></summary>
+    <author>
+      <name>Philip Hotor</name>
+      <uri>https://www.koneacademy.io/author/philip-hotor</uri>
+    </author>
+    <category term="Code" />
+    <link rel="enclosure" type="image/webp" href="https://www.koneacademy.io/assets/blog/ka_blog_logic.webp" />
+  </entry>
+  <entry>
+    <title><![CDATA[Physical AI: Connecting Code to Microcontrollers]]></title>
+    <link href="https://www.koneacademy.io/blog/physical-ai-microcontrollers-robotics" />
+    <id>https://www.koneacademy.io/blog/physical-ai-microcontrollers-robotics</id>
+    <updated>2026-08-08T00:00:00Z</updated>
+    <summary><![CDATA[Moving from the browser sandbox to real-world electrical grids. A deep dive into wiring protocols, sensors, and actuators.]]></summary>
+    <author>
+      <name>Philip Hotor</name>
+      <uri>https://www.koneacademy.io/author/philip-hotor</uri>
+    </author>
+    <category term="Lab" />
+    <link rel="enclosure" type="image/webp" href="https://www.koneacademy.io/assets/blog/ka_blog_robotics.webp" />
+  </entry>
+  <entry>
+    <title><![CDATA[Digital AI: Decoupling Large Language Models and Compute]]></title>
+    <link href="https://www.koneacademy.io/blog/digital-ai-llms-compute" />
+    <id>https://www.koneacademy.io/blog/digital-ai-llms-compute</id>
+    <updated>2026-08-08T00:00:00Z</updated>
+    <summary><![CDATA[How neural networks digest data, mathematical weights, and massive compute to generate predictions. Demystifying the LLM pipeline.]]></summary>
+    <author>
+      <name>Philip Hotor</name>
+      <uri>https://www.koneacademy.io/author/philip-hotor</uri>
+    </author>
+    <category term="Lab" />
+    <link rel="enclosure" type="image/webp" href="https://www.koneacademy.io/assets/blog/ka_blog_digital.webp" />
+  </entry>
+</feed>
