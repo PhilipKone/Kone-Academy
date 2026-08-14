@@ -44,10 +44,12 @@ const Protocols = ({ onBack }) => {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
       >
-        <div className="badge-compliance">RESEARCH & COMPLIANCE</div>
-        <h1 className="text-gradient mb-3 display-4 fw-bold">Technical & Pedagogy Protocols</h1>
-        <p className="lead text-secondary mb-4" style={{ maxWidth: '650px', margin: '0 auto' }}>
-          Standardized tuition delivery formats, technical communication media, clinical surveys, and software engineering protocols by Kone Academy.
+        <div className="badge-wrapper">
+          <span className="badge-compliance">RESEARCH & COMPLIANCE</span>
+        </div>
+        <h1 className="text-gradient protocol-main-title">Technical & Pedagogy Protocols</h1>
+        <p className="protocol-subtitle">
+          Standardized tuition delivery formats, technical communication media, clinical surveys, and software engineering protocols engineered by Kone Academy.
         </p>
 
         {/* Search Bar */}
