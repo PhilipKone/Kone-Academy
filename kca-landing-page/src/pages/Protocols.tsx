@@ -8,6 +8,8 @@ import './Protocols.css';
 
 const getNormalizedCategory = (category) => {
   const cat = (category || '').toLowerCase();
+  if (cat.includes('tuition') || cat.includes('online') || cat.includes('face') || cat.includes('hybrid') || cat.includes('instructor')) return 'tuition';
+  if (cat.includes('communication') || cat.includes('video') || cat.includes('podcast') || cat.includes('media')) return 'communication';
   if (cat.includes('academic') || cat.includes('analysis') || cat.includes('clinical') || cat.includes('research')) return 'academic';
   if (cat.includes('business') || cat.includes('operation') || cat.includes('corporate') || cat.includes('finance')) return 'business';
   if (cat.includes('software') || cat.includes('development') || cat.includes('app') || cat.includes('web') || cat.includes('system') || cat.includes('cryptographic')) return 'software';
@@ -43,9 +45,9 @@ const Protocols = ({ onBack }) => {
         transition={{ duration: 0.5 }}
       >
         <div className="badge-compliance">RESEARCH & COMPLIANCE</div>
-        <h1 className="text-gradient mb-3 display-4 fw-bold">Technical Protocols</h1>
-        <p className="lead text-secondary mb-4" style={{ maxWidth: '600px', margin: '0 auto' }}>
-          Standardized telemetry, clinical, and software development protocols engineered by Kone Academy and Labs.
+        <h1 className="text-gradient mb-3 display-4 fw-bold">Technical & Pedagogy Protocols</h1>
+        <p className="lead text-secondary mb-4" style={{ maxWidth: '650px', margin: '0 auto' }}>
+          Standardized tuition delivery formats, technical communication media, clinical surveys, and software engineering protocols by Kone Academy.
         </p>
 
         {/* Search Bar */}
@@ -55,7 +57,7 @@ const Protocols = ({ onBack }) => {
             <input 
               type="text" 
               className="search-input-field" 
-              placeholder="Search protocols..."
+              placeholder="Search tuition, communication & engineering protocols..."
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
             />
@@ -64,7 +66,7 @@ const Protocols = ({ onBack }) => {
 
         {/* Filter Pills */}
         <div className="nav-filters">
-          {['All', 'Academic', 'Business', 'Software'].map(category => (
+          {['All', 'Tuition', 'Communication', 'Academic', 'Business', 'Software'].map(category => (
             <button
               key={category}
               className={`filter-pill ${activeFilter === category ? 'active' : ''}`}
