@@ -12,6 +12,7 @@ serviceAccountKey.json
 *.key
 credentials.json
 gsc-credentials.json
+.agents/
 
 # Dependencies
 node_modules/

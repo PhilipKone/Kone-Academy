@@ -10,6 +10,15 @@ interface BlogsPageProps {
   onNavigatePost: (slug: string) => void;
 }
 
+const sanitizeImageUrl = (url?: string): string => {
+  if (!url || typeof url !== 'string') return '/assets/blog/ka_blog_logic.jpg';
+  const trimmed = url.trim();
+  if (trimmed.startsWith('/') || trimmed.startsWith('https://') || trimmed.startsWith('http://') || trimmed.startsWith('data:image/')) {
+    return trimmed;
+  }
+  return '/assets/blog/ka_blog_logic.jpg';
+};
+
 const BlogsPage: React.FC<BlogsPageProps> = ({ onBack, onNavigatePost }) => {
   const [blogs, setBlogs] = useState<BlogPost[]>(staticBlogs);
   const [selectedCategory, setSelectedCategory] = useState<string>('All');
@@ -200,7 +209,7 @@ const BlogsPage: React.FC<BlogsPageProps> = ({ onBack, onNavigatePost }) => {
                   onClick={() => onNavigatePost(blog.slug)}
                 >
                   <div className="blog-card-img-wrapper">
-                    <img src={blog.imageUrl} alt={blog.title} className="blog-card-img" />
+                    <img src={sanitizeImageUrl(blog.imageUrl)} alt={blog.title} className="blog-card-img" />
                   </div>
                   <div className="blog-card-body">
                     <span className="blog-card-category">{blog.category}</span>
@@ -219,7 +228,7 @@ const BlogsPage: React.FC<BlogsPageProps> = ({ onBack, onNavigatePost }) => {
                       >
                         {blog.author.avatar && (
                           <img 
-                            src={blog.author.avatar} 
+                            src={sanitizeImageUrl(blog.author.avatar)} 
                             alt={blog.author.name} 
                             className="blog-author-avatar" 
                           />

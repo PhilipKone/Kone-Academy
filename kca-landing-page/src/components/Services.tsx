@@ -8,7 +8,7 @@ const ServiceCard = ({ item, onOpenOnboarding }) => {
   return (
     <div className="service-item glass-panel">
       <div className="service-content">
-        <span className="service-icon" style={{ color: 'var(--accent-primary)', fontSize: '2rem' }}>{item.icon}</span>
+        <span className="service-icon" aria-hidden="true" style={{ color: 'var(--accent-primary)', fontSize: '2rem' }}>{item.icon}</span>
         <h4 className="service-title">{item.title}</h4>
         <p className="service-desc">{item.desc}</p>
         <div style={{ marginTop: 'auto', paddingTop: '1rem' }}>

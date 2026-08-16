@@ -50,11 +50,53 @@
   <link rel="manifest" href="/manifest.json" />
   <link rel="alternate" type="application/rss+xml" title="Kone Academy RSS Feed" href="https://www.koneacademy.io/feed.xml" />
   <link rel="alternate" type="application/atom+xml" title="Kone Academy Atom Feed" href="https://www.koneacademy.io/atom.xml" />
+  <link rel="help" type="text/markdown" href="/llms.txt" title="LLMs Text File" />
+  <link rel="llms-txt" href="/llms.txt" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;500;600;700;800&family=Nunito:wght@400;600;700;800;900&display=swap">
   <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;500;600;700;800&family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">
   <title>Kone Academy | Research, Coding, and Engineering</title>
+
+  <!-- WebMCP Declarations for Autonomous Agentic Browsing -->
+  <script type="application/webmcp+json">
+  {
+    "version": "1.0",
+    "name": "Kone Academy Web Portal",
+    "description": "Autonomous agent tools for exploring courses, services, and subdomains across the Kone Academy ecosystem",
+    "tools": [
+      {
+        "name": "request_service",
+        "description": "Submit a request for coding masterclasses, academic research mentorship, or IoT engineering services",
+        "parameters": {
+          "type": "object",
+          "properties": {
+            "serviceName": { 
+              "type": "string", 
+              "enum": ["Python Masterclass", "C / C++ School", "R & MATLAB", "IoT Systems", "3D Simulation", "Robotics"] 
+            },
+            "userEmail": { "type": "string", "format": "email" }
+          },
+          "required": ["serviceName", "userEmail"]
+        }
+      },
+      {
+        "name": "navigate_subdomain",
+        "description": "Switch context or navigate to one of the 11 specialized Kone Academy subdomains",
+        "parameters": {
+          "type": "object",
+          "properties": {
+            "subdomain": { 
+              "type": "string", 
+              "enum": ["code", "consult", "lab", "kids", "shop", "farms", "warp", "digital", "ai", "tech"] 
+            }
+          },
+          "required": ["subdomain"]
+        }
+      }
+    ]
+  }
+  </script>
 
   <!-- Structured Data (Professional Search Indexing & Sitelinks Schema) -->
   <script type="application/ld+json">
