@@ -1,9 +1,10 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { 
   FaSearch, FaTimes, FaChevronLeft, FaInfoCircle
 } from 'react-icons/fa';
 import { protocols } from '../data/protocols';
+import { injectJSONLD, removeJSONLD } from '../utils/seo';
 import './Protocols.css';
 
 const getNormalizedCategory = (category) => {
@@ -20,6 +21,29 @@ const Protocols = ({ onBack }) => {
   const [activeFilter, setActiveFilter] = useState('All');
   const [selectedProtocol, setSelectedProtocol] = useState(null);
   const [searchQuery, setSearchQuery] = useState('');
+
+  useEffect(() => {
+    const protocolsSchema = {
+      "@context": "https://schema.org",
+      "@type": "DefinedTermSet",
+      "name": "Kone Academy Technical & Pedagogy Protocols",
+      "description": "Standardized tuition delivery formats, technical communication media, clinical surveys, and software engineering protocols.",
+      "url": "https://www.koneacademy.io/protocols",
+      "hasDefinedTerm": protocols.map(proto => ({
+        "@type": "DefinedTerm",
+        "name": proto.title,
+        "description": proto.description,
+        "inDefinedTermSet": "https://www.koneacademy.io/protocols",
+        "termCode": proto.category
+      }))
+    };
+
+    injectJSONLD('protocols-list-jsonld', protocolsSchema);
+
+    return () => {
+      removeJSONLD('protocols-list-jsonld');
+    };
+  }, []);
 
   const filteredProtocols = protocols.filter(proto => {
     const matchesFilter = activeFilter === 'All' || getNormalizedCategory(proto.category) === activeFilter.toLowerCase();

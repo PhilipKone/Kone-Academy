@@ -10,6 +10,7 @@ import {
 } from 'react-icons/fa';
 import { SiPython, SiJavascript } from 'react-icons/si';
 import { courses } from '../data/courses';
+import { injectJSONLD, removeJSONLD } from '../utils/seo';
 import ArchitectureVisualizer from '../components/ArchitectureVisualizer';
 import OnboardingModal from '../components/OnboardingModal';
 import CareerPathfinder from '../components/CareerPathfinder';
@@ -230,6 +231,47 @@ const TrainingHub = ({ onBack }) => {
   const [selectedCourse, setSelectedCourse] = useState(null);
   const [onboardingCourse, setOnboardingCourse] = useState(null);
   const [showPathfinderModal, setShowPathfinderModal] = useState(false);
+
+  useEffect(() => {
+    // Dynamic Course List Schema for Google Sitelinks, Rich Snippets, and AI Overview indexing
+    const coursesSchema = {
+      "@context": "https://schema.org",
+      "@type": "ItemList",
+      "name": "Kone Academy 12 Technology Tracks",
+      "description": "Master 48 Micro-Projects, 24 Mini-Projects, and deploy 12 Production Products across Software, Hardware, AI, Cloud, and IoT.",
+      "numberOfItems": courses.length,
+      "itemListElement": courses.map((course, index) => ({
+        "@type": "ListItem",
+        "position": index + 1,
+        "item": {
+          "@type": "Course",
+          "name": course.title,
+          "description": course.description,
+          "provider": {
+            "@type": "EducationalOrganization",
+            "name": "Kone Academy",
+            "sameAs": "https://www.koneacademy.io",
+            "url": "https://www.koneacademy.io"
+          },
+          "hasCourseInstance": {
+            "@type": "CourseInstance",
+            "courseMode": "Online, Face-to-Face & Hybrid",
+            "duration": course.duration
+          },
+          "educationalCredentialAwarded": `Certificate of Engineering Proficiency in ${course.title}`,
+          "teaches": course.skills,
+          "courseCode": course.id,
+          "url": `https://www.koneacademy.io/training?track=${course.id}`
+        }
+      }))
+    };
+
+    injectJSONLD('training-courses-jsonld', coursesSchema);
+
+    return () => {
+      removeJSONLD('training-courses-jsonld');
+    };
+  }, []);
 
   const categories = [
     'All',

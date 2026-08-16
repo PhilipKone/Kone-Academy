@@ -6,7 +6,7 @@ import {
 } from 'react-icons/fa';
 import { FaXTwitter } from 'react-icons/fa6';
 import { staticBlogs, BlogPost } from '../data/blogs';
-import { updatePageMeta } from '../utils/seo';
+import { updatePageMeta, injectJSONLD, removeJSONLD } from '../utils/seo';
 import './BlogsPage.css';
 
 interface BlogPostPageProps {
@@ -20,7 +20,7 @@ const BlogPostPage: React.FC<BlogPostPageProps> = ({ slug, onBack }) => {
   const [isLoading, setIsLoading] = useState<boolean>(!initialMatch);
   const [scrollProgress, setScrollProgress] = useState<number>(0);
 
-  // Update dynamic head Open Graph meta tags when post loads
+  // Update dynamic head Open Graph meta tags and JSON-LD schema when post loads
   useEffect(() => {
     if (post) {
       const socialImage = post.imageUrl.replace(/\.(webp|png)$/, '.jpg');
@@ -33,7 +33,47 @@ const BlogPostPage: React.FC<BlogPostPageProps> = ({ slug, onBack }) => {
         author: post.author.name,
         publishedTime: post.publishedAt,
       });
+
+      const articleSchema = {
+        "@context": "https://schema.org",
+        "@type": "TechArticle",
+        "headline": post.title,
+        "description": post.excerpt,
+        "image": socialImage.startsWith('http') ? socialImage : `https://www.koneacademy.io${socialImage.startsWith('/') ? '' : '/'}${socialImage}`,
+        "datePublished": post.publishedAt,
+        "dateModified": post.publishedAt,
+        "author": {
+          "@type": "Person",
+          "name": post.author.name,
+          "url": "https://www.koneacademy.io/author/philip-hotor",
+          "sameAs": [
+            "https://www.linkedin.com/in/philip-hotor/",
+            "https://x.com/Philkone1",
+            "https://github.com/PhilipKone"
+          ]
+        },
+        "publisher": {
+          "@type": "Organization",
+          "name": "Kone Academy",
+          "url": "https://www.koneacademy.io",
+          "logo": {
+            "@type": "ImageObject",
+            "url": "https://www.koneacademy.io/logo-circle-blue.svg"
+          }
+        },
+        "mainEntityOfPage": {
+          "@type": "WebPage",
+          "@id": `https://www.koneacademy.io/blog/${post.slug}`
+        },
+        "keywords": post.tags?.join(', ') || "Engineering, Software, IoT, Research"
+      };
+
+      injectJSONLD('blog-article-jsonld', articleSchema);
     }
+
+    return () => {
+      removeJSONLD('blog-article-jsonld');
+    };
   }, [post]);
 
   useEffect(() => {

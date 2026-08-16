@@ -9,27 +9,9 @@ import 'prismjs/themes/prism-tomorrow.css';
 import 'prismjs/components/prism-python';
 import { ecosystemGuides } from '../data/ecosystemGuides';
 import { techStacks } from '../data/techStacks';
+import { injectJSONLD, removeJSONLD } from '../utils/seo';
 import ArchitectureVisualizer from '../components/ArchitectureVisualizer';
 import './Documentation.css';
-
-// Helper to inject JSON-LD schema dynamically into the document head (crucial for pSEO indexation)
-const injectJSONLD = (schemaId, schemaData) => {
-  let scriptEl = document.getElementById(schemaId) as HTMLScriptElement | null;
-  if (!scriptEl) {
-    scriptEl = document.createElement('script');
-    scriptEl.id = schemaId;
-    scriptEl.type = 'application/ld+json';
-    document.head.appendChild(scriptEl);
-  }
-  scriptEl.textContent = JSON.stringify(schemaData);
-};
-
-const removeJSONLD = (schemaId) => {
-  const scriptEl = document.getElementById(schemaId);
-  if (scriptEl) {
-    scriptEl.remove();
-  }
-};
 
 const formatSlugLabel = (slug, type) => {
   if (type === 'guide') {
@@ -78,17 +60,34 @@ const Documentation = ({ category, subcategory, slug, onBack, onNavigate }) => {
         metaDescription.setAttribute('content', activeContent.summary || activeContent.cause.substring(0, 150));
       }
 
-      // Dynamic JSON-LD Schema
+      // Dynamic JSON-LD Schema (HowTo + FAQPage / TechArticle)
       if (activeType === 'guide') {
         const schema = {
           "@context": "https://schema.org",
-          "@type": "HowTo",
-          "name": activeContent.title,
-          "description": activeContent.cause,
-          "step": [
+          "@graph": [
             {
-              "@type": "HowToStep",
-              "text": activeContent.solution
+              "@type": "HowTo",
+              "name": activeContent.title,
+              "description": activeContent.cause,
+              "step": [
+                {
+                  "@type": "HowToStep",
+                  "text": activeContent.solution
+                }
+              ]
+            },
+            {
+              "@type": "FAQPage",
+              "mainEntity": [
+                {
+                  "@type": "Question",
+                  "name": `How to resolve or configure: ${activeContent.title}?`,
+                  "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": activeContent.solution || activeContent.summary
+                  }
+                }
+              ]
             }
           ]
         };
@@ -99,7 +98,16 @@ const Documentation = ({ category, subcategory, slug, onBack, onNavigate }) => {
           "@type": "TechArticle",
           "headline": activeContent.title,
           "description": activeContent.summary,
-          "articleBody": activeContent.recommendation
+          "articleBody": activeContent.recommendation,
+          "author": {
+            "@type": "Organization",
+            "name": "Kone Academy Engineering"
+          },
+          "publisher": {
+            "@type": "Organization",
+            "name": "Kone Academy",
+            "url": "https://www.koneacademy.io"
+          }
         };
         injectJSONLD('pseo-jsonld', schema);
       }

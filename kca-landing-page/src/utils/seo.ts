@@ -99,3 +99,29 @@ export function updatePageMeta({
     if (publishedTime) setMeta('property', 'article:published_time', publishedTime);
   }
 }
+
+/**
+ * Injects dynamic JSON-LD structured data into the document head for SEO / GEO / AEO
+ */
+export function injectJSONLD(schemaId: string, schemaData: Record<string, any> | Array<any>) {
+  if (typeof document === 'undefined') return;
+  let scriptEl = document.getElementById(schemaId) as HTMLScriptElement | null;
+  if (!scriptEl) {
+    scriptEl = document.createElement('script');
+    scriptEl.id = schemaId;
+    scriptEl.type = 'application/ld+json';
+    document.head.appendChild(scriptEl);
+  }
+  scriptEl.textContent = JSON.stringify(schemaData);
+}
+
+/**
+ * Cleans up injected JSON-LD script from the document head
+ */
+export function removeJSONLD(schemaId: string) {
+  if (typeof document === 'undefined') return;
+  const scriptEl = document.getElementById(schemaId);
+  if (scriptEl) {
+    scriptEl.remove();
+  }
+}
