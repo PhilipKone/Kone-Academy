@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" 
+  xmlns:dc="http://purl.org/dc/elements/1.1/" 
+  xmlns:content="http://purl.org/rss/1.0/modules/content/" 
+  xmlns:atom="http://www.w3.org/2005/Atom"
+  xmlns:media="http://search.yahoo.com/mrss/">
+  <channel>
+    <title>Kone Academy | Insights &amp; Research</title>
+    <link>https://www.koneacademy.io/blog</link>
+    <atom:link href="https://www.koneacademy.io/feed.xml" rel="self" type="application/rss+xml" />
+    <description>Pioneering research notes, system engineering breakthroughs, and curriculum announcements from the Kone Code, Lab, and School team.</description>
+    <language>en-us</language>
+    <managingEditor>philipkone45@gmail.com (Philip Hotor)</managingEditor>
+    <webMaster>philipkone45@gmail.com (Philip Hotor)</webMaster>
+    <lastBuildDate>Sun, 16 Aug 2026 11:08:15 GMT</lastBuildDate>
+    <image>
+      <url>https://www.koneacademy.io/assets/blog/author_philip.webp</url>
+      <title>Kone Academy</title>
+      <link>https://www.koneacademy.io/blog</link>
+    </image>
+    <item>
+      <title><![CDATA[Computational Thinking: The Art of Structured Logic]]></title>
+      <link>https://www.koneacademy.io/blog/computational-thinking-structured-logic</link>
+      <guid isPermaLink="true">https://www.koneacademy.io/blog/computational-thinking-structured-logic</guid>
+      <pubDate>Sat, 08 Aug 2026 00:00:00 GMT</pubDate>
+      <dc:creator><![CDATA[Philip Hotor]]></dc:creator>
+      <category><![CDATA[Code]]></category>
+      <description><![CDATA[Mastering loop patterns, conditional branches, and modular algorithms before writing syntax. Learn how to think like a compiler.]]></description>
+      <media:content url="https://www.koneacademy.io/assets/blog/ka_blog_logic.webp" medium="image" />
+      <enclosure url="https://www.koneacademy.io/assets/blog/ka_blog_logic.webp" type="image/webp" length="102400" />
+    </item>
+    <item>
+      <title><![CDATA[Physical AI: Connecting Code to Microcontrollers]]></title>
+      <link>https://www.koneacademy.io/blog/physical-ai-microcontrollers-robotics</link>
+      <guid isPermaLink="true">https://www.koneacademy.io/blog/physical-ai-microcontrollers-robotics</guid>
+      <pubDate>Sat, 08 Aug 2026 00:00:00 GMT</pubDate>
+      <dc:creator><![CDATA[Philip Hotor]]></dc:creator>
+      <category><![CDATA[Lab]]></category>
+      <description><![CDATA[Moving from the browser sandbox to real-world electrical grids. A deep dive into wiring protocols, sensors, and actuators.]]></description>
+      <media:content url="https://www.koneacademy.io/assets/blog/ka_blog_robotics.webp" medium="image" />
+      <enclosure url="https://www.koneacademy.io/assets/blog/ka_blog_robotics.webp" type="image/webp" length="102400" />
+    </item>
+    <item>
+      <title><![CDATA[Digital AI: Decoupling Large Language Models and Compute]]></title>
+      <link>https://www.koneacademy.io/blog/digital-ai-llms-compute</link>
+      <guid isPermaLink="true">https://www.koneacademy.io/blog/digital-ai-llms-compute</guid>
+      <pubDate>Sat, 08 Aug 2026 00:00:00 GMT</pubDate>
+      <dc:creator><![CDATA[Philip Hotor]]></dc:creator>
+      <category><![CDATA[Lab]]></category>
+      <description><![CDATA[How neural networks digest data, mathematical weights, and massive compute to generate predictions. Demystifying the LLM pipeline.]]></description>
+      <media:content url="https://www.koneacademy.io/assets/blog/ka_blog_digital.webp" medium="image" />
+      <enclosure url="https://www.koneacademy.io/assets/blog/ka_blog_digital.webp" type="image/webp" length="102400" />
+    </item>
+  </channel>
+</rss>
