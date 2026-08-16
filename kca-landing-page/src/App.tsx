@@ -64,7 +64,9 @@ function App() {
     if (pathParts[0] === 'academy' && pathParts[1] && pathParts[2]) {
       setLocalRoute({ niche: pathParts[1], city: pathParts[2] });
       setCurrentPage('local-seo');
-    } else if (pathParts[0] === 'training' || pathParts[0] === 'protocols') {
+    } else if (pathParts[0] === 'training') {
+      setCurrentPage('training');
+    } else if (pathParts[0] === 'protocols') {
       setCurrentPage('protocols');
     } else if (pathParts[0] === 'verify') {
       setCurrentPage('verify');
