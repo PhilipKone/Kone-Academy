@@ -60,8 +60,7 @@ const Footer = ({ onOpenPrivacy, onOpenTerms }) => {
           <div className="link-group">
             <h3>Research</h3>
             <a href="/protocols" onClick={(e) => handleNav(e, '/protocols')}>Methodology Protocols</a>
-            <a href="/docs" onClick={(e) => handleNav(e, '/docs')}>Documentation</a>
-            <a href="https://consult.koneacademy.io/blog">Blog</a>
+            <a href="/blog" onClick={(e) => handleNav(e, '/blog')}>Academy Blog</a>
           </div>
           <div className="link-group">
             <h3>Ecosystem</h3>

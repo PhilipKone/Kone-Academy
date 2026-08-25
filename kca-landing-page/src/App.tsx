@@ -84,12 +84,8 @@ function App() {
     } else if (pathParts[0] === 'sitemap') {
       setCurrentPage('sitemap');
     } else if (pathParts[0] === 'docs') {
-      setCurrentPage('docs');
-      setDocRoute({
-        category: pathParts[1] || null,
-        subcategory: pathParts[2] || null,
-        slug: pathParts[3] || null
-      });
+      window.history.replaceState({}, '', '/blog');
+      setCurrentPage('blog');
     } else {
       const params = new URLSearchParams(window.location.search);
       if (params.get('page') === 'farms') {
@@ -182,16 +178,6 @@ function App() {
       ) : currentPage === 'sitemap' ? (
         <React.Suspense fallback={<LoadingScreen />}>
           <Sitemap onBack={handleBackToHome} />
-        </React.Suspense>
-      ) : currentPage === 'docs' ? (
-        <React.Suspense fallback={<LoadingScreen />}>
-          <Documentation 
-            category={docRoute.category} 
-            subcategory={docRoute.subcategory} 
-            slug={docRoute.slug} 
-            onBack={handleBackToHome} 
-            onNavigate={handleDocNavigate}
-          />
         </React.Suspense>
       ) : (
         <>

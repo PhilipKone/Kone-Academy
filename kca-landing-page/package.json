@@ -51,8 +51,7 @@
             "/blog/digital-ai-llms-compute",
             "/author/philip-hotor",
             "/sitemap",
-            "/training",
-            "/docs"
+            "/training"
         ],
         "puppeteerArgs": [
             "--no-sandbox",

@@ -103,8 +103,6 @@ const Header: React.FC<HeaderProps> = ({ onOpenOnboarding }) => {
           <a href="/training" className="nav-link" onClick={(e) => handleNav(e, '/training')}>Courses</a>
           <a href="/school" className="nav-link" onClick={(e) => handleNav(e, '/school')}>School</a>
           <a href="/blog" className="nav-link" onClick={(e) => handleNav(e, '/blog')}>Blog</a>
-          <a href="https://consult.koneacademy.io/" className="nav-link">Consulting</a>
-          <a href="/docs" className="nav-link" onClick={(e) => handleNav(e, '/docs')}>Docs</a>
           <a href="#vision" className="nav-link" onClick={closeMobileMenu}>Vision</a>
           <a href="#divisions" className="nav-link" onClick={closeMobileMenu}>Divisions</a>
           <div className="mobile-actions">
@@ -136,13 +134,13 @@ const Header: React.FC<HeaderProps> = ({ onOpenOnboarding }) => {
         <FaGraduationCap />
         <span>Courses</span>
       </a>
-      <a href="https://consult.koneacademy.io/" className="mobile-nav-item">
-        <FaFlask />
-        <span>Consult</span>
-      </a>
-      <a href="/docs" className={`mobile-nav-item ${currentPath.startsWith('/docs') ? 'active' : ''}`} onClick={(e) => handleNav(e, '/docs')}>
+      <a href="/blog" className={`mobile-nav-item ${currentPath.startsWith('/blog') ? 'active' : ''}`} onClick={(e) => handleNav(e, '/blog')}>
         <FaBook />
-        <span>Docs</span>
+        <span>Blog</span>
+      </a>
+      <a href="/school" className={`mobile-nav-item ${currentPath === '/school' ? 'active' : ''}`} onClick={(e) => handleNav(e, '/school')}>
+        <FaFlask />
+        <span>School</span>
       </a>
       <a href={loginUrl} className={`mobile-nav-item ${currentPath === '/login' ? 'active' : ''}`}>
         <FaUser />

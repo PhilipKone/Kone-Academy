@@ -2,8 +2,6 @@ import React, { useRef } from 'react';
 import './Sitemap.css';
 import { 
   FaGlobe, 
-  FaCode, 
-  FaFlask, 
   FaBook, 
   FaInfoCircle, 
   FaChevronLeft, 
@@ -13,8 +11,6 @@ import {
 import { motion } from 'framer-motion';
 
 // Import our programmatic datasets
-import { ecosystemGuides } from '../data/ecosystemGuides';
-import { techStacks } from '../data/techStacks';
 import { staticBlogs } from '../data/blogs';
 
 const Sitemap = ({ onBack }) => {
@@ -138,53 +134,7 @@ const Sitemap = ({ onBack }) => {
               </div>
             </div>
 
-            {/* Column 2: Programmatic Developer Documentation */}
-            <div className="sitemap-column docs">
-              <h2 className="sitemap-column-title">
-                <FaCode /> Developer Guides (pSEO)
-              </h2>
-              <div className="sitemap-link-list">
-                <div className="sitemap-item">
-                  <a href="/docs" onClick={(e) => handleLinkClick(e, '/docs')} className="sitemap-link">
-                    Documentation Index
-                  </a>
-                  <span className="sitemap-link-desc">Central dashboard for guides, blueprints, and labs.</span>
-                </div>
-                {ecosystemGuides.map(item => (
-                  <div key={item.slug} className="sitemap-item">
-                    <a 
-                      href={`/docs/code/guides/${item.slug}`} 
-                      onClick={(e) => handleLinkClick(e, `/docs/code/guides/${item.slug}`)} 
-                      className="sitemap-link"
-                    >
-                      {item.title}
-                    </a>
-                    <span className="sitemap-link-desc">{item.cause}</span>
-                  </div>
-                ))}
-              </div>
-            </div>
 
-            {/* Column 3: Startup Architectures & Telemetry Specs */}
-            <div className="sitemap-column architectures">
-              <h2 className="sitemap-column-title">
-                <FaFlask /> Architecture Blueprints
-              </h2>
-              <div className="sitemap-link-list">
-                {techStacks.map(item => (
-                  <div key={item.slug} className="sitemap-item">
-                    <a 
-                      href={`/docs/consult/architecture/${item.slug}`} 
-                      onClick={(e) => handleLinkClick(e, `/docs/consult/architecture/${item.slug}`)} 
-                      className="sitemap-link"
-                    >
-                      {item.title}
-                    </a>
-                    <span className="sitemap-link-desc">Production workflow for target: {item.target}.</span>
-                  </div>
-                ))}
-              </div>
-            </div>
 
             {/* Column 4: Resources & Compliance */}
             <div className="sitemap-column company">

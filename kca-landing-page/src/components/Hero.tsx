@@ -1,5 +1,5 @@
 import React from 'react';
-import { FaGraduationCap, FaBook } from 'react-icons/fa';
+import { FaGraduationCap, FaBookOpen } from 'react-icons/fa';
 import InteractiveTerminal from './InteractiveTerminal';
 import './Hero.css';
 
@@ -8,9 +8,9 @@ interface HeroProps {
 }
 
 const Hero: React.FC<HeroProps> = ({ onOpenOnboarding }) => {
-  const handleDocsClick = (e: React.MouseEvent) => {
+  const handleBlogClick = (e: React.MouseEvent) => {
     e.preventDefault();
-    window.history.pushState({}, '', '/docs');
+    window.history.pushState({}, '', '/blog');
     window.dispatchEvent(new Event('popstate'));
   };
 
@@ -38,9 +38,9 @@ const Hero: React.FC<HeroProps> = ({ onOpenOnboarding }) => {
               <FaGraduationCap className="btn-icon" />
               <span>Start Learning</span>
             </button>
-            <a href="/docs" onClick={handleDocsClick} className="btn-secondary cute-pill" style={{ textDecoration: 'none' }}>
-              <FaBook className="btn-icon" />
-              <span>View Docs</span>
+            <a href="/blog" onClick={handleBlogClick} className="btn-secondary cute-pill" style={{ textDecoration: 'none' }}>
+              <FaBookOpen className="btn-icon" />
+              <span>Explore Blog</span>
             </a>
           </div>
         </div>
