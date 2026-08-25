@@ -301,15 +301,16 @@
         bottom: 0;
         left: 0;
         right: 0;
-        height: 64px;
-        background: rgba(10, 12, 18, 0.92);
-        -webkit-backdrop-filter: blur(15px);
-        backdrop-filter: blur(15px);
+        height: calc(60px + env(safe-area-inset-bottom, 0px));
+        padding-bottom: env(safe-area-inset-bottom, 0px);
+        background: rgba(11, 15, 23, 0.88);
+        -webkit-backdrop-filter: blur(20px);
+        backdrop-filter: blur(20px);
         border-top: 1px solid rgba(255, 255, 255, 0.08);
         justify-content: space-around;
         align-items: center;
         z-index: 1050;
-        box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.4);
+        box-shadow: 0 -4px 24px rgba(0, 0, 0, 0.5);
     }
 
     .mobile-nav-item {
@@ -317,30 +318,34 @@
         flex-direction: column;
         align-items: center;
         justify-content: center;
-        gap: 0.25rem;
-        color: rgba(255, 255, 255, 0.5);
+        gap: 3px;
+        color: #94a3b8;
         text-decoration: none;
-        font-size: 0.7rem;
+        font-size: 0.72rem;
         font-weight: 600;
-        width: 20%;
-        height: 100%;
-        transition: all 0.2s ease;
+        width: 18%;
+        height: 44px;
+        border-radius: 12px;
+        transition: all 0.18s cubic-bezier(0.16, 1, 0.3, 1);
     }
 
     .mobile-nav-item svg {
-        font-size: 1.25rem;
-        transition: transform 0.2s ease;
+        font-size: 1.2rem;
+        transition: transform 0.18s cubic-bezier(0.16, 1, 0.3, 1);
     }
 
-    .mobile-nav-item:active svg {
-        transform: scale(0.85);
+    .mobile-nav-item:active {
+        transform: scale(0.92);
+        background: rgba(255, 255, 255, 0.05);
     }
 
     .mobile-nav-item.active {
-        color: var(--accent-primary);
+        color: #f8fafc;
+        background: rgba(59, 130, 246, 0.15);
     }
 
     .mobile-nav-item.active svg {
-        filter: drop-shadow(0 0 5px var(--accent-primary));
+        color: var(--accent-primary);
+        filter: drop-shadow(0 0 6px rgba(59, 130, 246, 0.5));
     }
 }

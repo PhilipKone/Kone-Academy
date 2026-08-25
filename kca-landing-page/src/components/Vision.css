@@ -1,119 +1,228 @@
 .vision {
-  padding: 6rem 2rem;
+  padding: 5rem 1.5rem;
   position: relative;
 }
 
 .vision-container {
-  max-width: 1000px;
+  max-width: 1040px;
   margin: 0 auto;
-  padding: 4rem;
   text-align: center;
-  background: var(--bg-glass);
-  /* Adaptive background */
-  backdrop-filter: var(--glass-blur);
-  border: 1px solid var(--border-color);
-  border-radius: 12px;
-  /* Fix for Chrome rendering */
-  transform: translateZ(0);
-  -webkit-backface-visibility: hidden;
-  backface-visibility: hidden;
 }
 
-.section-title {
-  font-size: 2.5rem;
-  font-weight: 800;
-  margin-bottom: 3rem;
-  color: var(--text-primary);
+.vision-header {
+  margin-bottom: 2.5rem;
 }
 
-.vision-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 2rem;
-  margin-bottom: 4rem;
-  text-align: left;
-}
-
-.vision-card {
-  padding: 2rem;
-  background: rgba(255, 255, 255, 0.05);
-  border-radius: 12px;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  transition: transform 0.3s ease;
-}
-
-.vision-card:hover {
-  transform: translateY(-5px);
-  background: rgba(255, 255, 255, 0.08);
-}
-
-.card-title {
-  font-size: 1.5rem;
+.vision-badge {
+  display: inline-block;
+  font-size: 0.75rem;
   font-weight: 700;
+  letter-spacing: 0.12em;
+  color: var(--accent-primary);
+  background: rgba(59, 130, 246, 0.08);
+  border: 1px solid rgba(59, 130, 246, 0.2);
+  padding: 4px 14px;
+  border-radius: 9999px;
   margin-bottom: 1rem;
+}
+
+.vision .section-title {
+  font-size: clamp(2rem, 4vw, 2.75rem);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  margin-bottom: 0.75rem;
+  color: #f8fafc;
+}
+
+.vision-subtitle {
+  font-size: clamp(0.95rem, 2vw, 1.125rem);
+  color: #94a3b8;
+  max-width: 620px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+/* --- iOS / Mobbin Segmented Control --- */
+.vision-segmented-wrapper {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 2rem;
+}
+
+.vision-segmented-control {
+  display: inline-flex;
+  background: rgba(15, 23, 42, 0.8);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 4px;
+  border-radius: 14px;
+  gap: 4px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+}
+
+.vision-segment-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 20px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #94a3b8;
+  background: transparent;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.18s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.vision-segment-btn:hover {
+  color: #f8fafc;
+}
+
+.vision-segment-btn.active {
+  background: rgba(30, 41, 59, 0.95);
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.4);
+}
+
+.vision-segment-btn.active svg {
   color: var(--accent-primary);
 }
 
-.vision-text {
-  font-size: 1.1rem;
-  line-height: 1.8;
-  color: var(--text-primary);
-  /* Increased contrast */
-  /* Fix for Chrome rendering */
-  transform: translateZ(0);
+/* --- Content Card --- */
+.vision-content-card {
+  text-align: left;
+  padding: 2.5rem;
+  background: rgba(15, 23, 42, 0.65);
+  border: 1px solid rgba(255, 255, 255, 0.09);
+  border-radius: 20px;
+  box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.5);
+  margin-bottom: 2.5rem;
 }
 
-.vision-stats {
+.vision-card-header {
+  margin-bottom: 2rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+  padding-bottom: 1.5rem;
+}
+
+.vision-pill-label {
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  color: var(--accent-primary);
+  margin-bottom: 0.5rem;
+}
+
+.vision-display-title {
+  font-size: clamp(1.25rem, 2.5vw, 1.65rem);
+  font-weight: 700;
+  color: #f8fafc;
+  line-height: 1.35;
+  letter-spacing: -0.01em;
+  margin: 0;
+}
+
+.vision-features-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+
+.vision-feature-item {
   display: flex;
-  justify-content: center;
-  gap: 4rem;
-  flex-wrap: wrap;
-  padding-top: 2rem;
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  align-items: flex-start;
+  gap: 12px;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  padding: 1.25rem;
+  border-radius: 14px;
 }
 
-.stat-item {
+.vision-feature-bullet {
+  flex-shrink: 0;
+  width: 26px;
+  height: 26px;
+  border-radius: 8px;
+  background: rgba(59, 130, 246, 0.15);
+  color: var(--accent-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 2px;
+}
+
+.vision-feature-title {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #f8fafc;
+  margin: 0 0 0.35rem 0;
+}
+
+.vision-feature-desc {
+  font-size: 0.84rem;
+  color: #94a3b8;
+  line-height: 1.55;
+  margin: 0;
+}
+
+/* --- Stats Row --- */
+.vision-stats-row {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+
+.vision-stat-card {
+  padding: 1.5rem;
+  background: rgba(15, 23, 42, 0.5);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 16px;
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
 }
 
-.stat-number {
-  font-size: 2.5rem;
+.vision-stat-num {
+  font-size: clamp(1.75rem, 3vw, 2.25rem);
   font-weight: 800;
-  color: var(--accent-primary);
   font-family: var(--font-heading);
-  font-weight: 800;
-  /* Fix for Chrome rendering */
-  transform: translateZ(0);
+  color: var(--accent-primary);
+  line-height: 1.1;
+  margin-bottom: 0.35rem;
 }
 
-.stat-label {
-  color: var(--text-primary);
-  /* Increased contrast */
-  font-size: 0.9rem;
+.vision-stat-label {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #94a3b8;
   text-transform: uppercase;
-  letter-spacing: 1px;
-  margin-top: 0.5rem;
+  letter-spacing: 0.05em;
 }
 
+/* --- Mobile Responsive Layout --- */
 @media (max-width: 768px) {
-  .vision-container {
-    padding: 2rem;
+  .vision {
+    padding: 3.5rem 1rem;
   }
 
-  .vision-grid {
+  .vision-content-card {
+    padding: 1.5rem 1.25rem;
+    border-radius: 16px;
+  }
+
+  .vision-features-grid {
     grid-template-columns: 1fr;
-    gap: 1.5rem;
+    gap: 1rem;
   }
 
-  .vision-stats {
-    gap: 2rem;
-    flex-direction: column;
-    /* Stack stats vertically */
+  .vision-stats-row {
+    grid-template-columns: 1fr;
+    gap: 0.75rem;
   }
 
-  .section-title {
-    font-size: 2rem;
+  .vision-stat-card {
+    padding: 1rem;
   }
 }

@@ -50,9 +50,9 @@ const Careers = () => {
                 href="https://forms.gle/5ZcJBtAgqpJsxs8o9"
                 target="_blank"
                 rel="noreferrer"
-                className="btn-primary w-100 py-3"
+                className="btn-primary apply-btn w-100 py-3"
               >
-                Apply to Test
+                Apply for Internship
               </a>
             </div>
           </div>
@@ -66,21 +66,38 @@ const Careers = () => {
             
             <div className="future-divisions-list mb-4">
               <div className="future-division-item">
-                <span className="future-division-icon">🤖</span>
+                <span className="future-division-icon">
+                  <svg viewBox="0 0 24 24" width="18" height="18" stroke="currentColor" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round">
+                    <rect x="4" y="4" width="16" height="16" rx="2"></rect>
+                    <rect x="9" y="9" width="6" height="6"></rect>
+                    <line x1="9" y1="1" x2="9" y2="4"></line>
+                    <line x1="15" y1="1" x2="15" y2="4"></line>
+                  </svg>
+                </span>
                 <div>
                   <h4 className="future-division-name">Kone Lab</h4>
                   <p className="future-division-desc">Robotics, IoT telemetry & embedded circuits.</p>
                 </div>
               </div>
               <div className="future-division-item">
-                <span className="future-division-icon">☁️</span>
+                <span className="future-division-icon">
+                  <svg viewBox="0 0 24 24" width="18" height="18" stroke="currentColor" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z"></path>
+                  </svg>
+                </span>
                 <div>
                   <h4 className="future-division-name">Kone Consult</h4>
                   <p className="future-division-desc">Enterprise system architecture & cloud cost ops.</p>
                 </div>
               </div>
               <div className="future-division-item">
-                <span className="future-division-icon">🛒</span>
+                <span className="future-division-icon">
+                  <svg viewBox="0 0 24 24" width="18" height="18" stroke="currentColor" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round">
+                    <circle cx="9" cy="21" r="1"></circle>
+                    <circle cx="20" cy="21" r="1"></circle>
+                    <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+                  </svg>
+                </span>
                 <div>
                   <h4 className="future-division-name">Kone Shop</h4>
                   <p className="future-division-desc">E-commerce storefront for hardware & merchandise.</p>
