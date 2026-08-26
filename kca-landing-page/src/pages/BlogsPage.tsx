@@ -10,13 +10,16 @@ interface BlogsPageProps {
   onNavigatePost: (slug: string) => void;
 }
 
+const SAFE_FALLBACK_IMAGE = '/assets/blog/ka_blog_logic.jpg';
+const SAFE_IMAGE_REGEX = /^https:\/\/[a-zA-Z0-9\-._~:/?#[\]@!$&'*+,;=]+$/;
+const SAFE_PATH_REGEX = /^\/(assets|images)\/[a-zA-Z0-9\-_\/.]+\.(jpg|jpeg|png|webp|svg)$/i;
+
 const sanitizeImageUrl = (url?: string): string => {
-  if (!url || typeof url !== 'string') return '/assets/blog/ka_blog_logic.jpg';
+  if (!url || typeof url !== 'string') return SAFE_FALLBACK_IMAGE;
   const trimmed = url.trim();
-  if (trimmed.startsWith('/') || trimmed.startsWith('https://') || trimmed.startsWith('http://') || trimmed.startsWith('data:image/')) {
-    return trimmed;
-  }
-  return '/assets/blog/ka_blog_logic.jpg';
+  if (SAFE_PATH_REGEX.test(trimmed)) return trimmed;
+  if (SAFE_IMAGE_REGEX.test(trimmed)) return encodeURI(trimmed);
+  return SAFE_FALLBACK_IMAGE;
 };
 
 const BlogsPage: React.FC<BlogsPageProps> = ({ onBack, onNavigatePost }) => {
