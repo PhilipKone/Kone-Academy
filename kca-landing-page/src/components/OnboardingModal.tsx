@@ -53,7 +53,7 @@ const OnboardingModal: React.FC<OnboardingModalProps> = ({ isOpen, onClose, defa
 
   const dispatchAdminNotification = async (payload: any) => {
     try {
-      const endpoint = 'https://formspree.io/f/xovjepzq'; 
+      const endpoint = 'https://formsubmit.co/ajax/philipkone45@gmail.com';
       await fetch(endpoint, {
         method: 'POST',
         headers: { 
@@ -62,15 +62,19 @@ const OnboardingModal: React.FC<OnboardingModalProps> = ({ isOpen, onClose, defa
         },
         body: JSON.stringify({
           _subject: `🎓 New Cohort Registration: ${payload.fullName} (${payload.track})`,
-          adminEmails: ['philipkone45@gmail.com', 'phconsultgh@gmail.com'],
-          studentName: payload.fullName,
-          studentEmail: payload.email,
-          phone: payload.phone || 'Not provided',
-          track: payload.track,
-          division: payload.division,
-          format: payload.format,
-          reservationToken: payload.token,
-          submittedAt: new Date().toISOString()
+          _replyto: payload.email,
+          _cc: 'phconsultgh@gmail.com',
+          _template: 'table',
+          _captcha: 'false',
+          'Student Name': payload.fullName,
+          'Email Address': payload.email,
+          'WhatsApp / Phone': payload.phone || 'Not provided',
+          'Selected Track': payload.track,
+          'Academy Division': payload.division,
+          'Learning Format': payload.format,
+          'Reservation Token': payload.token,
+          'Verification URL': `https://www.koneacademy.io/verify?id=${payload.token}`,
+          'Registration Timestamp': new Date().toLocaleString('en-US', { timeZoneName: 'short' })
         })
       });
     } catch (err) {
