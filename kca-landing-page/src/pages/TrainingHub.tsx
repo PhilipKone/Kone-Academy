@@ -43,10 +43,16 @@ const CourseCard = ({ course, onSelectCourse }) => {
   const { title, division, icon, description, skills, level, duration, colorClass, youtubeLink } = course;
   const IconComponent = iconMap[icon] || FaGraduationCap;
 
+  const getLevelBadgeClass = (lvl: string) => {
+    if (lvl.toLowerCase().includes('beginner')) return 'level-badge-beginner';
+    if (lvl.toLowerCase().includes('intermediate')) return 'level-badge-intermediate';
+    return 'level-badge-advanced';
+  };
+
   return (
     <div className="glass-card hover-y transition-all h-100 training-card">
       <div className="d-flex justify-content-between align-items-center mb-3">
-        <div className={`glass-icon ${colorClass}`} style={{ width: '52px', height: '52px', fontSize: '1.35rem', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+        <div className={`glass-icon ${colorClass}`} style={{ width: '48px', height: '48px', fontSize: '1.25rem', display: 'flex', alignItems: 'center', justifyContent: 'center', borderRadius: '12px' }}>
           <IconComponent />
         </div>
         <div className={`badge-pill bg-${colorClass.replace('text-', '')} text-white`}>
@@ -71,11 +77,12 @@ const CourseCard = ({ course, onSelectCourse }) => {
 
       {/* Card Footer Metadata */}
       <div className="card-meta-footer mt-auto pt-3 pb-1 border-top border-secondary-subtle d-flex justify-content-between align-items-center gap-3 mb-3">
-        <span className="extra-small text-secondary fw-semibold">
-          Level: <strong className="text-white ms-1">{level}</strong>
+        <span className={`level-badge ${getLevelBadgeClass(level)}`}>
+          <span className="level-dot"></span>
+          <span>{level}</span>
         </span>
         <span className="duration-chip text-cyan extra-small fw-bold">
-          <FaClock style={{ marginRight: '6px' }} />
+          <FaClock style={{ marginRight: '5px' }} />
           <span>{duration}</span>
         </span>
       </div>
@@ -85,7 +92,7 @@ const CourseCard = ({ course, onSelectCourse }) => {
           onClick={() => onSelectCourse(course)}
           className="enroll-btn w-100 d-inline-flex align-items-center justify-content-center"
         >
-          <FaLayerGroup size={14} style={{ marginRight: '8px' }} />
+          <FaLayerGroup size={13} style={{ marginRight: '8px' }} />
           <span>View Syllabus & Projects</span>
         </button>
         <a 
@@ -94,7 +101,7 @@ const CourseCard = ({ course, onSelectCourse }) => {
           rel="noopener noreferrer" 
           className="watch-btn w-100 text-center d-inline-flex align-items-center justify-content-center"
         >
-          <FaYoutube size={15} className="text-danger" style={{ marginRight: '8px' }} />
+          <FaYoutube size={14} className="text-danger" style={{ marginRight: '8px' }} />
           <span>Watch Intro on YouTube</span>
         </a>
       </div>
@@ -319,10 +326,13 @@ const TrainingHub = ({ onBack }) => {
         {/* Pathfinder Quiz Launcher Pill */}
         <button 
           onClick={() => setShowPathfinderModal(true)} 
-          className="back-btn-capsule text-cyan"
-          style={{ borderColor: 'rgba(0, 229, 255, 0.35)', background: 'rgba(0, 229, 255, 0.06)' }}
+          className="back-btn-capsule pathfinder-btn"
         >
-          🎯 Pathfinder Quiz <strong className="ms-1">— Match Your Skill & Goals</strong>
+          <svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round" style={{ color: 'var(--accent-primary)' }}>
+            <circle cx="12" cy="12" r="10"></circle>
+            <polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"></polygon>
+          </svg>
+          <span>Pathfinder Skill Match</span>
         </button>
       </div>
 

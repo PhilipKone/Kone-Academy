@@ -249,86 +249,181 @@
 
 /* Premium Action Buttons on Cards */
 .enroll-btn {
-  background: linear-gradient(135deg, #00e5ff, #bd00ff) !important;
-  color: #060913 !important;
+  background: var(--accent-primary) !important;
+  color: #080c14 !important;
   border: none !important;
-  font-weight: 750 !important;
-  border-radius: 10px !important;
+  font-weight: 700 !important;
+  border-radius: 12px !important;
   padding: 10px 16px !important;
-  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1) !important;
-  box-shadow: 0 4px 15px rgba(0, 229, 255, 0.15) !important;
+  transition: all 0.18s cubic-bezier(0.16, 1, 0.3, 1) !important;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3) !important;
   text-decoration: none;
   display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: 8px;
-  font-size: 0.85rem;
+  font-size: 0.84rem;
   cursor: pointer;
 }
 
 .enroll-btn:hover {
-  transform: translateY(-1.5px) !important;
-  box-shadow: 0 6px 20px rgba(0, 229, 255, 0.35) !important;
   filter: brightness(1.1) !important;
+  transform: translateY(-1px) !important;
+  box-shadow: 0 4px 16px rgba(0, 229, 255, 0.25) !important;
+}
+
+.enroll-btn:active {
+  transform: scale(0.98) !important;
 }
 
 .watch-btn {
   background: rgba(255, 255, 255, 0.03) !important;
-  color: #fff !important;
-  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  color: #f8fafc !important;
+  border: 1px solid rgba(255, 255, 255, 0.08) !important;
   font-weight: 600 !important;
-  border-radius: 10px !important;
+  border-radius: 12px !important;
   padding: 10px 16px !important;
-  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1) !important;
+  transition: all 0.18s cubic-bezier(0.16, 1, 0.3, 1) !important;
   text-decoration: none;
   display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: 8px;
-  font-size: 0.85rem;
+  font-size: 0.84rem;
   cursor: pointer;
 }
 
 .watch-btn:hover {
-  background: rgba(255, 255, 255, 0.08) !important;
-  border-color: #ef4444 !important;
-  box-shadow: 0 0 15px rgba(239, 68, 68, 0.15) !important;
-  transform: translateY(-1.5px) !important;
+  background: rgba(255, 255, 255, 0.06) !important;
+  border-color: rgba(255, 255, 255, 0.18) !important;
+  color: #fff !important;
+  transform: translateY(-1px) !important;
+}
+
+.watch-btn:active {
+  transform: scale(0.98) !important;
 }
 
 /* Waffle Nav Tabs Premium Filters */
 .nav-tabs-premium {
   display: flex;
   justify-content: center;
-  gap: 12px;
-  margin-bottom: 40px;
+  gap: 6px;
+  margin-bottom: 36px;
+  background: rgba(15, 23, 42, 0.8);
+  padding: 4px;
+  border-radius: 14px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  max-width: fit-content;
+  margin-left: auto;
+  margin-right: auto;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+
+.nav-tabs-premium::-webkit-scrollbar {
+  display: none;
 }
 
 .tab-btn-premium {
-  background: rgba(255, 255, 255, 0.03);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  padding: 10px 22px;
-  border-radius: 30px;
-  color: rgba(255, 255, 255, 0.6);
-  font-size: 0.9rem;
-  font-weight: 700;
+  background: transparent;
+  border: none;
+  padding: 8px 18px;
+  border-radius: 10px;
+  color: #94a3b8;
+  font-size: 0.84rem;
+  font-weight: 600;
   cursor: pointer;
-  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: all 0.18s cubic-bezier(0.16, 1, 0.3, 1);
+  white-space: nowrap;
   outline: none;
 }
 
 .tab-btn-premium:hover {
-  color: #fff;
-  background: rgba(255, 255, 255, 0.08);
-  border-color: rgba(255, 255, 255, 0.2);
-  transform: translateY(-1px);
+  color: #f8fafc;
 }
 
 .tab-btn-premium.active {
-  color: #060913 !important;
-  background: linear-gradient(135deg, #00e5ff, #bd00ff) !important;
-  border-color: transparent !important;
-  box-shadow: 0 4px 15px rgba(0, 229, 255, 0.3) !important;
+  color: #ffffff !important;
+  background: rgba(30, 41, 59, 0.95) !important;
+  border: 1px solid rgba(255, 255, 255, 0.15) !important;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.4) !important;
+}
+
+/* Level Badges with Semantic Indicators */
+.level-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.72rem;
+  font-weight: 600;
+  padding: 3px 10px;
+  border-radius: 20px;
+}
+
+.level-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+}
+
+.level-badge-beginner {
+  background: rgba(16, 185, 129, 0.1);
+  border: 1px solid rgba(16, 185, 129, 0.25);
+  color: #10b981;
+}
+
+.level-badge-beginner .level-dot {
+  background: #10b981;
+  box-shadow: 0 0 6px rgba(16, 185, 129, 0.5);
+}
+
+.level-badge-intermediate {
+  background: rgba(245, 158, 11, 0.1);
+  border: 1px solid rgba(245, 158, 11, 0.25);
+  color: #f59e0b;
+}
+
+.level-badge-intermediate .level-dot {
+  background: #f59e0b;
+  box-shadow: 0 0 6px rgba(245, 158, 11, 0.5);
+}
+
+.level-badge-advanced {
+  background: rgba(99, 102, 241, 0.1);
+  border: 1px solid rgba(99, 102, 241, 0.25);
+  color: #818cf8;
+}
+
+.level-badge-advanced .level-dot {
+  background: #818cf8;
+  box-shadow: 0 0 6px rgba(99, 102, 241, 0.5);
+}
+
+/* Pathfinder CTA Pill */
+.pathfinder-btn {
+  background: rgba(59, 130, 246, 0.08) !important;
+  border: 1px solid rgba(59, 130, 246, 0.25) !important;
+  color: #f8fafc !important;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 600;
+  font-size: 0.85rem;
+  padding: 8px 16px;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.pathfinder-btn:hover {
+  background: rgba(59, 130, 246, 0.15) !important;
+  border-color: var(--accent-primary) !important;
+  transform: translateY(-1px);
+}
+
+.pathfinder-btn:active {
+  transform: scale(0.97);
 }
 
 /* Modal Overlay & Drawer Styles */
