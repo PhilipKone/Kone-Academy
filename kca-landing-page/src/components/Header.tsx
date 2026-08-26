@@ -104,7 +104,6 @@ const Header: React.FC<HeaderProps> = ({ onOpenOnboarding }) => {
           <a href="/school" className="nav-link" onClick={(e) => handleNav(e, '/school')}>School</a>
           <a href="/blog" className="nav-link" onClick={(e) => handleNav(e, '/blog')}>Blog</a>
           <a href="#vision" className="nav-link" onClick={closeMobileMenu}>Vision</a>
-          <a href="#divisions" className="nav-link" onClick={closeMobileMenu}>Divisions</a>
           <div className="mobile-actions">
             <div className="mobile-actions-row">
               <AppLauncher />

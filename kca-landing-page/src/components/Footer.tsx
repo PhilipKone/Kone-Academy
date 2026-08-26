@@ -52,10 +52,10 @@ const Footer = ({ onOpenPrivacy, onOpenTerms }) => {
           <div className="link-group">
             <h3>Platform</h3>
             <a href="/training" onClick={(e) => handleNav(e, '/training')}>Academy Courses</a>
+            <a href="/school" onClick={(e) => handleNav(e, '/school')}>Kone School</a>
             <a href="/verify" onClick={(e) => handleNav(e, '/verify')}>Verify Credentials</a>
             <a href="/sitemap" onClick={(e) => handleNav(e, '/sitemap')}>Sitemap</a>
             <a href="#vision">Vision</a>
-            <a href="#divisions">Divisions</a>
           </div>
           <div className="link-group">
             <h3>Research</h3>

@@ -3,7 +3,6 @@ import './App.css';
 import Header from './components/Header';
 import Hero from './components/Hero';
 import Vision from './components/Vision';
-import Divisions from './components/Divisions';
 import Services from './components/Services';
 import CTA from './components/CTA';
 import Careers from './components/Careers';
@@ -21,7 +20,6 @@ const KoneFarms = React.lazy(() => import('./components/KoneFarms'));
 const LocalSEOPage = React.lazy(() => import('./pages/LocalSEOPage'));
 const TrainingHub = React.lazy(() => import('./pages/TrainingHub'));
 const Protocols = React.lazy(() => import('./pages/Protocols'));
-const Documentation = React.lazy(() => import('./pages/Documentation'));
 const Sitemap = React.lazy(() => import('./pages/Sitemap'));
 const CertificateValidator = React.lazy(() => import('./components/CertificateValidator'));
 const SchoolPage = React.lazy(() => import('./pages/SchoolPage'));
@@ -187,7 +185,6 @@ function App() {
             <main id="main-content">
               <Hero onOpenOnboarding={handleOpenOnboarding} />
               <Vision />
-              <Divisions />
               <Services onOpenOnboarding={handleOpenOnboarding} />
               <Careers />
               <FAQ />
