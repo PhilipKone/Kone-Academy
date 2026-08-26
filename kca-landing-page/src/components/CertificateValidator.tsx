@@ -12,6 +12,7 @@ const CertificateValidator = ({ onBack }) => {
   const [certData, setCertData] = useState(null);
   const [cryptoHash, setCryptoHash] = useState('');
   const [searched, setSearched] = useState(false);
+  const [isVerifying, setIsVerifying] = useState(false);
 
   // Check URL query parameters for direct verification link (e.g. /verify?id=KONE-2026-X8419)
   useEffect(() => {
@@ -36,51 +37,81 @@ const CertificateValidator = ({ onBack }) => {
 
   const verifyToken = async (inputToken) => {
     const token = inputToken.trim().toUpperCase();
-    setSearched(true);
-
     if (!token) {
       setCertData(null);
+      setSearched(false);
       return;
     }
 
-    // Try live Firestore Cloud Database query first
+    setIsVerifying(true);
+
+    let foundRecord = null;
+
+    // 1. Check localStorage reservations cache first for instantaneous offline/local validation
     try {
-      const { collection, query, where, getDocs } = await import('firebase/firestore');
-      const { db } = await import('../firebase/config');
-
-      if (db) {
-        const q = query(collection(db, 'student_reservations'), where('token', '==', token));
-        const querySnapshot = await getDocs(q);
-
-        if (!querySnapshot.empty) {
-          const docData = querySnapshot.docs[0].data();
-          const verifiedRecord = {
-            id: token,
-            studentName: docData.fullName,
-            status: "VERIFIED & AUTHENTIC",
-            issueDate: new Date(docData.date || Date.now()).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' }),
-            track: docData.track,
-            division: docData.division,
-            format: docData.format,
-            capstone: `${docData.track} Capstone Build`
-          };
-
-          setCertData(verifiedRecord);
-          const hash = await generateSHA256(`${token}-${docData.track}-KONE-ACADEMY-2026`);
-          setCryptoHash(hash);
-          return;
-        }
+      const localReservations = JSON.parse(localStorage.getItem('kone_academy_reservations') || '[]');
+      const match = localReservations.find((r) => r.token && r.token.toUpperCase() === token);
+      if (match) {
+        foundRecord = {
+          id: token,
+          studentName: match.fullName,
+          status: "VERIFIED & AUTHENTIC",
+          issueDate: new Date(match.date || Date.now()).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' }),
+          track: match.track,
+          division: match.division,
+          format: match.format,
+          capstone: `${match.track} Capstone Build`
+        };
       }
-    } catch (err) {
-      console.warn('Firestore cloud verification query fallback:', err);
+    } catch (e) {
+      console.warn('Local storage check fallback:', e);
     }
 
-    // Fallback to local structural verification
-    if (token.startsWith('KONE-') || token.startsWith('KCA-') || token.length >= 8) {
-      const divisionKey = token.includes('PAY') ? 'Pay' : token.includes('AI') ? 'AI' : token.includes('FARMS') ? 'Farms' : 'Code';
+    // 2. If not in localStorage, query live Firestore Cloud Database
+    if (!foundRecord) {
+      try {
+        const { collection, query, where, getDocs } = await import('firebase/firestore');
+        const { db } = await import('../firebase/config');
+
+        if (db) {
+          const q = query(collection(db, 'student_reservations'), where('token', '==', token));
+          const querySnapshot = await getDocs(q);
+
+          if (!querySnapshot.empty) {
+            const docData = querySnapshot.docs[0].data();
+            foundRecord = {
+              id: token,
+              studentName: docData.fullName,
+              status: "VERIFIED & AUTHENTIC",
+              issueDate: new Date(docData.date || Date.now()).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' }),
+              track: docData.track,
+              division: docData.division,
+              format: docData.format,
+              capstone: `${docData.track} Capstone Build`
+            };
+          }
+        }
+      } catch (err) {
+        console.warn('Firestore cloud verification query fallback:', err);
+      }
+    }
+
+    // 3. Fallback to structural division verification if token matches official Academy scheme
+    if (!foundRecord && (token.startsWith('KONE-') || token.startsWith('KCA-') || token.length >= 8)) {
+      const divisionKey = token.includes('PAY') ? 'Pay' 
+        : token.includes('AI') ? 'AI' 
+        : token.includes('FARMS') ? 'Farms' 
+        : token.includes('WARP') ? 'Warp'
+        : token.includes('LAB') ? 'Lab'
+        : token.includes('KIDS') ? 'Kids'
+        : token.includes('DIGITAL') ? 'Digital'
+        : token.includes('CONSULT') ? 'Consult'
+        : token.includes('TECH') ? 'Tech'
+        : 'Code';
+
       const matchedTrack = courses.find(c => c.division.toLowerCase() === divisionKey.toLowerCase()) || courses[0];
 
-      const verifiedRecord = {
+      foundRecord = {
         id: token,
         status: "VERIFIED & AUTHENTIC",
         issueDate: "2026 Active Cohort Registry",
@@ -91,15 +122,18 @@ const CertificateValidator = ({ onBack }) => {
         stack: matchedTrack.finalProduct.stack,
         microProjects: matchedTrack.microProjects.map(mp => mp.title)
       };
+    }
 
-      setCertData(verifiedRecord);
-
-      generateSHA256(`${token}-${matchedTrack.title}-KONE-ACADEMY-2026`).then(hash => {
-        setCryptoHash(hash);
-      });
+    if (foundRecord) {
+      const hash = await generateSHA256(`${token}-${foundRecord.track}-KONE-ACADEMY-2026`);
+      setCryptoHash(hash);
+      setCertData(foundRecord);
     } else {
       setCertData(null);
     }
+
+    setIsVerifying(false);
+    setSearched(true);
   };
 
   const handleSearchSubmit = (e) => {
@@ -166,7 +200,21 @@ const CertificateValidator = ({ onBack }) => {
           {/* Body Results Content */}
           <div className="cert-body-content">
             <AnimatePresence mode="wait">
-              {!searched && !certData ? (
+              {isVerifying ? (
+                <motion.div 
+                  key="verifying"
+                  initial={{ opacity: 0, scale: 0.98 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  exit={{ opacity: 0, scale: 0.98 }}
+                  className="text-center py-4"
+                >
+                  <div className="cert-shield-badge mx-auto mb-3 animate-spin">
+                    <FaShieldAlt />
+                  </div>
+                  <h4 className="h5 text-white fw-bold mb-1">Verifying Ledger Cryptographic Record</h4>
+                  <p className="text-secondary small mb-0">Querying SHA-256 signatures & student registry...</p>
+                </motion.div>
+              ) : !searched && !certData ? (
                 <motion.div 
                   key="initial"
                   initial={{ opacity: 0, y: 10 }}
@@ -207,24 +255,27 @@ const CertificateValidator = ({ onBack }) => {
                   className="cert-card-display"
                 >
                   {/* Top Watermark Header */}
-                  <div className="cert-card-top p-4 d-flex justify-content-between align-items-start flex-wrap gap-3">
-                    <div>
-                      <span className="cert-status-badge text-success mb-2">
-                        <FaCheckCircle className="me-1" /> {certData.status}
-                      </span>
+                  <div className="cert-card-top">
+                    <div className="cert-top-left">
+                      <div className="cert-badge-row">
+                        <span className="cert-status-badge">
+                          <FaCheckCircle size={12} />
+                          <span>{certData.status}</span>
+                        </span>
+                      </div>
                       {certData.studentName && (
-                        <div className="text-cyan fw-bold h5 mb-1">{certData.studentName}</div>
+                        <div className="cert-student-name-highlight">{certData.studentName}</div>
                       )}
-                      <h2 className="cert-student-name h4 text-white fw-bold mb-1">{certData.track}</h2>
-                      <span className="cert-track-title text-info extra-small fw-semibold text-uppercase" style={{ letterSpacing: '1px' }}>
+                      <h2 className="cert-track-heading">{certData.track}</h2>
+                      <span className="cert-division-subtitle">
                         Kone {certData.division || 'Academy'} Technology Division
                       </span>
                     </div>
 
-                    <div className="text-start text-md-end">
-                      <span className="extra-small text-secondary d-block uppercase-lbl mb-1">ISSUING AUTHORITY</span>
-                      <strong className="text-white small fw-bold d-block mb-1">Kone Academy</strong>
-                      <span className="extra-small text-cyan font-monospace d-block">ID: {certData.id}</span>
+                    <div className="cert-top-right-meta">
+                      <span className="meta-auth-label">ISSUING AUTHORITY</span>
+                      <strong className="meta-auth-val">Kone Academy</strong>
+                      <span className="meta-auth-id">ID: {certData.id}</span>
                     </div>
                   </div>
 
