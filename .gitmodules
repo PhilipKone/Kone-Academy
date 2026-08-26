@@ -4,6 +4,9 @@
 [submodule "Kone-Shop"]
 	path = Kone-Shop
 	url = https://github.com/PhilipKone/Kone-Shop.git
+[submodule "Kone-Tech"]
+	path = Kone-Tech
+	url = https://github.com/PhilipKone/Kone-Tech.git
 [submodule "anim-studio"]
 	path = anim-studio
 	url = https://github.com/PhilipKone/anim-studio.git

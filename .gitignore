@@ -76,11 +76,12 @@ Kone-Consult/
 Kone-Lab/
 Kone-Kids/
 kone-consult-web/
-agency/
-gif_export_tool/
-scripts/
-tools/
-types/
+/agency/
+/gif_export_tool/
+/scripts/
+/tools/
+/types/
+!kca-landing-page/scripts/**
 Kone-Digital/
 Kone-Warp/
 
