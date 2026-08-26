@@ -67,7 +67,7 @@ const CertificateValidator = ({ onBack }) => {
       console.warn('Local storage check fallback:', e);
     }
 
-    // 2. If not in localStorage, query live Firestore Cloud Database
+    // 2. If not in localStorage, query live Firestore Cloud Database (with fast 1.2s timeout)
     if (!foundRecord) {
       try {
         const { collection, query, where, getDocs } = await import('firebase/firestore');
@@ -75,9 +75,10 @@ const CertificateValidator = ({ onBack }) => {
 
         if (db) {
           const q = query(collection(db, 'student_reservations'), where('token', '==', token));
-          const querySnapshot = await getDocs(q);
+          const timeoutPromise = new Promise((_, reject) => setTimeout(() => reject(new Error('Firestore timeout')), 1200));
+          const querySnapshot: any = await Promise.race([getDocs(q), timeoutPromise]);
 
-          if (!querySnapshot.empty) {
+          if (querySnapshot && !querySnapshot.empty) {
             const docData = querySnapshot.docs[0].data();
             foundRecord = {
               id: token,
