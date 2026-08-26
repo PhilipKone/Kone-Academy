@@ -174,10 +174,10 @@ const CertificateValidator = ({ onBack }) => {
               <FaShieldAlt />
             </div>
             <h1 className="h3 text-white fw-bold mb-2">
-              Cryptographic Credential Verification Registry
+              Official Certificate Verification Registry
             </h1>
             <p className="text-secondary small max-w-lg mx-auto mb-4">
-              Official verification portal for Kone Academy cohort certificates, seat reservations, and SHA-256 signatures.
+              Official portal for verifying authentic Kone Academy graduate credentials, completed project milestones, and SHA-256 signatures.
             </p>
 
             {/* Search Bar Form */}
@@ -186,13 +186,13 @@ const CertificateValidator = ({ onBack }) => {
                 <FaSearch className="search-icon text-secondary" />
                 <input 
                   type="text"
-                  placeholder="Enter Certificate ID or Token (e.g. KONE-2026-PAY-8492)"
+                  placeholder="Enter Certificate ID (e.g. KCA-2026-PAY-8492)"
                   value={searchId}
                   onChange={e => setSearchId(e.target.value)}
                   className="cert-search-input"
                 />
                 <button type="submit" className="cert-submit-btn">
-                  Verify Token
+                  Verify Certificate
                 </button>
               </div>
             </form>
@@ -212,8 +212,8 @@ const CertificateValidator = ({ onBack }) => {
                   <div className="cert-shield-badge mx-auto mb-3 animate-spin">
                     <FaShieldAlt />
                   </div>
-                  <h4 className="h5 text-white fw-bold mb-1">Verifying Ledger Cryptographic Record</h4>
-                  <p className="text-secondary small mb-0">Querying SHA-256 signatures & student registry...</p>
+                  <h4 className="h5 text-white fw-bold mb-1">Verifying Certificate Cryptographic Record</h4>
+                  <p className="text-secondary small mb-0">Querying SHA-256 signatures & graduate registry...</p>
                 </motion.div>
               ) : !searched && !certData ? (
                 <motion.div 
@@ -225,9 +225,9 @@ const CertificateValidator = ({ onBack }) => {
                   <div className="cert-lock-icon mx-auto mb-3">
                     <FaLock />
                   </div>
-                  <h4 className="h5 text-white fw-bold mb-2">Registry Ready for Verification</h4>
+                  <h4 className="h6 text-white fw-bold mb-1">Registry Ready for Verification</h4>
                   <p className="text-secondary small max-w-md mx-auto mb-0">
-                    Enter an issued Certificate ID or Reservation Token above to verify authentic student credentials and view verified project achievements.
+                    Enter an issued Certificate ID above to verify authentic student credentials and view verified project achievements.
                   </p>
                 </motion.div>
               ) : searched && !certData ? (

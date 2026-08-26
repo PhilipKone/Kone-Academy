@@ -3,7 +3,7 @@ import { createPortal } from 'react-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { 
   FaTimes, FaUser, FaEnvelope, FaWhatsapp,
-  FaCheckCircle, FaRocket, FaDownload, FaExternalLinkAlt,
+  FaCheckCircle, FaRocket, FaDownload,
   FaCalendarAlt, FaLaptopCode
 } from 'react-icons/fa';
 import './OnboardingModal.css';
@@ -135,7 +135,7 @@ const OnboardingModal: React.FC<OnboardingModalProps> = ({ isOpen, onClose, defa
 
   const generatePDFSummary = () => {
     const syllabusText = `=====================================================
-KONE ACADEMY - OFFICIAL COHORT RESERVATION & SYLLABUS
+KONE ACADEMY - OFFICIAL COURSE SYLLABUS & ENROLLMENT
 =====================================================
 Student Name:      ${formData.fullName.trim()}
 Email Address:     ${formData.email.trim()}
@@ -145,28 +145,25 @@ ENROLLMENT DETAILS:
 Selected Track:    ${formData.track}
 Academy Division:  Kone ${formData.division} Division
 Format:            ${formData.format}
-Reservation Token: ${reservationToken}
-Date Generated:    ${new Date().toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })}
+Date Enrolled:     ${new Date().toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })}
 =====================================================
 CURRICULUM ARCHITECTURE & CHECKPOINTS:
 - 4 Module Micro-Projects (Hands-on Engineering Checkpoints)
 - 2 Integration Mini-Projects (Sub-system Architecture)
 - 1 Live Capstone Production Deployment
 
-PUBLIC CRYPTOGRAPHIC VERIFICATION:
-Verify this reservation token anytime in the active registry at:
-https://www.koneacademy.io/verify?id=${reservationToken}
-=====================================================
-ADMIN CONTACT & DISPATCH:
-Support desk: support@koneacademy.io
-Direct inquiries: philipkone45@gmail.com
+SUPPORT & ADMISSIONS:
+Admissions Desk:   admissions@koneacademy.io
+Direct Inquiries:  philipkone45@gmail.com / phconsultgh@gmail.com
+WhatsApp Support:  +233 55 199 3820
+Website:           https://www.koneacademy.io
 =====================================================`;
 
     const blob = new Blob([syllabusText], { type: 'text/plain' });
     const url = URL.createObjectURL(blob);
     const link = document.createElement('a');
     link.href = url;
-    link.download = `Kone_Academy_Syllabus_${formData.division}_${reservationToken}.txt`;
+    link.download = `Kone_Academy_Syllabus_${formData.division}.txt`;
     link.click();
     URL.revokeObjectURL(url);
   };
@@ -303,7 +300,7 @@ Direct inquiries: philipkone45@gmail.com
                     ) : (
                       <>
                         <FaRocket size={13} />
-                        <span>Reserve My Seat & Generate Token</span>
+                        <span>Complete Registration & Reserve Seat</span>
                       </>
                     )}
                   </button>
@@ -320,32 +317,45 @@ Direct inquiries: philipkone45@gmail.com
               className="onboarding-success-wrap"
             >
               <div className="success-icon-badge">
-                <FaCheckCircle size={32} />
+                <FaCheckCircle size={30} />
               </div>
 
-              <h3 className="success-title">Seat Officially Reserved!</h3>
+              <h3 className="success-title">Registration Confirmed!</h3>
               <p className="success-subtitle">
-                Welcome <strong className="text-white">{formData.fullName}</strong>. Your seat in <strong className="text-white">{formData.track}</strong> is confirmed.
+                Thank you, <strong className="text-white">{formData.fullName}</strong>. Your seat for the <strong className="text-cyan">{formData.track}</strong> ({formData.format}) has been reserved.
               </p>
 
-              <div className="token-display-box">
-                <span className="token-label">VERIFIED RESERVATION TOKEN</span>
-                <span className="token-code">{reservationToken}</span>
-                <a 
-                  href={`/verify?id=${reservationToken}`} 
-                  target="_blank" 
-                  rel="noreferrer"
-                  className="token-verify-link"
-                >
-                  <span>Verify Registry Authenticity</span>
-                  <FaExternalLinkAlt size={10} />
-                </a>
+              {/* Next Steps Notification Box */}
+              <div className="success-steps-box">
+                <div className="step-card-item">
+                  <div className="step-card-icon-wrap email-icon">
+                    <FaEnvelope size={14} />
+                  </div>
+                  <div className="step-card-body">
+                    <strong className="step-card-heading">Check Your Email</strong>
+                    <span className="step-card-text">
+                      We've dispatched curriculum details and kickoff roadmap to <strong className="text-white">{formData.email}</strong>.
+                    </span>
+                  </div>
+                </div>
+
+                <div className="step-card-item">
+                  <div className="step-card-icon-wrap whatsapp-icon">
+                    <FaWhatsapp size={16} />
+                  </div>
+                  <div className="step-card-body">
+                    <strong className="step-card-heading">WhatsApp Onboarding</strong>
+                    <span className="step-card-text">
+                      Our admissions desk will reach out {formData.phone ? <>at <strong className="text-white">{formData.phone}</strong></> : 'shortly'} with your cohort group invite and lab access.
+                    </span>
+                  </div>
+                </div>
               </div>
 
               <div className="success-actions-stack">
                 <button className="enroll-btn w-100" onClick={generatePDFSummary}>
                   <FaDownload size={13} />
-                  <span>Download Syllabus & Reservation Receipt</span>
+                  <span>Download Course Syllabus</span>
                 </button>
                 <button className="watch-btn w-100" onClick={onClose}>
                   <span>Done & Return to Courses</span>
