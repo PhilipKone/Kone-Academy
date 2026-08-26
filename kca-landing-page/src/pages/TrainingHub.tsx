@@ -128,43 +128,43 @@ const CourseDetailsModal = ({ course, onClose, onOpenOnboarding }) => {
       <motion.div 
         className="modal-content-glass" 
         onClick={e => e.stopPropagation()}
-        initial={{ opacity: 0, scale: 0.95, y: 0 }}
+        initial={{ opacity: 0, scale: 0.96, y: 10 }}
         animate={{ opacity: 1, scale: 1, y: 0 }}
-        exit={{ opacity: 0, scale: 0.95, y: 0 }}
-        transition={{ duration: 0.25 }}
+        exit={{ opacity: 0, scale: 0.96, y: 10 }}
+        transition={{ duration: 0.22, ease: [0.16, 1, 0.3, 1] }}
       >
         <button className="modal-close-btn" onClick={onClose} aria-label="Close modal">
-          <FaTimes size={16} />
+          <FaTimes size={14} />
         </button>
 
         {/* Modal Header */}
-        <div className="modal-header-box mb-4">
-          <div className={`glass-icon ${course.colorClass}`} style={{ width: '56px', height: '56px', fontSize: '1.5rem', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
+        <div className="modal-header-box">
+          <div className={`modal-header-icon ${course.colorClass}`}>
             <IconComponent />
           </div>
-          <div>
-            <span className={`badge-pill bg-${course.colorClass.replace('text-', '')} text-white mb-2 d-inline-block`}>
+          <div className="modal-header-text">
+            <span className="modal-track-badge">
               Kone {course.division} Track
             </span>
-            <h2 className="h4 text-white fw-bold mb-0 modal-title">{course.title}</h2>
+            <h2 className="modal-title">{course.title}</h2>
           </div>
         </div>
 
-        <p className="modal-description text-secondary mb-4">{course.description}</p>
+        <p className="modal-description">{course.description}</p>
 
         {/* 3 Stats Chips in Clean Grid */}
-        <div className="modal-stats-grid mb-4">
+        <div className="modal-stats-grid">
           <div className="modal-stat-card">
             <span className="stat-label">LEVEL</span>
-            <strong className="stat-value text-white">{course.level}</strong>
+            <strong className="stat-value">{course.level}</strong>
           </div>
           <div className="modal-stat-card">
             <span className="stat-label">DURATION</span>
-            <strong className="stat-value text-white">{course.duration}</strong>
+            <strong className="stat-value">{course.duration}</strong>
           </div>
           <div className="modal-stat-card">
-            <span className="stat-label">CURRICULUM BUILDS</span>
-            <strong className="stat-value text-cyan">4 Micro + 2 Mini + 1 Capstone</strong>
+            <span className="stat-label">BUILDS</span>
+            <strong className="stat-value text-accent">4 Micro + 2 Mini + 1 Final</strong>
           </div>
         </div>
 
@@ -174,58 +174,77 @@ const CourseDetailsModal = ({ course, onClose, onOpenOnboarding }) => {
         )}
 
         {/* 4 Micro-Projects */}
-        <div className="mb-4">
-          <h4 className="h6 text-gradient fw-bold mb-3 d-flex align-items-center gap-2 modal-section-heading">
-            <FaCheckCircle className="text-info" /> 4 Module Micro-Projects
+        <div className="modal-section-block">
+          <h4 className="modal-section-heading">
+            <FaCheckCircle className="heading-icon text-info" /> 
+            <span>4 Module Micro-Projects</span>
           </h4>
           <div className="projects-grid-container">
             {course.microProjects.map((mp, index) => (
               <div key={index} className="project-card-item micro-card">
-                <div className="fw-semibold text-white mb-1 project-title">{mp.title}</div>
-                <div className="text-secondary project-desc">{mp.description}</div>
+                <div className="project-card-header">
+                  <span className="project-step-badge">0{index + 1}</span>
+                  <span className="project-title">{mp.title}</span>
+                </div>
+                <div className="project-desc">{mp.description}</div>
               </div>
             ))}
           </div>
         </div>
 
         {/* 2 Mini-Projects */}
-        <div className="mb-4">
-          <h4 className="h6 text-gradient fw-bold mb-3 d-flex align-items-center gap-2 modal-section-heading">
-            <FaTools className="text-warning" /> 2 Integration Mini-Projects
+        <div className="modal-section-block">
+          <h4 className="modal-section-heading">
+            <FaTools className="heading-icon text-warning" /> 
+            <span>2 Integration Mini-Projects</span>
           </h4>
           <div className="projects-grid-container">
             {course.miniProjects.map((mini, index) => (
               <div key={index} className="project-card-item mini-card">
-                <div className="fw-semibold text-white mb-1 project-title">{mini.title}</div>
-                <div className="text-secondary project-desc">{mini.description}</div>
+                <div className="project-card-header">
+                  <span className="project-step-badge warning-step">0{index + 1}</span>
+                  <span className="project-title">{mini.title}</span>
+                </div>
+                <div className="project-desc">{mini.description}</div>
               </div>
             ))}
           </div>
         </div>
 
         {/* 1 Final Product */}
-        <div className="mb-4 final-product-banner">
-          <div className="extra-small text-success fw-bold text-uppercase letter-spacing-1 mb-1 d-inline-flex align-items-center">
-            <FaRocket style={{ marginRight: '6px' }} /> Capstone Project Build
+        <div className="final-product-banner">
+          <div className="capstone-header-row">
+            <span className="capstone-tag">
+              <FaRocket size={12} />
+              <span>Capstone Build</span>
+            </span>
           </div>
-          <h4 className="h5 text-white fw-bold mb-2">{course.finalProduct.title}</h4>
-          <p className="text-secondary small mb-3">{course.finalProduct.description}</p>
-          <div className="stack-badge text-cyan">
-            <strong className="me-1">Tech Stack:</strong> {course.finalProduct.stack}
+          <h4 className="capstone-title">{course.finalProduct.title}</h4>
+          <p className="capstone-desc">{course.finalProduct.description}</p>
+          <div className="capstone-stack-row">
+            <span className="stack-label">Stack:</span>
+            <div className="stack-chips-wrap">
+              {course.finalProduct.stack.split(',').map((tech, i) => (
+                <span key={i} className="stack-chip">
+                  {tech.trim()}
+                </span>
+              ))}
+            </div>
           </div>
         </div>
 
-        <div className="d-flex flex-wrap gap-3 mt-4 modal-actions">
+        {/* Modal Actions */}
+        <div className="modal-actions-bar">
           <button
             onClick={() => {
               onClose();
               onOpenOnboarding(course);
             }}
-            className="enroll-btn flex-grow-1 text-center"
+            className="enroll-btn modal-enroll-cta"
           >
             Enroll Now in Cohort
           </button>
-          <button className="watch-btn" onClick={onClose}>
+          <button className="watch-btn modal-close-cta" onClick={onClose}>
             Close Preview
           </button>
         </div>
