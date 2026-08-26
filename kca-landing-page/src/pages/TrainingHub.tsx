@@ -50,58 +50,60 @@ const CourseCard = ({ course, onSelectCourse }) => {
   };
 
   return (
-    <div className="glass-card hover-y transition-all h-100 training-card">
-      <div className="d-flex justify-content-between align-items-center mb-3">
-        <div className={`glass-icon ${colorClass}`} style={{ width: '48px', height: '48px', fontSize: '1.25rem', display: 'flex', alignItems: 'center', justifyContent: 'center', borderRadius: '12px' }}>
+    <div className="training-card">
+      <div className="training-card-header">
+        <div className={`card-icon-badge ${colorClass}`}>
           <IconComponent />
         </div>
-        <div className={`badge-pill bg-${colorClass.replace('text-', '')} text-white`}>
+        <span className="card-division-badge">
           Kone {division}
-        </div>
+        </span>
       </div>
 
-      <h3 className="h6 text-white fw-bold mb-2 card-title-text">{title}</h3>
-      <p className="text-secondary small mb-3 flex-grow-1 card-description">{description}</p>
+      <div className="training-card-body">
+        <h3 className="card-title-text">{title}</h3>
+        <p className="card-description">{description}</p>
 
-      {/* Clean Skills Badges Group */}
-      <div className="skills-badge-group mb-3">
-        {skills.slice(0, 4).map((skill, i) => (
-          <span key={i} className="skill-chip">
-            {skill}
-          </span>
-        ))}
-        {skills.length > 4 && (
-          <span className="skill-chip extra-chip">+{skills.length - 4}</span>
-        )}
+        {/* Clean Skills Badges Group */}
+        <div className="skills-badge-group">
+          {skills.slice(0, 3).map((skill, i) => (
+            <span key={i} className="skill-chip">
+              {skill}
+            </span>
+          ))}
+          {skills.length > 3 && (
+            <span className="skill-chip extra-chip">+{skills.length - 3}</span>
+          )}
+        </div>
       </div>
 
       {/* Card Footer Metadata */}
-      <div className="card-meta-footer mt-auto pt-3 pb-1 border-top border-secondary-subtle d-flex justify-content-between align-items-center gap-3 mb-3">
+      <div className="card-meta-footer">
         <span className={`level-badge ${getLevelBadgeClass(level)}`}>
           <span className="level-dot"></span>
           <span>{level}</span>
         </span>
-        <span className="duration-chip text-cyan extra-small fw-bold">
-          <FaClock style={{ marginRight: '5px' }} />
+        <span className="duration-chip">
+          <FaClock size={11} />
           <span>{duration}</span>
         </span>
       </div>
 
-      <div className="d-flex flex-column gap-2">
+      <div className="card-actions-group">
         <button
           onClick={() => onSelectCourse(course)}
-          className="enroll-btn w-100 d-inline-flex align-items-center justify-content-center"
+          className="enroll-btn"
         >
-          <FaLayerGroup size={13} style={{ marginRight: '8px' }} />
+          <FaLayerGroup size={13} />
           <span>View Syllabus & Projects</span>
         </button>
         <a 
           href={youtubeLink} 
           target="_blank" 
           rel="noopener noreferrer" 
-          className="watch-btn w-100 text-center d-inline-flex align-items-center justify-content-center"
+          className="watch-btn"
         >
-          <FaYoutube size={14} className="text-danger" style={{ marginRight: '8px' }} />
+          <FaYoutube size={14} className="youtube-icon" />
           <span>Watch Intro on YouTube</span>
         </a>
       </div>
@@ -314,31 +316,34 @@ const TrainingHub = ({ onBack }) => {
   };
 
   return (
-    <div className="container py-5 min-vh-100 animate-fade-in position-relative">
+    <div className="container py-4 min-vh-100 animate-fade-in position-relative">
       {/* Top Action Navigation Bar */}
-      <div className="d-flex justify-content-between align-items-center mb-5 flex-wrap gap-3">
+      <div className="training-top-nav">
         {onBack ? (
-          <button onClick={onBack} className="back-btn-capsule">
-            <FaChevronLeft className="me-1" /> Back to Main Site
+          <button onClick={onBack} className="nav-action-btn back-btn">
+            <FaChevronLeft size={11} />
+            <span>Main Site</span>
           </button>
-        ) : <div />}
+        ) : (
+          <div />
+        )}
 
         {/* Pathfinder Quiz Launcher Pill */}
         <button 
           onClick={() => setShowPathfinderModal(true)} 
-          className="back-btn-capsule pathfinder-btn"
+          className="nav-action-btn pathfinder-btn"
         >
-          <svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round" style={{ color: 'var(--accent-primary)' }}>
+          <svg viewBox="0 0 24 24" width="14" height="14" stroke="currentColor" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round">
             <circle cx="12" cy="12" r="10"></circle>
             <polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"></polygon>
           </svg>
-          <span>Pathfinder Skill Match</span>
+          <span>Pathfinder Match</span>
         </button>
       </div>
 
       {/* Centered Hero Header */}
       <motion.div 
-        className="training-header-wrapper text-center mb-5"
+        className="training-header-wrapper text-center mb-4"
         initial={{ opacity: 0, y: -15 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.3 }}
@@ -349,17 +354,19 @@ const TrainingHub = ({ onBack }) => {
           Learn how all 12 Kone Technologies are built for the real world. Master 48 Micro-Projects, 24 Mini-Projects, and deploy 12 Production Products.
         </p>
 
-        {/* Pill Category Filters */}
-        <div className="nav-tabs-premium d-flex flex-wrap justify-content-center gap-2 mt-2">
-          {categories.map(topic => (
-            <button
-              key={topic}
-              className={`tab-btn-premium ${activeFilter === topic ? 'active' : ''}`}
-              onClick={() => handleFilterClick(topic)}
-            >
-              {topic === 'All' ? 'All 12 Tracks' : topic}
-            </button>
-          ))}
+        {/* Horizontal Category Filter Rail */}
+        <div className="filter-tabs-container">
+          <div className="filter-tabs-rail">
+            {categories.map(topic => (
+              <button
+                key={topic}
+                className={`tab-btn-premium ${activeFilter === topic ? 'active' : ''}`}
+                onClick={() => handleFilterClick(topic)}
+              >
+                {topic === 'All' ? 'All 12 Tracks' : topic}
+              </button>
+            ))}
+          </div>
         </div>
       </motion.div>
 

@@ -45,62 +45,56 @@
     box-shadow: 0 4px 15px rgba(88, 166, 255, 0.4);
 }
 
-/* Responsive 3-Column Grid Container */
-.tracks-grid-container {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-  gap: 20px;
-  align-items: stretch;
+/* Top Action Navigation Bar */
+.training-top-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 24px;
   width: 100%;
 }
 
-@media (max-width: 576px) {
-  .tracks-grid-container {
-    grid-template-columns: 1fr;
-    gap: 14px;
-  }
-}
-
-@media (min-width: 1200px) {
-  .tracks-grid-container {
-    grid-template-columns: repeat(3, 1fr);
-  }
-}
-
-/* Ensure Training Cards look top-notch and uniform */
-.training-card {
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  background: rgba(15, 23, 42, 0.75) !important;
-  border: 1px solid rgba(255, 255, 255, 0.08) !important;
-  border-radius: 16px !important;
-  padding: 20px !important;
-  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1) !important;
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-}
-
-@media (max-width: 576px) {
-  .training-card {
-    padding: 16px !important;
-    border-radius: 14px !important;
-  }
-}
-
-.training-card:hover {
-  transform: translateY(-2px) !important;
-  border-color: rgba(255, 255, 255, 0.16) !important;
-  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4), 0 0 0 1px rgba(255, 255, 255, 0.05) !important;
-}
-
-/* Specific pill colors for icons on cards */
-.badge-pill {
-  font-size: 0.72rem;
-  padding: 4px 10px;
-  border-radius: 8px;
+.nav-action-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 16px;
+  border-radius: 9999px;
+  font-size: 0.82rem;
   font-weight: 600;
-  letter-spacing: 0.02em;
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.nav-action-btn.back-btn {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: #cbd5e1;
+}
+
+.nav-action-btn.back-btn:hover {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.2);
+  color: #ffffff;
+}
+
+.nav-action-btn.pathfinder-btn {
+  background: rgba(59, 130, 246, 0.08);
+  border: 1px solid rgba(59, 130, 246, 0.25);
+  color: #60a5fa;
+}
+
+.nav-action-btn.pathfinder-btn:hover {
+  background: rgba(59, 130, 246, 0.15);
+  border-color: rgba(59, 130, 246, 0.4);
+  color: #93c5fd;
+}
+
+.nav-action-btn:active {
+  transform: scale(0.97);
 }
 
 /* Header Section Layout & Typography */
@@ -110,7 +104,7 @@
   align-items: center !important;
   justify-content: center !important;
   text-align: center !important;
-  margin: 0 auto 2rem auto !important;
+  margin: 0 auto 2.2rem auto !important;
   max-width: 760px !important;
   width: 100% !important;
 }
@@ -136,22 +130,164 @@
   width: 100% !important;
 }
 
-/* Card Typography & Line Spacing */
+/* Category Filter Tabs Rail */
+.filter-tabs-container {
+  width: 100%;
+  max-width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-top: 8px;
+  overflow: hidden;
+}
+
+.filter-tabs-rail {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(15, 23, 42, 0.9);
+  padding: 4px;
+  border-radius: 9999px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  max-width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+}
+
+.filter-tabs-rail::-webkit-scrollbar {
+  display: none;
+}
+
+.tab-btn-premium {
+  background: transparent;
+  border: none;
+  padding: 8px 18px;
+  border-radius: 9999px;
+  color: #94a3b8;
+  font-size: 0.82rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.18s cubic-bezier(0.16, 1, 0.3, 1);
+  white-space: nowrap;
+  flex-shrink: 0;
+  outline: none;
+}
+
+.tab-btn-premium:hover {
+  color: #f8fafc;
+}
+
+.tab-btn-premium.active {
+  color: #ffffff !important;
+  background: #1e293b !important;
+  border: 1px solid rgba(255, 255, 255, 0.16) !important;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4) !important;
+}
+
+/* Responsive 3-Column Grid Container */
+.tracks-grid-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 20px;
+  align-items: stretch;
+  width: 100%;
+  margin-bottom: 2rem;
+}
+
+@media (max-width: 576px) {
+  .tracks-grid-container {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .tracks-grid-container {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* Ensure Training Cards look top-notch and uniform */
+.training-card {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  background: rgba(15, 23, 42, 0.85);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 16px;
+  padding: 20px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+}
+
+@media (max-width: 576px) {
+  .training-card {
+    padding: 16px;
+    border-radius: 14px;
+  }
+}
+
+.training-card:hover {
+  transform: translateY(-2px);
+  border-color: rgba(255, 255, 255, 0.16);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4), 0 0 0 1px rgba(255, 255, 255, 0.05);
+}
+
+.training-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 14px;
+}
+
+.card-icon-badge {
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+  font-size: 1.2rem;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.card-division-badge {
+  font-size: 0.72rem;
+  font-weight: 600;
+  padding: 3px 9px;
+  border-radius: 6px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: #94a3b8;
+  letter-spacing: 0.02em;
+}
+
+.training-card-body {
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: column;
+}
+
 .card-title-text {
-  font-size: 1.05rem !important;
-  line-height: 1.35 !important;
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: #f8fafc;
+  line-height: 1.35;
+  margin-bottom: 8px;
   letter-spacing: -0.015em;
-  font-weight: 700 !important;
 }
 
 .card-description {
-  font-size: 0.84rem !important;
-  line-height: 1.55 !important;
-  color: #94a3b8 !important;
-  margin-bottom: 14px !important;
+  font-size: 0.84rem;
+  line-height: 1.5;
+  color: #94a3b8;
+  margin-bottom: 14px;
+  flex-grow: 1;
 }
 
-/* Clean Skills Badges Group */
 .skills-badge-group {
   display: flex;
   flex-wrap: wrap;
@@ -186,165 +322,99 @@
   color: #60a5fa;
 }
 
-/* Card Meta Footer Divider & Spacing */
 .card-meta-footer {
-  border-top: 1px solid rgba(255, 255, 255, 0.06) !important;
-  margin-top: auto !important;
-  padding-top: 12px !important;
-  margin-bottom: 14px !important;
-  display: flex !important;
-  justify-content: space-between !important;
-  align-items: center !important;
-  gap: 8px !important;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+  padding-top: 12px;
+  margin-bottom: 14px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
 }
 
 .duration-chip {
-  background: rgba(255, 255, 255, 0.04) !important;
-  border: 1px solid rgba(255, 255, 255, 0.08) !important;
-  color: #94a3b8 !important;
-  font-size: 0.72rem !important;
-  font-weight: 600 !important;
-  padding: 3px 10px !important;
-  border-radius: 20px !important;
-  display: inline-flex !important;
-  align-items: center !important;
-  gap: 5px !important;
-  white-space: nowrap !important;
-  flex-shrink: 0 !important;
-}
-
-/* Ensure horizontal scroll container doesn't get clipped by padding */
-.horizontal-scroll-container {
-    padding-top: 2rem;
-}
-
-/* Back Button Glass Capsule */
-.back-btn-capsule {
-  background: rgba(255, 255, 255, 0.03) !important;
-  border: 1px solid rgba(255, 255, 255, 0.08) !important;
-  padding: 8px 16px !important;
-  border-radius: 20px !important;
-  color: #fff !important;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  color: #94a3b8;
+  font-size: 0.72rem;
+  font-weight: 600;
+  padding: 3px 10px;
+  border-radius: 20px;
   display: inline-flex;
   align-items: center;
+  gap: 5px;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.card-actions-group {
+  display: flex;
+  flex-direction: column;
   gap: 8px;
-  font-weight: 600;
-  font-size: 0.85rem;
-  cursor: pointer;
-  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1) !important;
-  text-decoration: none;
-  outline: none;
 }
 
-.back-btn-capsule:hover {
-  background: rgba(255, 255, 255, 0.08) !important;
-  border-color: #00e5ff !important;
-  box-shadow: 0 0 15px rgba(0, 229, 255, 0.12) !important;
-  transform: translateY(-1px) !important;
-  color: #fff !important;
-}
-
-/* Premium Action Buttons on Cards */
 .enroll-btn {
-  background: var(--accent-primary) !important;
-  color: #080c14 !important;
-  border: none !important;
-  font-weight: 700 !important;
-  border-radius: 12px !important;
-  padding: 10px 16px !important;
-  transition: all 0.18s cubic-bezier(0.16, 1, 0.3, 1) !important;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3) !important;
-  text-decoration: none;
+  width: 100%;
+  min-height: 44px;
+  padding: 10px 16px;
+  border-radius: 10px;
+  background: var(--accent-primary);
+  color: #080c14;
+  font-size: 0.85rem;
+  font-weight: 700;
+  border: none;
   display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: 8px;
-  font-size: 0.84rem;
   cursor: pointer;
+  transition: all 0.18s cubic-bezier(0.16, 1, 0.3, 1);
+  text-decoration: none;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
 }
 
 .enroll-btn:hover {
-  filter: brightness(1.1) !important;
-  transform: translateY(-1px) !important;
-  box-shadow: 0 4px 16px rgba(0, 229, 255, 0.25) !important;
+  filter: brightness(1.1);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 16px rgba(0, 229, 255, 0.25);
 }
 
 .enroll-btn:active {
-  transform: scale(0.98) !important;
+  transform: scale(0.98);
 }
 
 .watch-btn {
-  background: rgba(255, 255, 255, 0.03) !important;
-  color: #f8fafc !important;
-  border: 1px solid rgba(255, 255, 255, 0.08) !important;
-  font-weight: 600 !important;
-  border-radius: 12px !important;
-  padding: 10px 16px !important;
-  transition: all 0.18s cubic-bezier(0.16, 1, 0.3, 1) !important;
-  text-decoration: none;
+  width: 100%;
+  min-height: 42px;
+  padding: 9px 16px;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  color: #cbd5e1;
+  font-size: 0.83rem;
+  font-weight: 600;
   display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: 8px;
-  font-size: 0.84rem;
   cursor: pointer;
+  transition: all 0.18s cubic-bezier(0.16, 1, 0.3, 1);
+  text-decoration: none;
+}
+
+.watch-btn .youtube-icon {
+  color: #ef4444;
 }
 
 .watch-btn:hover {
-  background: rgba(255, 255, 255, 0.06) !important;
-  border-color: rgba(255, 255, 255, 0.18) !important;
-  color: #fff !important;
-  transform: translateY(-1px) !important;
+  background: rgba(255, 255, 255, 0.06);
+  border-color: rgba(255, 255, 255, 0.18);
+  color: #ffffff;
+  transform: translateY(-1px);
 }
 
 .watch-btn:active {
-  transform: scale(0.98) !important;
-}
-
-/* Waffle Nav Tabs Premium Filters */
-.nav-tabs-premium {
-  display: flex;
-  justify-content: center;
-  gap: 6px;
-  margin-bottom: 36px;
-  background: rgba(15, 23, 42, 0.8);
-  padding: 4px;
-  border-radius: 14px;
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  max-width: fit-content;
-  margin-left: auto;
-  margin-right: auto;
-  overflow-x: auto;
-  scrollbar-width: none;
-}
-
-.nav-tabs-premium::-webkit-scrollbar {
-  display: none;
-}
-
-.tab-btn-premium {
-  background: transparent;
-  border: none;
-  padding: 8px 18px;
-  border-radius: 10px;
-  color: #94a3b8;
-  font-size: 0.84rem;
-  font-weight: 600;
-  cursor: pointer;
-  transition: all 0.18s cubic-bezier(0.16, 1, 0.3, 1);
-  white-space: nowrap;
-  outline: none;
-}
-
-.tab-btn-premium:hover {
-  color: #f8fafc;
-}
-
-.tab-btn-premium.active {
-  color: #ffffff !important;
-  background: rgba(30, 41, 59, 0.95) !important;
-  border: 1px solid rgba(255, 255, 255, 0.15) !important;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.4) !important;
+  transform: scale(0.98);
 }
 
 /* Level Badges with Semantic Indicators */
