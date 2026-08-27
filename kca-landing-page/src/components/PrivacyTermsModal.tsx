@@ -24,7 +24,7 @@ const PrivacyTermsModal: React.FC<PrivacyTermsModalProps> = ({
     setActiveTab(initialTab);
   }, [initialTab]);
 
-  if (!isOpen) return null;
+  if (!isOpen || typeof document === 'undefined') return null;
 
   return createPortal(
     <div className="modal-overlay" onClick={onClose}>
@@ -191,7 +191,8 @@ const PrivacyTermsModal: React.FC<PrivacyTermsModalProps> = ({
           </button>
         </div>
       </motion.div>
-    </div>
+    </div>,
+    document.body
   );
 };
 

@@ -1,7 +1,7 @@
 .footer {
   background: var(--bg-primary);
   border-top: 1px solid var(--border-color);
-  padding: 4rem 2rem 2rem;
+  padding: 4rem 2rem 6rem;
 }
 
 .footer-container {
