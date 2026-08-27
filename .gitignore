@@ -104,6 +104,11 @@ snyk-win.exe
 
 # Gemini Agent Local Brain & Scratch Logs
 /brain/
+/scratch/
+/coverage_analysis/
+/capture_blog_screenshots.cjs
+/capture_live_dashboard.js
+/sync_gsc_to_firestore.js
 
 # Local Office Space Layouts & Assets
 /workspace_design/

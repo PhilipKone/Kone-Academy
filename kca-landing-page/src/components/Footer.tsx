@@ -93,8 +93,8 @@ const Footer = ({ onOpenPrivacy, onOpenTerms }) => {
       <div className="footer-bottom">
         <p>
           &copy; {new Date().getFullYear()} Kone Academy. Open Source License. &nbsp;|&nbsp; 
-          <button onClick={onOpenPrivacy} style={{ background: 'none', border: 'none', color: '#94a3b8', cursor: 'pointer', padding: 0, textDecoration: 'underline', fontSize: '0.85rem' }}>Privacy Policy</button> &nbsp;|&nbsp; 
-          <button onClick={onOpenTerms} style={{ background: 'none', border: 'none', color: '#94a3b8', cursor: 'pointer', padding: 0, textDecoration: 'underline', fontSize: '0.85rem' }}>Terms of Service</button>
+          <button className="footer-legal-btn" onClick={onOpenPrivacy}>Privacy Policy</button> &nbsp;|&nbsp; 
+          <button className="footer-legal-btn" onClick={onOpenTerms}>Terms of Service</button>
         </p>
       </div>
     </footer>

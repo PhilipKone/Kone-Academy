@@ -77,6 +77,24 @@
   font-size: 0.85rem;
 }
 
+.footer-legal-btn {
+  background: none;
+  border: none;
+  color: #94a3b8;
+  cursor: pointer;
+  padding: 4px 6px;
+  text-decoration: underline;
+  font-size: 0.85rem;
+  font-family: inherit;
+  transition: all 0.2s ease;
+  display: inline-block;
+}
+
+.footer-legal-btn:hover {
+  color: var(--accent-primary, #00e5ff);
+  transform: translateY(-1px);
+}
+
 .social-icons {
   display: flex;
   gap: 1.5rem;
