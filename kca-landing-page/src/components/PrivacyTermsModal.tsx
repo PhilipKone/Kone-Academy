@@ -24,6 +24,17 @@ const PrivacyTermsModal: React.FC<PrivacyTermsModalProps> = ({
     setActiveTab(initialTab);
   }, [initialTab]);
 
+  useEffect(() => {
+    if (isOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+    return () => {
+      document.body.style.overflow = '';
+    };
+  }, [isOpen]);
+
   if (!isOpen || typeof document === 'undefined') return null;
 
   return createPortal(
@@ -31,24 +42,24 @@ const PrivacyTermsModal: React.FC<PrivacyTermsModalProps> = ({
       <motion.div
         className="privacy-modal-glass"
         onClick={e => e.stopPropagation()}
-        initial={{ opacity: 0, scale: 0.95, y: 15 }}
+        initial={{ opacity: 0, scale: 0.96, y: 15 }}
         animate={{ opacity: 1, scale: 1, y: 0 }}
-        exit={{ opacity: 0, scale: 0.95, y: 15 }}
+        exit={{ opacity: 0, scale: 0.96, y: 15 }}
         transition={{ duration: 0.2, ease: [0.16, 1, 0.3, 1] }}
       >
         <button className="modal-close-btn" onClick={onClose} aria-label="Close modal">
-          <FaTimes size={16} />
+          <FaTimes size={15} />
         </button>
 
-        {/* Header Tabs */}
-        <div className="privacy-modal-header mb-3">
-          <div className="d-flex align-items-center gap-2 mb-3">
+        {/* Header */}
+        <div className="privacy-modal-header">
+          <div className="privacy-header-brand">
             <div className="privacy-badge-icon">
               <FaShieldAlt />
             </div>
-            <div>
-              <h2 className="h5 text-white fw-bold mb-0">Legal & Governance Center</h2>
-              <span className="extra-small text-secondary">Kone Academy Educational Ecosystem Transparency</span>
+            <div className="privacy-header-text">
+              <h2 className="privacy-title">Legal & Governance Center</h2>
+              <span className="privacy-subtitle">Kone Academy Educational Ecosystem Transparency</span>
             </div>
           </div>
 
@@ -58,19 +69,19 @@ const PrivacyTermsModal: React.FC<PrivacyTermsModalProps> = ({
               className={`privacy-tab-btn ${activeTab === 'privacy' ? 'active' : ''}`}
               onClick={() => setActiveTab('privacy')}
             >
-              <FaUserShield className="me-2" /> Privacy Policy
+              <FaUserShield className="tab-icon" /> Privacy Policy
             </button>
             <button
               type="button"
               className={`privacy-tab-btn ${activeTab === 'terms' ? 'active' : ''}`}
               onClick={() => setActiveTab('terms')}
             >
-              <FaFileContract className="me-2" /> Terms of Service
+              <FaFileContract className="tab-icon" /> Terms of Service
             </button>
           </div>
         </div>
 
-        {/* Body Scrollable Document */}
+        {/* Scrollable Document Body */}
         <div className="privacy-document-body">
           <AnimatePresence mode="wait">
             {activeTab === 'privacy' ? (
@@ -82,9 +93,9 @@ const PrivacyTermsModal: React.FC<PrivacyTermsModalProps> = ({
                 transition={{ duration: 0.18 }}
                 className="doc-content-pane"
               >
-                <div className="doc-meta-bar mb-3">
-                  <span className="badge-pill bg-cyan text-dark fw-bold">Effective Date: 2026</span>
-                  <span className="extra-small text-secondary ms-2">Ghana DPA 2012 (Act 843) & Global Data Ethics</span>
+                <div className="doc-meta-bar">
+                  <span className="badge-pill badge-cyan">Effective Date: 2026</span>
+                  <span className="doc-meta-detail">Ghana DPA 2012 (Act 843) & Global Data Ethics</span>
                 </div>
 
                 <h3 className="doc-section-heading">1. Scope & Corporate Attribution</h3>
@@ -122,12 +133,12 @@ const PrivacyTermsModal: React.FC<PrivacyTermsModalProps> = ({
                   You maintain full rights to access, modify, or permanently delete your registration records. To submit a data deletion request, contact our privacy desk at <code>phconsultgh@gmail.com</code> or <code>philipkone45@gmail.com</code>.
                 </p>
 
-                <div className="b2b-notice-box mt-3 p-3 rounded bg-dark border border-secondary border-opacity-25">
-                  <span className="extra-small text-cyan fw-bold d-flex align-items-center gap-1 mb-1">
+                <div className="b2b-notice-box b2b-cyan">
+                  <div className="b2b-notice-title">
                     <FaShieldAlt /> Enterprise & B2B Consulting Notice
-                  </span>
-                  <p className="extra-small text-secondary mb-0">
-                    For corporate consulting agreements, enterprise NDAs, and B2B client contracts, please refer to the <a href="https://consult.koneacademy.io" target="_blank" rel="noreferrer" className="text-cyan text-decoration-underline">Kone Consult Enterprise Governance Portal <FaExternalLinkAlt size={9} /></a>.
+                  </div>
+                  <p className="b2b-notice-desc">
+                    For corporate consulting agreements, enterprise NDAs, and B2B client contracts, please refer to the <a href="https://consult.koneacademy.io" target="_blank" rel="noreferrer">Kone Consult Enterprise Governance Portal <FaExternalLinkAlt size={10} /></a>.
                   </p>
                 </div>
               </motion.div>
@@ -140,9 +151,9 @@ const PrivacyTermsModal: React.FC<PrivacyTermsModalProps> = ({
                 transition={{ duration: 0.18 }}
                 className="doc-content-pane"
               >
-                <div className="doc-meta-bar mb-3">
-                  <span className="badge-pill bg-purple text-white fw-bold">Effective Date: 2026</span>
-                  <span className="extra-small text-secondary ms-2">Educational Terms & Code of Conduct</span>
+                <div className="doc-meta-bar">
+                  <span className="badge-pill badge-purple">Effective Date: 2026</span>
+                  <span className="doc-meta-detail">Educational Terms & Code of Conduct</span>
                 </div>
 
                 <h3 className="doc-section-heading">1. Educational Scope & Training</h3>
@@ -170,12 +181,12 @@ const PrivacyTermsModal: React.FC<PrivacyTermsModalProps> = ({
                   Official certificates and verification records are awarded upon successful completion and code review of all required micro-projects and capstone deliverables.
                 </p>
 
-                <div className="b2b-notice-box mt-3 p-3 rounded bg-dark border border-secondary border-opacity-25">
-                  <span className="extra-small text-purple fw-bold d-flex align-items-center gap-1 mb-1">
+                <div className="b2b-notice-box b2b-purple">
+                  <div className="b2b-notice-title">
                     <FaFileContract /> Corporate Consulting Engagements
-                  </span>
-                  <p className="extra-small text-secondary mb-0">
-                    Commercial software delivery, statements of work (SOW), and enterprise development services are governed under separate client MSAs through <a href="https://consult.koneacademy.io" target="_blank" rel="noreferrer" className="text-purple text-decoration-underline">Kone Consult <FaExternalLinkAlt size={9} /></a>.
+                  </div>
+                  <p className="b2b-notice-desc">
+                    Commercial software delivery, statements of work (SOW), and enterprise development services are governed under separate client MSAs through <a href="https://consult.koneacademy.io" target="_blank" rel="noreferrer">Kone Consult <FaExternalLinkAlt size={10} /></a>.
                   </p>
                 </div>
               </motion.div>
@@ -183,11 +194,11 @@ const PrivacyTermsModal: React.FC<PrivacyTermsModalProps> = ({
           </AnimatePresence>
         </div>
 
-        {/* Footer Actions */}
-        <div className="privacy-modal-footer mt-3 pt-3 d-flex justify-content-between align-items-center">
-          <span className="extra-small text-secondary">Kone Academy &copy; {new Date().getFullYear()}</span>
-          <button className="enroll-btn px-4" onClick={onClose}>
-            <FaCheckCircle className="me-2" /> I Understand & Accept
+        {/* Modal Footer */}
+        <div className="privacy-modal-footer">
+          <span className="privacy-footer-copy">Kone Academy &copy; {new Date().getFullYear()}</span>
+          <button className="privacy-accept-btn" onClick={onClose}>
+            <FaCheckCircle /> I Understand & Accept
           </button>
         </div>
       </motion.div>
