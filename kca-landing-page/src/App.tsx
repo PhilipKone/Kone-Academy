@@ -52,8 +52,16 @@ function App() {
   const [localRoute, setLocalRoute] = React.useState<LocalRoute | null>(null);
   const [docRoute, setDocRoute] = React.useState<DocRoute>({ category: null, subcategory: null, slug: null });
   const [blogSlug, setBlogSlug] = React.useState<string>('');
+  const getInitialPrivacyModal = (): { isOpen: boolean; tab: 'privacy' | 'terms' } => {
+    if (typeof window === 'undefined') return { isOpen: false, tab: 'privacy' };
+    const path = window.location.pathname;
+    if (path.startsWith('/terms')) return { isOpen: true, tab: 'terms' };
+    if (path.startsWith('/privacy')) return { isOpen: true, tab: 'privacy' };
+    return { isOpen: false, tab: 'privacy' };
+  };
+
   const [globalOnboarding, setGlobalOnboarding] = React.useState<boolean>(false);
-  const [privacyModal, setPrivacyModal] = React.useState<{ isOpen: boolean; tab: 'privacy' | 'terms' }>({ isOpen: false, tab: 'privacy' });
+  const [privacyModal, setPrivacyModal] = React.useState<{ isOpen: boolean; tab: 'privacy' | 'terms' }>(getInitialPrivacyModal);
 
   const parseRoute = () => {
     const path = window.location.pathname;
@@ -79,6 +87,12 @@ function App() {
       }
     } else if (pathParts[0] === 'author') {
       setCurrentPage('author-philip');
+    } else if (pathParts[0] === 'privacy') {
+      setCurrentPage('home');
+      setPrivacyModal({ isOpen: true, tab: 'privacy' });
+    } else if (pathParts[0] === 'terms') {
+      setCurrentPage('home');
+      setPrivacyModal({ isOpen: true, tab: 'terms' });
     } else if (pathParts[0] === 'sitemap') {
       setCurrentPage('sitemap');
     } else if (pathParts[0] === 'docs') {
@@ -208,7 +222,12 @@ function App() {
       <PrivacyTermsModal 
         isOpen={privacyModal.isOpen} 
         initialTab={privacyModal.tab}
-        onClose={() => setPrivacyModal({ isOpen: false, tab: 'privacy' })} 
+        onClose={() => {
+          setPrivacyModal({ isOpen: false, tab: 'privacy' });
+          if (window.location.pathname === '/privacy' || window.location.pathname === '/terms') {
+            window.history.pushState({}, '', '/');
+          }
+        }} 
       />
     </>
   );
