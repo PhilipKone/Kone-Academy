@@ -254,6 +254,44 @@ const CourseDetailsModal = ({ course, onClose, onOpenOnboarding }) => {
   );
 };
 
+const PathfinderModal = ({ isOpen, onClose, onSelectTrack }) => {
+  useEffect(() => {
+    document.body.style.overflow = 'hidden';
+    return () => {
+      document.body.style.overflow = '';
+    };
+  }, []);
+
+  if (!isOpen) return null;
+
+  return createPortal(
+    <div className="modal-overlay" onClick={onClose} style={{ zIndex: 99999 }}>
+      <motion.div 
+        className="modal-content-glass"
+        style={{ maxWidth: '780px', width: '92%', padding: '0', background: 'transparent', border: 'none', boxShadow: 'none' }}
+        onClick={e => e.stopPropagation()}
+        initial={{ opacity: 0, scale: 0.95, y: 10 }}
+        animate={{ opacity: 1, scale: 1, y: 0 }}
+        exit={{ opacity: 0, scale: 0.95, y: 10 }}
+        transition={{ duration: 0.2 }}
+      >
+        <button 
+          className="modal-close-btn" 
+          onClick={onClose} 
+          aria-label="Close modal"
+          style={{ top: '16px', right: '16px', zIndex: 20 }}
+        >
+          <FaTimes size={16} />
+        </button>
+        <CareerPathfinder 
+          onSelectTrack={onSelectTrack} 
+        />
+      </motion.div>
+    </div>,
+    document.body
+  );
+};
+
 const TrainingHub = ({ onBack }) => {
   const [activeFilter, setActiveFilter] = useState('All');
   const [selectedCourse, setSelectedCourse] = useState(null);
@@ -407,30 +445,17 @@ const TrainingHub = ({ onBack }) => {
         </motion.div>
       </AnimatePresence>
 
-      {/* Pathfinder Quiz Modal Overlay */}
+      {/* 60-Second Interactive Career Pathfinder Modal */}
       <AnimatePresence>
-        {showPathfinderModal && createPortal(
-          <div className="modal-overlay" onClick={() => setShowPathfinderModal(false)}>
-            <motion.div 
-              className="modal-content-glass"
-              style={{ maxWidth: '720px' }}
-              onClick={e => e.stopPropagation()}
-              initial={{ opacity: 0, scale: 0.95 }}
-              animate={{ opacity: 1, scale: 1 }}
-              exit={{ opacity: 0, scale: 0.95 }}
-            >
-              <button className="modal-close-btn" onClick={() => setShowPathfinderModal(false)} aria-label="Close modal">
-                <FaTimes size={16} />
-              </button>
-              <CareerPathfinder 
-                onSelectTrack={(course) => {
-                  setShowPathfinderModal(false);
-                  setOnboardingCourse(course);
-                }} 
-              />
-            </motion.div>
-          </div>,
-          document.body
+        {showPathfinderModal && (
+          <PathfinderModal 
+            isOpen={showPathfinderModal}
+            onClose={() => setShowPathfinderModal(false)}
+            onSelectTrack={(course) => {
+              setShowPathfinderModal(false);
+              setOnboardingCourse(course);
+            }}
+          />
         )}
       </AnimatePresence>
 
