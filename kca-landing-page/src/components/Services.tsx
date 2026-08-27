@@ -1,31 +1,37 @@
 import React from 'react';
 import './Services.css';
-
-import { FaGraduationCap, FaChartBar, FaBookOpen, FaPython, FaMicrochip, FaCube, FaRobot } from 'react-icons/fa';
+import { FaPython, FaMicrochip, FaCube, FaRobot, FaArrowRight } from 'react-icons/fa';
 import { SiCplusplus, SiR } from 'react-icons/si';
 
-const ServiceCard = ({ item, onOpenOnboarding }) => {
+interface ServiceItem {
+  title: string;
+  desc: string;
+  tag: string;
+  icon: React.ReactNode;
+}
+
+interface ServiceCardProps {
+  item: ServiceItem;
+  onOpenOnboarding?: () => void;
+}
+
+const ServiceCard: React.FC<ServiceCardProps> = ({ item, onOpenOnboarding }) => {
   return (
     <div className="service-item glass-panel">
       <div className="service-content">
-        <span className="service-icon" aria-hidden="true" style={{ color: 'var(--accent-primary)', fontSize: '2rem' }}>{item.icon}</span>
+        <div className="service-icon" aria-hidden="true">
+          {item.icon}
+        </div>
+        <span className="service-track-badge">{item.tag}</span>
         <h4 className="service-title">{item.title}</h4>
         <p className="service-desc">{item.desc}</p>
-        <div style={{ marginTop: 'auto', paddingTop: '1rem' }}>
+        <div className="service-action-wrap">
           <button
             onClick={onOpenOnboarding}
-            className="btn-primary"
-            style={{
-              display: 'block',
-              width: '100%',
-              textAlign: 'center',
-              border: 'none',
-              cursor: 'pointer',
-              padding: '0.5rem',
-              fontSize: '0.85rem'
-            }}
+            className="service-card-btn"
           >
-            Request Service
+            <span>Explore Curriculum</span>
+            <FaArrowRight size={11} className="service-btn-arrow" />
           </button>
         </div>
       </div>
@@ -33,22 +39,26 @@ const ServiceCard = ({ item, onOpenOnboarding }) => {
   );
 };
 
-const Services = ({ onOpenOnboarding }) => {
+interface ServicesProps {
+  onOpenOnboarding?: () => void;
+}
+
+const Services: React.FC<ServicesProps> = ({ onOpenOnboarding }) => {
   const services = [
     {
-      category: 'Coding',
+      category: 'Software & Systems',
       items: [
-        { title: 'Python Masterclass', desc: 'From syntax to advanced algorithms.', icon: <FaPython /> },
-        { title: 'C / C++ School', desc: 'System programming and memory management.', icon: <SiCplusplus /> },
-        { title: 'R & MATLAB', desc: 'Statistical computing and data visualization.', icon: <SiR /> }
+        { title: 'Python Masterclass', desc: 'From clean syntax to production-grade algorithms.', tag: '12 Weeks • 4 Modules', icon: <FaPython /> },
+        { title: 'C / C++ School', desc: 'Low-level systems programming and memory management.', tag: 'Systems • OS Architecture', icon: <SiCplusplus /> },
+        { title: 'R & Data Analytics', desc: 'Statistical computing and mathematical data modeling.', tag: 'Research • Machine Learning', icon: <SiR /> }
       ]
     },
     {
-      category: 'Engineering',
+      category: 'Hardware & Physical AI',
       items: [
-        { title: 'IoT Systems', desc: 'Arduino & ESP32 prototyping.', icon: <FaMicrochip /> },
-        { title: '3D Simulation', desc: 'CAD modeling for manufacturing.', icon: <FaCube /> },
-        { title: 'Robotics', desc: 'Control systems and automation.', icon: <FaRobot /> }
+        { title: 'IoT Systems', desc: 'Arduino, ESP32 prototyping, and telemetry telemetry.', tag: 'Sensors • FreeRTOS', icon: <FaMicrochip /> },
+        { title: '3D Simulation', desc: 'CAD structural modeling and physics simulation engines.', tag: 'CAD • Physics Sandbox', icon: <FaCube /> },
+        { title: 'Robotics Engineering', desc: 'Closed-loop control systems, kinematics, and automation.', tag: 'Robotics • Kinematics', icon: <FaRobot /> }
       ]
     }
   ];
@@ -57,8 +67,8 @@ const Services = ({ onOpenOnboarding }) => {
     <section className="services" id="services">
       <div className="services-container">
         <div className="section-header">
-          <h2 className="section-title">Available <span className="text-gradient">Services</span></h2>
-          <p className="section-subtitle">Comprehensive tools and resources for your growth.</p>
+          <h2 className="section-title">Available <span className="text-gradient">Tracks</span></h2>
+          <p className="section-subtitle">Hands-on architecture blueprints and sandboxes built for real-world engineering.</p>
         </div>
 
         <div className="services-layout">

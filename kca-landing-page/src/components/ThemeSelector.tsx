@@ -7,44 +7,56 @@ export interface ThemeOption {
   name: string;
   primary: string;
   secondary: string;
+  surface: string;
+  border: string;
   glow: string;
 }
 
 export const themes: ThemeOption[] = [
   {
     id: 'blue',
-    name: 'Cyber Blue',
-    primary: '#00E5FF',
-    secondary: '#7B2CBF',
-    glow: 'rgba(0, 229, 255, 0.4)',
+    name: 'Cyber Azure',
+    primary: '#38bdf8',
+    secondary: '#0284c7',
+    surface: 'rgba(56, 189, 248, 0.08)',
+    border: 'rgba(56, 189, 248, 0.22)',
+    glow: 'rgba(56, 189, 248, 0.20)',
   },
   {
     id: 'green',
-    name: 'Matrix Green',
-    primary: '#00FF66',
+    name: 'Matrix Emerald',
+    primary: '#10b981',
     secondary: '#059669',
-    glow: 'rgba(0, 255, 102, 0.4)',
-  },
-  {
-    id: 'pink',
-    name: 'Neon Pink',
-    primary: '#FF007F',
-    secondary: '#7000FF',
-    glow: 'rgba(255, 0, 127, 0.4)',
-  },
-  {
-    id: 'orange',
-    name: 'Solar Orange',
-    primary: '#FF6B00',
-    secondary: '#FF003C',
-    glow: 'rgba(255, 107, 0, 0.4)',
+    surface: 'rgba(16, 185, 129, 0.08)',
+    border: 'rgba(16, 185, 129, 0.22)',
+    glow: 'rgba(16, 185, 129, 0.20)',
   },
   {
     id: 'purple',
-    name: 'Void Purple',
-    primary: '#A855F7',
-    secondary: '#EC4899',
-    glow: 'rgba(168, 85, 247, 0.4)',
+    name: 'Void Amethyst',
+    primary: '#a855f7',
+    secondary: '#7c3aed',
+    surface: 'rgba(168, 85, 247, 0.08)',
+    border: 'rgba(168, 85, 247, 0.22)',
+    glow: 'rgba(168, 85, 247, 0.20)',
+  },
+  {
+    id: 'orange',
+    name: 'Solar Amber',
+    primary: '#f59e0b',
+    secondary: '#d97706',
+    surface: 'rgba(245, 158, 11, 0.08)',
+    border: 'rgba(245, 158, 11, 0.22)',
+    glow: 'rgba(245, 158, 11, 0.20)',
+  },
+  {
+    id: 'pink',
+    name: 'Crimson Coral',
+    primary: '#f43f5e',
+    secondary: '#e11d48',
+    surface: 'rgba(244, 63, 94, 0.08)',
+    border: 'rgba(244, 63, 94, 0.22)',
+    glow: 'rgba(244, 63, 94, 0.20)',
   },
 ];
 
@@ -54,6 +66,8 @@ export const applyTheme = (themeId: string) => {
 
   root.style.setProperty('--accent-primary', theme.primary);
   root.style.setProperty('--accent-secondary', theme.secondary);
+  root.style.setProperty('--accent-surface', theme.surface);
+  root.style.setProperty('--accent-border', theme.border);
   root.style.setProperty('--accent-glow', theme.glow);
 
   localStorage.setItem('kca-neon-theme', theme.id);

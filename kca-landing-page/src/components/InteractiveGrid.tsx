@@ -56,7 +56,7 @@ const InteractiveGrid = () => {
             </filter>
             <pattern id="grid-pattern" width="40" height="40" patternUnits="userSpaceOnUse">
               <motion.g style={{ y: yFlow }}>
-                <path d="M 40 0 L 0 0 0 40" fill="none" stroke="rgba(88, 166, 255, 0.05)" strokeWidth="0.5"/>
+                <path d="M 40 0 L 0 0 0 40" fill="none" stroke="rgba(255, 255, 255, 0.04)" strokeWidth="0.5"/>
                 <circle cx="0" cy="0" r="1.3" fill="var(--accent-primary)" opacity="0.4" filter="url(#glow)">
                   <animate attributeName="opacity" values="0.3;0.6;0.3" dur="5s" repeatCount="indefinite" />
                 </circle>

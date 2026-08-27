@@ -38,44 +38,51 @@
 }
 
 .cta-terminal {
-  background: #000;
-  /* Keep terminal always black */
+  background: rgba(13, 17, 28, 0.9);
   border: 1px solid var(--border-color);
-  border-radius: 8px;
-  padding: 2rem;
+  border-radius: 12px;
+  padding: 1.5rem;
   max-width: 500px;
   margin: 0 auto;
   display: flex;
   flex-direction: column;
-  gap: 1.5rem;
-  align-items: center;
-  box-shadow: var(--shadow-md);
+  gap: 1.25rem;
+  align-items: stretch;
+  box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.6);
 }
 
 .terminal-line {
   font-family: var(--font-mono);
-  font-size: 1.1rem;
+  font-size: 0.98rem;
   color: #ffffff;
-  /* Terminal text always white */
   display: flex;
-  gap: 0.5rem;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  background: rgba(0, 0, 0, 0.4);
+  padding: 0.75rem 1rem;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
 }
 
 .prompt {
-  color: var(--accent-success);
+  color: var(--accent-primary);
+  font-weight: 700;
 }
 
 .cmd {
-  color: #ffffff;
-  /* Terminal command always white */
+  color: #f8fafc;
 }
 
 .cta-btn {
   width: 100%;
   text-align: center;
   text-decoration: none;
-  display: block;
-  padding: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.8rem 1.5rem;
+  font-size: 0.95rem;
 }
 
 @media (max-width: 768px) {
