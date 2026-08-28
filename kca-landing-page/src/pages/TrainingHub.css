@@ -82,15 +82,16 @@
 }
 
 .nav-action-btn.pathfinder-btn {
-  background: rgba(59, 130, 246, 0.08);
-  border: 1px solid rgba(59, 130, 246, 0.25);
-  color: #60a5fa;
+  background: var(--accent-surface);
+  border: 1px solid var(--accent-border);
+  color: var(--accent-primary);
 }
 
 .nav-action-btn.pathfinder-btn:hover {
-  background: rgba(59, 130, 246, 0.15);
-  border-color: rgba(59, 130, 246, 0.4);
-  color: #93c5fd;
+  background: var(--accent-surface);
+  border-color: var(--accent-primary);
+  box-shadow: 0 0 16px var(--accent-glow);
+  color: #ffffff;
 }
 
 .nav-action-btn:active {
@@ -469,8 +470,8 @@
 
 /* Pathfinder CTA Pill */
 .pathfinder-btn {
-  background: rgba(59, 130, 246, 0.08) !important;
-  border: 1px solid rgba(59, 130, 246, 0.25) !important;
+  background: var(--accent-surface) !important;
+  border: 1px solid var(--accent-border) !important;
   color: #f8fafc !important;
   display: inline-flex;
   align-items: center;
@@ -484,8 +485,9 @@
 }
 
 .pathfinder-btn:hover {
-  background: rgba(59, 130, 246, 0.15) !important;
+  background: var(--accent-surface) !important;
   border-color: var(--accent-primary) !important;
+  box-shadow: 0 0 16px var(--accent-glow) !important;
   transform: translateY(-1px);
 }
 
