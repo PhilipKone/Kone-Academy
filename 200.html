@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+  <link rel="icon" type="image/png" sizes="48x48" href="/favicon-48x48.png" />
+  <link rel="icon" type="image/png" sizes="192x192" href="/favicon-192x192.png" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="color-scheme" content="light dark" />
+  <meta name="theme-color" content="#000000" />
+  <meta name="description"
+    content="Kone Academy: A multidisciplinary technology collective specializing in Academic Research, Software Engineering, and Industrial IoT solutions. Empowering innovation through expert consulting." />
+  <meta name="keywords" content="Kone Academy, Research Consulting, Software Development, IoT Engineering, Data Analysis Ghana, Academic Assistance" />
+  <meta name="author" content="Kone Academy" />
+  <link rel="canonical" href="https://www.koneacademy.io/" />
+
+  <!-- Single Page Apps for GitHub Pages URL Handler -->
+  <script type="text/javascript">
+    (function(l) {
+      if (l.search[1] === '/' ) {
+        var decoded = l.search.slice(1).split('&').map(function(s) { 
+          return s.replace(/~and~/g, '&')
+        }).join('?');
+        window.history.replaceState(null, null,
+            l.pathname.slice(0, -1) + decoded + l.hash
+        );
+      }
+    }(window.location));
+  </script>
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://www.koneacademy.io/" />
+  <meta property="og:title" content="Kone Academy | Research, Coding & Engineering Collective" />
+  <meta property="og:description" content="Kone Academy: Your partner for high-performance engineering, academic research, and custom software solutions. Bridging the gap between theory and innovation." />
+  <meta property="og:image" content="https://www.koneacademy.io/og-image.png?v=4" />
+  <meta property="og:image:type" content="image/png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:url" content="https://www.koneacademy.io/" />
+  <meta name="twitter:title" content="Kone Academy | Research, Coding & Engineering Collective" />
+  <meta name="twitter:description" content="High-performance engineering and research consulting for the next generation of innovators." />
+  <meta name="twitter:image" content="https://www.koneacademy.io/og-image.png?v=4" />
+
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+  <link rel="manifest" href="/manifest.json" />
+  <link rel="alternate" type="application/rss+xml" title="Kone Academy RSS Feed" href="https://www.koneacademy.io/feed.xml" />
+  <link rel="alternate" type="application/atom+xml" title="Kone Academy Atom Feed" href="https://www.koneacademy.io/atom.xml" />
+  <link rel="help" type="text/markdown" href="/llms.txt" title="LLMs Text File" />
+  <link rel="llms-txt" href="/llms.txt" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;500;600;700;800&family=Nunito:wght@400;600;700;800;900&display=swap">
+  <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;500;600;700;800&family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+  <title>Kone Academy | Research, Coding, and Engineering</title>
+
+  <!-- WebMCP Declarations for Autonomous Agentic Browsing -->
+  <script type="application/webmcp+json">
+  {
+    "version": "1.0",
+    "name": "Kone Academy Web Portal",
+    "description": "Autonomous agent tools for exploring courses, services, and subdomains across the Kone Academy ecosystem",
+    "tools": [
+      {
+        "name": "request_service",
+        "description": "Submit a request for coding masterclasses, academic research mentorship, or IoT engineering services",
+        "parameters": {
+          "type": "object",
+          "properties": {
+            "serviceName": { 
+              "type": "string", 
+              "enum": ["Python Masterclass", "C / C++ School", "R & MATLAB", "IoT Systems", "3D Simulation", "Robotics"] 
+            },
+            "userEmail": { "type": "string", "format": "email" }
+          },
+          "required": ["serviceName", "userEmail"]
+        }
+      },
+      {
+        "name": "navigate_subdomain",
+        "description": "Switch context or navigate to one of the 11 specialized Kone Academy subdomains",
+        "parameters": {
+          "type": "object",
+          "properties": {
+            "subdomain": { 
+              "type": "string", 
+              "enum": ["code", "consult", "lab", "kids", "shop", "farms", "warp", "digital", "ai", "tech"] 
+            }
+          },
+          "required": ["subdomain"]
+        }
+      }
+    ]
+  }
+  </script>
+
+  <!-- Structured Data (Professional Search Indexing & Sitelinks Schema) -->
+  <script type="application/ld+json">
+    [
+      {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": "Kone Academy",
+        "alternateName": ["KCA", "Kone Academy Ecosystem", "Kone Code Academy"],
+        "url": "https://www.koneacademy.io/",
+        "potentialAction": {
+          "@type": "SearchAction",
+          "target": "https://www.koneacademy.io/sitemap?q={search_term_string}",
+          "query-input": "required name=search_term_string"
+        },
+        "hasPart": [
+          {
+            "@type": "WebPage",
+            "name": "Kone School",
+            "url": "https://www.koneacademy.io/school"
+          },
+          {
+            "@type": "WebPage",
+            "name": "Ecosystem Insights & Blog",
+            "url": "https://www.koneacademy.io/blog"
+          },
+          {
+            "@type": "WebPage",
+            "name": "Philip Hotor - Author Profile",
+            "url": "https://www.koneacademy.io/author/philip-hotor"
+          },
+          {
+            "@type": "WebPage",
+            "name": "Academy Training Hub",
+            "url": "https://www.koneacademy.io/training"
+          },
+          {
+            "@type": "WebPage",
+            "name": "Documentation",
+            "url": "https://www.koneacademy.io/docs"
+          },
+          {
+            "@type": "WebPage",
+            "name": "Methodology Protocols",
+            "url": "https://www.koneacademy.io/protocols"
+          }
+        ]
+      },
+      {
+        "@context": "https://schema.org",
+        "@type": "SiteNavigationElement",
+        "name": "Kone School",
+        "description": "Project-driven tech education, microcontrollers, and physical AI compute.",
+        "url": "https://www.koneacademy.io/school"
+      },
+      {
+        "@context": "https://schema.org",
+        "@type": "SiteNavigationElement",
+        "name": "Ecosystem Insights & Blog",
+        "description": "Research notes, system architecture breakdowns, and curriculum guides.",
+        "url": "https://www.koneacademy.io/blog"
+      },
+      {
+        "@context": "https://schema.org",
+        "@type": "SiteNavigationElement",
+        "name": "Academy Training",
+        "description": "Interactive developer courses and hands-on coding modules.",
+        "url": "https://www.koneacademy.io/training"
+      },
+      {
+        "@context": "https://schema.org",
+        "@type": "SiteNavigationElement",
+        "name": "Philip Hotor - Author Profile",
+        "description": "Head of Engineering & Founder publications and credentials.",
+        "url": "https://www.koneacademy.io/author/philip-hotor"
+      },
+      {
+        "@context": "https://schema.org",
+        "@type": "SiteNavigationElement",
+        "name": "Documentation",
+        "description": "Architecture blueprints, remote lab setups, and developer setup guides.",
+        "url": "https://www.koneacademy.io/docs"
+      },
+      {
+        "@context": "https://schema.org",
+        "@type": "SiteNavigationElement",
+        "name": "Methodology Protocols",
+        "description": "Academic research methodology and technical consulting standards.",
+        "url": "https://www.koneacademy.io/protocols"
+      },
+      {
+        "@context": "https://schema.org",
+        "@type": "SiteNavigationElement",
+        "name": "Sitemap Directory",
+        "description": "Central link directory connecting all ecosystem subdomains and routes.",
+        "url": "https://www.koneacademy.io/sitemap"
+      }
+    ]
+  </script>
+  <script type="module" crossorigin src="/assets/index-BIy01g3X.js"></script>
+  <link rel="modulepreload" crossorigin href="/assets/vendor-react-DbiWhUg4.js">
+  <link rel="stylesheet" crossorigin href="/assets/index-DUD1BEYa.css">
+</head>
+
+<body>
+  <noscript>You need to enable JavaScript to run this app.</noscript>
+  <div id="root"></div>
+</body>
+
+</html>
