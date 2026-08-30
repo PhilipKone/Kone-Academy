@@ -126,7 +126,7 @@ const Sitemap = ({ onBack }) => {
                   <span className="sitemap-link-desc">Product marketing, branding, and asset design studio.</span>
                 </div>
                 <div className="sitemap-item">
-                  <a href="https://konetech.koneacademy.io" className="sitemap-link" target="_blank" rel="noopener noreferrer">
+                  <a href="https://tech.koneacademy.io" className="sitemap-link" target="_blank" rel="noopener noreferrer">
                     Kone Tech <FaExternalLinkAlt />
                   </a>
                   <span className="sitemap-link-desc">Ecosystem parent organization hub.</span>
