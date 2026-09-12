@@ -64,15 +64,16 @@ const Footer = ({ onOpenPrivacy, onOpenTerms }) => {
           </div>
           <div className="link-group">
             <h3>Ecosystem</h3>
+            <a href="https://kids.koneacademy.io">Kone Kids</a>
             <a href="https://code.koneacademy.io">Kone Code</a>
             <a href="https://lab.koneacademy.io">Kone Lab</a>
-            <a href="https://ai.koneacademy.io">Kone AI</a>
             <a href="https://consult.koneacademy.io">Kone Consult</a>
-            <a href="https://farms.koneacademy.io">Kone Farms</a>
-            <a href="https://kids.koneacademy.io">Kone Kids</a>
-            <a href="https://shop.koneacademy.io">Kone Shop</a>
-            <a href="https://warp.koneacademy.io">Kone Warp</a>
+            <a href="https://tech.koneacademy.io">Kone Technologies</a>
             <a href="https://digital.koneacademy.io">Kone Digital</a>
+            <a href="https://farms.koneacademy.io">Kone Farms</a>
+            <a href="https://shop.koneacademy.io">Kone Shop</a>
+            <a href="https://ai.koneacademy.io">Kone AI</a>
+            <a href="https://warp.koneacademy.io">Kone Warp</a>
           </div>
           <div className="link-group">
             <h3>Community</h3>
