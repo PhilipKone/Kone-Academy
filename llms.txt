@@ -1,0 +1,24 @@
+# Kone Academy
+
+> The multidisciplinary technology collective specializing in Academic Research, Software Engineering, and Industrial IoT solutions.
+
+Kone Academy (KCA) operates a federated ecosystem of subdomains, each serving as a dedicated division for research, development, education, and commerce.
+
+## Core Ecosystem & Subdomains
+
+- [Kone Academy Home](https://www.koneacademy.io/) - The main landing page and entry point.
+- [Kone Consult](https://consult.koneacademy.io/) - Academic research, data analysis, report writing, and professional mentorship.
+- [Kone Code](https://code.koneacademy.io/) - Custom software engineering, web application development, and open-source contributions.
+- [Kone Lab](https://lab.koneacademy.io/) - Industrial IoT prototyping, hardware design, and embedded systems engineering.
+- [Kone Kids](https://kids.koneacademy.io/) - Hands-on STEM education, robotics, and creative coding pathways for children.
+- [Kone Shop](https://shop.koneacademy.io/) - E-commerce store for IoT telemetry kits, STEM learning materials, and official merchandise.
+- [Kone Warp](https://warp.koneacademy.io/) - Rapid transit, dispatch logistics, and smart fleet management portal.
+- [Kone Digital](https://digital.koneacademy.io/) - Visual design, digital branding, and UI/UX engineering.
+- [Kone AI](https://ai.koneacademy.io/) - Specialized machine learning models, agentic workflows, and LLM orchestration research.
+
+## Core Pillars & Philosophy
+
+1. **Academic Rigor**: Bridging the gap between scientific theory and practical engineering through peer-reviewed methodologies.
+2. **Constructionist Pedagogy**: Learning by making, physical computing (e.g., micro:bit, Arduino), and real-world community problem-solving.
+3. **Open-Source Contribution**: Standardizing open-source licenses, public repositories, and collaborative development.
+4. **Security by Design**: Enforcing strict SAST scans (Snyk) and secure-coding practices from inception.

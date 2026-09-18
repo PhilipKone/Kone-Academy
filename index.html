@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+  <link rel="icon" type="image/png" sizes="48x48" href="/favicon-48x48.png" />
+  <link rel="icon" type="image/png" sizes="192x192" href="/favicon-192x192.png" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="color-scheme" content="light dark" />
+  <meta name="theme-color" content="#000000" />
+  <meta name="description"
+    content="Kone Academy: A multidisciplinary technology collective specializing in Academic Research, Software Engineering, and Industrial IoT solutions. Empowering innovation through expert consulting." />
+  <meta name="keywords" content="Kone Academy, Research Consulting, Software Development, IoT Engineering, Data Analysis Ghana, Academic Assistance" />
+  <meta name="author" content="Kone Academy" />
+  <link rel="canonical" href="https://www.koneacademy.io/" />
+
+  <!-- Single Page Apps for GitHub Pages URL Handler -->
+  <script type="text/javascript">
+    (function(l) {
+      if (l.search[1] === '/' ) {
+        var decoded = l.search.slice(1).split('&').map(function(s) { 
+          return s.replace(/~and~/g, '&')
+        }).join('?');
+        window.history.replaceState(null, null,
+            l.pathname.slice(0, -1) + decoded + l.hash
+        );
+      }
+    }(window.location));
+  </script>
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://www.koneacademy.io/" />
+  <meta property="og:title" content="Kone Academy | Research, Coding & Engineering Collective" />
+  <meta property="og:description" content="Kone Academy: Your partner for high-performance engineering, academic research, and custom software solutions. Bridging the gap between theory and innovation." />
+  <meta property="og:image" content="https://www.koneacademy.io/og-image.png?v=4" />
+  <meta property="og:image:type" content="image/png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:url" content="https://www.koneacademy.io/" />
+  <meta name="twitter:title" content="Kone Academy | Research, Coding & Engineering Collective" />
+  <meta name="twitter:description" content="High-performance engineering and research consulting for the next generation of innovators." />
+  <meta name="twitter:image" content="https://www.koneacademy.io/og-image.png?v=4" />
+
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+  <link rel="manifest" href="/manifest.json" />
+  <link rel="alternate" type="application/rss+xml" title="Kone Academy RSS Feed" href="https://www.koneacademy.io/feed.xml" />
+  <link rel="alternate" type="application/atom+xml" title="Kone Academy Atom Feed" href="https://www.koneacademy.io/atom.xml" />
+  <link rel="help" type="text/markdown" href="/llms.txt" title="LLMs Text File" />
+  <link rel="llms-txt" href="/llms.txt" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;500;600;700;800&family=Nunito:wght@400;600;700;800;900&display=swap">
+  <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;500;600;700;800&family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+  <title>Kone Academy | Research, Coding, and Engineering</title>
+
+  <!-- WebMCP Declarations for Autonomous Agentic Browsing -->
+  <script type="application/webmcp+json">
+  {
+    "version": "1.0",
+    "name": "Kone Academy Web Portal",
+    "description": "Autonomous agent tools for exploring courses, services, and subdomains across the Kone Academy ecosystem",
+    "tools": [
+      {
+        "name": "request_service",
+        "description": "Submit a request for coding masterclasses, academic research mentorship, or IoT engineering services",
+        "parameters": {
+          "type": "object",
+          "properties": {
+            "serviceName": { 
+              "type": "string", 
+              "enum": ["Python Masterclass", "C / C++ School", "R & MATLAB", "IoT Systems", "3D Simulation", "Robotics"] 
+            },
+            "userEmail": { "type": "string", "format": "email" }
+          },
+          "required": ["serviceName", "userEmail"]
+        }
+      },
+      {
+        "name": "navigate_subdomain",
+        "description": "Switch context or navigate to one of the 11 specialized Kone Academy subdomains",
+        "parameters": {
+          "type": "object",
+          "properties": {
+            "subdomain": { 
+              "type": "string", 
+              "enum": ["code", "consult", "lab", "kids", "shop", "farms", "warp", "digital", "ai", "tech"] 
+            }
+          },
+          "required": ["subdomain"]
+        }
+      }
+    ]
+  }
+  </script>
+
+  <!-- Structured Data (Professional Search Indexing & 6-Pack Sitelinks Schema) -->
+  <script type="application/ld+json">
+    [
+      {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": "Kone Academy",
+        "alternateName": ["KCA", "Kone Academy Ecosystem", "Kone Code Academy"],
+        "url": "https://www.koneacademy.io/",
+        "potentialAction": {
+          "@type": "SearchAction",
+          "target": "https://www.koneacademy.io/sitemap?q={search_term_string}",
+          "query-input": "required name=search_term_string"
+        },
+        "hasPart": [
+          {
+            "@type": "WebPage",
+            "name": "Kone Kids",
+            "description": "Empowering kids aged 5-17 to learn coding, robotics, and artificial intelligence through hands-on gamified missions.",
+            "url": "https://kids.koneacademy.io/"
+          },
+          {
+            "@type": "WebPage",
+            "name": "Kone Code",
+            "description": "Kone Code is the dedicated software engineering division of Kone Academy for production full-stack systems.",
+            "url": "https://code.koneacademy.io/"
+          },
+          {
+            "@type": "WebPage",
+            "name": "Innovation Hub | Kone Consult",
+            "description": "Kone Consult: High-performance academic research consulting and applied data analysis excellence.",
+            "url": "https://consult.koneacademy.io/"
+          },
+          {
+            "@type": "WebPage",
+            "name": "Kone Lab",
+            "description": "Kone Lab Academy - Master Hardware Engineering, IoT telemetry, and embedded electronics.",
+            "url": "https://lab.koneacademy.io/"
+          },
+          {
+            "@type": "WebPage",
+            "name": "Kone Technologies",
+            "description": "Kone Technologies is the parent organization directing pioneering research and real-world technology ventures.",
+            "url": "https://tech.koneacademy.io/"
+          },
+          {
+            "@type": "WebPage",
+            "name": "Kone Digital",
+            "description": "Enterprise Website as a Service (WaaS), automated MoMo checkout, and cloud engineering.",
+            "url": "https://digital.koneacademy.io/"
+          },
+          {
+            "@type": "WebPage",
+            "name": "Kone Farms",
+            "description": "Autonomous smart agritech, precision IoT soil sensors, and sustainable agricultural systems.",
+            "url": "https://farms.koneacademy.io/"
+          },
+          {
+            "@type": "WebPage",
+            "name": "Kone Shop",
+            "description": "Official supply shop for IoT prototyping hardware, developer kits, and educational components.",
+            "url": "https://shop.koneacademy.io/"
+          },
+          {
+            "@type": "WebPage",
+            "name": "Kone AI",
+            "description": "Domain-specialized neural architectures, cognitive agents, and custom machine learning pipelines.",
+            "url": "https://ai.koneacademy.io/"
+          },
+          {
+            "@type": "WebPage",
+            "name": "Kone Warp",
+            "description": "Intelligent transit orchestration, urban logistics telemetry, and rapid dispatch mobility.",
+            "url": "https://warp.koneacademy.io/"
+          },
+          {
+            "@type": "WebPage",
+            "name": "Sitemap Directory",
+            "description": "Kone Academy: A multidisciplinary technology collective sitemap and navigation directory.",
+            "url": "https://www.koneacademy.io/sitemap"
+          }
+        ]
+      },
+      {
+        "@context": "https://schema.org",
+        "@type": "ItemList",
+        "itemListElement": [
+          {
+            "@type": "SiteNavigationElement",
+            "position": 1,
+            "name": "Kone Kids",
+            "description": "Empowering kids aged 5-17 to learn coding, robotics, and artificial intelligence.",
+            "url": "https://kids.koneacademy.io/"
+          },
+          {
+            "@type": "SiteNavigationElement",
+            "position": 2,
+            "name": "Kone Code",
+            "description": "Kone Code is the dedicated software engineering division for production systems.",
+            "url": "https://code.koneacademy.io/"
+          },
+          {
+            "@type": "SiteNavigationElement",
+            "position": 3,
+            "name": "Innovation Hub | Kone Consult",
+            "description": "Academic research consulting, thesis assistance, and statistical data analysis.",
+            "url": "https://consult.koneacademy.io/"
+          },
+          {
+            "@type": "SiteNavigationElement",
+            "position": 4,
+            "name": "Kone Lab",
+            "description": "Master hardware engineering, embedded systems, and IoT prototyping.",
+            "url": "https://lab.koneacademy.io/"
+          },
+          {
+            "@type": "SiteNavigationElement",
+            "position": 5,
+            "name": "Kone Technologies",
+            "description": "Parent organization directing research, software education, and venture initiatives.",
+            "url": "https://tech.koneacademy.io/"
+          },
+          {
+            "@type": "SiteNavigationElement",
+            "position": 6,
+            "name": "Kone Digital",
+            "description": "Managed Website as a Service and automated payment engineering.",
+            "url": "https://digital.koneacademy.io/"
+          },
+          {
+            "@type": "SiteNavigationElement",
+            "position": 7,
+            "name": "Kone Farms",
+            "description": "Autonomous smart agritech and precision IoT environmental telemetry.",
+            "url": "https://farms.koneacademy.io/"
+          },
+          {
+            "@type": "SiteNavigationElement",
+            "position": 8,
+            "name": "Kone Shop",
+            "description": "Developer hardware, IoT sensor kits, and official gear store.",
+            "url": "https://shop.koneacademy.io/"
+          },
+          {
+            "@type": "SiteNavigationElement",
+            "position": 9,
+            "name": "Kone AI",
+            "description": "Domain neural architectures, agentic workflows, and machine learning models.",
+            "url": "https://ai.koneacademy.io/"
+          },
+          {
+            "@type": "SiteNavigationElement",
+            "position": 10,
+            "name": "Kone Warp",
+            "description": "High-speed dispatch logistics and mobility transportation network.",
+            "url": "https://warp.koneacademy.io/"
+          },
+          {
+            "@type": "SiteNavigationElement",
+            "position": 11,
+            "name": "Sitemap",
+            "description": "Central ecosystem navigation and directory of all hubs.",
+            "url": "https://www.koneacademy.io/sitemap"
+          }
+        ]
+      },
+      {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "Kone Academy",
+        "url": "https://www.koneacademy.io/",
+        "logo": "https://www.koneacademy.io/logo512.png",
+        "sameAs": [
+          "https://www.linkedin.com/company/konecodeacdemy/",
+          "https://www.facebook.com/profile.php?id=61584327765846",
+          "https://www.instagram.com/koneacademy",
+          "https://x.com/koneacademy",
+          "https://www.tiktok.com/@koneacademy",
+          "https://youtube.com/@koneacademy"
+        ],
+        "department": [
+          { "@type": "Organization", "name": "Kone Kids", "url": "https://kids.koneacademy.io/" },
+          { "@type": "Organization", "name": "Kone Code", "url": "https://code.koneacademy.io/" },
+          { "@type": "Organization", "name": "Kone Lab", "url": "https://lab.koneacademy.io/" },
+          { "@type": "Organization", "name": "Kone Consult", "url": "https://consult.koneacademy.io/" },
+          { "@type": "Organization", "name": "Kone Technologies", "url": "https://tech.koneacademy.io/" },
+          { "@type": "Organization", "name": "Kone Digital", "url": "https://digital.koneacademy.io/" },
+          { "@type": "Organization", "name": "Kone Farms", "url": "https://farms.koneacademy.io/" }
+        ]
+      }
+    ]
+  </script>
+  <script type="module" crossorigin src="/assets/index-BSp4LoC_.js"></script>
+  <link rel="modulepreload" crossorigin href="/assets/vendor-react-DbiWhUg4.js">
+  <link rel="stylesheet" crossorigin href="/assets/index-DUD1BEYa.css">
+</head>
+
+<body>
+  <noscript>You need to enable JavaScript to run this app.</noscript>
+  <div id="root"></div>
+</body>
+
+</html>
