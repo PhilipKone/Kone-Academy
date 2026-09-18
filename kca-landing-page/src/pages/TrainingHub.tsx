@@ -299,6 +299,17 @@ const TrainingHub = ({ onBack }) => {
   const [showPathfinderModal, setShowPathfinderModal] = useState(false);
 
   useEffect(() => {
+    if (typeof window !== 'undefined') {
+      const params = new URLSearchParams(window.location.search);
+      const trackParam = params.get('track');
+      if (trackParam) {
+        const matched = courses.find(c => c.id === trackParam);
+        if (matched) {
+          setSelectedCourse(matched);
+        }
+      }
+    }
+
     // Dynamic Course List Schema for Google Sitelinks, Rich Snippets, and AI Overview indexing
     const coursesSchema = {
       "@context": "https://schema.org",
