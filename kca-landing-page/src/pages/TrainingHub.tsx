@@ -56,7 +56,7 @@ const CourseCard = ({ course, onSelectCourse }) => {
           <IconComponent />
         </div>
         <span className="card-division-badge">
-          Kone {division}
+          {division === 'Studio' ? 'Anim Studio' : `Kone ${division}`}
         </span>
       </div>
 
@@ -144,7 +144,7 @@ const CourseDetailsModal = ({ course, onClose, onOpenOnboarding }) => {
           </div>
           <div className="modal-header-text">
             <span className="modal-track-badge">
-              Kone {course.division} Track
+              {course.division === 'Studio' ? 'Anim Studio Track' : `Kone ${course.division} Track`}
             </span>
             <h2 className="modal-title">{course.title}</h2>
           </div>
