@@ -384,16 +384,19 @@ const TrainingHub = ({ onBack }) => {
   };
 
   return (
-    <div className="container py-4 min-vh-100 animate-fade-in position-relative">
+    <div className="training-hub-container min-vh-100 animate-fade-in position-relative">
       {/* Top Action Navigation Bar */}
       <div className="training-top-nav">
         {onBack ? (
-          <button onClick={onBack} className="nav-action-btn back-btn">
+          <button onClick={onBack} className="nav-action-btn back-btn" aria-label="Return to Main Site">
             <FaChevronLeft size={11} />
             <span>Main Site</span>
           </button>
         ) : (
-          <div />
+          <a href="/" className="nav-action-btn back-btn" aria-label="Return to Main Site">
+            <FaChevronLeft size={11} />
+            <span>Main Site</span>
+          </a>
         )}
 
         {/* Pathfinder Quiz Launcher Pill */}

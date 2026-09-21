@@ -11,9 +11,20 @@
     z-index: 0;
 }
 
-.training-hub-page {
+.training-hub-container {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 36px 24px 64px;
     position: relative;
     z-index: 1;
+    box-sizing: border-box;
+    width: 100%;
+}
+
+@media (max-width: 768px) {
+    .training-hub-container {
+        padding: 24px 16px 80px;
+    }
 }
 
 /* Glass Pill Filters */
@@ -51,7 +62,7 @@
   justify-content: space-between;
   align-items: center;
   gap: 12px;
-  margin-bottom: 24px;
+  margin-bottom: 32px;
   width: 100%;
 }
 
