@@ -112,6 +112,12 @@ const Sitemap = ({ onBack }) => {
                     Kone Kids <FaExternalLinkAlt />
                   </a>
                   <span className="sitemap-link-desc">Visual drag-and-drop coding courses for children.</span>
+                  <div style={{ paddingLeft: '1rem', marginTop: '0.4rem', display: 'flex', flexDirection: 'column', gap: '0.3rem', fontSize: '0.85rem' }}>
+                    <a href="https://kids.koneacademy.io/coding/" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--text-secondary)' }}>• Coding Lab (Block & Python)</a>
+                    <a href="https://kids.koneacademy.io/robotics/" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--text-secondary)' }}>• Robotics Lab (Microcontrollers)</a>
+                    <a href="https://kids.koneacademy.io/ai/" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--text-secondary)' }}>• AI Studio (Machine Learning)</a>
+                    <a href="https://kids.koneacademy.io/blog/" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--text-secondary)' }}>• Parent Hub & STEM Articles</a>
+                  </div>
                 </div>
                 <div className="sitemap-item">
                   <a href="https://lab.koneacademy.io" className="sitemap-link" target="_blank" rel="noopener noreferrer">
