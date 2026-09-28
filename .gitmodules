@@ -10,3 +10,6 @@
 [submodule "anim-studio"]
 	path = anim-studio
 	url = https://github.com/PhilipKone/anim-studio.git
+[submodule "Kone-Build"]
+	path = Kone-Build
+	url = https://github.com/PhilipKone/Kone-Build.git
