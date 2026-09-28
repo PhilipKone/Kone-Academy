@@ -22,7 +22,14 @@ if (rootElement) {
   );
 
   if (rootElement.hasChildNodes()) {
-    hydrateRoot(rootElement, appElement);
+    hydrateRoot(rootElement, appElement, {
+      onRecoverableError: (error: any) => {
+        // React automatically recovers from minor SSR/prerender text or whitespace differences
+        if (process.env.NODE_ENV === 'development') {
+          console.warn('Hydration recoverable notice:', error);
+        }
+      }
+    });
   } else {
     createRoot(rootElement).render(appElement);
   }
