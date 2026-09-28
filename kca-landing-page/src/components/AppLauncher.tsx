@@ -128,6 +128,16 @@ const apps: AppItem[] = [
       ? 'http://localhost:5177'
       : 'https://ai.koneacademy.io',
   },
+  {
+    name: 'Kone Build',
+    description: 'Building Materials & Logistics',
+    logo: '/app-build.svg',
+    color: 'build',
+    glow: 'rgba(245, 158, 11, 0.15)',
+    url: isLocal
+      ? 'http://localhost:5178'
+      : 'https://build.koneacademy.io',
+  },
 ];
 
 /* ── Component ────────────────────────────────────────── */

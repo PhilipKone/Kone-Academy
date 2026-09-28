@@ -51,78 +51,71 @@ export default function KoneFarms({ onBack }) {
           </p>
         </div>
 
-        {/* Section 1: Kone Agritech & smartFarm */}
+        {/* Section 1: Agritech R&D & Real-World Operations */}
         <div className="farms-grid-2">
           
-          {/* Left Panel: smartFarm Dashboard */}
+          {/* Left Panel: smartFarm R&D Roadmap */}
           <div className="farms-card">
             <div className="smartfarm-header">
               <h3 className="smartfarm-title">
-                🖥️ smartFarm telemetry
+                🔬 smartFarm R&D Blueprint
               </h3>
-              <span style={{ fontSize: '0.8rem', background: '#059669', color: '#fff', padding: '0.2rem 0.6rem', borderRadius: '8px', fontWeight: 800 }}>
-                LIVE CONNECTION
+              <span style={{ fontSize: '0.8rem', background: '#0284c7', color: '#fff', padding: '0.2rem 0.6rem', borderRadius: '8px', fontWeight: 800 }}>
+                RESEARCH ROADMAP
               </span>
             </div>
 
-            {/* Live Metrics */}
-            <div className="telemetry-grid">
-              <div className="telemetry-item">
-                <div className="telemetry-val">48%</div>
-                <div className="telemetry-label">Soil Moisture 💧</div>
-              </div>
-              <div className="telemetry-item">
-                <div className="telemetry-val">29.5°C</div>
-                <div className="telemetry-label">Temperature 🌡️</div>
-              </div>
-              <div className="telemetry-item">
-                <div className="telemetry-val">82%</div>
-                <div className="telemetry-label">Sunlight ☀️</div>
-              </div>
-            </div>
+            <p style={{ color: '#94a3b8', fontSize: '0.9rem', lineHeight: 1.6, textAlign: 'left', margin: '0.5rem 0 1.5rem' }}>
+              We are developing open-source hardware and software blueprints for African agriculture. While our operational focus is organic farming partnerships and artisanal foods, our engineering division researches off-grid solar telemetry and automated micro-drip irrigation.
+            </p>
 
             {/* Cultivation Timeline */}
-            <div className="pipeline-title">Land Cultivation Pipeline</div>
+            <div className="pipeline-title">Kone Farms Phased Pipeline</div>
             <div className="pipeline-steps">
               <div className="pipeline-step active">
                 <span className="pipeline-step-num">1</span>
                 <div>
-                  <strong style={{ display: 'block', color: 'white' }}>Soil Preparation & Testing</strong>
-                  <span style={{ fontSize: '0.75rem', color: '#94a3b8' }}>pH Balanced, enriched with organic compost</span>
+                  <strong style={{ display: 'block', color: 'white' }}>Organic Farmer Partnerships</strong>
+                  <span style={{ fontSize: '0.75rem', color: '#94a3b8' }}>100% fair-trade sourcing with Volta and Ashanti growers (Active)</span>
                 </div>
               </div>
               <div className="pipeline-step active">
                 <span className="pipeline-step-num">2</span>
                 <div>
-                  <strong style={{ display: 'block', color: 'white' }}>Smart Seed Planting</strong>
-                  <span style={{ fontSize: '0.75rem', color: '#94a3b8' }}>Direct seed insertion with geolocation mapping</span>
+                  <strong style={{ display: 'block', color: 'white' }}>Artisanal Food Production</strong>
+                  <span style={{ fontSize: '0.75rem', color: '#94a3b8' }}>Kone Shito & kettle-cooked snacks with batch traceability (Active)</span>
                 </div>
               </div>
               <div className="pipeline-step pending">
                 <span className="pipeline-step-num">3</span>
                 <div>
-                  <strong style={{ display: 'block', color: 'white' }}>Sensor-Driven Watering (smartTools)</strong>
-                  <span style={{ fontSize: '0.75rem', color: '#94a3b8' }}>Real-time automated drip irrigation active</span>
+                  <strong style={{ display: 'block', color: 'white' }}>smartFarm IoT Hardware</strong>
+                  <span style={{ fontSize: '0.75rem', color: '#38bdf8' }}>Solar telemetry & automated pulse-latching valves (Published Whitepapers)</span>
                 </div>
               </div>
             </div>
           </div>
 
-          {/* Right Panel: Crops & smartTools */}
+          {/* Right Panel: Crops & Sourcing */}
           <div className="farms-card" style={{ display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
             <div>
               <div className="smartfarm-header">
                 <h3 className="smartfarm-title">
                   🌱 Crops & Sourcing
                 </h3>
+                <span style={{ fontSize: '0.8rem', background: '#059669', color: '#fff', padding: '0.2rem 0.6rem', borderRadius: '8px', fontWeight: 800 }}>
+                  ACTIVE HARVEST
+                </span>
               </div>
               
               <div style={{ textAlign: 'left', marginBottom: '1.5rem' }}>
-                <h4 style={{ color: '#fff', fontSize: '1.1rem', marginBottom: '0.5rem', fontWeight: 800 }}>Local Crops (Shito Ingredients)</h4>
+                <h4 style={{ color: '#fff', fontSize: '1.1rem', marginBottom: '0.5rem', fontWeight: 800 }}>Local Crops (Shito & Snack Ingredients)</h4>
                 <div style={{ marginBottom: '1.25rem' }}>
                   <span className="crop-badge">🌶️ Scotch Bonnet Pepper</span>
                   <span className="crop-badge">🧅 Shallots</span>
                   <span className="crop-badge">🧄 Organic Garlic</span>
+                  <span className="crop-badge">🍌 Golden Plantain</span>
+                  <span className="crop-badge">🥔 White Yam</span>
                   <span className="crop-badge">🐟 Smoked Herring</span>
                   <span className="crop-badge">🦐 Dried Shrimp</span>
                 </div>
@@ -146,28 +139,60 @@ export default function KoneFarms({ onBack }) {
 
         </div>
 
-        {/* smartTools Showcase */}
+        {/* 6 Research Whitepapers Suite Showcase */}
         <div className="farms-card" style={{ marginBottom: '4rem', textAlign: 'center' }}>
-          <h3 className="smartfarm-title" style={{ justifyContent: 'center', marginBottom: '2rem' }}>
-            🛠️ smartTools Technology Suite
+          <div className="farms-title-badge" style={{ background: 'rgba(59, 130, 246, 0.15)', borderColor: 'rgba(59, 130, 246, 0.3)', color: '#60a5fa', marginBottom: '1rem' }}>
+            📚 Open-Source Engineering Publications
+          </div>
+          <h3 className="smartfarm-title" style={{ justifyContent: 'center', marginBottom: '1rem' }}>
+            Agritech Research Series (6 Technical Whitepapers)
           </h3>
-          <div className="tools-grid">
-            <div className="tool-card">
-              <div className="tool-icon">💧</div>
-              <h4 className="tool-title">IoT Water Valve</h4>
-              <p className="tool-desc">Micro-controlled drip irrigation valves that turn on/off based on real-time soil hydration data.</p>
-            </div>
-            <div className="tool-card">
+          <p style={{ color: '#94a3b8', maxWidth: '700px', margin: '0 auto 2rem', fontSize: '0.95rem', lineHeight: 1.6 }}>
+            Our hardware and software engineering blueprints are published as publication-grade research studies with full hardware BOMs, Arduino C++ firmware, and mathematical calibration models:
+          </p>
+
+          <div className="tools-grid" style={{ gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '1.25rem', marginBottom: '2.5rem' }}>
+            <div className="tool-card" style={{ textAlign: 'left', padding: '1.5rem' }}>
               <div className="tool-icon">📡</div>
-              <h4 className="tool-title">Telemetry Hub</h4>
-              <p className="tool-desc">Wireless node sending temperature, atmospheric pressure, and moisture readings directly to the cloud.</p>
+              <h4 className="tool-title">smartFarm Telemetry Array</h4>
+              <p className="tool-desc">Multi-depth capacitive soil moisture, digital ambient temperature, and pyranometer solar irradiance monitoring.</p>
             </div>
-            <div className="tool-card">
-              <div className="tool-icon">🔋</div>
-              <h4 className="tool-title">Solar Power Grid</h4>
-              <p className="tool-desc">100% solar-driven field units with battery backup, making our field monitoring completely grid-independent.</p>
+            <div className="tool-card" style={{ textAlign: 'left', padding: '1.5rem' }}>
+              <div className="tool-icon">💧</div>
+              <h4 className="tool-title">IoT Water Valves</h4>
+              <p className="tool-desc">Bi-stable pulse-latching solenoid valves drawing 0W holding power for closed-loop micro-drip irrigation.</p>
+            </div>
+            <div className="tool-card" style={{ textAlign: 'left', padding: '1.5rem' }}>
+              <div className="tool-icon">📻</div>
+              <h4 className="tool-title">LoRa Mesh Networks</h4>
+              <p className="tool-desc">Long-range 866MHz solar-powered soil sensor nodes operating over 3.2km without cellular connectivity.</p>
+            </div>
+            <div className="tool-card" style={{ textAlign: 'left', padding: '1.5rem' }}>
+              <div className="tool-icon">🧪</div>
+              <h4 className="tool-title">Modbus RS485 NPK Probes</h4>
+              <p className="tool-desc">Industrial 7-in-1 root zone nutrient (N-P-K), pH, and electrical conductivity profiling for precision fertigation.</p>
+            </div>
+            <div className="tool-card" style={{ textAlign: 'left', padding: '1.5rem' }}>
+              <div className="tool-icon">🧬</div>
+              <h4 className="tool-title">ESP32-S3 Edge Firmware</h4>
+              <p className="tool-desc">Microclimate Black Sigatoka fungal infection risk prediction executed locally on the microcontroller.</p>
+            </div>
+            <div className="tool-card" style={{ textAlign: 'left', padding: '1.5rem' }}>
+              <div className="tool-icon">❄️</div>
+              <h4 className="tool-title">Solar Cold-Storage Pods</h4>
+              <p className="tool-desc">NDIR ethylene gas sensing and evaporative cooling pods to curb tropical post-harvest spoilage by 62%.</p>
             </div>
           </div>
+
+          <a 
+            href="https://farms.koneacademy.io/#blog" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="kids-button"
+            style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', padding: '0.85rem 2rem', background: '#3b82f6', boxShadow: '0 6px 0 #1d4ed8', textDecoration: 'none', color: '#fff', fontWeight: 800 }}
+          >
+            Read All 6 Agritech Whitepapers on Kone Farms Blog ➔
+          </a>
         </div>
 
         {/* Section 2: Kone Food & Kone Shito */}

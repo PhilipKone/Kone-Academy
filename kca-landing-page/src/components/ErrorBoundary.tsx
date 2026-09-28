@@ -23,7 +23,7 @@ class ErrorBoundary extends Component<Props, State> {
   }
 
   public async componentDidCatch(error: Error, errorInfo: ErrorInfo) {
-    console.error('Uncaught error caught by ErrorBoundary:', error, errorInfo);
+    console.log('[ErrorBoundary Caught]:', error ? `${error.name}: ${error.message}\n${error.stack}` : 'Unknown error');
     
     // Log the error to Firestore
     try {

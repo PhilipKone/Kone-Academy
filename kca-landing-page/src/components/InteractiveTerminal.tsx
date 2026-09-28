@@ -74,28 +74,15 @@ const INITIAL_LINES = [
   ''
 ];
 
+const INITIAL_HISTORY = INITIAL_LINES.map(text => ({ type: 'output', text }));
+
 const InteractiveTerminal = ({ onOpenOnboarding }) => {
-  const [history, setHistory] = useState([]);
+  const [history, setHistory] = useState(INITIAL_HISTORY);
   const [inputValue, setInputValue] = useState('');
-  const [initIndex, setInitIndex] = useState(0);
-  const [isInitializing, setIsInitializing] = useState(true);
   const [activeChallengeIndex, setActiveChallengeIndex] = useState(0);
 
   const terminalBodyRef = useRef(null);
   const inputRef = useRef(null);
-
-  useEffect(() => {
-    if (initIndex < INITIAL_LINES.length) {
-      const delay = initIndex === 1 ? 300 : 120;
-      const timer = setTimeout(() => {
-        setHistory((prev) => [...prev, { type: 'output', text: INITIAL_LINES[initIndex] }]);
-        setInitIndex((prev) => prev + 1);
-      }, delay);
-      return () => clearTimeout(timer);
-    } else {
-      setIsInitializing(false);
-    }
-  }, [initIndex]);
 
   useEffect(() => {
     if (terminalBodyRef.current) {
@@ -199,28 +186,25 @@ const InteractiveTerminal = ({ onOpenOnboarding }) => {
             </div>
           ))}
         </div>
-
-        {!isInitializing && (
-          <div className="terminal-input-line">
-            <span className="prompt">user@kone:~$</span>
-            <span className="typed-input">{inputValue}</span>
-            <span className="cursor">|</span>
-            <input
-              ref={inputRef}
-              type="text"
-              className="hidden-terminal-input"
-              value={inputValue}
-              onChange={(e) => setInputValue(e.target.value)}
-              onKeyDown={handleKeyDown}
-              aria-label="Terminal prompt input"
-              autoFocus
-              autoComplete="off"
-              autoCorrect="off"
-              autoCapitalize="off"
-              spellCheck="false"
-            />
-          </div>
-        )}
+        <div className="terminal-input-line">
+          <span className="prompt">user@kone:~$</span>
+          <span className="typed-input">{inputValue}</span>
+          <span className="cursor">|</span>
+          <input
+            ref={inputRef}
+            type="text"
+            className="hidden-terminal-input"
+            value={inputValue}
+            onChange={(e) => setInputValue(e.target.value)}
+            onKeyDown={handleKeyDown}
+            aria-label="Terminal prompt input"
+            autoFocus
+            autoComplete="off"
+            autoCorrect="off"
+            autoCapitalize="off"
+            spellCheck="false"
+          />
+        </div>
       </div>
     </div>
   );

@@ -4,6 +4,7 @@ const utilsPath = './node_modules/react-snap/src/puppeteer_utils.js';
 if (fs.existsSync(utilsPath)) {
     let c = fs.readFileSync(utilsPath, 'utf8');
     c = c.replace(/await page\._client\.send/g, 'await (typeof page.createCDPSession === "function" ? await page.createCDPSession() : page._client).send');
+    c = c.replace(/jsHandle\.executionContext\(\)\.evaluate\(e => e\.toString\(\), jsHandle\)/g, 'jsHandle.evaluate ? jsHandle.evaluate(e => (e && e.stack) || (e && e.toString()) || String(e)) : String(jsHandle)');
     fs.writeFileSync(utilsPath, c);
 }
 

@@ -63,6 +63,27 @@ function App() {
   const [globalOnboarding, setGlobalOnboarding] = React.useState<boolean>(false);
   const [privacyModal, setPrivacyModal] = React.useState<{ isOpen: boolean; tab: 'privacy' | 'terms' }>(getInitialPrivacyModal);
 
+  const [showWelcomeIntro, setShowWelcomeIntro] = React.useState<boolean>(() => {
+    if (typeof window === 'undefined') return false;
+    if (isPrerender) return false;
+    if (window.location.pathname !== '/' && window.location.pathname !== '') return false;
+    try {
+      return !sessionStorage.getItem('kca_intro_seen');
+    } catch {
+      return false;
+    }
+  });
+
+  const handleIntroFinished = React.useCallback(() => {
+    try {
+      sessionStorage.setItem('kca_intro_seen', 'true');
+    } catch {}
+    if (typeof document !== 'undefined') {
+      document.documentElement.classList.remove('kca-intro-active');
+    }
+    setShowWelcomeIntro(false);
+  }, []);
+
   const parseRoute = () => {
     const path = window.location.pathname;
     const pathParts = path.split('/').filter(Boolean);
@@ -210,7 +231,9 @@ function App() {
             />
             <InstallBanner />
           </div>
-          {mounted && !isPrerender && <LoadingScreen />}
+          {showWelcomeIntro && !isPrerender && (
+            <LoadingScreen isInitialWelcome onFinished={handleIntroFinished} />
+          )}
         </>
       )}
 

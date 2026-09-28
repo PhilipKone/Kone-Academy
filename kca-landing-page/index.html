@@ -290,6 +290,33 @@
       }
     ]
   </script>
+
+  <!-- Cinematic Zero-Flash Intro Transition Controller -->
+  <script>
+    (function() {
+      try {
+        var isPrerender = navigator.userAgent.indexOf('ReactSnap') !== -1 || window.__PRERENDER_INJECTED;
+        var isHomePage = window.location.pathname === '/' || window.location.pathname === '';
+        if (!isPrerender && isHomePage && !sessionStorage.getItem('kca_intro_seen')) {
+          document.documentElement.classList.add('kca-intro-active');
+        }
+      } catch (e) {}
+    })();
+  </script>
+  <style>
+    /* Prevents the homepage from flashing before the breathing intro hydrates */
+    html.kca-intro-active, 
+    html.kca-intro-active body {
+      background-color: #0a0c10 !important;
+    }
+    html.kca-intro-active #root {
+      opacity: 0;
+      transition: opacity 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    html:not(.kca-intro-active) #root {
+      opacity: 1;
+    }
+  </style>
 </head>
 
 <body>
