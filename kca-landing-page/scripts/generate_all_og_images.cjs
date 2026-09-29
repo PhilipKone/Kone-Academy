@@ -12,7 +12,7 @@ const coursesData = [
   { id: "course-ai", icon: "FaBrain", color: "#8b5cf6", glow: "rgba(139, 92, 246, 0.28)" },
   { id: "course-lab", icon: "FaFlask", color: "#06b6d4", glow: "rgba(6, 182, 212, 0.28)" },
   { id: "course-code", icon: "FaLaptopCode", color: "#2563eb", glow: "rgba(37, 99, 235, 0.28)" },
-  { id: "course-consult", icon: "FaBriefcase", color: "#d97706", glow: "rgba(217, 119, 6, 0.28)" },
+  { id: "course-consult", icon: "FaChartBar", color: "#d97706", glow: "rgba(217, 119, 6, 0.28)" },
   { id: "course-kids", icon: "FaGamepad", color: "#22c55e", glow: "rgba(34, 197, 94, 0.28)" },
   { id: "course-studio", icon: "FaCube", color: "#ec4899", glow: "rgba(236, 72, 153, 0.28)" },
   { id: "course-shop", icon: "FaShoppingCart", color: "#d946ef", glow: "rgba(217, 70, 239, 0.28)" },
