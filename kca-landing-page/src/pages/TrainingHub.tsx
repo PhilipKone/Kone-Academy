@@ -6,7 +6,7 @@ import {
   FaClock, FaCogs, FaCube, FaMicrochip, FaTerminal, FaLaptopCode, 
   FaChevronLeft, FaCreditCard, FaMapMarkedAlt, FaBrain, FaCloud, 
   FaGamepad, FaShoppingCart, FaShieldAlt, FaCheckCircle, FaRocket, 
-  FaTimes, FaLayerGroup, FaTools
+  FaTimes, FaLayerGroup, FaTools, FaShareAlt, FaCheck
 } from 'react-icons/fa';
 import { SiPython, SiJavascript } from 'react-icons/si';
 import { courses } from '../data/courses';
@@ -39,9 +39,49 @@ const iconMap = {
   'FaShieldAlt': FaShieldAlt
 };
 
+const shareTrack = async (course: any, onSuccess?: () => void) => {
+  const origin = typeof window !== 'undefined' ? window.location.origin : 'https://www.koneacademy.io';
+  const shareUrl = `${origin}/training?track=${course.id}`;
+  const shareData = {
+    title: `${course.title} | Kone Academy Track`,
+    text: `Explore the ${course.title} engineering track at Kone Academy:\n${course.description}`,
+    url: shareUrl,
+  };
+
+  if (typeof navigator !== 'undefined' && navigator.share && /mobile|android|iphone|ipad/i.test(navigator.userAgent)) {
+    try {
+      await navigator.share(shareData);
+      if (onSuccess) onSuccess();
+      return;
+    } catch (err) {
+      if ((err as Error).name === 'AbortError') return;
+    }
+  }
+
+  try {
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      await navigator.clipboard.writeText(shareUrl);
+      if (onSuccess) onSuccess();
+      return;
+    }
+    throw new Error('Clipboard API unavailable');
+  } catch {
+    const textarea = document.createElement('textarea');
+    textarea.value = shareUrl;
+    textarea.style.position = 'fixed';
+    textarea.style.opacity = '0';
+    document.body.appendChild(textarea);
+    textarea.select();
+    document.execCommand('copy');
+    document.body.removeChild(textarea);
+    if (onSuccess) onSuccess();
+  }
+};
+
 const CourseCard = ({ course, onSelectCourse }) => {
-  const { title, division, icon, description, skills, level, duration, colorClass, youtubeLink } = course;
+  const { id, title, division, icon, description, skills, level, duration, colorClass, youtubeLink } = course;
   const IconComponent = iconMap[icon] || FaGraduationCap;
+  const [copied, setCopied] = useState(false);
 
   const getLevelBadgeClass = (lvl: string) => {
     if (lvl.toLowerCase().includes('beginner')) return 'level-badge-beginner';
@@ -49,15 +89,44 @@ const CourseCard = ({ course, onSelectCourse }) => {
     return 'level-badge-advanced';
   };
 
+  const handleShareClick = (e: React.MouseEvent) => {
+    e.stopPropagation();
+    shareTrack(course, () => {
+      setCopied(true);
+      setTimeout(() => setCopied(false), 2000);
+    });
+  };
+
   return (
-    <div className="training-card">
+    <div className="training-card" id={id}>
       <div className="training-card-header">
         <div className={`card-icon-badge ${colorClass}`}>
           <IconComponent />
         </div>
-        <span className="card-division-badge">
-          {division === 'Studio' ? 'Anim Studio' : `Kone ${division}`}
-        </span>
+        <div className="card-header-actions">
+          <span className="card-division-badge">
+            {division === 'Studio' ? 'Anim Studio' : `Kone ${division}`}
+          </span>
+          <button
+            type="button"
+            className={`card-share-btn ${copied ? 'copied' : ''}`}
+            onClick={handleShareClick}
+            title={`Share direct link to ${title}`}
+            aria-label={`Share ${title}`}
+          >
+            {copied ? (
+              <>
+                <FaCheck size={11} className="text-success" />
+                <span className="share-feedback">Copied!</span>
+              </>
+            ) : (
+              <>
+                <FaShareAlt size={11} />
+                <span className="share-feedback">Share</span>
+              </>
+            )}
+          </button>
+        </div>
       </div>
 
       <div className="training-card-body">
@@ -112,6 +181,8 @@ const CourseCard = ({ course, onSelectCourse }) => {
 };
 
 const CourseDetailsModal = ({ course, onClose, onOpenOnboarding }) => {
+  const [modalCopied, setModalCopied] = useState(false);
+
   useEffect(() => {
     document.body.style.overflow = 'hidden';
     return () => {
@@ -123,6 +194,13 @@ const CourseDetailsModal = ({ course, onClose, onOpenOnboarding }) => {
 
   const IconComponent = iconMap[course.icon] || FaGraduationCap;
 
+  const handleModalShare = () => {
+    shareTrack(course, () => {
+      setModalCopied(true);
+      setTimeout(() => setModalCopied(false), 2000);
+    });
+  };
+
   return createPortal(
     <div className="modal-overlay" onClick={onClose}>
       <motion.div 
@@ -133,9 +211,29 @@ const CourseDetailsModal = ({ course, onClose, onOpenOnboarding }) => {
         exit={{ opacity: 0, scale: 0.96, y: 10 }}
         transition={{ duration: 0.22, ease: [0.16, 1, 0.3, 1] }}
       >
-        <button className="modal-close-btn" onClick={onClose} aria-label="Close modal">
-          <FaTimes size={14} />
-        </button>
+        <div className="modal-top-actions">
+          <button 
+            type="button" 
+            className={`modal-share-btn ${modalCopied ? 'copied' : ''}`}
+            onClick={handleModalShare}
+            title={`Share direct link to ${course.title}`}
+          >
+            {modalCopied ? (
+              <>
+                <FaCheck size={12} className="text-success" />
+                <span>Link Copied!</span>
+              </>
+            ) : (
+              <>
+                <FaShareAlt size={12} />
+                <span>Share Track</span>
+              </>
+            )}
+          </button>
+          <button className="modal-close-btn" onClick={onClose} aria-label="Close modal">
+            <FaTimes size={14} />
+          </button>
+        </div>
 
         {/* Modal Header */}
         <div className="modal-header-box">
@@ -305,7 +403,16 @@ const TrainingHub = ({ onBack }) => {
       if (trackParam) {
         const matched = courses.find(c => c.id === trackParam);
         if (matched) {
+          setActiveFilter(matched.category);
           setSelectedCourse(matched);
+          setTimeout(() => {
+            const cardEl = document.getElementById(trackParam);
+            if (cardEl) {
+              cardEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
+              cardEl.classList.add('highlight-pulse');
+              setTimeout(() => cardEl.classList.remove('highlight-pulse'), 2500);
+            }
+          }, 350);
         }
       }
     }
@@ -332,12 +439,21 @@ const TrainingHub = ({ onBack }) => {
           },
           "hasCourseInstance": {
             "@type": "CourseInstance",
-            "courseMode": "Online, Face-to-Face & Hybrid",
-            "duration": course.duration
+            "courseMode": ["Online", "Blended", "Hands-on Project Lab"],
+            "duration": course.duration,
+            "inLanguage": "en"
           },
+          "educationalLevel": course.level,
           "educationalCredentialAwarded": `Certificate of Engineering Proficiency in ${course.title}`,
           "teaches": course.skills,
           "courseCode": course.id,
+          "offers": {
+            "@type": "Offer",
+            "category": "Fellowship & Open Source Access",
+            "price": "0.00",
+            "priceCurrency": "USD",
+            "availability": "https://schema.org/InStock"
+          },
           "url": `https://www.koneacademy.io/training?track=${course.id}`
         }
       }))
@@ -349,6 +465,39 @@ const TrainingHub = ({ onBack }) => {
       removeJSONLD('training-courses-jsonld');
     };
   }, []);
+
+  // Synchronize browser URL and dynamic SEO metadata with active course selection
+  useEffect(() => {
+    if (typeof window === 'undefined') return;
+
+    if (selectedCourse) {
+      window.history.replaceState({}, '', `/training?track=${selectedCourse.id}`);
+      document.title = `${selectedCourse.title} Track | Kone Academy Training Hub`;
+
+      const metaDesc = document.querySelector('meta[name="description"]');
+      if (metaDesc) metaDesc.setAttribute('content', selectedCourse.description);
+
+      const ogTitle = document.querySelector('meta[property="og:title"]');
+      if (ogTitle) ogTitle.setAttribute('content', `${selectedCourse.title} Track | Kone Academy`);
+
+      const ogDesc = document.querySelector('meta[property="og:description"]');
+      if (ogDesc) ogDesc.setAttribute('content', selectedCourse.description);
+
+      const ogUrl = document.querySelector('meta[property="og:url"]');
+      if (ogUrl) ogUrl.setAttribute('content', `https://www.koneacademy.io/training?track=${selectedCourse.id}`);
+    } else {
+      if (window.location.search.includes('track=')) {
+        window.history.replaceState({}, '', '/training');
+      }
+      document.title = 'Training Hub | 12 Technology Tracks & Engineering Blueprints | Kone Academy';
+      const metaDesc = document.querySelector('meta[name="description"]');
+      if (metaDesc) metaDesc.setAttribute('content', 'Explore 12 intensive engineering tracks across Software, Hardware, AI, Cloud, and IoT. Master 48 Micro-Projects, 24 Mini-Projects, and deploy 12 Production Products.');
+      const ogTitle = document.querySelector('meta[property="og:title"]');
+      if (ogTitle) ogTitle.setAttribute('content', 'Training Hub | 12 Technology Tracks | Kone Academy');
+      const ogUrl = document.querySelector('meta[property="og:url"]');
+      if (ogUrl) ogUrl.setAttribute('content', 'https://www.koneacademy.io/training');
+    }
+  }, [selectedCourse]);
 
   const categories = [
     'All',
