@@ -672,6 +672,7 @@
   cursor: pointer;
   transition: all 0.2s ease;
   z-index: 10;
+  flex-shrink: 0;
 }
 
 .modal-close-btn:hover {
@@ -691,17 +692,23 @@
   .modal-top-actions {
     top: 14px;
     right: 14px;
-    gap: 6px;
+    gap: 8px;
   }
   .modal-share-btn {
-    padding: 6px 8px;
-    font-size: 0.72rem;
+    width: 32px;
+    height: 32px;
+    padding: 0;
+    border-radius: 50%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
   }
   .modal-share-btn span {
     display: none;
   }
   .modal-header-box {
-    padding-right: 70px;
+    padding-right: 84px;
   }
 }
 
@@ -967,9 +974,16 @@
 }
 
 @media (max-width: 768px) {
+  .modal-top-actions {
+    top: 14px;
+    right: 14px;
+    gap: 8px;
+  }
+
   .modal-close-btn {
-    top: 14px !important;
-    right: 14px !important;
+    top: auto !important;
+    right: auto !important;
+    position: relative !important;
     width: 32px !important;
     height: 32px !important;
   }
