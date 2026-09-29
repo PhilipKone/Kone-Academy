@@ -41,7 +41,7 @@ const iconMap = {
 
 const shareTrack = async (course: any, onSuccess?: () => void) => {
   const origin = typeof window !== 'undefined' ? window.location.origin : 'https://www.koneacademy.io';
-  const shareUrl = `${origin}/training/${course.id}`;
+  const shareUrl = `${origin}/training/${course.id}/`;
   const shareData = {
     title: `${course.title} | Kone Academy Track`,
     text: `Explore the ${course.title} engineering track at Kone Academy:\n${course.description}`,
@@ -477,7 +477,7 @@ const TrainingHub = ({ onBack }) => {
     if (typeof window === 'undefined') return;
 
     if (selectedCourse) {
-      window.history.replaceState({}, '', `/training/${selectedCourse.id}`);
+      window.history.replaceState({}, '', `/training/${selectedCourse.id}/`);
       document.title = `${selectedCourse.title} Track | Kone Academy Training Hub`;
 
       const metaDesc = document.querySelector('meta[name="description"]');
@@ -490,7 +490,7 @@ const TrainingHub = ({ onBack }) => {
       if (ogDesc) ogDesc.setAttribute('content', selectedCourse.description);
 
       const ogUrl = document.querySelector('meta[property="og:url"]');
-      if (ogUrl) ogUrl.setAttribute('content', `https://www.koneacademy.io/training/${selectedCourse.id}`);
+      if (ogUrl) ogUrl.setAttribute('content', `https://www.koneacademy.io/training/${selectedCourse.id}/`);
 
       const ogImage = document.querySelector('meta[property="og:image"]');
       if (ogImage) ogImage.setAttribute('content', `https://www.koneacademy.io/og/${selectedCourse.id}.png`);

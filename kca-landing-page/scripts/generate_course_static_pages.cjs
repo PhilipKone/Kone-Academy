@@ -35,7 +35,7 @@ courses.forEach(course => {
   const divisionName = course.division === 'Studio' ? 'Anim Studio' : `Kone ${course.division}`;
   const fullTitle = `${course.title} | ${divisionName} Track | Kone Academy`;
   const ogImageUrl = `https://www.koneacademy.io/og/${course.id}.png`;
-  const canonicalUrl = `https://www.koneacademy.io/training?track=${course.id}`;
+  const canonicalUrl = `https://www.koneacademy.io/training/${course.id}/`;
 
   const html = `<!DOCTYPE html>
 <html lang="en">
