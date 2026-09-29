@@ -41,7 +41,7 @@ const iconMap = {
 
 const shareTrack = async (course: any, onSuccess?: () => void) => {
   const origin = typeof window !== 'undefined' ? window.location.origin : 'https://www.koneacademy.io';
-  const shareUrl = `${origin}/training?track=${course.id}`;
+  const shareUrl = `${origin}/training/${course.id}`;
   const shareData = {
     title: `${course.title} | Kone Academy Track`,
     text: `Explore the ${course.title} engineering track at Kone Academy:\n${course.description}`,
@@ -399,7 +399,13 @@ const TrainingHub = ({ onBack }) => {
   useEffect(() => {
     if (typeof window !== 'undefined') {
       const params = new URLSearchParams(window.location.search);
-      const trackParam = params.get('track');
+      let trackParam = params.get('track');
+      if (!trackParam) {
+        const pathParts = window.location.pathname.split('/').filter(Boolean);
+        if (pathParts[0] === 'training' && pathParts[1] && pathParts[1].startsWith('course-')) {
+          trackParam = pathParts[1];
+        }
+      }
       if (trackParam) {
         const matched = courses.find(c => c.id === trackParam);
         if (matched) {
@@ -471,7 +477,7 @@ const TrainingHub = ({ onBack }) => {
     if (typeof window === 'undefined') return;
 
     if (selectedCourse) {
-      window.history.replaceState({}, '', `/training?track=${selectedCourse.id}`);
+      window.history.replaceState({}, '', `/training/${selectedCourse.id}`);
       document.title = `${selectedCourse.title} Track | Kone Academy Training Hub`;
 
       const metaDesc = document.querySelector('meta[name="description"]');
@@ -484,9 +490,15 @@ const TrainingHub = ({ onBack }) => {
       if (ogDesc) ogDesc.setAttribute('content', selectedCourse.description);
 
       const ogUrl = document.querySelector('meta[property="og:url"]');
-      if (ogUrl) ogUrl.setAttribute('content', `https://www.koneacademy.io/training?track=${selectedCourse.id}`);
+      if (ogUrl) ogUrl.setAttribute('content', `https://www.koneacademy.io/training/${selectedCourse.id}`);
+
+      const ogImage = document.querySelector('meta[property="og:image"]');
+      if (ogImage) ogImage.setAttribute('content', `https://www.koneacademy.io/og/${selectedCourse.id}.png`);
+
+      const twitterImage = document.querySelector('meta[name="twitter:image"]');
+      if (twitterImage) twitterImage.setAttribute('content', `https://www.koneacademy.io/og/${selectedCourse.id}.png`);
     } else {
-      if (window.location.search.includes('track=')) {
+      if (window.location.pathname.startsWith('/training/course-') || window.location.search.includes('track=')) {
         window.history.replaceState({}, '', '/training');
       }
       document.title = 'Training Hub | 12 Technology Tracks & Engineering Blueprints | Kone Academy';
@@ -496,6 +508,10 @@ const TrainingHub = ({ onBack }) => {
       if (ogTitle) ogTitle.setAttribute('content', 'Training Hub | 12 Technology Tracks | Kone Academy');
       const ogUrl = document.querySelector('meta[property="og:url"]');
       if (ogUrl) ogUrl.setAttribute('content', 'https://www.koneacademy.io/training');
+      const ogImage = document.querySelector('meta[property="og:image"]');
+      if (ogImage) ogImage.setAttribute('content', 'https://www.koneacademy.io/og-image.png?v=4');
+      const twitterImage = document.querySelector('meta[name="twitter:image"]');
+      if (twitterImage) twitterImage.setAttribute('content', 'https://www.koneacademy.io/og-image.png?v=4');
     }
   }, [selectedCourse]);
 
