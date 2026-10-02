@@ -50,78 +50,78 @@
     <priority>0.85</priority>
   </url>
 
-  <!-- 12 Technology Tracks (Deep-Links) -->
+  <!-- 12 Technology Tracks (Canonical Hub Routes) -->
   <url>
-    <loc>https://www.koneacademy.io/training?track=course-pay</loc>
-    <lastmod>2026-09-18</lastmod>
+    <loc>https://www.koneacademy.io/training/course-pay/</loc>
+    <lastmod>2026-10-02</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.85</priority>
+    <priority>0.90</priority>
   </url>
   <url>
-    <loc>https://www.koneacademy.io/training?track=course-farms</loc>
-    <lastmod>2026-09-18</lastmod>
+    <loc>https://www.koneacademy.io/training/course-farms/</loc>
+    <lastmod>2026-10-02</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.85</priority>
+    <priority>0.90</priority>
   </url>
   <url>
-    <loc>https://www.koneacademy.io/training?track=course-warp</loc>
-    <lastmod>2026-09-18</lastmod>
+    <loc>https://www.koneacademy.io/training/course-warp/</loc>
+    <lastmod>2026-10-02</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.85</priority>
+    <priority>0.90</priority>
   </url>
   <url>
-    <loc>https://www.koneacademy.io/training?track=course-studio</loc>
-    <lastmod>2026-09-18</lastmod>
+    <loc>https://www.koneacademy.io/training/course-studio/</loc>
+    <lastmod>2026-10-02</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.85</priority>
+    <priority>0.90</priority>
   </url>
   <url>
-    <loc>https://www.koneacademy.io/training?track=course-ai</loc>
-    <lastmod>2026-09-18</lastmod>
+    <loc>https://www.koneacademy.io/training/course-ai/</loc>
+    <lastmod>2026-10-02</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.85</priority>
+    <priority>0.90</priority>
   </url>
   <url>
-    <loc>https://www.koneacademy.io/training?track=course-consult</loc>
-    <lastmod>2026-09-18</lastmod>
+    <loc>https://www.koneacademy.io/training/course-consult/</loc>
+    <lastmod>2026-10-02</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.85</priority>
+    <priority>0.90</priority>
   </url>
   <url>
-    <loc>https://www.koneacademy.io/training?track=course-code</loc>
-    <lastmod>2026-09-18</lastmod>
+    <loc>https://www.koneacademy.io/training/course-code/</loc>
+    <lastmod>2026-10-02</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.85</priority>
+    <priority>0.90</priority>
   </url>
   <url>
-    <loc>https://www.koneacademy.io/training?track=course-kids</loc>
-    <lastmod>2026-09-18</lastmod>
+    <loc>https://www.koneacademy.io/training/course-kids/</loc>
+    <lastmod>2026-10-02</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.85</priority>
+    <priority>0.90</priority>
   </url>
   <url>
-    <loc>https://www.koneacademy.io/training?track=course-lab</loc>
-    <lastmod>2026-09-18</lastmod>
+    <loc>https://www.koneacademy.io/training/course-lab/</loc>
+    <lastmod>2026-10-02</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.85</priority>
+    <priority>0.90</priority>
   </url>
   <url>
-    <loc>https://www.koneacademy.io/training?track=course-shop</loc>
-    <lastmod>2026-09-18</lastmod>
+    <loc>https://www.koneacademy.io/training/course-shop/</loc>
+    <lastmod>2026-10-02</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.85</priority>
+    <priority>0.90</priority>
   </url>
   <url>
-    <loc>https://www.koneacademy.io/training?track=course-digital</loc>
-    <lastmod>2026-09-29</lastmod>
+    <loc>https://www.koneacademy.io/training/course-digital/</loc>
+    <lastmod>2026-10-02</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.85</priority>
+    <priority>0.90</priority>
   </url>
   <url>
-    <loc>https://www.koneacademy.io/training?track=course-tech</loc>
-    <lastmod>2026-09-29</lastmod>
+    <loc>https://www.koneacademy.io/training/course-tech/</loc>
+    <lastmod>2026-10-02</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.85</priority>
+    <priority>0.90</priority>
   </url>
 
   <!-- Programmatic Local SEO Tech Hubs (Niches x African/Global Cities) -->

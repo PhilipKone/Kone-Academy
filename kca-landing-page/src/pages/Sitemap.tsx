@@ -12,6 +12,7 @@ import { motion } from 'framer-motion';
 
 // Import our programmatic datasets
 import { staticBlogs } from '../data/blogs';
+import { courses } from '../data/courses';
 
 const Sitemap = ({ onBack }) => {
   const sliderRef = useRef(null);
@@ -153,8 +154,15 @@ const Sitemap = ({ onBack }) => {
                   <a href="/training" onClick={(e) => handleLinkClick(e, '/training')} className="sitemap-link">
                     Training Hub
                   </a>
-                  <span className="sitemap-link-desc">Interactive curriculum and professional code modules.</span>
+                  <span className="sitemap-link-desc">Interactive curriculum and 12 engineering tracks.</span>
                 </div>
+                {courses.map(course => (
+                  <div key={course.id} className="sitemap-item" style={{ paddingLeft: '12px', borderLeft: '1px solid rgba(56, 189, 248, 0.25)' }}>
+                    <a href={`/training/${course.id}/`} onClick={(e) => handleLinkClick(e, `/training/${course.id}/`)} className="sitemap-link" style={{ fontSize: '0.85rem' }}>
+                      → {course.title}
+                    </a>
+                  </div>
+                ))}
                 <div className="sitemap-item">
                   <a href="/school" onClick={(e) => handleLinkClick(e, '/school')} className="sitemap-link">
                     Kone School

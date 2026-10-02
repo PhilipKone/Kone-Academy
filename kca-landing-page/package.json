@@ -27,7 +27,7 @@
     },
     "scripts": {
         "dev": "vite",
-        "prebuild": "node scripts/generate_rss.cjs",
+        "prebuild": "node scripts/generate_rss.cjs && node scripts/generate_course_static_pages.cjs",
         "build": "vite build",
         "postbuild": "react-snap || echo 'Pre-rendering timed out, deploying SPA...'",
         "preview": "vite preview",

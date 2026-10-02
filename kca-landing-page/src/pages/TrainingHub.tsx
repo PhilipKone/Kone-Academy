@@ -130,7 +130,18 @@ const CourseCard = ({ course, onSelectCourse }) => {
       </div>
 
       <div className="training-card-body">
-        <h3 className="card-title-text">{title}</h3>
+        <h3 className="card-title-text">
+          <a 
+            href={`/training/${id}/`}
+            onClick={(e) => {
+              e.preventDefault();
+              onSelectCourse(course);
+            }}
+            style={{ color: 'inherit', textDecoration: 'none' }}
+          >
+            {title}
+          </a>
+        </h3>
         <p className="card-description">{description}</p>
 
         {/* Clean Skills Badges Group */}
@@ -159,13 +170,17 @@ const CourseCard = ({ course, onSelectCourse }) => {
       </div>
 
       <div className="card-actions-group">
-        <button
-          onClick={() => onSelectCourse(course)}
+        <a
+          href={`/training/${id}/`}
+          onClick={(e) => {
+            e.preventDefault();
+            onSelectCourse(course);
+          }}
           className="enroll-btn"
         >
           <FaLayerGroup size={13} />
           <span>View Syllabus & Projects</span>
-        </button>
+        </a>
         <a 
           href={youtubeLink} 
           target="_blank" 
