@@ -87,28 +87,28 @@ const DocumentPrintModal: React.FC<DocumentPrintModalProps> = ({
               className={`doc-tab-btn ${docType === 'invoice' ? 'active' : ''}`}
               onClick={() => setDocType('invoice')}
             >
-              <FaFileInvoiceDollar className="me-2" /> Official Invoice
+              Invoice
             </button>
             <button 
               className={`doc-tab-btn ${docType === 'syllabus' ? 'active' : ''}`}
               onClick={() => setDocType('syllabus')}
             >
-              <FaFileAlt className="me-2" /> Official Syllabus
+              Syllabus
             </button>
           </div>
 
           <div className="doc-tool-buttons">
-            <button className="doc-action-btn primary" onClick={handlePrint} title="Print or save as PDF">
-              <FaPrint className="me-1" /> Print / Save as PDF
+            <button className="doc-action-btn primary" onClick={handlePrint} title="Print or save as PDF" aria-label="Print or save as PDF">
+              <FaPrint size={14} />
             </button>
-            <button className="doc-action-btn whatsapp" onClick={handleShareWhatsApp} title="Send directly to WhatsApp">
-              <FaWhatsapp className="me-1" /> WhatsApp
+            <button className="doc-action-btn whatsapp" onClick={handleShareWhatsApp} title="Share directly to WhatsApp" aria-label="Share on WhatsApp">
+              <FaWhatsapp size={15} />
             </button>
-            <button className="doc-action-btn secondary" onClick={handleCopyLink} title="Copy official verification link">
-              {copied ? <><FaCheck className="me-1 text-success" /> Copied</> : <><FaCopy className="me-1" /> Copy Link</>}
+            <button className="doc-action-btn secondary" onClick={handleCopyLink} title="Copy official link" aria-label="Copy official link">
+              {copied ? <FaCheck className="text-success" size={13} /> : <FaCopy size={13} />}
             </button>
-            <button className="doc-close-btn" onClick={onClose} aria-label="Close modal">
-              <FaTimes />
+            <button className="doc-close-btn" onClick={onClose} title="Close modal" aria-label="Close modal">
+              <FaTimes size={15} />
             </button>
           </div>
         </div>
@@ -125,7 +125,7 @@ const DocumentPrintModal: React.FC<DocumentPrintModalProps> = ({
                   <h1 className="doc-brand-title">KONE ACADEMY OF TECHNOLOGY</h1>
                   <p className="doc-brand-sub">Elite Engineering, Applied AI & Advanced Software Collective</p>
                   <p className="doc-brand-contact">
-                    Accra, Ghana &bull; philipkone45@gmail.com &bull; +233 55 199 3820 &bull; www.koneacademy.io
+                    Accra, Ghana &bull; admissions@koneacademy.io &bull; +233 55 199 3820 &bull; www.koneacademy.io
                   </p>
                 </div>
               </div>
@@ -227,25 +227,21 @@ const DocumentPrintModal: React.FC<DocumentPrintModalProps> = ({
                     <p className="payment-intro">Payments can be completed securely via Mobile Money or Bank Transfer:</p>
                     <ul className="payment-list">
                       <li><strong>Mobile Money:</strong> MTN MoMo / Telecel Cash</li>
-                      <li><strong>Account Name:</strong> Philip Kone / Kone Technologies</li>
+                      <li><strong>Account Name:</strong> Philip Hotor</li>
                       <li><strong>Payment Reference:</strong> <code className="pay-ref">{token}</code> (or Student Name: {studentName})</li>
                       <li><strong>Admissions WhatsApp Desk:</strong> +233 55 199 3820</li>
                     </ul>
                     <p className="payment-footnote">
-                      *Upon payment completion, forward your transaction screenshot to <strong>+233 55 199 3820</strong> or <strong>philipkone45@gmail.com</strong> for instant activation of your student GitHub access and lab calendar.
+                      *Upon payment completion, forward your transaction screenshot to <strong>+233 55 199 3820</strong> or <strong>admissions@koneacademy.io</strong> for instant activation of your student portal and lab calendar.
                     </p>
                   </div>
 
                   <div className="doc-signoff-box">
                     <span className="signoff-label">ISSUING AUTHORITY & REGISTRAR</span>
                     <div className="doc-signature-line">
-                      <div className="sign-name">Philip Hotor Kone</div>
+                      <div className="sign-name">Philip Hotor</div>
                       <div className="sign-role">Lead Engineer & Academy Director</div>
-                      <div className="sign-org">Kone Technologies Engineering Group</div>
-                    </div>
-                    <div className="doc-security-footnote">
-                      <FaCheckCircle className="me-1 text-success" />
-                      Verified Enrollment Token: <code>{token}</code>
+                      <div className="sign-org">Kone Academy Admissions Directorate</div>
                     </div>
                   </div>
                 </div>

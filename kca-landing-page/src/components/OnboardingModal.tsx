@@ -156,8 +156,8 @@ CURRICULUM ARCHITECTURE & CHECKPOINTS:
 - 1 Live Capstone Production Deployment
 
 SUPPORT & ADMISSIONS:
-Admissions Desk:   philipkone45@gmail.com
-Direct Inquiries:  philipkone45@gmail.com / phconsultgh@gmail.com
+Admissions Desk:   admissions@koneacademy.io
+Direct Inquiries:  admissions@koneacademy.io
 WhatsApp Support:  +233 55 199 3820
 Website:           https://www.koneacademy.io
 =====================================================`;

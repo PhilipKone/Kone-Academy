@@ -31,25 +31,29 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 14px 20px;
+  padding: 10px 18px;
   background: #0b1120;
   border-bottom: 1px solid rgba(255, 255, 255, 0.08);
   flex-wrap: wrap;
-  gap: 12px;
+  gap: 10px;
 }
 
 .doc-tab-buttons {
   display: flex;
-  gap: 8px;
+  gap: 6px;
+  background: rgba(255, 255, 255, 0.04);
+  padding: 3px;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
 }
 
 .doc-tab-btn {
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: transparent;
+  border: none;
   color: #94a3b8;
-  padding: 8px 16px;
-  border-radius: 8px;
-  font-size: 0.85rem;
+  padding: 6px 14px;
+  border-radius: 6px;
+  font-size: 0.8rem;
   font-weight: 600;
   cursor: pointer;
   transition: all 0.2s ease;
@@ -58,31 +62,30 @@
 }
 
 .doc-tab-btn:hover {
-  background: rgba(255, 255, 255, 0.09);
   color: #f8fafc;
 }
 
 .doc-tab-btn.active {
   background: #2563eb;
-  border-color: #2563eb;
   color: #ffffff;
 }
 
 .doc-tool-buttons {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 8px;
 }
 
 .doc-action-btn {
-  padding: 8px 16px;
+  width: 36px;
+  height: 36px;
+  padding: 0;
   border-radius: 8px;
-  font-size: 0.84rem;
-  font-weight: 600;
   cursor: pointer;
   border: none;
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   transition: all 0.2s ease;
 }
 
@@ -115,14 +118,15 @@
   background: transparent;
   border: none;
   color: #94a3b8;
-  font-size: 1.1rem;
+  width: 36px;
+  height: 36px;
   cursor: pointer;
-  padding: 6px;
+  padding: 0;
   display: flex;
   align-items: center;
   justify-content: center;
-  border-radius: 6px;
-  transition: color 0.15s ease;
+  border-radius: 8px;
+  transition: all 0.15s ease;
 }
 .doc-close-btn:hover {
   color: #f8fafc;
