@@ -44,9 +44,10 @@ const DocumentPrintModal: React.FC<DocumentPrintModalProps> = ({
     (data.division && c.division.toLowerCase() === data.division.toLowerCase())
   ) || courses.find(c => c.id === 'course-code') || courses[0];
 
-  const studentName = data.studentName || 'Thomas Kangah';
-  const email = data.email || 'thomaskangah803@gmail.com';
-  const phone = data.phone || '+233 24 023 9469';
+  const isThomasToken = token === 'KONE-2026-CODE-9513';
+  const studentName = data.studentName || (isThomasToken ? 'Thomas Kangah' : 'Student Candidate');
+  const email = data.email || (isThomasToken ? 'thomaskangah803@gmail.com' : 'admissions@koneacademy.io');
+  const phone = data.phone || (isThomasToken ? '+233 24 023 9469' : '+233 55 199 3820');
   const trackTitle = data.track || matchedCourse.title;
   const division = data.division || matchedCourse.division;
   const issueDate = data.issueDate || new Date().toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' });
@@ -127,7 +128,7 @@ const DocumentPrintModal: React.FC<DocumentPrintModalProps> = ({
 
               <div className="doc-seal-block">
                 <div className="doc-badge-pill">
-                  <FaShieldAlt className="me-1" /> OFFICIAL ADMISSION LEDGER
+                  <FaShieldAlt className="me-1" /> OFFICIAL ADMISSION REGISTRY
                 </div>
                 <div className="doc-meta-item">
                   <span className="lbl">RESERVATION TOKEN</span>
@@ -175,7 +176,7 @@ const DocumentPrintModal: React.FC<DocumentPrintModalProps> = ({
                 <table className="doc-table">
                   <thead>
                     <tr>
-                      <th style={{ width: '45%' }}>Enrolment Track / Plan</th>
+                      <th style={{ width: '45%' }}>Enrollment Track / Program</th>
                       <th style={{ width: '25%' }}>Frequency & Lab Access</th>
                       <th style={{ width: '15%' }}>Rate / Session</th>
                       <th style={{ width: '15%', textAlign: 'right' }}>Total (GHS)</th>
@@ -239,8 +240,8 @@ const DocumentPrintModal: React.FC<DocumentPrintModalProps> = ({
                       <div className="sign-org">Kone Technologies Engineering Group</div>
                     </div>
                     <div className="doc-security-footnote">
-                      <FaLock className="me-1 text-success" />
-                      Cryptographically Validated Token: <span className="text-monospace">{token}</span>
+                      <FaCheckCircle className="me-1 text-success" />
+                      Verified Enrollment Token: <code>{token}</code>
                     </div>
                   </div>
                 </div>

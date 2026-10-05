@@ -64,6 +64,8 @@ const CertificateValidator = ({ onBack }) => {
         foundRecord = {
           id: token,
           studentName: match.fullName,
+          email: match.email,
+          phone: match.phone,
           status: "VERIFIED & AUTHENTIC",
           issueDate: new Date(match.date || Date.now()).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' }),
           track: match.track,
@@ -92,6 +94,8 @@ const CertificateValidator = ({ onBack }) => {
             foundRecord = {
               id: token,
               studentName: docData.fullName,
+              email: docData.email,
+              phone: docData.phone,
               status: "VERIFIED & AUTHENTIC",
               issueDate: new Date(docData.date || Date.now()).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' }),
               track: docData.track,
@@ -123,11 +127,15 @@ const CertificateValidator = ({ onBack }) => {
         : 'Code';
 
       const matchedTrack = courses.find(c => c.division.toLowerCase() === divisionKey.toLowerCase()) || courses[0];
+      const isThomasToken = token === 'KONE-2026-CODE-9513';
 
       foundRecord = {
         id: token,
+        studentName: isThomasToken ? "Thomas Kangah" : "Registered Candidate",
+        email: isThomasToken ? "thomaskangah803@gmail.com" : "",
+        phone: isThomasToken ? "+233 24 023 9469" : "",
         status: "VERIFIED & AUTHENTIC",
-        issueDate: "2026 Active Cohort Registry",
+        issueDate: isThomasToken ? "October 4, 2026" : "2026 Active Cohort Registry",
         track: matchedTrack.title,
         division: matchedTrack.division,
         level: matchedTrack.level,
@@ -224,8 +232,8 @@ const CertificateValidator = ({ onBack }) => {
                   <div className="cert-shield-badge mx-auto mb-3 animate-spin">
                     <FaShieldAlt />
                   </div>
-                  <h4 className="h5 text-white fw-bold mb-1">Verifying Certificate Cryptographic Record</h4>
-                  <p className="text-secondary small mb-0">Querying SHA-256 signatures & graduate registry...</p>
+                  <h4 className="h5 text-white fw-bold mb-1">Verifying Registry Record</h4>
+                  <p className="text-secondary small mb-0">Querying official student enrollment & graduate registry...</p>
                 </motion.div>
               ) : !searched && !certData ? (
                 <motion.div 
@@ -239,7 +247,7 @@ const CertificateValidator = ({ onBack }) => {
                   </div>
                   <h4 className="h6 text-white fw-bold mb-1">Registry Ready for Verification</h4>
                   <p className="text-secondary small max-w-md mx-auto mb-0">
-                    Enter an issued Certificate ID above to verify authentic student credentials and view verified project achievements.
+                    Enter an issued Certificate ID or reservation token above to verify authentic student credentials.
                   </p>
                 </motion.div>
               ) : searched && !certData ? (
@@ -253,7 +261,7 @@ const CertificateValidator = ({ onBack }) => {
                     <FaInfoCircle /> Unverified Token Identifier
                   </div>
                   <p className="text-secondary small mb-2">
-                    No registered certificate matching token <strong className="text-white">"{searchId}"</strong> was found in the active 2026 ledger.
+                    No registered credential matching token <strong className="text-white">"{searchId}"</strong> was found in the official academy registry.
                   </p>
                   <div className="extra-small text-secondary opacity-75">
                     Please double-check your token ID from your profile card or enrollment receipt.
@@ -331,7 +339,7 @@ const CertificateValidator = ({ onBack }) => {
                   <div className="cert-footer-signature p-4 d-flex justify-content-between align-items-center flex-wrap gap-3">
                     <div>
                       <span className="extra-small text-secondary d-flex align-items-center gap-1 mb-1">
-                        <FaLock className="text-success" /> SHA-256 CRYPTOGRAPHIC PROOF
+                        <FaLock className="text-success" /> DIGITAL VERIFICATION HASH
                       </span>
                       <code className="crypto-hash-code text-cyan extra-small">{cryptoHash}</code>
                     </div>
@@ -378,6 +386,8 @@ const CertificateValidator = ({ onBack }) => {
         initialDocType={docModalType}
         data={{
           studentName: certData?.studentName || (searchId ? `Candidate (${searchId})` : 'Student Candidate'),
+          email: certData?.email,
+          phone: certData?.phone,
           token: certData?.id || searchId,
           track: certData?.track,
           division: certData?.division,
