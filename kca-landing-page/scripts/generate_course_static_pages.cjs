@@ -150,14 +150,21 @@ courses.forEach(course => {
 ${JSON.stringify(structuredData, null, 2)}
   </script>
 
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700;800&family=Nunito:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
     body {
       background: #080c14;
       color: #e2e8f0;
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+      font-family: 'Nunito', system-ui, -apple-system, sans-serif;
       line-height: 1.6;
       padding: 32px 20px 80px;
+    }
+    h1, h2, h3, h4, .section-title, .project-title, .final-title, .track-badge, .stat-val, .btn-primary, .btn-secondary {
+      font-family: 'Baloo 2', 'Nunito', -apple-system, sans-serif;
     }
     .container {
       max-width: 880px;

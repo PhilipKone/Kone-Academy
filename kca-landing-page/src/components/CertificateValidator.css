@@ -359,6 +359,18 @@
   color: #38bdf8;
 }
 
+.cert-doc-btn {
+  background: rgba(56, 189, 248, 0.08);
+  border-color: rgba(56, 189, 248, 0.25);
+  color: #e0f2fe;
+}
+
+.cert-doc-btn:hover {
+  background: rgba(56, 189, 248, 0.16);
+  border-color: #38bdf8;
+  color: #38bdf8;
+}
+
 /* Mobile Layout Controls */
 @media (max-width: 640px) {
   .cert-grid-info, .projects-verified-grid {

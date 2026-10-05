@@ -2,9 +2,11 @@ import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { 
   FaShieldAlt, FaCheckCircle, FaSearch, FaAward, 
-  FaPrint, FaLock, FaArrowLeft, FaInfoCircle
+  FaPrint, FaLock, FaArrowLeft, FaInfoCircle,
+  FaFileInvoiceDollar, FaFileAlt
 } from 'react-icons/fa';
 import './CertificateValidator.css';
+import DocumentPrintModal from './DocumentPrintModal';
 import { courses } from '../data/courses';
 
 const CertificateValidator = ({ onBack }) => {
@@ -13,14 +15,21 @@ const CertificateValidator = ({ onBack }) => {
   const [cryptoHash, setCryptoHash] = useState('');
   const [searched, setSearched] = useState(false);
   const [isVerifying, setIsVerifying] = useState(false);
+  const [docModalOpen, setDocModalOpen] = useState(false);
+  const [docModalType, setDocModalType] = useState<'invoice' | 'syllabus'>('invoice');
 
   // Check URL query parameters for direct verification link (e.g. /verify?id=KONE-2026-X8419)
   useEffect(() => {
     const params = new URLSearchParams(window.location.search);
     const urlId = params.get('id');
+    const docParam = params.get('doc');
     if (urlId) {
       setSearchId(urlId);
       verifyToken(urlId);
+    }
+    if (docParam === 'invoice' || docParam === 'syllabus') {
+      setDocModalType(docParam);
+      setDocModalOpen(true);
     }
   }, []);
 
@@ -327,9 +336,33 @@ const CertificateValidator = ({ onBack }) => {
                       <code className="crypto-hash-code text-cyan extra-small">{cryptoHash}</code>
                     </div>
 
-                    <button className="cert-print-btn" onClick={handlePrint}>
-                      <FaPrint className="me-1" /> Print / Save PDF
-                    </button>
+                    <div className="d-flex align-items-center flex-wrap gap-2">
+                      <button 
+                        className="cert-print-btn" 
+                        onClick={() => {
+                          setDocModalType('invoice');
+                          setDocModalOpen(true);
+                        }}
+                        title="Download / Print Official Pro-Forma Invoice"
+                      >
+                        <FaFileInvoiceDollar className="me-1 text-cyan" /> Tuition Invoice (PDF)
+                      </button>
+
+                      <button 
+                        className="cert-print-btn" 
+                        onClick={() => {
+                          setDocModalType('syllabus');
+                          setDocModalOpen(true);
+                        }}
+                        title="Download / Print Track Syllabus"
+                      >
+                        <FaFileAlt className="me-1 text-cyan" /> Course Syllabus (PDF)
+                      </button>
+
+                      <button className="cert-print-btn" onClick={handlePrint} title="Print Credential Certificate Card">
+                        <FaPrint className="me-1" /> Print Credential
+                      </button>
+                    </div>
                   </div>
                 </motion.div>
               )}
@@ -337,6 +370,22 @@ const CertificateValidator = ({ onBack }) => {
           </div>
         </div>
       </div>
+
+      {/* Official PDF Document Print Modal */}
+      <DocumentPrintModal
+        isOpen={docModalOpen}
+        onClose={() => setDocModalOpen(false)}
+        initialDocType={docModalType}
+        data={{
+          studentName: certData?.studentName || (searchId ? `Candidate (${searchId})` : 'Student Candidate'),
+          token: certData?.id || searchId,
+          track: certData?.track,
+          division: certData?.division,
+          format: certData?.format,
+          issueDate: certData?.issueDate,
+          cryptoHash: cryptoHash
+        }}
+      />
     </div>
   );
 };

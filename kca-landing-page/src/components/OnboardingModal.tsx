@@ -4,9 +4,10 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { 
   FaTimes, FaUser, FaEnvelope, FaWhatsapp,
   FaCheckCircle, FaRocket, FaDownload,
-  FaCalendarAlt, FaLaptopCode
+  FaCalendarAlt, FaLaptopCode, FaFileInvoiceDollar
 } from 'react-icons/fa';
 import './OnboardingModal.css';
+import DocumentPrintModal from './DocumentPrintModal';
 
 interface OnboardingModalProps {
   isOpen: boolean;
@@ -26,6 +27,8 @@ const OnboardingModal: React.FC<OnboardingModalProps> = ({ isOpen, onClose, defa
   });
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [docModalOpen, setDocModalOpen] = useState(false);
+  const [docModalType, setDocModalType] = useState<'invoice' | 'syllabus'>('invoice');
 
   useEffect(() => {
     if (isOpen) {
@@ -353,11 +356,27 @@ Website:           https://www.koneacademy.io
               </div>
 
               <div className="success-actions-stack">
-                <button className="enroll-btn w-100" onClick={generatePDFSummary}>
-                  <FaDownload size={13} />
-                  <span>Download Course Syllabus</span>
+                <button 
+                  className="enroll-btn w-100" 
+                  onClick={() => {
+                    setDocModalType('invoice');
+                    setDocModalOpen(true);
+                  }}
+                >
+                  <FaFileInvoiceDollar size={14} />
+                  <span>View & Print Official Tuition Invoice (PDF)</span>
                 </button>
-                <button className="watch-btn w-100" onClick={onClose}>
+                <button 
+                  className="watch-btn w-100" 
+                  onClick={() => {
+                    setDocModalType('syllabus');
+                    setDocModalOpen(true);
+                  }}
+                >
+                  <FaDownload size={13} />
+                  <span>Official Course Syllabus Guide (PDF)</span>
+                </button>
+                <button className="watch-btn w-100 opacity-75" onClick={onClose}>
                   <span>Done & Return to Courses</span>
                 </button>
               </div>
@@ -365,6 +384,22 @@ Website:           https://www.koneacademy.io
           )}
         </AnimatePresence>
       </motion.div>
+
+      {/* Official PDF Document Print Modal */}
+      <DocumentPrintModal
+        isOpen={docModalOpen}
+        onClose={() => setDocModalOpen(false)}
+        initialDocType={docModalType}
+        data={{
+          studentName: formData.fullName,
+          email: formData.email,
+          phone: formData.phone,
+          token: reservationToken,
+          track: formData.track,
+          division: formData.division,
+          format: formData.format
+        }}
+      />
     </div>,
     document.body
   );
