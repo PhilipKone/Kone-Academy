@@ -98,7 +98,8 @@ const CertificateValidator = ({ onBack }) => {
     }
 
     // 3. Fallback to structural division verification if token matches official Academy scheme
-    if (!foundRecord && (token.startsWith('KONE-') || token.startsWith('KCA-') || token.length >= 8)) {
+    const isValidTokenPattern = /^K(ONE|CA)-\d{4}-(PAY|AI|FARMS|WARP|LAB|KIDS|DIGITAL|CONSULT|TECH|CODE|STUDIO|SHOP)-\d{4}$/i.test(token);
+    if (!foundRecord && isValidTokenPattern) {
       const divisionKey = token.includes('PAY') ? 'Pay' 
         : token.includes('AI') ? 'AI' 
         : token.includes('FARMS') ? 'Farms' 
@@ -108,6 +109,8 @@ const CertificateValidator = ({ onBack }) => {
         : token.includes('DIGITAL') ? 'Digital'
         : token.includes('CONSULT') ? 'Consult'
         : token.includes('TECH') ? 'Tech'
+        : token.includes('STUDIO') ? 'Studio'
+        : token.includes('SHOP') ? 'Shop'
         : 'Code';
 
       const matchedTrack = courses.find(c => c.division.toLowerCase() === divisionKey.toLowerCase()) || courses[0];
@@ -161,8 +164,8 @@ const CertificateValidator = ({ onBack }) => {
               <FaArrowLeft className="me-2" /> Back to Home
             </a>
           )}
-          <span className="badge bg-dark bg-opacity-80 text-cyan border border-cyan border-opacity-30 rounded-pill px-3 py-2 small fw-bold">
-            <FaLock className="me-1 text-success" /> Live Firestore Ledger 2026
+          <span className="cert-status-pill">
+            <FaLock className="me-1" /> Official Academy Registry
           </span>
         </div>
 
