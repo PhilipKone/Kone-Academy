@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { createPortal } from 'react-dom';
 import { 
   FaTimes, FaPrint, FaWhatsapp, FaCopy, FaCheck,
@@ -34,6 +34,10 @@ const DocumentPrintModal: React.FC<DocumentPrintModalProps> = ({
 }) => {
   const [docType, setDocType] = useState<'invoice' | 'syllabus'>(initialDocType);
   const [copied, setCopied] = useState(false);
+
+  useEffect(() => {
+    setDocType(initialDocType);
+  }, [initialDocType]);
 
   if (!isOpen) return null;
 
