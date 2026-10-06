@@ -122,6 +122,26 @@ pre {
     flex-direction: column;
 }
 
+/* Defensive Spacing & Alignment Utilities */
+.me-1 { margin-right: 0.45rem !important; }
+.me-2 { margin-right: 0.75rem !important; }
+.me-3 { margin-right: 1.1rem !important; }
+.ms-1 { margin-left: 0.45rem !important; }
+.ms-2 { margin-left: 0.75rem !important; }
+.ms-3 { margin-left: 1.1rem !important; }
+.gap-1 { gap: 0.45rem !important; }
+.gap-2 { gap: 0.75rem !important; }
+.gap-3 { gap: 1.1rem !important; }
+.gap-4 { gap: 1.5rem !important; }
+.align-items-center { align-items: center !important; }
+.justify-content-center { justify-content: center !important; }
+.justify-content-between { justify-content: space-between !important; }
+.text-cyan { color: #38bdf8 !important; }
+.text-success { color: #10b981 !important; }
+.text-danger { color: #f43f5e !important; }
+.text-secondary { color: #94a3b8 !important; }
+.text-white { color: #ffffff !important; }
+
 button {
     font-family: var(--font-sans);
     cursor: pointer;

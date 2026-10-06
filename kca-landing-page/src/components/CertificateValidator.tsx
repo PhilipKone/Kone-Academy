@@ -322,13 +322,16 @@ const CertificateValidator = ({ onBack }) => {
                   {/* Verified Micro Projects */}
                   {certData.microProjects && certData.microProjects.length > 0 && (
                     <div className="p-4 pt-0">
-                      <h3 className="cert-projects-heading text-secondary fw-bold mb-3 d-flex align-items-center gap-2">
-                        <FaAward className="text-cyan cert-award-icon" /> <span>Verified Module Micro-Projects Completed</span>
+                      <h3 className="cert-projects-heading text-secondary fw-bold mb-3 d-flex align-items-center">
+                        <span className="cert-award-icon-box">
+                          <FaAward className="cert-award-icon" />
+                        </span>
+                        <span className="cert-projects-heading-text">Verified Module Micro-Projects Completed</span>
                       </h3>
                       <div className="projects-verified-grid">
                         {certData.microProjects.map((proj, i) => (
                           <div key={i} className="verified-proj-pill">
-                            <FaCheckCircle className="text-success me-2" size={12} />
+                            <FaCheckCircle className="text-success proj-pill-check" size={13} />
                             <span className="text-white small">{proj}</span>
                           </div>
                         ))}
@@ -340,29 +343,32 @@ const CertificateValidator = ({ onBack }) => {
                   <div className="cert-footer-signature">
                     <div className="cert-footer-actions-col">
                       <button 
-                        className="cert-print-btn" 
+                        className="cert-print-btn cert-doc-btn" 
                         onClick={() => {
                           setDocModalType('invoice');
                           setDocModalOpen(true);
                         }}
                         title="Download / Print Official Pro-Forma Invoice"
                       >
-                        <FaFileInvoiceDollar className="me-1 text-cyan" /> Tuition Invoice (PDF)
+                        <FaFileInvoiceDollar className="cert-btn-icon text-cyan" />
+                        <span>Tuition Invoice (PDF)</span>
                       </button>
 
                       <button 
-                        className="cert-print-btn" 
+                        className="cert-print-btn cert-doc-btn" 
                         onClick={() => {
                           setDocModalType('syllabus');
                           setDocModalOpen(true);
                         }}
                         title="Download / Print Track Syllabus"
                       >
-                        <FaFileAlt className="me-1 text-cyan" /> Course Syllabus (PDF)
+                        <FaFileAlt className="cert-btn-icon text-cyan" />
+                        <span>Course Syllabus (PDF)</span>
                       </button>
 
                       <button className="cert-print-btn" onClick={handlePrint} title="Print Credential Certificate Card">
-                        <FaPrint className="me-1" /> Print Credential
+                        <FaPrint className="cert-btn-icon" />
+                        <span>Print Credential</span>
                       </button>
                     </div>
                   </div>
