@@ -70,7 +70,7 @@ const DocumentPrintModal: React.FC<DocumentPrintModalProps> = ({
 
   const handleShareWhatsApp = () => {
     const text = docType === 'invoice'
-      ? `Hello ${studentName}! Here is your official Kone Academy tuition admission invoice for the ${trackTitle} (${token}): ${verificationUrl}\nLive Online Cohort: GHS 100.00 / session.\nTelecel Cash: +233 20 325 6481 (Philip Hotor).`
+      ? `Hello ${studentName}! Here is your official Kone Academy tuition admission invoice for the ${trackTitle} (${token}): ${verificationUrl}\nLive Online Cohort: GHS 100.00 / session.\nTelecel Cash: +233 20 325 6481 | CalBank: 1400003946608 (Philip Hotor).`
       : `Official Curriculum & Syllabus for Kone Academy ${trackTitle} (${token}): ${verificationUrl}`;
     const url = `https://wa.me/${phone.replace(/[^0-9]/g, '')}?text=${encodeURIComponent(text)}`;
     window.open(url, '_blank');
@@ -93,9 +93,9 @@ const DocumentPrintModal: React.FC<DocumentPrintModalProps> = ({
         `• Learning Format: Live Online Cohort\n` +
         `• Tuition Rate: GHS 100.00 / session\n\n` +
         `Payment Instructions:\n` +
-        `• Mobile Money: Telecel Cash (Accepts MTN MoMo & all networks via Interoperability)\n` +
-        `• Telecel Cash Number: +233 20 325 6481 (or 020 325 6481)\n` +
-        `• Account Name: Philip Hotor\n` +
+        `• Option 1 (Mobile Money): Telecel Cash — +233 20 325 6481 (or 020 325 6481)\n` +
+        `• Option 2 (Bank Transfer): CalBank PLC — Account No: 1400003946608\n` +
+        `• Account Name: Philip Hotor (for both Telecel Cash & CalBank)\n` +
         `• Payment Reference: ${token}\n\n` +
         `After completing payment, please send your confirmation screenshot to +233 55 199 3820 or philipkone45@gmail.com for student registry onboarding.\n\n` +
         `Best regards,\n` +
@@ -246,9 +246,9 @@ const DocumentPrintModal: React.FC<DocumentPrintModalProps> = ({
                     <h5 className="payment-heading">OFFICIAL PAYMENT INSTRUCTIONS (GHANA CEDIS - GHS)</h5>
                     <p className="payment-intro">Payments can be completed securely via Mobile Money or Bank Transfer:</p>
                     <ul className="payment-list">
-                      <li><strong>Mobile Money:</strong> Telecel Cash (Accepts MTN MoMo &amp; All Networks via Interoperability)</li>
-                      <li><strong>Telecel Cash Number:</strong> <code className="pay-ref">+233 20 325 6481</code> (or <code>020 325 6481</code>)</li>
-                      <li><strong>Account Name:</strong> Philip Hotor</li>
+                      <li><strong>Option 1 (Mobile Money):</strong> Telecel Cash &mdash; <code className="pay-ref">+233 20 325 6481</code> (or <code>020 325 6481</code>) &bull; <span style={{ fontSize: '0.85em', color: '#475569' }}>Accepts MTN MoMo &amp; all networks via Interoperability</span></li>
+                      <li><strong>Option 2 (Bank Transfer):</strong> CalBank PLC &mdash; Account Number: <code className="pay-ref">1400003946608</code></li>
+                      <li><strong>Account Name:</strong> Philip Hotor (for both Telecel Cash &amp; CalBank)</li>
                       <li><strong>Payment Reference:</strong> <code className="pay-ref">{token}</code> (or Student Name: {studentName})</li>
                       <li><strong>Admissions WhatsApp Desk:</strong> +233 55 199 3820</li>
                     </ul>
