@@ -12,7 +12,7 @@
     <language>en-us</language>
     <managingEditor>philipkone45@gmail.com (Philip Hotor)</managingEditor>
     <webMaster>philipkone45@gmail.com (Philip Hotor)</webMaster>
-    <lastBuildDate>Tue, 06 Oct 2026 14:31:56 GMT</lastBuildDate>
+    <lastBuildDate>Tue, 06 Oct 2026 14:44:13 GMT</lastBuildDate>
     <image>
       <url>https://www.koneacademy.io/assets/blog/author_philip.webp</url>
       <title>Kone Academy</title>
@@ -160,6 +160,116 @@
       <description><![CDATA[Transitioning younger minds from visual block programming to real typed code and interactive robotics. Cultivating genuine computational intuition.]]></description>
       <media:content url="https://www.koneacademy.io/assets/blog/ka_blog_robotics.webp" medium="image" />
       <enclosure url="https://www.koneacademy.io/assets/blog/ka_blog_robotics.webp" type="image/webp" length="102400" />
+    </item>
+    <item>
+      <title><![CDATA[Cache Locality and Memory Layout: Squeezing Peak Flops in C and Rust]]></title>
+      <link>https://www.koneacademy.io/blog/cache-locality-memory-layout-c-rust</link>
+      <guid isPermaLink="true">https://www.koneacademy.io/blog/cache-locality-memory-layout-c-rust</guid>
+      <pubDate>Invalid Date</pubDate>
+      <dc:creator><![CDATA[Philip Hotor]]></dc:creator>
+      <category><![CDATA[Code]]></category>
+      <description><![CDATA[undefined]]></description>
+      <media:content url="https://www.koneacademy.ioundefined" medium="image" />
+      <enclosure url="https://www.koneacademy.ioundefined" type="image/webp" length="102400" />
+    </item>
+    <item>
+      <title><![CDATA[Zero-Knowledge Proofs in Payment Channels: Verifiable Settlement with zk-SNARKs]]></title>
+      <link>https://www.koneacademy.io/blog/zero-knowledge-proofs-payment-channels-zksnarks</link>
+      <guid isPermaLink="true">https://www.koneacademy.io/blog/zero-knowledge-proofs-payment-channels-zksnarks</guid>
+      <pubDate>Invalid Date</pubDate>
+      <dc:creator><![CDATA[Philip Hotor]]></dc:creator>
+      <category><![CDATA[Code]]></category>
+      <description><![CDATA[undefined]]></description>
+      <media:content url="https://www.koneacademy.ioundefined" medium="image" />
+      <enclosure url="https://www.koneacademy.ioundefined" type="image/webp" length="102400" />
+    </item>
+    <item>
+      <title><![CDATA[Fine-Tuning SLMs on Consumer GPUs: A Deep Dive into LoRA and QLoRA]]></title>
+      <link>https://www.koneacademy.io/blog/fine-tuning-slms-lora-qlora-consumer-gpus</link>
+      <guid isPermaLink="true">https://www.koneacademy.io/blog/fine-tuning-slms-lora-qlora-consumer-gpus</guid>
+      <pubDate>Invalid Date</pubDate>
+      <dc:creator><![CDATA[Philip Hotor]]></dc:creator>
+      <category><![CDATA[Lab]]></category>
+      <description><![CDATA[undefined]]></description>
+      <media:content url="https://www.koneacademy.ioundefined" medium="image" />
+      <enclosure url="https://www.koneacademy.ioundefined" type="image/webp" length="102400" />
+    </item>
+    <item>
+      <title><![CDATA[Mastering Embedded Concurrency: FreeRTOS Task Scheduling and Semaphore Design]]></title>
+      <link>https://www.koneacademy.io/blog/rtos-freertos-task-scheduling-inter-task-synchronization</link>
+      <guid isPermaLink="true">https://www.koneacademy.io/blog/rtos-freertos-task-scheduling-inter-task-synchronization</guid>
+      <pubDate>Invalid Date</pubDate>
+      <dc:creator><![CDATA[Philip Hotor]]></dc:creator>
+      <category><![CDATA[Lab]]></category>
+      <description><![CDATA[undefined]]></description>
+      <media:content url="https://www.koneacademy.ioundefined" medium="image" />
+      <enclosure url="https://www.koneacademy.ioundefined" type="image/webp" length="102400" />
+    </item>
+    <item>
+      <title><![CDATA[Ray Marching and Signed Distance Functions: Procedural 3D Worlds in Shaders]]></title>
+      <link>https://www.koneacademy.io/blog/ray-marching-signed-distance-functions-procedural-3d</link>
+      <guid isPermaLink="true">https://www.koneacademy.io/blog/ray-marching-signed-distance-functions-procedural-3d</guid>
+      <pubDate>Invalid Date</pubDate>
+      <dc:creator><![CDATA[Philip Hotor]]></dc:creator>
+      <category><![CDATA[Code]]></category>
+      <description><![CDATA[undefined]]></description>
+      <media:content url="https://www.koneacademy.ioundefined" medium="image" />
+      <enclosure url="https://www.koneacademy.ioundefined" type="image/webp" length="102400" />
+    </item>
+    <item>
+      <title><![CDATA[Edge Computer Vision in Agritech: Real-Time Plant Pathology with Lightweight YOLO]]></title>
+      <link>https://www.koneacademy.io/blog/edge-computer-vision-yolo-crop-disease-diagnostics</link>
+      <guid isPermaLink="true">https://www.koneacademy.io/blog/edge-computer-vision-yolo-crop-disease-diagnostics</guid>
+      <pubDate>Invalid Date</pubDate>
+      <dc:creator><![CDATA[Philip Hotor]]></dc:creator>
+      <category><![CDATA[Ecosystem]]></category>
+      <description><![CDATA[undefined]]></description>
+      <media:content url="https://www.koneacademy.ioundefined" medium="image" />
+      <enclosure url="https://www.koneacademy.ioundefined" type="image/webp" length="102400" />
+    </item>
+    <item>
+      <title><![CDATA[Autonomous Motion Planning: Comparing A* Grid Search with Continuous RRT]]></title>
+      <link>https://www.koneacademy.io/blog/autonomous-path-planning-astar-vs-rrt-robotics</link>
+      <guid isPermaLink="true">https://www.koneacademy.io/blog/autonomous-path-planning-astar-vs-rrt-robotics</guid>
+      <pubDate>Invalid Date</pubDate>
+      <dc:creator><![CDATA[Philip Hotor]]></dc:creator>
+      <category><![CDATA[Code]]></category>
+      <description><![CDATA[undefined]]></description>
+      <media:content url="https://www.koneacademy.ioundefined" medium="image" />
+      <enclosure url="https://www.koneacademy.ioundefined" type="image/webp" length="102400" />
+    </item>
+    <item>
+      <title><![CDATA[Demystifying Distributed Consensus: How Raft and Paxos Prevent Split-Brain]]></title>
+      <link>https://www.koneacademy.io/blog/distributed-consensus-paxos-raft-replicated-state-machines</link>
+      <guid isPermaLink="true">https://www.koneacademy.io/blog/distributed-consensus-paxos-raft-replicated-state-machines</guid>
+      <pubDate>Invalid Date</pubDate>
+      <dc:creator><![CDATA[Philip Hotor]]></dc:creator>
+      <category><![CDATA[Ecosystem]]></category>
+      <description><![CDATA[undefined]]></description>
+      <media:content url="https://www.koneacademy.ioundefined" medium="image" />
+      <enclosure url="https://www.koneacademy.ioundefined" type="image/webp" length="102400" />
+    </item>
+    <item>
+      <title><![CDATA[Applied Modern Cryptography: Elliptic Curves, Ed25519, and Authenticated Encryption]]></title>
+      <link>https://www.koneacademy.io/blog/cryptographic-primitives-elliptic-curves-ed25519</link>
+      <guid isPermaLink="true">https://www.koneacademy.io/blog/cryptographic-primitives-elliptic-curves-ed25519</guid>
+      <pubDate>Invalid Date</pubDate>
+      <dc:creator><![CDATA[Philip Hotor]]></dc:creator>
+      <category><![CDATA[Code]]></category>
+      <description><![CDATA[undefined]]></description>
+      <media:content url="https://www.koneacademy.ioundefined" medium="image" />
+      <enclosure url="https://www.koneacademy.ioundefined" type="image/webp" length="102400" />
+    </item>
+    <item>
+      <title><![CDATA[Quantifying Technical Debt: Architectural Audits and Coupling Metrics for Tech Leads]]></title>
+      <link>https://www.koneacademy.io/blog/architectural-audits-measuring-technical-debt-enterprise</link>
+      <guid isPermaLink="true">https://www.koneacademy.io/blog/architectural-audits-measuring-technical-debt-enterprise</guid>
+      <pubDate>Invalid Date</pubDate>
+      <dc:creator><![CDATA[Philip Hotor]]></dc:creator>
+      <category><![CDATA[Ecosystem]]></category>
+      <description><![CDATA[undefined]]></description>
+      <media:content url="https://www.koneacademy.ioundefined" medium="image" />
+      <enclosure url="https://www.koneacademy.ioundefined" type="image/webp" length="102400" />
     </item>
     <item>
       <title><![CDATA[Cache Locality and Memory Layout: Squeezing Peak Flops in C and Rust]]></title>

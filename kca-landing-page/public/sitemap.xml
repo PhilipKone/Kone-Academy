@@ -1,539 +1,272 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <!-- Core Ecosystem Hub Routes -->
   <url>
     <loc>https://www.koneacademy.io/</loc>
-    <lastmod>2026-09-18</lastmod>
+    <lastmod>2026-10-06</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://www.koneacademy.io/training</loc>
-    <lastmod>2026-09-18</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.95</priority>
-  </url>
-  <url>
-    <loc>https://www.koneacademy.io/protocols</loc>
-    <lastmod>2026-09-18</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
     <loc>https://www.koneacademy.io/school</loc>
-    <lastmod>2026-09-18</lastmod>
+    <lastmod>2026-10-06</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://www.koneacademy.io/blog</loc>
-    <lastmod>2026-09-18</lastmod>
-    <changefreq>weekly</changefreq>
+    <lastmod>2026-10-06</lastmod>
+    <changefreq>daily</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://www.koneacademy.io/verify</loc>
-    <lastmod>2026-09-18</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.85</priority>
+    <loc>https://www.koneacademy.io/training</loc>
+    <lastmod>2026-10-06</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.koneacademy.io/sitemap</loc>
-    <lastmod>2026-09-18</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.85</priority>
+    <loc>https://www.koneacademy.io/protocols</loc>
+    <lastmod>2026-10-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.koneacademy.io/verify</loc>
+    <lastmod>2026-10-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.koneacademy.io/author/philip-hotor</loc>
-    <lastmod>2026-09-18</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.85</priority>
-  </url>
-
-  <!-- 12 Technology Tracks (Canonical Hub Routes) -->
-  <url>
-    <loc>https://www.koneacademy.io/training/course-pay/</loc>
-    <lastmod>2026-10-02</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.90</priority>
+    <lastmod>2026-10-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://www.koneacademy.io/training/course-farms/</loc>
-    <lastmod>2026-10-02</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.90</priority>
+    <loc>https://www.koneacademy.io/sitemap</loc>
+    <lastmod>2026-10-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://www.koneacademy.io/training/course-warp/</loc>
-    <lastmod>2026-10-02</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.90</priority>
+    <loc>https://www.koneacademy.io/privacy</loc>
+    <lastmod>2026-10-06</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://www.koneacademy.io/training/course-studio/</loc>
-    <lastmod>2026-10-02</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.90</priority>
+    <loc>https://www.koneacademy.io/terms</loc>
+    <lastmod>2026-10-06</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://www.koneacademy.io/training/course-ai/</loc>
-    <lastmod>2026-10-02</lastmod>
+    <loc>https://www.koneacademy.io/training/course-pay</loc>
+    <lastmod>2026-10-06</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.90</priority>
+    <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.koneacademy.io/training/course-consult/</loc>
-    <lastmod>2026-10-02</lastmod>
+    <loc>https://www.koneacademy.io/training/course-farms</loc>
+    <lastmod>2026-10-06</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.90</priority>
+    <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.koneacademy.io/training/course-code/</loc>
-    <lastmod>2026-10-02</lastmod>
+    <loc>https://www.koneacademy.io/training/course-warp</loc>
+    <lastmod>2026-10-06</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.90</priority>
+    <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.koneacademy.io/training/course-kids/</loc>
-    <lastmod>2026-10-02</lastmod>
+    <loc>https://www.koneacademy.io/training/course-studio</loc>
+    <lastmod>2026-10-06</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.90</priority>
+    <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.koneacademy.io/training/course-lab/</loc>
-    <lastmod>2026-10-02</lastmod>
+    <loc>https://www.koneacademy.io/training/course-ai</loc>
+    <lastmod>2026-10-06</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.90</priority>
+    <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.koneacademy.io/training/course-shop/</loc>
-    <lastmod>2026-10-02</lastmod>
+    <loc>https://www.koneacademy.io/training/course-consult</loc>
+    <lastmod>2026-10-06</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.90</priority>
+    <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.koneacademy.io/training/course-digital/</loc>
-    <lastmod>2026-10-02</lastmod>
+    <loc>https://www.koneacademy.io/training/course-lab</loc>
+    <lastmod>2026-10-06</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.90</priority>
+    <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.koneacademy.io/training/course-tech/</loc>
-    <lastmod>2026-10-02</lastmod>
+    <loc>https://www.koneacademy.io/training/course-code</loc>
+    <lastmod>2026-10-06</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.90</priority>
-  </url>
-
-  <!-- Programmatic Local SEO Tech Hubs (Niches x African/Global Cities) -->
-  <url>
-    <loc>https://www.koneacademy.io/academy/software-engineering/accra</loc>
-    <lastmod>2026-09-18</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.80</priority>
+    <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.koneacademy.io/academy/software-engineering/kumasi</loc>
-    <lastmod>2026-09-18</lastmod>
+    <loc>https://www.koneacademy.io/training/course-digital</loc>
+    <lastmod>2026-10-06</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.80</priority>
+    <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.koneacademy.io/academy/software-engineering/lagos</loc>
-    <lastmod>2026-09-18</lastmod>
+    <loc>https://www.koneacademy.io/training/course-kids</loc>
+    <lastmod>2026-10-06</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.80</priority>
+    <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.koneacademy.io/academy/software-engineering/nairobi</loc>
-    <lastmod>2026-09-18</lastmod>
+    <loc>https://www.koneacademy.io/training/course-shop</loc>
+    <lastmod>2026-10-06</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.80</priority>
+    <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.koneacademy.io/academy/software-engineering/london</loc>
-    <lastmod>2026-09-18</lastmod>
+    <loc>https://www.koneacademy.io/training/course-tech</loc>
+    <lastmod>2026-10-06</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.80</priority>
+    <priority>0.8</priority>
   </url>
-  <url>
-    <loc>https://www.koneacademy.io/academy/robotics-iot/accra</loc>
-    <lastmod>2026-09-18</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.80</priority>
-  </url>
-  <url>
-    <loc>https://www.koneacademy.io/academy/robotics-iot/kumasi</loc>
-    <lastmod>2026-09-18</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.80</priority>
-  </url>
-  <url>
-    <loc>https://www.koneacademy.io/academy/robotics-iot/lagos</loc>
-    <lastmod>2026-09-18</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.80</priority>
-  </url>
-  <url>
-    <loc>https://www.koneacademy.io/academy/robotics-iot/nairobi</loc>
-    <lastmod>2026-09-18</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.80</priority>
-  </url>
-  <url>
-    <loc>https://www.koneacademy.io/academy/robotics-iot/london</loc>
-    <lastmod>2026-09-18</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.80</priority>
-  </url>
-  <url>
-    <loc>https://www.koneacademy.io/academy/agritech/accra</loc>
-    <lastmod>2026-09-18</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.80</priority>
-  </url>
-  <url>
-    <loc>https://www.koneacademy.io/academy/agritech/kumasi</loc>
-    <lastmod>2026-09-18</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.80</priority>
-  </url>
-  <url>
-    <loc>https://www.koneacademy.io/academy/agritech/lagos</loc>
-    <lastmod>2026-09-18</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.80</priority>
-  </url>
-  <url>
-    <loc>https://www.koneacademy.io/academy/agritech/nairobi</loc>
-    <lastmod>2026-09-18</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.80</priority>
-  </url>
-  <url>
-    <loc>https://www.koneacademy.io/academy/agritech/london</loc>
-    <lastmod>2026-09-18</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.80</priority>
-  </url>
-  <url>
-    <loc>https://www.koneacademy.io/academy/research-consulting/accra</loc>
-    <lastmod>2026-09-18</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.80</priority>
-  </url>
-  <url>
-    <loc>https://www.koneacademy.io/academy/research-consulting/kumasi</loc>
-    <lastmod>2026-09-18</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.80</priority>
-  </url>
-  <url>
-    <loc>https://www.koneacademy.io/academy/research-consulting/lagos</loc>
-    <lastmod>2026-09-18</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.80</priority>
-  </url>
-  <url>
-    <loc>https://www.koneacademy.io/academy/research-consulting/nairobi</loc>
-    <lastmod>2026-09-18</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.80</priority>
-  </url>
-  <url>
-    <loc>https://www.koneacademy.io/academy/research-consulting/london</loc>
-    <lastmod>2026-09-18</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.80</priority>
-  </url>
-
-  <!-- In-Depth Technical & Research Articles -->
   <url>
     <loc>https://www.koneacademy.io/blog/computational-thinking-structured-logic</loc>
-    <lastmod>2026-09-18</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.80</priority>
+    <lastmod>2026-10-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://www.koneacademy.io/blog/physical-ai-microcontrollers-robotics</loc>
-    <lastmod>2026-09-18</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.80</priority>
+    <lastmod>2026-10-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://www.koneacademy.io/blog/digital-ai-llms-compute</loc>
-    <lastmod>2026-09-18</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.80</priority>
-  </url>
-
-  <!-- Developer Architecture & Knowledge Base Guides -->
-  <url>
-    <loc>https://www.koneacademy.io/docs/code/errors/js-cannot-read-properties-of-undefined-map</loc>
-    <lastmod>2026-09-18</lastmod>
+    <lastmod>2026-10-06</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.75</priority>
-  </url>
-  <url>
-    <loc>https://www.koneacademy.io/docs/code/errors/react-hook-useeffect-missing-dependency</loc>
-    <lastmod>2026-09-18</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.75</priority>
-  </url>
-  <url>
-    <loc>https://www.koneacademy.io/docs/code/errors/python-keyerror</loc>
-    <lastmod>2026-09-18</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.75</priority>
-  </url>
-  <url>
-    <loc>https://www.koneacademy.io/docs/consult/architecture/saas-mvp-tech-stack</loc>
-    <lastmod>2026-09-18</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.75</priority>
-  </url>
-  <url>
-    <loc>https://www.koneacademy.io/docs/consult/architecture/iot-telemetry-tech-stack</loc>
-    <lastmod>2026-09-18</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.75</priority>
-  </url>
-  <url>
-    <loc>https://www.koneacademy.io/docs/consult/architecture/fintech-app-tech-stack</loc>
-    <lastmod>2026-09-18</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.75</priority>
-  </url>
-  <url>
-    <loc>https://www.koneacademy.io/docs/code/guides/getting-started</loc>
-    <lastmod>2026-09-18</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.75</priority>
-  </url>
-  <url>
-    <loc>https://www.koneacademy.io/docs/code/guides/remote-labs</loc>
-    <lastmod>2026-09-18</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.75</priority>
-  </url>
-  <url>
-    <loc>https://www.koneacademy.io/docs/code/guides/kone-code-setup</loc>
-    <lastmod>2026-09-18</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.75</priority>
-  </url>
-  <url>
-    <loc>https://www.koneacademy.io/docs/code/guides/git-workflows</loc>
-    <lastmod>2026-09-18</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.75</priority>
-  </url>
-  <url>
-    <loc>https://www.koneacademy.io/docs/code/guides/certificate-verification</loc>
-    <lastmod>2026-09-18</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.75</priority>
-  </url>
-  <url>
-    <loc>https://www.koneacademy.io/docs/consult/architecture/kone-code-architecture</loc>
-    <lastmod>2026-09-18</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.75</priority>
-  </url>
-  <url>
-    <loc>https://www.koneacademy.io/docs/consult/architecture/kone-ai-learning-stack</loc>
-    <lastmod>2026-09-18</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.75</priority>
-  </url>
-  <url>
-    <loc>https://www.koneacademy.io/docs/consult/architecture/kone-digital-platform-stack</loc>
-    <lastmod>2026-09-18</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.75</priority>
-  </url>
-  <url>
-    <loc>https://www.koneacademy.io/docs/consult/architecture/kone-lab-telemetry-stack</loc>
-    <lastmod>2026-09-18</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.75</priority>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://www.koneacademy.io/blog/event-loop-microtasks-macrotasks-io</loc>
-    <lastmod>2026-08-12</lastmod>
+    <lastmod>2026-10-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://www.koneacademy.io/blog/resilient-double-entry-ledgers-idempotency</loc>
-    <lastmod>2026-08-15</lastmod>
+    <lastmod>2026-10-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://www.koneacademy.io/blog/uart-spi-i2c-hardware-communication-protocols</loc>
-    <lastmod>2026-08-18</lastmod>
+    <lastmod>2026-10-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://www.koneacademy.io/blog/glsl-shaders-webgl-coordinates-graphics</loc>
-    <lastmod>2026-08-22</lastmod>
+    <lastmod>2026-10-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://www.koneacademy.io/blog/vector-embeddings-semantic-search-rag-pipelines</loc>
-    <lastmod>2026-08-25</lastmod>
+    <lastmod>2026-10-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://www.koneacademy.io/blog/automated-soil-telemetry-iot-mesh-networks</loc>
-    <lastmod>2026-08-28</lastmod>
+    <lastmod>2026-10-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://www.koneacademy.io/blog/geospatial-indexing-h3-hexagons-websocket-dispatch</loc>
-    <lastmod>2026-09-01</lastmod>
+    <lastmod>2026-10-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://www.koneacademy.io/blog/docker-kubernetes-containerization-orchestration</loc>
-    <lastmod>2026-09-04</lastmod>
+    <lastmod>2026-10-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://www.koneacademy.io/blog/owasp-top-10-enterprise-security-threat-modeling</loc>
-    <lastmod>2026-09-08</lastmod>
+    <lastmod>2026-10-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://www.koneacademy.io/blog/bridging-logic-gap-early-stem-prototyping</loc>
-    <lastmod>2026-09-11</lastmod>
+    <lastmod>2026-10-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://www.koneacademy.io/blog/cache-locality-memory-layout-c-rust</loc>
-    <lastmod>2026-08-25</lastmod>
+    <lastmod>2026-10-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://www.koneacademy.io/blog/zero-knowledge-proofs-payment-channels-zksnarks</loc>
-    <lastmod>2026-08-28</lastmod>
+    <lastmod>2026-10-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://www.koneacademy.io/blog/fine-tuning-slms-lora-qlora-consumer-gpus</loc>
-    <lastmod>2026-09-02</lastmod>
+    <lastmod>2026-10-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://www.koneacademy.io/blog/rtos-freertos-task-scheduling-inter-task-synchronization</loc>
-    <lastmod>2026-09-06</lastmod>
+    <lastmod>2026-10-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://www.koneacademy.io/blog/ray-marching-signed-distance-functions-procedural-3d</loc>
-    <lastmod>2026-09-10</lastmod>
+    <lastmod>2026-10-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://www.koneacademy.io/blog/edge-computer-vision-yolo-crop-disease-diagnostics</loc>
-    <lastmod>2026-09-15</lastmod>
+    <lastmod>2026-10-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://www.koneacademy.io/blog/autonomous-path-planning-astar-vs-rrt-robotics</loc>
-    <lastmod>2026-09-20</lastmod>
+    <lastmod>2026-10-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://www.koneacademy.io/blog/distributed-consensus-paxos-raft-replicated-state-machines</loc>
-    <lastmod>2026-09-25</lastmod>
+    <lastmod>2026-10-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://www.koneacademy.io/blog/cryptographic-primitives-elliptic-curves-ed25519</loc>
-    <lastmod>2026-09-28</lastmod>
+    <lastmod>2026-10-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://www.koneacademy.io/blog/architectural-audits-measuring-technical-debt-enterprise</loc>
-    <lastmod>2026-10-02</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://www.koneacademy.io/blog/cache-locality-memory-layout-c-rust</loc>
-    <lastmod>2026-08-25</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://www.koneacademy.io/blog/zero-knowledge-proofs-payment-channels-zksnarks</loc>
-    <lastmod>2026-08-28</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://www.koneacademy.io/blog/fine-tuning-slms-lora-qlora-consumer-gpus</loc>
-    <lastmod>2026-09-02</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://www.koneacademy.io/blog/rtos-freertos-task-scheduling-inter-task-synchronization</loc>
-    <lastmod>2026-09-06</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://www.koneacademy.io/blog/ray-marching-signed-distance-functions-procedural-3d</loc>
-    <lastmod>2026-09-10</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://www.koneacademy.io/blog/edge-computer-vision-yolo-crop-disease-diagnostics</loc>
-    <lastmod>2026-09-15</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://www.koneacademy.io/blog/autonomous-path-planning-astar-vs-rrt-robotics</loc>
-    <lastmod>2026-09-20</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://www.koneacademy.io/blog/distributed-consensus-paxos-raft-replicated-state-machines</loc>
-    <lastmod>2026-09-25</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://www.koneacademy.io/blog/cryptographic-primitives-elliptic-curves-ed25519</loc>
-    <lastmod>2026-09-28</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://www.koneacademy.io/blog/architectural-audits-measuring-technical-debt-enterprise</loc>
-    <lastmod>2026-10-02</lastmod>
+    <lastmod>2026-10-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
