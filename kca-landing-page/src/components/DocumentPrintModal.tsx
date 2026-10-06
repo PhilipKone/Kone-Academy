@@ -120,10 +120,12 @@ const DocumentPrintModal: React.FC<DocumentPrintModalProps> = ({
             {/* Header / Brand Letterhead */}
             <header className="doc-letterhead">
               <div className="doc-brand-block">
-                <div className="doc-logo-mark">KA</div>
+                <div className="doc-brand-logo-wrap">
+                  <img src="/logo-circle-blue.svg" alt="Kone Academy" className="doc-brand-logo-img" />
+                </div>
                 <div>
-                  <h1 className="doc-brand-title">KONE ACADEMY OF TECHNOLOGY</h1>
-                  <p className="doc-brand-sub">Elite Engineering, Applied AI & Advanced Software Collective</p>
+                  <h1 className="doc-brand-title">KONE ACADEMY</h1>
+                  <p className="doc-brand-sub">Research, Coding &amp; Engineering Collective</p>
                   <p className="doc-brand-contact">
                     Accra, Ghana &bull; admissions@koneacademy.io &bull; +233 55 199 3820 &bull; www.koneacademy.io
                   </p>
@@ -132,10 +134,10 @@ const DocumentPrintModal: React.FC<DocumentPrintModalProps> = ({
 
               <div className="doc-seal-block">
                 <div className="doc-badge-pill">
-                  <FaShieldAlt className="me-1" /> OFFICIAL ADMISSION REGISTRY
+                  <FaShieldAlt className="me-1" /> Admissions Registry
                 </div>
                 <div className="doc-meta-item">
-                  <span className="lbl">RESERVATION TOKEN</span>
+                  <span className="lbl">Enrollment Ref:</span>
                   <span className="val token-val">{token}</span>
                 </div>
               </div>
@@ -171,7 +173,7 @@ const DocumentPrintModal: React.FC<DocumentPrintModalProps> = ({
                     <span className="info-label">TRACK ALLOCATION</span>
                     <h3 className="track-name">{trackTitle}</h3>
                     <div className="info-line"><strong>Academy Division:</strong> Kone {division} Engineering</div>
-                    <div className="info-line"><strong>Registry Verification:</strong> <a href={verificationUrl} target="_blank" rel="noreferrer">{verificationUrl}</a></div>
+                    <div className="info-line"><strong>Verification Portal:</strong> <a href={verificationUrl} target="_blank" rel="noreferrer" className="doc-verify-link">koneacademy.io/verify</a> <code>({token})</code></div>
                   </div>
                 </div>
 
@@ -199,7 +201,7 @@ const DocumentPrintModal: React.FC<DocumentPrintModalProps> = ({
                     <tr>
                       <td>
                         <strong>Option 2: Face-to-Face Physical Studio Lab</strong>
-                        <div className="item-sub">Physical workstation in Accra, dedicated fiber internet, standby power (dumsor-proof) & shoulder-to-shoulder mentorship.</div>
+                        <div className="item-sub">Physical workstation at our Accra facility, dedicated fiber broadband, standby generator power &amp; hands-on technical mentorship.</div>
                       </td>
                       <td>4 Intensive Sessions (Monthly Cycle)</td>
                       <td>GHS 150.00</td>
