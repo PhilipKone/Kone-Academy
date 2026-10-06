@@ -138,6 +138,7 @@ const CertificateValidator = ({ onBack }) => {
         issueDate: isThomasToken ? "October 4, 2026" : "2026 Active Cohort Registry",
         track: matchedTrack.title,
         division: matchedTrack.division,
+        format: isThomasToken ? "Live Online Cohort" : (matchedTrack.level || "Live Online Cohort"),
         level: matchedTrack.level,
         capstone: matchedTrack.finalProduct.title,
         stack: matchedTrack.finalProduct.stack,
@@ -321,8 +322,8 @@ const CertificateValidator = ({ onBack }) => {
                   {/* Verified Micro Projects */}
                   {certData.microProjects && certData.microProjects.length > 0 && (
                     <div className="p-4 pt-0">
-                      <h3 className="h6 text-secondary fw-bold mb-3 d-flex align-items-center gap-2">
-                        <FaAward className="text-cyan" /> Verified Module Micro-Projects Completed
+                      <h3 className="cert-projects-heading text-secondary fw-bold mb-3 d-flex align-items-center gap-2">
+                        <FaAward className="text-cyan cert-award-icon" /> <span>Verified Module Micro-Projects Completed</span>
                       </h3>
                       <div className="projects-verified-grid">
                         {certData.microProjects.map((proj, i) => (

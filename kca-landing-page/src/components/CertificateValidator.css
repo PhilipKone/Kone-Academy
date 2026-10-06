@@ -434,6 +434,7 @@
 
   .cert-footer-hash-col {
     width: 100%;
+    flex: 0 0 auto;
   }
 
   .cert-footer-actions-col {
@@ -449,6 +450,23 @@
     padding: 12px 16px;
     font-size: 0.85rem;
     border-radius: 10px;
+  }
+
+  .cert-projects-heading {
+    font-size: 0.92rem;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    line-height: 1.4;
+  }
+
+  .cert-award-icon {
+    flex-shrink: 0;
+    font-size: 1.15rem;
+  }
+
+  .cert-card-display .p-4 {
+    padding: 14px 12px !important;
   }
 
   .cert-search-input {
