@@ -336,15 +336,8 @@ const CertificateValidator = ({ onBack }) => {
                     </div>
                   )}
 
-                  {/* Cryptographic Signature Footer */}
+                  {/* Action Suite Footer */}
                   <div className="cert-footer-signature">
-                    <div className="cert-footer-hash-col">
-                      <span className="extra-small text-secondary d-flex align-items-center gap-1 mb-1">
-                        <FaLock className="text-success" /> DIGITAL VERIFICATION HASH
-                      </span>
-                      <code className="crypto-hash-code text-cyan extra-small">{cryptoHash}</code>
-                    </div>
-
                     <div className="cert-footer-actions-col">
                       <button 
                         className="cert-print-btn" 
