@@ -64,7 +64,17 @@
             "/blog/geospatial-indexing-h3-hexagons-websocket-dispatch",
             "/blog/docker-kubernetes-containerization-orchestration",
             "/blog/owasp-top-10-enterprise-security-threat-modeling",
-            "/blog/bridging-logic-gap-early-stem-prototyping"
+            "/blog/bridging-logic-gap-early-stem-prototyping",
+            "/blog/cache-locality-memory-layout-c-rust",
+            "/blog/zero-knowledge-proofs-payment-channels-zksnarks",
+            "/blog/fine-tuning-slms-lora-qlora-consumer-gpus",
+            "/blog/rtos-freertos-task-scheduling-inter-task-synchronization",
+            "/blog/ray-marching-signed-distance-functions-procedural-3d",
+            "/blog/edge-computer-vision-yolo-crop-disease-diagnostics",
+            "/blog/autonomous-path-planning-astar-vs-rrt-robotics",
+            "/blog/distributed-consensus-paxos-raft-replicated-state-machines",
+            "/blog/cryptographic-primitives-elliptic-curves-ed25519",
+            "/blog/architectural-audits-measuring-technical-debt-enterprise"
         ],
         "puppeteerArgs": [
             "--no-sandbox",

@@ -121,7 +121,167 @@ const blogs = [
   "imageUrl": "/assets/blog/ka_blog_robotics.webp",
   "author": "Philip Hotor",
   "publishedAt": "2026-09-11T00:00:00Z"
-}
+},
+  {
+    title: "Cache Locality and Memory Layout: Squeezing Peak Flops in C and Rust",
+    slug: "cache-locality-memory-layout-c-rust",
+    description: "Understand CPU caches (L1/L2/L3), memory bus alignment, false sharing, and cache-friendly data structures to squeeze maximum throughput from modern silicon.",
+    date: "2026-08-25",
+    author: "Philip Hotor",
+    category: "Code"
+  },
+  {
+    title: "Zero-Knowledge Proofs in Payment Channels: Verifiable Settlement with zk-SNARKs",
+    slug: "zero-knowledge-proofs-payment-channels-zksnarks",
+    description: "How arithmetic circuits, quadratic arithmetic programs (QAP), and polynomial commitments allow verifiable financial settlements without disclosing transaction values or account identities.",
+    date: "2026-08-28",
+    author: "Philip Hotor",
+    category: "Code"
+  },
+  {
+    title: "Fine-Tuning SLMs on Consumer GPUs: A Deep Dive into LoRA and QLoRA",
+    slug: "fine-tuning-slms-lora-qlora-consumer-gpus",
+    description: "Demystifying parameter-efficient fine-tuning (PEFT): rank decomposition matrices, 4-bit NormalFloat quantization, and training task-specific models on single GPUs.",
+    date: "2026-09-02",
+    author: "Philip Hotor",
+    category: "Lab"
+  },
+  {
+    title: "Mastering Embedded Concurrency: FreeRTOS Task Scheduling and Semaphore Design",
+    slug: "rtos-freertos-task-scheduling-inter-task-synchronization",
+    description: "Transitioning beyond super-loops: preemptive priority-based scheduling, mutexes, counting semaphores, and avoiding priority inversion in mission-critical embedded systems.",
+    date: "2026-09-06",
+    author: "Philip Hotor",
+    category: "Lab"
+  },
+  {
+    title: "Ray Marching and Signed Distance Functions: Procedural 3D Worlds in Shaders",
+    slug: "ray-marching-signed-distance-functions-procedural-3d",
+    description: "Step into sphere tracing algorithms, CSG operations (union, intersection, smooth subtraction), and fragment shader physics to render complex mathematics in real time.",
+    date: "2026-09-10",
+    author: "Philip Hotor",
+    category: "Code"
+  },
+  {
+    title: "Edge Computer Vision in Agritech: Real-Time Plant Pathology with Lightweight YOLO",
+    slug: "edge-computer-vision-yolo-crop-disease-diagnostics",
+    description: "Optimizing convolutional neural network backbones for ONNX and Coral TPU runtimes, performing bounding-box inferences on leaf pathogens with zero cloud dependency.",
+    date: "2026-09-15",
+    author: "Philip Hotor",
+    category: "Ecosystem"
+  },
+  {
+    title: "Autonomous Motion Planning: Comparing A* Grid Search with Continuous RRT",
+    slug: "autonomous-path-planning-astar-vs-rrt-robotics",
+    description: "Comparing grid-based heuristic graph search with sampling-based motion planning in continuous high-dimensional configuration spaces for mobile logistics robots.",
+    date: "2026-09-20",
+    author: "Philip Hotor",
+    category: "Code"
+  },
+  {
+    title: "Demystifying Distributed Consensus: How Raft and Paxos Prevent Split-Brain",
+    slug: "distributed-consensus-paxos-raft-replicated-state-machines",
+    description: "Understanding leader elections, log compaction, split-brain mitigation, and quorum safety when building fault-tolerant cluster backbones.",
+    date: "2026-09-25",
+    author: "Philip Hotor",
+    category: "Ecosystem"
+  },
+  {
+    title: "Applied Modern Cryptography: Elliptic Curves, Ed25519, and Authenticated Encryption",
+    slug: "cryptographic-primitives-elliptic-curves-ed25519",
+    description: "From Galois field arithmetic to Twisted Edwards curves: implementing tamper-proof digital signatures and forward-secret Diffie-Hellman key exchange.",
+    date: "2026-09-28",
+    author: "Philip Hotor",
+    category: "Code"
+  },
+  {
+    title: "Quantifying Technical Debt: Architectural Audits and Coupling Metrics for Tech Leads",
+    slug: "architectural-audits-measuring-technical-debt-enterprise",
+    description: "A rigorous mathematical and operational framework for tracking dependency churn, cyclomatic complexity, coupling metrics, and calculating ROI on refactoring.",
+    date: "2026-10-02",
+    author: "Philip Hotor",
+    category: "Ecosystem"
+  },
+  {
+    title: "Cache Locality and Memory Layout: Squeezing Peak Flops in C and Rust",
+    slug: "cache-locality-memory-layout-c-rust",
+    description: "Understand CPU caches (L1/L2/L3), memory bus alignment, false sharing, and cache-friendly data structures to squeeze maximum throughput from modern silicon.",
+    date: "2026-08-25",
+    author: "Philip Hotor",
+    category: "Code"
+  },
+  {
+    title: "Zero-Knowledge Proofs in Payment Channels: Verifiable Settlement with zk-SNARKs",
+    slug: "zero-knowledge-proofs-payment-channels-zksnarks",
+    description: "How arithmetic circuits, quadratic arithmetic programs (QAP), and polynomial commitments allow verifiable financial settlements without disclosing transaction values or account identities.",
+    date: "2026-08-28",
+    author: "Philip Hotor",
+    category: "Code"
+  },
+  {
+    title: "Fine-Tuning SLMs on Consumer GPUs: A Deep Dive into LoRA and QLoRA",
+    slug: "fine-tuning-slms-lora-qlora-consumer-gpus",
+    description: "Demystifying parameter-efficient fine-tuning (PEFT): rank decomposition matrices, 4-bit NormalFloat quantization, and training task-specific models on single GPUs.",
+    date: "2026-09-02",
+    author: "Philip Hotor",
+    category: "Lab"
+  },
+  {
+    title: "Mastering Embedded Concurrency: FreeRTOS Task Scheduling and Semaphore Design",
+    slug: "rtos-freertos-task-scheduling-inter-task-synchronization",
+    description: "Transitioning beyond super-loops: preemptive priority-based scheduling, mutexes, counting semaphores, and avoiding priority inversion in mission-critical embedded systems.",
+    date: "2026-09-06",
+    author: "Philip Hotor",
+    category: "Lab"
+  },
+  {
+    title: "Ray Marching and Signed Distance Functions: Procedural 3D Worlds in Shaders",
+    slug: "ray-marching-signed-distance-functions-procedural-3d",
+    description: "Step into sphere tracing algorithms, CSG operations (union, intersection, smooth subtraction), and fragment shader physics to render complex mathematics in real time.",
+    date: "2026-09-10",
+    author: "Philip Hotor",
+    category: "Code"
+  },
+  {
+    title: "Edge Computer Vision in Agritech: Real-Time Plant Pathology with Lightweight YOLO",
+    slug: "edge-computer-vision-yolo-crop-disease-diagnostics",
+    description: "Optimizing convolutional neural network backbones for ONNX and Coral TPU runtimes, performing bounding-box inferences on leaf pathogens with zero cloud dependency.",
+    date: "2026-09-15",
+    author: "Philip Hotor",
+    category: "Ecosystem"
+  },
+  {
+    title: "Autonomous Motion Planning: Comparing A* Grid Search with Continuous RRT",
+    slug: "autonomous-path-planning-astar-vs-rrt-robotics",
+    description: "Comparing grid-based heuristic graph search with sampling-based motion planning in continuous high-dimensional configuration spaces for mobile logistics robots.",
+    date: "2026-09-20",
+    author: "Philip Hotor",
+    category: "Code"
+  },
+  {
+    title: "Demystifying Distributed Consensus: How Raft and Paxos Prevent Split-Brain",
+    slug: "distributed-consensus-paxos-raft-replicated-state-machines",
+    description: "Understanding leader elections, log compaction, split-brain mitigation, and quorum safety when building fault-tolerant cluster backbones.",
+    date: "2026-09-25",
+    author: "Philip Hotor",
+    category: "Ecosystem"
+  },
+  {
+    title: "Applied Modern Cryptography: Elliptic Curves, Ed25519, and Authenticated Encryption",
+    slug: "cryptographic-primitives-elliptic-curves-ed25519",
+    description: "From Galois field arithmetic to Twisted Edwards curves: implementing tamper-proof digital signatures and forward-secret Diffie-Hellman key exchange.",
+    date: "2026-09-28",
+    author: "Philip Hotor",
+    category: "Code"
+  },
+  {
+    title: "Quantifying Technical Debt: Architectural Audits and Coupling Metrics for Tech Leads",
+    slug: "architectural-audits-measuring-technical-debt-enterprise",
+    description: "A rigorous mathematical and operational framework for tracking dependency churn, cyclomatic complexity, coupling metrics, and calculating ROI on refactoring.",
+    date: "2026-10-02",
+    author: "Philip Hotor",
+    category: "Ecosystem"
+  }
 ];
 
 
