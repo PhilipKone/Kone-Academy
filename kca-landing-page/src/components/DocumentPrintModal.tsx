@@ -50,7 +50,7 @@ const DocumentPrintModal: React.FC<DocumentPrintModalProps> = ({
 
   const isThomasToken = token === 'KONE-2026-CODE-9513';
   const studentName = data.studentName || (isThomasToken ? 'Thomas Kangah' : 'Student Candidate');
-  const email = data.email || (isThomasToken ? 'thomaskangah803@gmail.com' : 'admissions@koneacademy.io');
+  const email = data.email || (isThomasToken ? 'thomaskangah803@gmail.com' : 'philipkone45@gmail.com');
   const phone = data.phone || (isThomasToken ? '+233 24 023 9469' : '+233 55 199 3820');
   const trackTitle = data.track || matchedCourse.title;
   const division = data.division || matchedCourse.division;
@@ -127,7 +127,7 @@ const DocumentPrintModal: React.FC<DocumentPrintModalProps> = ({
                   <h1 className="doc-brand-title">KONE ACADEMY</h1>
                   <p className="doc-brand-sub">Research, Coding &amp; Engineering Collective</p>
                   <p className="doc-brand-contact">
-                    Accra, Ghana &bull; admissions@koneacademy.io &bull; +233 55 199 3820 &bull; www.koneacademy.io
+                    Accra, Ghana &bull; philipkone45@gmail.com &bull; +233 55 199 3820 &bull; www.koneacademy.io
                   </p>
                 </div>
               </div>
@@ -234,7 +234,7 @@ const DocumentPrintModal: React.FC<DocumentPrintModalProps> = ({
                       <li><strong>Admissions WhatsApp Desk:</strong> +233 55 199 3820</li>
                     </ul>
                     <p className="payment-footnote">
-                      *Upon payment completion, forward your transaction screenshot to <strong>+233 55 199 3820</strong> or <strong>admissions@koneacademy.io</strong> for instant activation of your student portal and lab calendar.
+                      *Upon payment completion, forward your transaction screenshot to <strong>+233 55 199 3820</strong> or <strong>philipkone45@gmail.com</strong> for instant activation of your student portal and lab calendar.
                     </p>
                   </div>
 
@@ -327,7 +327,7 @@ const DocumentPrintModal: React.FC<DocumentPrintModalProps> = ({
                     </p>
                     <div className="d-flex align-items-center justify-content-between flex-wrap gap-2 pt-2 border-top">
                       <span className="extra-small text-muted">Issuing Body: Kone Academy Admissions & Registry Desk</span>
-                      <span className="extra-small text-muted">Direct Email: admissions@koneacademy.io</span>
+                      <span className="extra-small text-muted">Direct Email: philipkone45@gmail.com</span>
                     </div>
                   </div>
                 </div>

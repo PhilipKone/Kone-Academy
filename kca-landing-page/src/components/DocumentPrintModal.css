@@ -191,7 +191,7 @@
 }
 
 .doc-brand-title {
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Nunito', sans-serif;
+  font-family: var(--font-heading, 'Baloo 2', 'Nunito', sans-serif);
   font-size: 1.35rem;
   font-weight: 800;
   color: #0f172a;
@@ -201,7 +201,7 @@
 }
 
 .doc-brand-sub {
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Nunito', sans-serif;
+  font-family: var(--font-sans, 'Nunito', system-ui, -apple-system, sans-serif);
   font-size: 0.76rem;
   font-weight: 700;
   color: #2563eb;
@@ -294,7 +294,7 @@
 }
 
 .doc-main-heading {
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Nunito', sans-serif;
+  font-family: var(--font-heading, 'Baloo 2', 'Nunito', sans-serif);
   font-size: 1.25rem;
   font-weight: 800;
   color: #0f172a;
@@ -354,7 +354,7 @@
 }
 
 .candidate-name, .track-name {
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Nunito', sans-serif;
+  font-family: var(--font-heading, 'Baloo 2', 'Nunito', sans-serif);
   font-size: 1.05rem;
   font-weight: 700;
   color: #0f172a;
@@ -383,7 +383,7 @@
 
 /* Section Headings */
 .doc-section-heading {
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Nunito', sans-serif;
+  font-family: var(--font-heading, 'Baloo 2', 'Nunito', sans-serif);
   font-size: 0.88rem;
   font-weight: 800;
   color: #0f172a;
@@ -512,7 +512,7 @@
 }
 
 .sign-name {
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Nunito', sans-serif;
+  font-family: var(--font-heading, 'Baloo 2', 'Nunito', sans-serif);
   font-size: 0.95rem;
   font-weight: 800;
   color: #0f172a;
