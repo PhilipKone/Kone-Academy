@@ -621,6 +621,16 @@
     margin: 12mm 15mm;
   }
 
+  html, body {
+    background: #ffffff !important;
+    color: #0f172a !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    height: auto !important;
+    min-height: auto !important;
+    overflow: visible !important;
+  }
+
   /* Hide the rest of the application completely */
   body * {
     visibility: hidden;
@@ -636,6 +646,7 @@
     background: transparent !important;
     padding: 0 !important;
     margin: 0 !important;
+    overflow: visible !important;
   }
 
   .doc-modal-shell {
@@ -644,6 +655,7 @@
     border: none !important;
     box-shadow: none !important;
     background: transparent !important;
+    overflow: visible !important;
   }
 
   .doc-modal-actions-bar {
@@ -653,13 +665,17 @@
   .doc-paper-scroller {
     padding: 0 !important;
     background: transparent !important;
+    overflow: visible !important;
+    height: auto !important;
+    max-height: none !important;
   }
 
   .doc-paper-sheet {
-    position: absolute !important;
-    left: 0 !important;
-    top: 0 !important;
+    position: relative !important;
+    left: auto !important;
+    top: auto !important;
     width: 100% !important;
+    max-width: 100% !important;
     min-height: auto !important;
     box-shadow: none !important;
     border: none !important;
@@ -669,5 +685,6 @@
     color: #0f172a !important;
     -webkit-print-color-adjust: exact !important;
     print-color-adjust: exact !important;
+    color-adjust: exact !important;
   }
 }

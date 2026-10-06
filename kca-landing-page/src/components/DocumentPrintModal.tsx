@@ -70,7 +70,7 @@ const DocumentPrintModal: React.FC<DocumentPrintModalProps> = ({
 
   const handleShareWhatsApp = () => {
     const text = docType === 'invoice'
-      ? `Hello ${studentName}! Here is your official Kone Academy tuition admission invoice for the ${trackTitle} (${token}): ${verificationUrl}\nOnline: GHS 100/session (GHS 400/mo) | In-Person: GHS 150/session (GHS 600/mo).`
+      ? `Hello ${studentName}! Here is your official Kone Academy tuition admission invoice for the ${trackTitle} (${token}): ${verificationUrl}\nLive Online Cohort: GHS 100.00 / session.`
       : `Official Curriculum & Syllabus for Kone Academy ${trackTitle} (${token}): ${verificationUrl}`;
     const url = `https://wa.me/${phone.replace(/[^0-9]/g, '')}?text=${encodeURIComponent(text)}`;
     window.open(url, '_blank');
@@ -182,10 +182,8 @@ const DocumentPrintModal: React.FC<DocumentPrintModalProps> = ({
                 <table className="doc-table">
                   <thead>
                     <tr>
-                      <th style={{ width: '45%' }}>Enrollment Track / Program</th>
-                      <th style={{ width: '25%' }}>Frequency & Lab Access</th>
-                      <th style={{ width: '15%' }}>Rate / Session</th>
-                      <th style={{ width: '15%', textAlign: 'right' }}>Total (GHS)</th>
+                      <th style={{ width: '70%' }}>Enrollment Track / Program</th>
+                      <th style={{ width: '30%', textAlign: 'right' }}>Rate / Session</th>
                     </tr>
                   </thead>
                   <tbody>
@@ -194,9 +192,7 @@ const DocumentPrintModal: React.FC<DocumentPrintModalProps> = ({
                         <strong>Live Online Cohort</strong>
                         <div className="item-sub">Live interactive virtual engineering labs, GitHub PR reviews &amp; community discord access.</div>
                       </td>
-                      <td>4 Intensive Sessions (Monthly Cycle)</td>
-                      <td>GHS 100.00</td>
-                      <td style={{ textAlign: 'right', fontWeight: 'bold' }}>GHS 400.00 / mo</td>
+                      <td style={{ textAlign: 'right', fontWeight: 'bold', fontSize: '0.92rem' }}>GHS 100.00</td>
                     </tr>
                   </tbody>
                 </table>
