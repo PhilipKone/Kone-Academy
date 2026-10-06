@@ -40,7 +40,7 @@
     "reactSnap": {
         "source": "dist",
         "delay": 1000,
-        "port": 45681,
+        "port": 45692,
         "timeout": 120000,
         "include": [
             "/",
@@ -54,7 +54,17 @@
             "/training",
             "/privacy",
             "/terms",
-            "/verify"
+            "/verify",
+            "/blog/event-loop-microtasks-macrotasks-io",
+            "/blog/resilient-double-entry-ledgers-idempotency",
+            "/blog/uart-spi-i2c-hardware-communication-protocols",
+            "/blog/glsl-shaders-webgl-coordinates-graphics",
+            "/blog/vector-embeddings-semantic-search-rag-pipelines",
+            "/blog/automated-soil-telemetry-iot-mesh-networks",
+            "/blog/geospatial-indexing-h3-hexagons-websocket-dispatch",
+            "/blog/docker-kubernetes-containerization-orchestration",
+            "/blog/owasp-top-10-enterprise-security-threat-modeling",
+            "/blog/bridging-logic-gap-early-stem-prototyping"
         ],
         "puppeteerArgs": [
             "--no-sandbox",

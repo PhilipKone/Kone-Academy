@@ -336,15 +336,15 @@ const CertificateValidator = ({ onBack }) => {
                   )}
 
                   {/* Cryptographic Signature Footer */}
-                  <div className="cert-footer-signature p-4 d-flex justify-content-between align-items-center flex-wrap gap-3">
-                    <div>
+                  <div className="cert-footer-signature">
+                    <div className="cert-footer-hash-col">
                       <span className="extra-small text-secondary d-flex align-items-center gap-1 mb-1">
                         <FaLock className="text-success" /> DIGITAL VERIFICATION HASH
                       </span>
                       <code className="crypto-hash-code text-cyan extra-small">{cryptoHash}</code>
                     </div>
 
-                    <div className="d-flex align-items-center flex-wrap gap-2">
+                    <div className="cert-footer-actions-col">
                       <button 
                         className="cert-print-btn" 
                         onClick={() => {

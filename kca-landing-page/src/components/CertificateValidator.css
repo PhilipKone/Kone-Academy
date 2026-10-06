@@ -324,18 +324,37 @@
 .cert-footer-signature {
   background: #080c14;
   border-top: 1px solid rgba(255, 255, 255, 0.08);
-  padding: 16px 20px;
+  padding: 18px 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.cert-footer-hash-col {
+  flex: 1 1 260px;
+  min-width: 0;
+}
+
+.cert-footer-actions-col {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  justify-content: flex-end;
 }
 
 .crypto-hash-code {
   background: rgba(56, 189, 248, 0.08);
-  padding: 4px 8px;
+  padding: 6px 10px;
   border-radius: 6px;
   border: 1px solid rgba(56, 189, 248, 0.2);
   font-family: ui-monospace, SFMono-Regular, monospace;
   word-break: break-all;
   font-size: 0.72rem;
   color: #38bdf8;
+  display: block;
 }
 
 .cert-print-btn {
@@ -344,13 +363,14 @@
   color: #f8fafc;
   font-weight: 600;
   font-size: 0.8rem;
-  padding: 8px 16px;
+  padding: 9px 16px;
   border-radius: 8px;
   cursor: pointer;
   transition: all 0.18s ease;
   display: inline-flex;
   align-items: center;
   gap: 6px;
+  text-decoration: none;
 }
 
 .cert-print-btn:hover {
@@ -372,9 +392,63 @@
 }
 
 /* Mobile Layout Controls */
-@media (max-width: 640px) {
+@media (max-width: 768px) {
+  .cert-validator-page-container {
+    padding: 74px 12px 40px 12px;
+  }
+
+  .cert-validator-wrapper {
+    border-radius: 18px;
+  }
+
+  .cert-header-bar {
+    padding: 1.8rem 1.2rem 1.4rem 1.2rem;
+  }
+
+  .cert-body-content {
+    padding: 1.2rem 0.8rem;
+  }
+
+  .cert-card-top {
+    padding: 16px 14px;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .cert-top-right-meta {
+    text-align: left;
+    width: 100%;
+  }
+
   .cert-grid-info, .projects-verified-grid {
     grid-template-columns: 1fr;
+    padding: 14px 12px;
+  }
+
+  .cert-footer-signature {
+    padding: 16px 14px;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 14px;
+  }
+
+  .cert-footer-hash-col {
+    width: 100%;
+  }
+
+  .cert-footer-actions-col {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .cert-print-btn {
+    width: 100%;
+    justify-content: center;
+    padding: 12px 16px;
+    font-size: 0.85rem;
+    border-radius: 10px;
   }
 
   .cert-search-input {

@@ -31,8 +31,99 @@ const blogs = [
     imageUrl: "/assets/blog/ka_blog_digital.webp",
     author: "Philip Hotor",
     publishedAt: "2026-08-08T00:00:00Z"
-  }
+  },
+{
+  "title": "Deconstructing the Event Loop: Microtasks, Macrotasks, and High-Throughput I/O",
+  "slug": "event-loop-microtasks-macrotasks-io",
+  "category": "Code",
+  "excerpt": "A deep dive into the V8 call stack, libuv thread pool, microtask queues, and macrotask starvation in high-concurrency Node.js systems.",
+  "imageUrl": "/assets/blog/architecture_diagram.webp",
+  "author": "Philip Hotor",
+  "publishedAt": "2026-08-12T00:00:00Z"
+},
+{
+  "title": "Building Resilient Double-Entry Ledgers: ACID Guarantees and Idempotency in Fintech",
+  "slug": "resilient-double-entry-ledgers-idempotency",
+  "category": "Code",
+  "excerpt": "How to architect financial bookkeeping systems that guarantee zero balance drift under high network concurrency, network partitions, and duplicate webhooks.",
+  "imageUrl": "/assets/blog/ka_blog_logic.webp",
+  "author": "Philip Hotor",
+  "publishedAt": "2026-08-15T00:00:00Z"
+},
+{
+  "title": "Demystifying UART, SPI, and I2C: The High-Speed Communication Protocols of Hardware",
+  "slug": "uart-spi-i2c-hardware-communication-protocols",
+  "category": "Lab",
+  "excerpt": "Comparing bus speeds, clock synchronizations, pull-up resistors, and signal integrity across embedded microcontroller communication channels.",
+  "imageUrl": "/assets/blog/arduino_sensors.webp",
+  "author": "Philip Hotor",
+  "publishedAt": "2026-08-18T00:00:00Z"
+},
+{
+  "title": "From Math to Canvas: Introduction to GLSL Shaders and 3D WebGL Coordinates",
+  "slug": "glsl-shaders-webgl-coordinates-graphics",
+  "category": "Code",
+  "excerpt": "Bridging linear algebra, vertex coordinates, and fragment rasterization. Write your first GPU-accelerated canvas shaders in Three.js.",
+  "imageUrl": "/assets/blog/ai_futures.webp",
+  "author": "Philip Hotor",
+  "publishedAt": "2026-08-22T00:00:00Z"
+},
+{
+  "title": "Vector Embeddings and Semantic Search: Building RAG Pipelines from Scratch",
+  "slug": "vector-embeddings-semantic-search-rag-pipelines",
+  "category": "Lab",
+  "excerpt": "How high-dimensional cosine similarity, HNSW indexing, and chunking strategies transform raw document databases into intelligent AI search engines.",
+  "imageUrl": "/assets/blog/ka_blog_digital.webp",
+  "author": "Philip Hotor",
+  "publishedAt": "2026-08-25T00:00:00Z"
+},
+{
+  "title": "Automated Soil Telemetry: Designing Low-Power IoT Mesh Networks in Agritech",
+  "slug": "automated-soil-telemetry-iot-mesh-networks",
+  "category": "Ecosystem",
+  "excerpt": "Deploying battery-efficient sensor arrays across remote agricultural fields. ESP-NOW, deep sleep modes, and solar power management.",
+  "imageUrl": "/assets/blog/arduino_anatomy.webp",
+  "author": "Philip Hotor",
+  "publishedAt": "2026-08-28T00:00:00Z"
+},
+{
+  "title": "Geospatial Indexing at Scale: H3 Hexagons and Real-Time WebSocket Dispatch",
+  "slug": "geospatial-indexing-h3-hexagons-websocket-dispatch",
+  "category": "Code",
+  "excerpt": "Partitioning planetary maps into discrete hexagonal hierarchies. How high-concurrency transit apps match millions of vehicles in milliseconds.",
+  "imageUrl": "/assets/blog/data_strategy.webp",
+  "author": "Philip Hotor",
+  "publishedAt": "2026-09-01T00:00:00Z"
+},
+{
+  "title": "Containerization to Orchestration: What Every Developer Must Know About Docker & Kubernetes",
+  "slug": "docker-kubernetes-containerization-orchestration",
+  "category": "Ecosystem",
+  "excerpt": "From Linux kernel cgroups and namespaces to multi-pod deployment manifests, ingress controllers, and zero-downtime rolling updates.",
+  "imageUrl": "/assets/blog/structural_integrity.webp",
+  "author": "Philip Hotor",
+  "publishedAt": "2026-09-04T00:00:00Z"
+},
+{
+  "title": "Defending Against the OWASP Top 10: Enterprise Security and Threat Modeling in 2026",
+  "slug": "owasp-top-10-enterprise-security-threat-modeling",
+  "category": "Code",
+  "excerpt": "Securing modern API endpoints against BOLA, SSRF, injection attacks, and token tampering with cryptographically secure session boundaries.",
+  "imageUrl": "/assets/blog/hero_agentic.webp",
+  "author": "Philip Hotor",
+  "publishedAt": "2026-09-08T00:00:00Z"
+},
+{
+  "title": "Bridging the Logic Gap: Why Early STEM and Physical Prototyping Shape Master Engineers",
+  "slug": "bridging-logic-gap-early-stem-prototyping",
+  "category": "Ecosystem",
+  "excerpt": "Transitioning younger minds from visual block programming to real typed code and interactive robotics. Cultivating genuine computational intuition.",
+  "imageUrl": "/assets/blog/ka_blog_robotics.webp",
+  "author": "Philip Hotor",
+  "publishedAt": "2026-09-11T00:00:00Z"
+}
 ];
+
 
 function buildRssXml() {
   const itemsXml = blogs.map(blog => {

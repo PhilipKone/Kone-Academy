@@ -25,7 +25,7 @@ if (rootElement) {
     hydrateRoot(rootElement, appElement, {
       onRecoverableError: (error: any) => {
         // React automatically recovers from minor SSR/prerender text or whitespace differences
-        if (process.env.NODE_ENV === 'development') {
+        if (import.meta.env?.DEV) {
           console.warn('Hydration recoverable notice:', error);
         }
       }
