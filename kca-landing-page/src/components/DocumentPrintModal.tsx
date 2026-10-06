@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { createPortal } from 'react-dom';
 import { 
-  FaTimes, FaPrint, FaWhatsapp, FaCopy, FaCheck,
+  FaTimes, FaPrint, FaWhatsapp, FaEnvelope, FaCopy, FaCheck,
   FaFileInvoiceDollar, FaFileAlt, FaLock, FaCheckCircle, FaShieldAlt
 } from 'react-icons/fa';
 import './DocumentPrintModal.css';
@@ -76,6 +76,46 @@ const DocumentPrintModal: React.FC<DocumentPrintModalProps> = ({
     window.open(url, '_blank');
   };
 
+  const handleShareEmail = () => {
+    const subject = docType === 'invoice'
+      ? `Official Tuition Invoice: ${trackTitle} (${token}) - Kone Academy`
+      : `Official Course Syllabus: ${trackTitle} (${token}) - Kone Academy`;
+    
+    const body = docType === 'invoice'
+      ? `Dear ${studentName},\n\n` +
+        `Congratulations on reserving your cohort seat at Kone Academy.\n\n` +
+        `Your official pro-forma tuition invoice and verification credentials are now ready:\n` +
+        `Official Verification Portal: ${verificationUrl}\n\n` +
+        `Enrollment Summary:\n` +
+        `• Candidate: ${studentName}\n` +
+        `• Track: ${trackTitle}\n` +
+        `• Division: Kone ${division} Engineering\n` +
+        `• Learning Format: Live Online Cohort\n` +
+        `• Tuition Rate: GHS 100.00 / session\n\n` +
+        `Payment Instructions:\n` +
+        `• Mobile Money: Telecel Cash (Accepts MTN MoMo & all networks via Interoperability)\n` +
+        `• Telecel Cash Number: +233 20 325 6481 (or 020 325 6481)\n` +
+        `• Account Name: Philip Hotor\n` +
+        `• Payment Reference: ${token}\n\n` +
+        `After completing payment, please send your confirmation screenshot to +233 55 199 3820 or philipkone45@gmail.com for student registry onboarding.\n\n` +
+        `Best regards,\n` +
+        `Philip Hotor\n` +
+        `Lead Engineer & Academy Director\n` +
+        `Kone Academy Admissions Directorate\n` +
+        `https://www.koneacademy.io`
+      : `Dear ${studentName},\n\n` +
+        `Here is the official curriculum specification and module checkpoints for the ${trackTitle} (${token}) at Kone Academy:\n\n` +
+        `Syllabus Portal: ${verificationUrl}\n\n` +
+        `Best regards,\n` +
+        `Philip Hotor\n` +
+        `Lead Engineer & Academy Director\n` +
+        `Kone Academy Admissions Directorate\n` +
+        `https://www.koneacademy.io`;
+
+    const mailtoUrl = `mailto:${encodeURIComponent(email)}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    window.location.href = mailtoUrl;
+  };
+
   return createPortal(
     <div className="doc-modal-overlay" onClick={onClose}>
       <div className="doc-modal-shell" onClick={e => e.stopPropagation()}>
@@ -103,6 +143,9 @@ const DocumentPrintModal: React.FC<DocumentPrintModalProps> = ({
             </button>
             <button className="doc-action-btn whatsapp" onClick={handleShareWhatsApp} title="Share directly to WhatsApp" aria-label="Share on WhatsApp">
               <FaWhatsapp size={15} />
+            </button>
+            <button className="doc-action-btn email" onClick={handleShareEmail} title={`Send email to ${email}`} aria-label="Share via Email">
+              <FaEnvelope size={13} />
             </button>
             <button className="doc-action-btn secondary" onClick={handleCopyLink} title="Copy official link" aria-label="Copy official link">
               {copied ? <FaCheck className="text-success" size={13} /> : <FaCopy size={13} />}
@@ -190,7 +233,7 @@ const DocumentPrintModal: React.FC<DocumentPrintModalProps> = ({
                     <tr>
                       <td>
                         <strong>Live Online Cohort</strong>
-                        <div className="item-sub">Live interactive virtual engineering labs, GitHub PR reviews &amp; community discord access.</div>
+                        <div className="item-sub">Live interactive virtual engineering labs, GitHub PR reviews, Google Drive resource archives &amp; community discord access.</div>
                       </td>
                       <td style={{ textAlign: 'right', fontWeight: 'bold', fontSize: '0.92rem' }}>GHS 100.00</td>
                     </tr>
