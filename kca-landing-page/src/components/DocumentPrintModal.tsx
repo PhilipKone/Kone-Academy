@@ -70,7 +70,7 @@ const DocumentPrintModal: React.FC<DocumentPrintModalProps> = ({
 
   const handleShareWhatsApp = () => {
     const text = docType === 'invoice'
-      ? `Hello ${studentName}! Here is your official Kone Academy tuition admission invoice for the ${trackTitle} (${token}): ${verificationUrl}\nLive Online Cohort: GHS 100.00 / session.`
+      ? `Hello ${studentName}! Here is your official Kone Academy tuition admission invoice for the ${trackTitle} (${token}): ${verificationUrl}\nLive Online Cohort: GHS 100.00 / session.\nTelecel Cash: +233 20 325 6481 (Philip Hotor).`
       : `Official Curriculum & Syllabus for Kone Academy ${trackTitle} (${token}): ${verificationUrl}`;
     const url = `https://wa.me/${phone.replace(/[^0-9]/g, '')}?text=${encodeURIComponent(text)}`;
     window.open(url, '_blank');
@@ -203,7 +203,8 @@ const DocumentPrintModal: React.FC<DocumentPrintModalProps> = ({
                     <h5 className="payment-heading">OFFICIAL PAYMENT INSTRUCTIONS (GHANA CEDIS - GHS)</h5>
                     <p className="payment-intro">Payments can be completed securely via Mobile Money or Bank Transfer:</p>
                     <ul className="payment-list">
-                      <li><strong>Mobile Money:</strong> MTN MoMo / Telecel Cash</li>
+                      <li><strong>Mobile Money:</strong> Telecel Cash (Accepts MTN MoMo &amp; All Networks via Interoperability)</li>
+                      <li><strong>Telecel Cash Number:</strong> <code className="pay-ref">+233 20 325 6481</code> (or <code>020 325 6481</code>)</li>
                       <li><strong>Account Name:</strong> Philip Hotor</li>
                       <li><strong>Payment Reference:</strong> <code className="pay-ref">{token}</code> (or Student Name: {studentName})</li>
                       <li><strong>Admissions WhatsApp Desk:</strong> +233 55 199 3820</li>
