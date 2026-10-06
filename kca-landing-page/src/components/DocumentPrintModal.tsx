@@ -191,33 +191,12 @@ const DocumentPrintModal: React.FC<DocumentPrintModalProps> = ({
                   <tbody>
                     <tr>
                       <td>
-                        <strong>Option 1: Live Online Cohort (Recommended)</strong>
-                        <div className="item-sub">Live interactive virtual engineering labs, GitHub PR reviews & community discord access.</div>
+                        <strong>Live Online Cohort</strong>
+                        <div className="item-sub">Live interactive virtual engineering labs, GitHub PR reviews &amp; community discord access.</div>
                       </td>
                       <td>4 Intensive Sessions (Monthly Cycle)</td>
                       <td>GHS 100.00</td>
                       <td style={{ textAlign: 'right', fontWeight: 'bold' }}>GHS 400.00 / mo</td>
-                    </tr>
-                    <tr>
-                      <td>
-                        <strong>Option 2: Face-to-Face Physical Studio Lab</strong>
-                        <div className="item-sub">Physical workstation at our Accra facility, dedicated fiber broadband, standby generator power &amp; hands-on technical mentorship.</div>
-                      </td>
-                      <td>4 Intensive Sessions (Monthly Cycle)</td>
-                      <td>GHS 150.00</td>
-                      <td style={{ textAlign: 'right', fontWeight: 'bold' }}>GHS 600.00 / mo</td>
-                    </tr>
-                    <tr className="discount-row">
-                      <td>
-                        <strong>Option 3: Full 12-Week Immersive Track (Upfront Bundle)</strong>
-                        <div className="item-sub">Full curriculum (12 Sessions + Capstone Deployment + Proficiency Certificate). Includes 10% bundle discount.</div>
-                      </td>
-                      <td>Full 12 Weeks (All Modules)</td>
-                      <td>Prepaid Discount</td>
-                      <td style={{ textAlign: 'right', fontWeight: 'bold' }}>
-                        Online: GHS 1,050.00<br/>
-                        <span style={{ fontSize: '0.85em', color: '#475569' }}>In-Person: GHS 1,600.00</span>
-                      </td>
                     </tr>
                   </tbody>
                 </table>
