@@ -46,7 +46,7 @@ const blogs = [
     "slug": "resilient-double-entry-ledgers-idempotency",
     "category": "Code",
     "excerpt": "How to architect financial bookkeeping systems that guarantee zero balance drift under high network concurrency, network partitions, and duplicate webhooks.",
-    "imageUrl": "/assets/blog/ka_blog_logic.webp",
+    "imageUrl": "/assets/blog/fintech_ledger.webp",
     "author": "Philip Hotor",
     "publishedAt": "2026-08-15T00:00:00Z"
   },
@@ -55,7 +55,7 @@ const blogs = [
     "slug": "uart-spi-i2c-hardware-communication-protocols",
     "category": "Lab",
     "excerpt": "Comparing bus speeds, clock synchronizations, pull-up resistors, and signal integrity across embedded microcontroller communication channels.",
-    "imageUrl": "/assets/blog/arduino_sensors.webp",
+    "imageUrl": "/assets/blog/arduino_forensics.webp",
     "author": "Philip Hotor",
     "publishedAt": "2026-08-18T00:00:00Z"
   },
@@ -64,7 +64,7 @@ const blogs = [
     "slug": "glsl-shaders-webgl-coordinates-graphics",
     "category": "Code",
     "excerpt": "Bridging linear algebra, vertex coordinates, and fragment rasterization. Write your first GPU-accelerated canvas shaders in Three.js.",
-    "imageUrl": "/assets/blog/ai_futures.webp",
+    "imageUrl": "/assets/blog/structural_integrity.webp",
     "author": "Philip Hotor",
     "publishedAt": "2026-08-22T00:00:00Z"
   },
@@ -73,7 +73,7 @@ const blogs = [
     "slug": "vector-embeddings-semantic-search-rag-pipelines",
     "category": "Lab",
     "excerpt": "How high-dimensional cosine similarity, HNSW indexing, and chunking strategies transform raw document databases into intelligent AI search engines.",
-    "imageUrl": "/assets/blog/ka_blog_digital.webp",
+    "imageUrl": "/assets/blog/ai_futures.webp",
     "author": "Philip Hotor",
     "publishedAt": "2026-08-25T00:00:00Z"
   },
@@ -82,7 +82,7 @@ const blogs = [
     "slug": "automated-soil-telemetry-iot-mesh-networks",
     "category": "Ecosystem",
     "excerpt": "Deploying battery-efficient sensor arrays across remote agricultural fields. ESP-NOW, deep sleep modes, and solar power management.",
-    "imageUrl": "/assets/blog/arduino_anatomy.webp",
+    "imageUrl": "/assets/blog/arduino_sensors.webp",
     "author": "Philip Hotor",
     "publishedAt": "2026-08-28T00:00:00Z"
   },
@@ -100,7 +100,7 @@ const blogs = [
     "slug": "docker-kubernetes-containerization-orchestration",
     "category": "Ecosystem",
     "excerpt": "From Linux kernel cgroups and namespaces to multi-pod deployment manifests, ingress controllers, and zero-downtime rolling updates.",
-    "imageUrl": "/assets/blog/structural_integrity.webp",
+    "imageUrl": "/assets/blog/hero_agentic.webp",
     "author": "Philip Hotor",
     "publishedAt": "2026-09-04T00:00:00Z"
   },
@@ -109,7 +109,7 @@ const blogs = [
     "slug": "owasp-top-10-enterprise-security-threat-modeling",
     "category": "Code",
     "excerpt": "Securing modern API endpoints against BOLA, SSRF, injection attacks, and token tampering with cryptographically secure session boundaries.",
-    "imageUrl": "/assets/blog/hero_agentic.webp",
+    "imageUrl": "/assets/blog/cyber_security_owasp.webp",
     "author": "Philip Hotor",
     "publishedAt": "2026-09-08T00:00:00Z"
   },
@@ -118,7 +118,7 @@ const blogs = [
     "slug": "bridging-logic-gap-early-stem-prototyping",
     "category": "Ecosystem",
     "excerpt": "Transitioning younger minds from visual block programming to real typed code and interactive robotics. Cultivating genuine computational intuition.",
-    "imageUrl": "/assets/blog/ka_blog_robotics.webp",
+    "imageUrl": "/assets/blog/stem_robotics_kids.webp",
     "author": "Philip Hotor",
     "publishedAt": "2026-09-11T00:00:00Z"
   },
@@ -127,7 +127,7 @@ const blogs = [
     "slug": "cache-locality-memory-layout-c-rust",
     "category": "Code",
     "excerpt": "Understand CPU caches (L1/L2/L3), memory bus alignment, false sharing, and cache-friendly data structures to squeeze maximum throughput from modern silicon.",
-    "imageUrl": "/assets/blog/data_strategy.webp",
+    "imageUrl": "/assets/blog/cpu_cache_memory.webp",
     "author": "Philip Hotor",
     "publishedAt": "2026-08-25T00:00:00Z"
   },
@@ -136,7 +136,7 @@ const blogs = [
     "slug": "zero-knowledge-proofs-payment-channels-zksnarks",
     "category": "Code",
     "excerpt": "How arithmetic circuits, quadratic arithmetic programs (QAP), and polynomial commitments allow verifiable financial settlements without disclosing transaction values or account identities.",
-    "imageUrl": "/assets/blog/hero_agentic.webp",
+    "imageUrl": "/assets/blog/zk_snarks_proof.webp",
     "author": "Philip Hotor",
     "publishedAt": "2026-08-28T00:00:00Z"
   },
@@ -145,7 +145,7 @@ const blogs = [
     "slug": "fine-tuning-slms-lora-qlora-consumer-gpus",
     "category": "Lab",
     "excerpt": "Demystifying parameter-efficient fine-tuning (PEFT): rank decomposition matrices, 4-bit NormalFloat quantization, and training task-specific models on single GPUs.",
-    "imageUrl": "/assets/blog/ai_futures.webp",
+    "imageUrl": "/assets/blog/gpu_lora_training.webp",
     "author": "Philip Hotor",
     "publishedAt": "2026-09-02T00:00:00Z"
   },
@@ -163,7 +163,7 @@ const blogs = [
     "slug": "ray-marching-signed-distance-functions-procedural-3d",
     "category": "Code",
     "excerpt": "Step into sphere tracing algorithms, CSG operations (union, intersection, smooth subtraction), and fragment shader physics to render complex mathematics in real time.",
-    "imageUrl": "/assets/blog/structural_integrity.webp",
+    "imageUrl": "/assets/blog/ray_marching_sdf.webp",
     "author": "Philip Hotor",
     "publishedAt": "2026-09-10T00:00:00Z"
   },
@@ -181,7 +181,7 @@ const blogs = [
     "slug": "autonomous-path-planning-astar-vs-rrt-robotics",
     "category": "Code",
     "excerpt": "Comparing grid-based heuristic graph search with sampling-based motion planning in continuous high-dimensional configuration spaces for mobile logistics robots.",
-    "imageUrl": "/assets/blog/architecture_diagram.webp",
+    "imageUrl": "/assets/blog/robot_path_planning.webp",
     "author": "Philip Hotor",
     "publishedAt": "2026-09-20T00:00:00Z"
   },
@@ -190,7 +190,7 @@ const blogs = [
     "slug": "distributed-consensus-paxos-raft-replicated-state-machines",
     "category": "Ecosystem",
     "excerpt": "Understanding leader elections, log compaction, split-brain mitigation, and quorum safety when building fault-tolerant cluster backbones.",
-    "imageUrl": "/assets/blog/hero_agentic.webp",
+    "imageUrl": "/assets/blog/distributed_consensus_raft.webp",
     "author": "Philip Hotor",
     "publishedAt": "2026-09-25T00:00:00Z"
   },
@@ -199,7 +199,7 @@ const blogs = [
     "slug": "cryptographic-primitives-elliptic-curves-ed25519",
     "category": "Code",
     "excerpt": "From Galois field arithmetic to Twisted Edwards curves: implementing tamper-proof digital signatures and forward-secret Diffie-Hellman key exchange.",
-    "imageUrl": "/assets/blog/data_strategy.webp",
+    "imageUrl": "/assets/blog/behind_the_stack_s01e03.jpg",
     "author": "Philip Hotor",
     "publishedAt": "2026-09-28T00:00:00Z"
   },
@@ -208,7 +208,7 @@ const blogs = [
     "slug": "architectural-audits-measuring-technical-debt-enterprise",
     "category": "Ecosystem",
     "excerpt": "A rigorous mathematical and operational framework for tracking dependency churn, cyclomatic complexity, coupling metrics, and calculating ROI on refactoring.",
-    "imageUrl": "/assets/blog/ai_futures.webp",
+    "imageUrl": "/assets/blog/behind_the_stack_lab_s01e01.png",
     "author": "Philip Hotor",
     "publishedAt": "2026-10-02T00:00:00Z"
   }

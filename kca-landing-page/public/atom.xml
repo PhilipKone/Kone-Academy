@@ -4,7 +4,7 @@
   <subtitle>Pioneering research notes, system engineering breakthroughs, and curriculum announcements.</subtitle>
   <link href="https://www.koneacademy.io/atom.xml" rel="self" />
   <link href="https://www.koneacademy.io/blog" />
-  <updated>2026-10-06T15:34:05.967Z</updated>
+  <updated>2026-10-08T15:51:39.334Z</updated>
   <id>https://www.koneacademy.io/blog</id>
   <author>
     <name>Philip Hotor</name>
@@ -74,7 +74,7 @@
       <uri>https://www.koneacademy.io/author/philip-hotor</uri>
     </author>
     <category term="Code" />
-    <link rel="enclosure" type="image/webp" href="https://www.koneacademy.io/assets/blog/ka_blog_logic.webp" />
+    <link rel="enclosure" type="image/webp" href="https://www.koneacademy.io/assets/blog/fintech_ledger.webp" />
   </entry>
   <entry>
     <title><![CDATA[Demystifying UART, SPI, and I2C: The High-Speed Communication Protocols of Hardware]]></title>
@@ -87,7 +87,7 @@
       <uri>https://www.koneacademy.io/author/philip-hotor</uri>
     </author>
     <category term="Lab" />
-    <link rel="enclosure" type="image/webp" href="https://www.koneacademy.io/assets/blog/arduino_sensors.webp" />
+    <link rel="enclosure" type="image/webp" href="https://www.koneacademy.io/assets/blog/arduino_forensics.webp" />
   </entry>
   <entry>
     <title><![CDATA[From Math to Canvas: Introduction to GLSL Shaders and 3D WebGL Coordinates]]></title>
@@ -100,7 +100,7 @@
       <uri>https://www.koneacademy.io/author/philip-hotor</uri>
     </author>
     <category term="Code" />
-    <link rel="enclosure" type="image/webp" href="https://www.koneacademy.io/assets/blog/ai_futures.webp" />
+    <link rel="enclosure" type="image/webp" href="https://www.koneacademy.io/assets/blog/structural_integrity.webp" />
   </entry>
   <entry>
     <title><![CDATA[Vector Embeddings and Semantic Search: Building RAG Pipelines from Scratch]]></title>
@@ -113,7 +113,7 @@
       <uri>https://www.koneacademy.io/author/philip-hotor</uri>
     </author>
     <category term="Lab" />
-    <link rel="enclosure" type="image/webp" href="https://www.koneacademy.io/assets/blog/ka_blog_digital.webp" />
+    <link rel="enclosure" type="image/webp" href="https://www.koneacademy.io/assets/blog/ai_futures.webp" />
   </entry>
   <entry>
     <title><![CDATA[Automated Soil Telemetry: Designing Low-Power IoT Mesh Networks in Agritech]]></title>
@@ -126,7 +126,7 @@
       <uri>https://www.koneacademy.io/author/philip-hotor</uri>
     </author>
     <category term="Ecosystem" />
-    <link rel="enclosure" type="image/webp" href="https://www.koneacademy.io/assets/blog/arduino_anatomy.webp" />
+    <link rel="enclosure" type="image/webp" href="https://www.koneacademy.io/assets/blog/arduino_sensors.webp" />
   </entry>
   <entry>
     <title><![CDATA[Geospatial Indexing at Scale: H3 Hexagons and Real-Time WebSocket Dispatch]]></title>
@@ -152,7 +152,7 @@
       <uri>https://www.koneacademy.io/author/philip-hotor</uri>
     </author>
     <category term="Ecosystem" />
-    <link rel="enclosure" type="image/webp" href="https://www.koneacademy.io/assets/blog/structural_integrity.webp" />
+    <link rel="enclosure" type="image/webp" href="https://www.koneacademy.io/assets/blog/hero_agentic.webp" />
   </entry>
   <entry>
     <title><![CDATA[Defending Against the OWASP Top 10: Enterprise Security and Threat Modeling in 2026]]></title>
@@ -165,7 +165,7 @@
       <uri>https://www.koneacademy.io/author/philip-hotor</uri>
     </author>
     <category term="Code" />
-    <link rel="enclosure" type="image/webp" href="https://www.koneacademy.io/assets/blog/hero_agentic.webp" />
+    <link rel="enclosure" type="image/webp" href="https://www.koneacademy.io/assets/blog/cyber_security_owasp.webp" />
   </entry>
   <entry>
     <title><![CDATA[Bridging the Logic Gap: Why Early STEM and Physical Prototyping Shape Master Engineers]]></title>
@@ -178,7 +178,7 @@
       <uri>https://www.koneacademy.io/author/philip-hotor</uri>
     </author>
     <category term="Ecosystem" />
-    <link rel="enclosure" type="image/webp" href="https://www.koneacademy.io/assets/blog/ka_blog_robotics.webp" />
+    <link rel="enclosure" type="image/webp" href="https://www.koneacademy.io/assets/blog/stem_robotics_kids.webp" />
   </entry>
   <entry>
     <title><![CDATA[Cache Locality and Memory Layout: Squeezing Peak Flops in C and Rust]]></title>
@@ -191,7 +191,7 @@
       <uri>https://www.koneacademy.io/author/philip-hotor</uri>
     </author>
     <category term="Code" />
-    <link rel="enclosure" type="image/webp" href="https://www.koneacademy.io/assets/blog/data_strategy.webp" />
+    <link rel="enclosure" type="image/webp" href="https://www.koneacademy.io/assets/blog/cpu_cache_memory.webp" />
   </entry>
   <entry>
     <title><![CDATA[Zero-Knowledge Proofs in Payment Channels: Verifiable Settlement with zk-SNARKs]]></title>
@@ -204,7 +204,7 @@
       <uri>https://www.koneacademy.io/author/philip-hotor</uri>
     </author>
     <category term="Code" />
-    <link rel="enclosure" type="image/webp" href="https://www.koneacademy.io/assets/blog/hero_agentic.webp" />
+    <link rel="enclosure" type="image/webp" href="https://www.koneacademy.io/assets/blog/zk_snarks_proof.webp" />
   </entry>
   <entry>
     <title><![CDATA[Fine-Tuning SLMs on Consumer GPUs: A Deep Dive into LoRA and QLoRA]]></title>
@@ -217,7 +217,7 @@
       <uri>https://www.koneacademy.io/author/philip-hotor</uri>
     </author>
     <category term="Lab" />
-    <link rel="enclosure" type="image/webp" href="https://www.koneacademy.io/assets/blog/ai_futures.webp" />
+    <link rel="enclosure" type="image/webp" href="https://www.koneacademy.io/assets/blog/gpu_lora_training.webp" />
   </entry>
   <entry>
     <title><![CDATA[Mastering Embedded Concurrency: FreeRTOS Task Scheduling and Semaphore Design]]></title>
@@ -243,7 +243,7 @@
       <uri>https://www.koneacademy.io/author/philip-hotor</uri>
     </author>
     <category term="Code" />
-    <link rel="enclosure" type="image/webp" href="https://www.koneacademy.io/assets/blog/structural_integrity.webp" />
+    <link rel="enclosure" type="image/webp" href="https://www.koneacademy.io/assets/blog/ray_marching_sdf.webp" />
   </entry>
   <entry>
     <title><![CDATA[Edge Computer Vision in Agritech: Real-Time Plant Pathology with Lightweight YOLO]]></title>
@@ -269,7 +269,7 @@
       <uri>https://www.koneacademy.io/author/philip-hotor</uri>
     </author>
     <category term="Code" />
-    <link rel="enclosure" type="image/webp" href="https://www.koneacademy.io/assets/blog/architecture_diagram.webp" />
+    <link rel="enclosure" type="image/webp" href="https://www.koneacademy.io/assets/blog/robot_path_planning.webp" />
   </entry>
   <entry>
     <title><![CDATA[Demystifying Distributed Consensus: How Raft and Paxos Prevent Split-Brain]]></title>
@@ -282,7 +282,7 @@
       <uri>https://www.koneacademy.io/author/philip-hotor</uri>
     </author>
     <category term="Ecosystem" />
-    <link rel="enclosure" type="image/webp" href="https://www.koneacademy.io/assets/blog/hero_agentic.webp" />
+    <link rel="enclosure" type="image/webp" href="https://www.koneacademy.io/assets/blog/distributed_consensus_raft.webp" />
   </entry>
   <entry>
     <title><![CDATA[Applied Modern Cryptography: Elliptic Curves, Ed25519, and Authenticated Encryption]]></title>
@@ -295,7 +295,7 @@
       <uri>https://www.koneacademy.io/author/philip-hotor</uri>
     </author>
     <category term="Code" />
-    <link rel="enclosure" type="image/webp" href="https://www.koneacademy.io/assets/blog/data_strategy.webp" />
+    <link rel="enclosure" type="image/webp" href="https://www.koneacademy.io/assets/blog/behind_the_stack_s01e03.jpg" />
   </entry>
   <entry>
     <title><![CDATA[Quantifying Technical Debt: Architectural Audits and Coupling Metrics for Tech Leads]]></title>
@@ -308,6 +308,6 @@
       <uri>https://www.koneacademy.io/author/philip-hotor</uri>
     </author>
     <category term="Ecosystem" />
-    <link rel="enclosure" type="image/webp" href="https://www.koneacademy.io/assets/blog/ai_futures.webp" />
+    <link rel="enclosure" type="image/webp" href="https://www.koneacademy.io/assets/blog/behind_the_stack_lab_s01e01.png" />
   </entry>
 </feed>
