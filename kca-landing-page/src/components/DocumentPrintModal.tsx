@@ -186,7 +186,7 @@ const DocumentPrintModal: React.FC<DocumentPrintModalProps> = ({
 
               <div className="doc-seal-block">
                 <div className="doc-badge-pill">
-                  <FaShieldAlt className="me-1" /> Admissions Registry
+                  <FaShieldAlt className="me-1" /> {docType === 'invoice' ? 'OFFICIAL INVOICE' : 'OFFICIAL SYLLABUS'}
                 </div>
                 <div className="doc-meta-item">
                   <span className="lbl">Enrollment Ref:</span>
