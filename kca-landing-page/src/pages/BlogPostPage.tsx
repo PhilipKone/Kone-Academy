@@ -7,6 +7,8 @@ import {
 import { FaXTwitter } from 'react-icons/fa6';
 import { staticBlogs, BlogPost } from '../data/blogs';
 import { updatePageMeta, injectJSONLD, removeJSONLD } from '../utils/seo';
+import katex from 'katex';
+import 'katex/dist/katex.min.css';
 import './BlogsPage.css';
 
 interface BlogPostPageProps {
@@ -187,13 +189,35 @@ const BlogPostPage: React.FC<BlogPostPageProps> = ({ slug, onBack }) => {
     );
   }
 
-  // Simple custom Markdown to HTML Parser to avoid heavy bundle dependencies
+  // Helper to render inline LaTeX math safely
+  const renderInlineMath = (text: string) => {
+    return text.replace(/(?<!\\|\$)\$(?!\$)((?:\\\$|[^$\n])+?)(?<!\\|\$)\$/g, (match, math) => {
+      try {
+        return katex.renderToString(math.trim(), { displayMode: false, throwOnError: false });
+      } catch {
+        return match;
+      }
+    });
+  };
+
+  // Helper to render display LaTeX math safely
+  const renderDisplayMath = (math: string) => {
+    try {
+      return `<div class="blog-math-display">${katex.renderToString(math.trim(), { displayMode: true, throwOnError: false })}</div>`;
+    } catch {
+      return `<div class="blog-math-display"><code>${math}</code></div>`;
+    }
+  };
+
+  // Full inline Markdown parser (Math rendered first to avoid syntax collisions)
   const applyInline = (text: string) => {
-    return text
+    let res = renderInlineMath(text);
+    res = res
       .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
       .replace(/(?<!\*)\*(?!\*)(.+?)(?<!\*)\*(?!\*)/g, '<em>$1</em>')
       .replace(/`(.*?)`/g, '<code>$1</code>')
       .replace(/\[(.*?)\]\((.*?)\)/g, '<a href="$2" target="_blank" rel="noopener noreferrer">$1</a>');
+    return res;
   };
 
   const parseMarkdown = (markdown: string) => {
@@ -203,6 +227,10 @@ const BlogPostPage: React.FC<BlogPostPageProps> = ({ slug, onBack }) => {
     let listType: 'ul' | 'ol' = 'ul';
     let inCodeBlock = false;
     let codeContent: string[] = [];
+    let inDisplayMath = false;
+    let mathContent: string[] = [];
+    let inTable = false;
+    let tableRows: string[][] = [];
     let html = '';
 
     const closeList = () => {
@@ -212,11 +240,44 @@ const BlogPostPage: React.FC<BlogPostPageProps> = ({ slug, onBack }) => {
       }
     };
 
+    const closeTable = () => {
+      if (inTable && tableRows.length > 0) {
+        let tableHtml = '<div class="blog-table-container"><table class="blog-markdown-table">';
+        const headerRow = tableRows[0];
+        tableHtml += '<thead><tr>';
+        headerRow.forEach(cell => {
+          tableHtml += `<th>${applyInline(cell.trim())}</th>`;
+        });
+        tableHtml += '</tr></thead>';
+
+        if (tableRows.length > 1) {
+          tableHtml += '<tbody>';
+          for (let i = 1; i < tableRows.length; i++) {
+            const row = tableRows[i];
+            if (row.every(c => /^[-:| ]+$/.test(c.trim()))) continue;
+            tableHtml += '<tr>';
+            row.forEach(cell => {
+              tableHtml += `<td>${applyInline(cell.trim())}</td>`;
+            });
+            tableHtml += '</tr>';
+          }
+          tableHtml += '</tbody>';
+        }
+        tableHtml += '</table></div>';
+        html += tableHtml;
+        inTable = false;
+        tableRows = [];
+      }
+    };
+
     for (let i = 0; i < lines.length; i++) {
       const line = lines[i];
+      const trimmed = line.trim();
 
       // Code blocks
-      if (line.startsWith('```')) {
+      if (trimmed.startsWith('```')) {
+        closeList();
+        closeTable();
         if (inCodeBlock) {
           inCodeBlock = false;
           html += `<pre><code>${codeContent.join('\n')}</code></pre>`;
@@ -232,38 +293,81 @@ const BlogPostPage: React.FC<BlogPostPageProps> = ({ slug, onBack }) => {
         continue;
       }
 
+      // Multiline display math ($$...$$)
+      if (trimmed === '$$') {
+        closeList();
+        closeTable();
+        if (inDisplayMath) {
+          inDisplayMath = false;
+          html += renderDisplayMath(mathContent.join('\n'));
+          mathContent = [];
+        } else {
+          inDisplayMath = true;
+        }
+        continue;
+      }
+
+      if (inDisplayMath) {
+        mathContent.push(line);
+        continue;
+      }
+
+      // Single line display math ($$...$$)
+      if (trimmed.startsWith('$$') && trimmed.endsWith('$$') && trimmed.length > 4) {
+        closeList();
+        closeTable();
+        const mathInner = trimmed.slice(2, -2);
+        html += renderDisplayMath(mathInner);
+        continue;
+      }
+
+      // Markdown Tables (| cell | cell |)
+      if (trimmed.startsWith('|') && trimmed.endsWith('|')) {
+        closeList();
+        const cells = trimmed.split('|').slice(1, -1);
+        if (!inTable) {
+          inTable = true;
+          tableRows = [cells];
+        } else {
+          tableRows.push(cells);
+        }
+        continue;
+      } else {
+        closeTable();
+      }
+
       // Horizontal lines
-      if (line === '---') {
+      if (trimmed === '---') {
         closeList();
         html += '<hr />';
         continue;
       }
 
       // Headings
-      if (line.startsWith('### ')) {
+      if (trimmed.startsWith('### ')) {
         closeList();
-        html += `<h3>${applyInline(line.substring(4))}</h3>`;
+        html += `<h3>${applyInline(trimmed.substring(4))}</h3>`;
         continue;
       }
-      if (line.startsWith('## ')) {
+      if (trimmed.startsWith('## ')) {
         closeList();
-        html += `<h2>${applyInline(line.substring(3))}</h2>`;
+        html += `<h2>${applyInline(trimmed.substring(3))}</h2>`;
         continue;
       }
-      if (line.startsWith('# ')) {
+      if (trimmed.startsWith('# ')) {
         closeList();
-        html += `<h2 style="font-size: 2rem; margin-top: 3.5rem; margin-bottom: 1.5rem; font-weight: 800; color: #fff;">${applyInline(line.substring(2))}</h2>`;
+        html += `<h2 style="font-size: 2rem; margin-top: 3.5rem; margin-bottom: 1.5rem; font-weight: 800; color: #fff;">${applyInline(trimmed.substring(2))}</h2>`;
         continue;
       }
 
       // Blockquotes
-      if (line.startsWith('> ')) {
+      if (trimmed.startsWith('> ')) {
         closeList();
-        html += `<blockquote><p>${applyInline(line.substring(2))}</p></blockquote>`;
+        html += `<blockquote><p>${applyInline(trimmed.substring(2))}</p></blockquote>`;
         continue;
       }
 
-      // Unordered lists — match * or - followed by one or more spaces
+      // Unordered lists
       const ulMatch = line.match(/^[*\-]\s+(.*)/);
       if (ulMatch) {
         if (!inList || listType !== 'ul') {
@@ -276,7 +380,7 @@ const BlogPostPage: React.FC<BlogPostPageProps> = ({ slug, onBack }) => {
         continue;
       }
 
-      // Ordered lists — match 1. or 1) followed by spaces
+      // Ordered lists
       const olMatch = line.match(/^\d+[.)]\s+(.*)/);
       if (olMatch) {
         if (!inList || listType !== 'ol') {
@@ -290,7 +394,7 @@ const BlogPostPage: React.FC<BlogPostPageProps> = ({ slug, onBack }) => {
       }
 
       // Paragraph spaces
-      if (line.trim() === '') {
+      if (trimmed === '') {
         closeList();
         continue;
       }
@@ -300,7 +404,9 @@ const BlogPostPage: React.FC<BlogPostPageProps> = ({ slug, onBack }) => {
     }
 
     closeList();
+    closeTable();
     if (inCodeBlock) html += `<pre><code>${codeContent.join('\n')}</code></pre>`;
+    if (inDisplayMath) html += renderDisplayMath(mathContent.join('\n'));
     return html;
   };
 

@@ -827,3 +827,100 @@
   margin: 1.5rem 0;
 }
 
+/* ==========================================================================
+   LaTeX Mathematics & High-Tech Equation Styling
+   ========================================================================== */
+
+.blog-math-display {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 2.5rem 0;
+  padding: 1.6rem 2rem;
+  background: rgba(15, 23, 42, 0.75);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(168, 85, 247, 0.2);
+  border-radius: 16px;
+  overflow-x: auto;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.35), inset 0 1px 0 rgba(255, 255, 255, 0.05);
+  scrollbar-width: thin;
+}
+
+.blog-math-display .katex-display {
+  margin: 0 !important;
+  color: #f8fafc;
+}
+
+.katex {
+  font-size: 1.08em;
+  color: #f1f5f9;
+  text-rendering: optimizeLegibility;
+}
+
+.katex .mord.mathnormal {
+  color: #93c5fd; /* Soft luminous cyan/blue for math variables */
+}
+
+.katex .mord {
+  color: #f1f5f9;
+}
+
+.katex .mbin,
+.katex .mrel {
+  color: #c084fc; /* Vibrant purple for math operators like =, +, -, \times */
+}
+
+/* ==========================================================================
+   Responsive Markdown Table Styling
+   ========================================================================== */
+
+.blog-table-container {
+  width: 100%;
+  overflow-x: auto;
+  margin: 2.5rem 0;
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(15, 23, 42, 0.6);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+  scrollbar-width: thin;
+}
+
+.blog-markdown-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+  font-size: 0.95rem;
+  color: #cbd5e1;
+}
+
+.blog-markdown-table thead {
+  background: rgba(30, 41, 59, 0.85);
+  border-bottom: 2px solid rgba(168, 85, 247, 0.35);
+}
+
+.blog-markdown-table th {
+  padding: 1.1rem 1.4rem;
+  font-weight: 700;
+  color: #ffffff;
+  letter-spacing: 0.02em;
+  white-space: nowrap;
+}
+
+.blog-markdown-table td {
+  padding: 1rem 1.4rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  line-height: 1.6;
+}
+
+.blog-markdown-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.blog-markdown-table tbody tr:hover {
+  background: rgba(168, 85, 247, 0.04);
+}
+
+
