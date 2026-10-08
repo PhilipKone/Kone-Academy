@@ -122,44 +122,35 @@ const DocumentPrintModal: React.FC<DocumentPrintModalProps> = ({
         
         {/* Interactive Top Bar (Hidden on Print) */}
         <div className="doc-modal-actions-bar">
-          <div className="doc-tabs-and-close-wrap">
-            <div className="doc-tab-buttons">
-              <button 
-                className={`doc-tab-btn ${docType === 'invoice' ? 'active' : ''}`}
-                onClick={() => setDocType('invoice')}
-              >
-                Invoice
-              </button>
-              <button 
-                className={`doc-tab-btn ${docType === 'syllabus' ? 'active' : ''}`}
-                onClick={() => setDocType('syllabus')}
-              >
-                Syllabus
-              </button>
-            </div>
-            <button className="doc-close-btn doc-mobile-close-btn" onClick={onClose} title="Close modal" aria-label="Close modal">
-              <FaTimes size={16} />
+          <div className="doc-tab-buttons">
+            <button 
+              className={`doc-tab-btn ${docType === 'invoice' ? 'active' : ''}`}
+              onClick={() => setDocType('invoice')}
+            >
+              Invoice
+            </button>
+            <button 
+              className={`doc-tab-btn ${docType === 'syllabus' ? 'active' : ''}`}
+              onClick={() => setDocType('syllabus')}
+            >
+              Syllabus
             </button>
           </div>
 
           <div className="doc-tool-buttons">
             <button className="doc-action-btn primary" onClick={handlePrint} title="Print or save as PDF" aria-label="Print or save as PDF">
               <FaPrint size={14} />
-              <span className="doc-btn-label">Print</span>
             </button>
             <button className="doc-action-btn whatsapp" onClick={handleShareWhatsApp} title="Share directly to WhatsApp" aria-label="Share on WhatsApp">
               <FaWhatsapp size={15} />
-              <span className="doc-btn-label">WhatsApp</span>
             </button>
             <button className="doc-action-btn email" onClick={handleShareEmail} title={`Send email to ${email}`} aria-label="Share via Email">
               <FaEnvelope size={13} />
-              <span className="doc-btn-label">Email</span>
             </button>
             <button className="doc-action-btn secondary" onClick={handleCopyLink} title="Copy official link" aria-label="Copy official link">
               {copied ? <FaCheck className="text-success" size={13} /> : <FaCopy size={13} />}
-              <span className="doc-btn-label">{copied ? 'Copied' : 'Link'}</span>
             </button>
-            <button className="doc-close-btn doc-desktop-close-btn" onClick={onClose} title="Close modal" aria-label="Close modal">
+            <button className="doc-close-btn" onClick={onClose} title="Close modal" aria-label="Close modal">
               <FaTimes size={15} />
             </button>
           </div>

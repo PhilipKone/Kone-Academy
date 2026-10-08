@@ -48,14 +48,6 @@
   display: none;
 }
 
-.doc-desktop-close-btn {
-  display: flex;
-}
-
-.doc-btn-label {
-  display: none;
-}
-
 .doc-tab-buttons {
   display: flex;
   gap: 6px;
@@ -658,73 +650,53 @@
   }
 
   .doc-modal-actions-bar {
-    padding: 8px 12px;
+    padding: 10px 14px;
     display: flex;
-    flex-direction: column;
-    gap: 8px;
-    background: #0b1120;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-  }
-
-  .doc-tabs-and-close-wrap {
-    width: 100%;
-    display: flex;
+    flex-direction: row;
     align-items: center;
     justify-content: space-between;
-  }
-
-  .doc-mobile-close-btn {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 34px;
-    height: 34px;
-    border-radius: 8px;
-    background: rgba(255, 255, 255, 0.08);
-    color: #e2e8f0;
-    border: none;
-  }
-
-  .doc-desktop-close-btn {
-    display: none;
+    gap: 8px;
+    background: #080c14;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
   }
 
   .doc-tab-buttons {
     padding: 3px;
-    gap: 6px;
+    gap: 4px;
   }
 
   .doc-tab-btn {
-    padding: 6px 14px;
+    padding: 5px 12px;
     font-size: 0.78rem;
   }
 
   .doc-tool-buttons {
-    width: 100%;
+    width: auto;
     display: flex;
     align-items: center;
-    gap: 8px;
-    justify-content: space-between;
+    gap: 6px;
+    justify-content: flex-end;
   }
 
   .doc-action-btn {
-    flex: 1;
-    height: 38px;
-    padding: 0 6px;
+    width: 34px;
+    height: 34px;
+    flex: 0 0 34px;
+    padding: 0;
     border-radius: 8px;
-    gap: 6px;
-    font-size: 0.74rem;
-    font-weight: 600;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
   }
 
   .doc-action-btn svg {
     flex-shrink: 0;
   }
 
-  .doc-btn-label {
-    display: inline;
-    font-size: 0.72rem;
-    font-weight: 600;
+  .doc-close-btn {
+    width: 34px;
+    height: 34px;
+    flex: 0 0 34px;
   }
 
   .doc-paper-scroller {
