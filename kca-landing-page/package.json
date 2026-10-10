@@ -29,7 +29,7 @@
     },
     "scripts": {
         "dev": "vite",
-        "prebuild": "node scripts/generate_rss.cjs && node scripts/generate_course_static_pages.cjs",
+        "prebuild": "node scripts/generate_rss.cjs && node scripts/generate_course_static_pages.cjs && node scripts/generate_blog_static_pages.cjs",
         "build": "vite build",
         "postbuild": "node -e \"const fs=require('fs'); if(fs.existsSync('dist/200.html')) fs.unlinkSync('dist/200.html');\" && react-snap || echo 'Pre-rendering timed out, deploying SPA...'",
         "preview": "vite preview",

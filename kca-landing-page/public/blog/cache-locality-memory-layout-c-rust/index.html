@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Cache Locality and Memory Layout: Squeezing Peak Flops in C and Rust | Kone Academy</title>
+  <meta name="description" content="Understand CPU caches (L1/L2/L3), memory bus alignment, false sharing, and cache-friendly data structures to squeeze maximum throughput from modern silicon." />
+  <meta name="keywords" content="Systems Engineering, Memory Architecture, Rust, C/C++, Performance, Kone Academy, Philip Hotor, Research, Engineering, Technology" />
+  <meta name="author" content="Philip Hotor" />
+  <link rel="canonical" href="https://www.koneacademy.io/blog/cache-locality-memory-layout-c-rust" />
+
+  <!-- Open Graph / WhatsApp / Facebook / LinkedIn -->
+  <meta property="og:type" content="article" />
+  <meta property="og:site_name" content="Kone Academy" />
+  <meta property="og:url" content="https://www.koneacademy.io/blog/cache-locality-memory-layout-c-rust" />
+  <meta property="og:title" content="Cache Locality and Memory Layout: Squeezing Peak Flops in C and Rust" />
+  <meta property="og:description" content="Understand CPU caches (L1/L2/L3), memory bus alignment, false sharing, and cache-friendly data structures to squeeze maximum throughput from modern silicon." />
+  <meta property="og:image" content="https://www.koneacademy.io/assets/blog/cpu_cache_memory.jpg" />
+  <meta property="og:image:secure_url" content="https://www.koneacademy.io/assets/blog/cpu_cache_memory.jpg" />
+  <meta property="og:image:type" content="image/jpeg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="Cache Locality and Memory Layout: Squeezing Peak Flops in C and Rust Cover Artwork" />
+  <meta property="article:published_time" content="2026-08-25" />
+  <meta property="article:author" content="Philip Hotor" />
+  <meta property="article:section" content="Code" />
+
+  <!-- Twitter / X -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:site" content="@koneacademy" />
+  <meta name="twitter:creator" content="@Philkone1" />
+  <meta name="twitter:url" content="https://www.koneacademy.io/blog/cache-locality-memory-layout-c-rust" />
+  <meta name="twitter:title" content="Cache Locality and Memory Layout: Squeezing Peak Flops in C and Rust" />
+  <meta name="twitter:description" content="Understand CPU caches (L1/L2/L3), memory bus alignment, false sharing, and cache-friendly data structures to squeeze maximum throughput from modern silicon." />
+  <meta name="twitter:image" content="https://www.koneacademy.io/assets/blog/cpu_cache_memory.jpg" />
+
+  <!-- Favicon & Icons -->
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+
+  <!-- Fonts & Math Stylesheet -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;500;600;700;800&family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css" crossorigin="anonymous">
+
+  <!-- Schema.org TechArticle & Breadcrumbs Structured Data -->
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "TechArticle",
+      "@id": "https://www.koneacademy.io/blog/cache-locality-memory-layout-c-rust#article",
+      "headline": "Cache Locality and Memory Layout: Squeezing Peak Flops in C and Rust",
+      "description": "Understand CPU caches (L1/L2/L3), memory bus alignment, false sharing, and cache-friendly data structures to squeeze maximum throughput from modern silicon.",
+      "image": "https://www.koneacademy.io/assets/blog/cpu_cache_memory.jpg",
+      "datePublished": "2026-08-25",
+      "dateModified": "2026-08-25",
+      "author": {
+        "@type": "Person",
+        "name": "Philip Hotor",
+        "jobTitle": "Systems Architect",
+        "url": "https://www.koneacademy.io/author/philip-hotor"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "Kone Academy",
+        "url": "https://www.koneacademy.io",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://www.koneacademy.io/og-image.png?v=4"
+        }
+      },
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://www.koneacademy.io/blog/cache-locality-memory-layout-c-rust"
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://www.koneacademy.io"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Blog",
+          "item": "https://www.koneacademy.io/blog"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Cache Locality and Memory Layout: Squeezing Peak Flops in C and Rust",
+          "item": "https://www.koneacademy.io/blog/cache-locality-memory-layout-c-rust"
+        }
+      ]
+    }
+  ]
+}
+  </script>
+
+  <!-- Seamless SPA Handoff for Human Visitors; Search & Social Bots Crawl Static HTML -->
+  <script type="text/javascript">
+    (function() {
+      var isBot = /bot|googlebot|crawler|spider|robot|crawling|facebookexternalhit|whatsapp|twitterbot|slackbot|linkedinbot|embedly|quora|showyoubot|outbrain|pinterest|bingbot|msnbot|yahoo|duckduckbot/i.test(navigator.userAgent);
+      if (!isBot) {
+        var l = window.location;
+        var safeOrigin = l.origin || (l.protocol + '//' + l.hostname + (l.port ? ':' + l.port : ''));
+        var safePath = encodeURI(l.pathname.slice(1)).replace(/&/g, '~and~');
+        var redirectTarget = safeOrigin + '/?/' + safePath + (l.search ? '&' + encodeURIComponent(l.search.slice(1)).replace(/&/g, '~and~') : '') + l.hash;
+        l.replace(redirectTarget);
+      }
+    })();
+  </script>
+
+  <style>
+    :root {
+      --bg-dark: #080c14;
+      --card-bg: rgba(15, 23, 42, 0.7);
+      --accent-purple: #a855f7;
+      --text-main: #cbd5e1;
+      --text-white: #ffffff;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      background-color: var(--bg-dark);
+      color: var(--text-main);
+      font-family: 'Nunito', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      line-height: 1.8;
+      padding: 2rem 1.5rem;
+      min-height: 100vh;
+    }
+    .post-container {
+      max-width: 820px;
+      margin: 0 auto;
+      padding: 3rem 0;
+    }
+    .back-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 18px;
+      border-radius: 30px;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      color: var(--text-white);
+      text-decoration: none;
+      font-size: 0.88rem;
+      font-weight: 600;
+      margin-bottom: 2.5rem;
+    }
+    .post-meta-top {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 0.82rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: var(--accent-purple);
+      margin-bottom: 1rem;
+    }
+    .meta-dot {
+      width: 4px;
+      height: 4px;
+      background: rgba(255, 255, 255, 0.3);
+      border-radius: 50%;
+    }
+    .post-title {
+      font-family: 'Baloo 2', cursive, sans-serif;
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: 800;
+      color: var(--text-white);
+      line-height: 1.25;
+      margin-bottom: 2rem;
+      letter-spacing: -0.01em;
+    }
+    .post-hero-img {
+      width: 100%;
+      max-height: 480px;
+      object-fit: cover;
+      border-radius: 20px;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.5);
+      margin-bottom: 3rem;
+    }
+    .post-body {
+      font-size: 1.125rem;
+      color: #cbd5e1;
+    }
+    .post-body h2 {
+      font-size: 1.75rem;
+      font-weight: 800;
+      color: #ffffff;
+      margin-top: 3rem;
+      margin-bottom: 1.2rem;
+    }
+    .post-body h3 {
+      font-size: 1.35rem;
+      font-weight: 800;
+      color: #ffffff;
+      margin-top: 2.2rem;
+      margin-bottom: 0.8rem;
+    }
+    .post-body p { margin-bottom: 1.6rem; }
+    .post-body pre {
+      background: rgba(13, 17, 28, 0.95);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      border-radius: 12px;
+      padding: 1.2rem;
+      overflow-x: auto;
+      margin: 2rem 0;
+    }
+    .post-body code {
+      font-family: monospace;
+      font-size: 0.9rem;
+      background: rgba(255, 255, 255, 0.04);
+      padding: 3px 6px;
+      border-radius: 4px;
+      color: #f472b6;
+    }
+    .post-body pre code { background: transparent; padding: 0; color: #e2e8f0; }
+    .post-body blockquote {
+      border-left: 4px solid var(--accent-purple);
+      background: rgba(168, 85, 247, 0.03);
+      padding: 1.2rem 1.6rem;
+      margin: 2rem 0;
+      font-style: italic;
+    }
+    .post-body ul, .post-body ol { margin-bottom: 1.6rem; padding-left: 1.5rem; }
+    .post-body li { margin-bottom: 0.5rem; }
+    .post-body hr {
+      border: none;
+      height: 1px;
+      background: rgba(255, 255, 255, 0.08);
+      margin: 3rem 0;
+    }
+    .blog-math-display {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 2.5rem 0;
+      padding: 1.6rem 2rem;
+      background: rgba(15, 23, 42, 0.75);
+      border: 1px solid rgba(168, 85, 247, 0.2);
+      border-radius: 16px;
+      overflow-x: auto;
+    }
+    .blog-table-container {
+      width: 100%;
+      overflow-x: auto;
+      margin: 2.5rem 0;
+      border-radius: 16px;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      background: rgba(15, 23, 42, 0.6);
+    }
+    .blog-markdown-table { width: 100%; border-collapse: collapse; }
+    .blog-markdown-table th { padding: 1.1rem 1.4rem; font-weight: 700; color: #fff; background: rgba(30, 41, 59, 0.85); border-bottom: 2px solid rgba(168, 85, 247, 0.35); }
+    .blog-markdown-table td { padding: 1rem 1.4rem; border-bottom: 1px solid rgba(255, 255, 255, 0.05); }
+    .post-cta {
+      margin-top: 5rem;
+      background: linear-gradient(135deg, rgba(168, 85, 247, 0.12) 0%, rgba(217, 70, 239, 0.04) 100%), rgba(15, 23, 42, 0.4);
+      border: 1px solid rgba(168, 85, 247, 0.2);
+      border-radius: 20px;
+      padding: 3rem;
+      text-align: center;
+    }
+    .cta-btn {
+      display: inline-block;
+      margin-top: 1.5rem;
+      background: #25d366;
+      color: #000;
+      font-weight: 700;
+      padding: 12px 28px;
+      border-radius: 30px;
+      text-decoration: none;
+    }
+  </style>
+</head>
+<body>
+  <div class="post-container">
+    <a href="/blog" class="back-btn">← Back to Blog Feed</a>
+    <div class="post-meta-top">
+      <span>Code</span>
+      <div class="meta-dot"></div>
+      <span>2026-08-25</span>
+      <div class="meta-dot"></div>
+      <span>11 min read</span>
+    </div>
+    <h1 class="post-title">Cache Locality and Memory Layout: Squeezing Peak Flops in C and Rust</h1>
+    <img src="/assets/blog/cpu_cache_memory.webp" alt="Cache Locality and Memory Layout: Squeezing Peak Flops in C and Rust" class="post-hero-img" />
+    <article class="post-body">
+      <h2 style="font-size: 2rem; margin-top: 3.5rem; margin-bottom: 1.5rem; font-weight: 800; color: #fff;">Cache Locality and Memory Layout: Squeezing Peak Flops in C and Rust</h2><p>Modern CPU cores operate at frequencies in excess of 4 GHz, capable of issuing multiple instructions per clock cycle. However, fetching a single cache line from main memory (DRAM) requires roughly 60 to 100 nanoseconds—equivalent to hundreds of idle clock cycles where the CPU stalls doing nothing.</p><p>At <strong>Kone Academy's Systems Engineering division</strong>, we teach that performance is no longer about raw algorithmic Big-O operation counts alone; it is dictated by <strong>cache-conscious memory layout</strong>.</p><hr /><h2>⚡ 1. The Memory Wall and the Memory Hierarchy</h2><p>A modern processor core sits atop a cascading pyramid of cache levels:</p><div class="blog-table-container"><table class="blog-markdown-table"><thead><tr><th>Memory Tier</th><th>Typical Size</th><th>Latency (Clock Cycles)</th><th>Approximate Latency (ns)</th></tr></thead><tbody><tr><td><strong>CPU Registers</strong></td><td>~1-2 KB</td><td>0-1 cycles</td><td>~0.25 ns</td></tr><tr><td><strong>L1 Data Cache (L1d)</strong></td><td>32-64 KB</td><td>4-5 cycles</td><td>~1 ns</td></tr><tr><td><strong>L2 Unified Cache</strong></td><td>512 KB - 1 MB</td><td>12-14 cycles</td><td>~3-4 ns</td></tr><tr><td><strong>L3 Shared Cache</strong></td><td>16-64 MB</td><td>35-50 cycles</td><td>~10-15 ns</td></tr><tr><td><strong>Main Memory (DRAM)</strong></td><td>16-64 GB</td><td>150-250 cycles</td><td>~60-100 ns</td></tr></tbody></table></div><p>The processor transfers data between main memory and caches in fixed chunks termed <strong>Cache Lines</strong> (almost universally <strong>64 bytes</strong> in x86-64 and ARM64). If your program requests a 4-byte integer, the hardware fetches the entire 64-byte aligned chunk into L1.</p><hr /><h2>🔄 2. Spatial vs. Temporal Locality</h2><ul><li><strong>Temporal Locality</strong>: If a memory location is accessed once, it is likely to be accessed again in the near future (e.g., loop counters, local variables).</li><li><strong>Spatial Locality</strong>: If a memory location is accessed, adjacent memory locations are likely to be accessed soon (e.g., contiguous array traversals).</li></ul><p>Consider iterating over a 2D matrix in Row-Major order (C/C++/Rust) vs Column-Major order:</p><pre><code>// Fast: High Spatial Locality (Sequential 64-byte cache line reads)
+for (size_t r = 0; r &lt; ROWS; ++r) {
+    for (size_t c = 0; c &lt; COLS; ++c) {
+        sum += matrix[r][c];
+    }
+}
+
+// Catastrophically Slow: Cache Thrashing (Stride-N cache misses)
+for (size_t c = 0; c &lt; COLS; ++c) {
+    for (size_t r = 0; r &lt; ROWS; ++r) {
+        sum += matrix[r][c];
+    }
+}</code></pre><p>The column-major traversal can be <strong>10x to 40x slower</strong> simply because every single memory read evicts an existing cache line and induces a DRAM stall.</p><hr /><h2>🏗️ 3. Array of Structures (AoS) vs. Structure of Arrays (SoA)</h2><p>Object-oriented design naturally produces <strong>Array of Structures (AoS)</strong>:</p><pre><code>// Array of Structures (AoS) - Cache Inefficient for Batch Iteration
+struct Particle {
+    pos_x: f32,
+    pos_y: f32,
+    pos_z: f32,
+    vel_x: f32,
+    vel_y: f32,
+    vel_z: f32,
+    mass:  f32,
+    id:    u32,
+    color: [u8; 4],
+}
+
+let particles: Vec&lt;Particle&gt; = Vec::with_capacity(1_000_000);</code></pre><p>If an engine loop only updates <code>pos_x += vel_x * dt</code>, loading each <code>Particle</code> wastes cache lines on unused attributes (<code>mass</code>, <code>id</code>, <code>color</code>).</p><h3>The Data-Oriented Design (DoD) Solution: Structure of Arrays (SoA)</h3><pre><code>// Structure of Arrays (SoA) - Cache Friendly & SIMD Vectorizable
+struct ParticleSystem {
+    pos_x: Vec&lt;f32&gt;,
+    pos_y: Vec&lt;f32&gt;,
+    pos_z: Vec&lt;f32&gt;,
+    vel_x: Vec&lt;f32&gt;,
+    vel_y: Vec&lt;f32&gt;,
+    vel_z: Vec&lt;f32&gt;,
+    mass:  Vec&lt;f32&gt;,
+    id:    Vec&lt;u32&gt;,
+}</code></pre><p>With SoA:</p><ol><li>Every 64-byte cache line loaded contains 16 contiguous <code>f32</code> coordinates.</li><li>The hardware prefetcher recognizes the linear stride instantly.</li><li>The LLVM compiler auto-vectorizes the loop using AVX2 or NEON SIMD instructions, processing 8 floats in a single CPU cycle.</li></ol><hr /><h2>🚫 4. False Sharing in Concurrent Threads</h2><p>When multiple threads concurrently mutate variables that happen to reside on the <strong>same 64-byte cache line</strong>, the MESI (Modified, Exclusive, Shared, Invalid) cache coherence protocol forces constant invalidation across CPU cores.</p><pre><code>use std::sync::atomic::{AtomicU64, Ordering};
+use std::thread;
+
+// DANGEROUS: Both counters reside in the same 64-byte cache line!
+struct UnpaddedCounters {
+    thread_a_counter: AtomicU64,
+    thread_b_counter: AtomicU64,
+}
+
+// OPTIMIZED: Cache-line aligned (No false sharing)
+#[repr(align(64))]
+struct CacheAlignedCounter(AtomicU64);
+
+struct PaddedCounters {
+    thread_a: CacheAlignedCounter,
+    thread_b: CacheAlignedCounter,
+}</code></pre><p>Benchmarking this on an 8-core CPU demonstrates that eliminating false sharing can speed up multi-threaded counters by <strong>300% to 800%</strong>.</p><hr /><h2>🎓 Curriculum Connection at Kone Academy</h2><p>In our <strong>Kone Code & Kone Lab Systems Tracks</strong>, students learn low-level profiling with Linux <code>perf</code>, cache-miss counters (<code>perf stat -e L1-dcache-load-misses</code>), and modern memory allocation strategies that turn theoretical algorithms into industrial-grade systems.</p>
+    </article>
+    <div class="post-cta">
+      <h2>Register at Kone School</h2>
+      <p style="margin-top: 0.8rem; color: #94a3b8;">Cohort positions are open. Build physical robotics firmware, structured web code, and master AI pathways through hands-on project systems.</p>
+      <a href="https://wa.me/233551993820?text=Hello%20Kone%20Academy%2C%20I%20am%20interested%20in%20joining%20the%20cohort%20after%20reading%20Cache%20Locality%20and%20Memory%20Layout%3A%20Squeezing%20Peak%20Flops%20in%20C%20and%20Rust" class="cta-btn" target="_blank" rel="noopener noreferrer">Join Cohort (WhatsApp)</a>
+    </div>
+  </div>
+</body>
+</html>
