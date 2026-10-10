@@ -1,0 +1,275 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" 
+  xmlns:dc="http://purl.org/dc/elements/1.1/" 
+  xmlns:content="http://purl.org/rss/1.0/modules/content/" 
+  xmlns:atom="http://www.w3.org/2005/Atom"
+  xmlns:media="http://search.yahoo.com/mrss/">
+  <channel>
+    <title>Kone Academy | Insights &amp; Research</title>
+    <link>https://www.koneacademy.io/blog</link>
+    <atom:link href="https://www.koneacademy.io/feed.xml" rel="self" type="application/rss+xml" />
+    <description>Pioneering research notes, system engineering breakthroughs, and curriculum announcements from the Kone Code, Lab, and School team.</description>
+    <language>en-us</language>
+    <managingEditor>philipkone45@gmail.com (Philip Hotor)</managingEditor>
+    <webMaster>philipkone45@gmail.com (Philip Hotor)</webMaster>
+    <lastBuildDate>Sat, 10 Oct 2026 20:08:21 GMT</lastBuildDate>
+    <image>
+      <url>https://www.koneacademy.io/assets/blog/author_philip.webp</url>
+      <title>Kone Academy</title>
+      <link>https://www.koneacademy.io/blog</link>
+    </image>
+    <item>
+      <title><![CDATA[Computational Thinking: The Art of Structured Logic]]></title>
+      <link>https://www.koneacademy.io/blog/computational-thinking-structured-logic</link>
+      <guid isPermaLink="true">https://www.koneacademy.io/blog/computational-thinking-structured-logic</guid>
+      <pubDate>Sat, 08 Aug 2026 00:00:00 GMT</pubDate>
+      <dc:creator><![CDATA[Philip Hotor]]></dc:creator>
+      <category><![CDATA[Code]]></category>
+      <description><![CDATA[Mastering loop patterns, conditional branches, and modular algorithms before writing syntax. Learn how to think like a compiler.]]></description>
+      <media:content url="https://www.koneacademy.io/assets/blog/ka_blog_logic.webp" medium="image" />
+      <enclosure url="https://www.koneacademy.io/assets/blog/ka_blog_logic.webp" type="image/webp" length="102400" />
+    </item>
+    <item>
+      <title><![CDATA[Physical AI: Connecting Code to Microcontrollers]]></title>
+      <link>https://www.koneacademy.io/blog/physical-ai-microcontrollers-robotics</link>
+      <guid isPermaLink="true">https://www.koneacademy.io/blog/physical-ai-microcontrollers-robotics</guid>
+      <pubDate>Wed, 05 Aug 2026 00:00:00 GMT</pubDate>
+      <dc:creator><![CDATA[Philip Hotor]]></dc:creator>
+      <category><![CDATA[Lab]]></category>
+      <description><![CDATA[Moving from the browser sandbox to real-world electrical grids. A deep dive into wiring protocols, sensors, and actuators.]]></description>
+      <media:content url="https://www.koneacademy.io/assets/blog/ka_blog_robotics.webp" medium="image" />
+      <enclosure url="https://www.koneacademy.io/assets/blog/ka_blog_robotics.webp" type="image/webp" length="102400" />
+    </item>
+    <item>
+      <title><![CDATA[Digital AI: Decoupling Large Language Models and Compute]]></title>
+      <link>https://www.koneacademy.io/blog/digital-ai-llms-compute</link>
+      <guid isPermaLink="true">https://www.koneacademy.io/blog/digital-ai-llms-compute</guid>
+      <pubDate>Sat, 01 Aug 2026 00:00:00 GMT</pubDate>
+      <dc:creator><![CDATA[Philip Hotor]]></dc:creator>
+      <category><![CDATA[Lab]]></category>
+      <description><![CDATA[How neural networks digest data, mathematical weights, and massive compute to generate predictions. Demystifying the LLM pipeline.]]></description>
+      <media:content url="https://www.koneacademy.io/assets/blog/ka_blog_digital.webp" medium="image" />
+      <enclosure url="https://www.koneacademy.io/assets/blog/ka_blog_digital.webp" type="image/webp" length="102400" />
+    </item>
+    <item>
+      <title><![CDATA[Deconstructing the Event Loop: Microtasks, Macrotasks, and High-Throughput I/O]]></title>
+      <link>https://www.koneacademy.io/blog/event-loop-microtasks-macrotasks-io</link>
+      <guid isPermaLink="true">https://www.koneacademy.io/blog/event-loop-microtasks-macrotasks-io</guid>
+      <pubDate>Wed, 12 Aug 2026 00:00:00 GMT</pubDate>
+      <dc:creator><![CDATA[Philip Hotor]]></dc:creator>
+      <category><![CDATA[Code]]></category>
+      <description><![CDATA[A deep dive into the V8 call stack, libuv thread pool, microtask queues, and macrotask starvation in high-concurrency Node.js systems.]]></description>
+      <media:content url="https://www.koneacademy.io/assets/blog/architecture_diagram.webp" medium="image" />
+      <enclosure url="https://www.koneacademy.io/assets/blog/architecture_diagram.webp" type="image/webp" length="102400" />
+    </item>
+    <item>
+      <title><![CDATA[Building Resilient Double-Entry Ledgers: ACID Guarantees and Idempotency in Fintech]]></title>
+      <link>https://www.koneacademy.io/blog/resilient-double-entry-ledgers-idempotency</link>
+      <guid isPermaLink="true">https://www.koneacademy.io/blog/resilient-double-entry-ledgers-idempotency</guid>
+      <pubDate>Sat, 15 Aug 2026 00:00:00 GMT</pubDate>
+      <dc:creator><![CDATA[Philip Hotor]]></dc:creator>
+      <category><![CDATA[Code]]></category>
+      <description><![CDATA[How to architect financial bookkeeping systems that guarantee zero balance drift under high network concurrency, network partitions, and duplicate webhooks.]]></description>
+      <media:content url="https://www.koneacademy.io/assets/blog/fintech_ledger.webp" medium="image" />
+      <enclosure url="https://www.koneacademy.io/assets/blog/fintech_ledger.webp" type="image/webp" length="102400" />
+    </item>
+    <item>
+      <title><![CDATA[Demystifying UART, SPI, and I2C: The High-Speed Communication Protocols of Hardware]]></title>
+      <link>https://www.koneacademy.io/blog/uart-spi-i2c-hardware-communication-protocols</link>
+      <guid isPermaLink="true">https://www.koneacademy.io/blog/uart-spi-i2c-hardware-communication-protocols</guid>
+      <pubDate>Tue, 18 Aug 2026 00:00:00 GMT</pubDate>
+      <dc:creator><![CDATA[Philip Hotor]]></dc:creator>
+      <category><![CDATA[Lab]]></category>
+      <description><![CDATA[Comparing bus speeds, clock synchronizations, pull-up resistors, and signal integrity across embedded microcontroller communication channels.]]></description>
+      <media:content url="https://www.koneacademy.io/assets/blog/arduino_forensics.webp" medium="image" />
+      <enclosure url="https://www.koneacademy.io/assets/blog/arduino_forensics.webp" type="image/webp" length="102400" />
+    </item>
+    <item>
+      <title><![CDATA[From Math to Canvas: Introduction to GLSL Shaders and 3D WebGL Coordinates]]></title>
+      <link>https://www.koneacademy.io/blog/glsl-shaders-webgl-coordinates-graphics</link>
+      <guid isPermaLink="true">https://www.koneacademy.io/blog/glsl-shaders-webgl-coordinates-graphics</guid>
+      <pubDate>Sat, 22 Aug 2026 00:00:00 GMT</pubDate>
+      <dc:creator><![CDATA[Philip Hotor]]></dc:creator>
+      <category><![CDATA[Code]]></category>
+      <description><![CDATA[Bridging linear algebra, vertex coordinates, and fragment rasterization. Write your first GPU-accelerated canvas shaders in Three.js.]]></description>
+      <media:content url="https://www.koneacademy.io/assets/blog/structural_integrity.webp" medium="image" />
+      <enclosure url="https://www.koneacademy.io/assets/blog/structural_integrity.webp" type="image/webp" length="102400" />
+    </item>
+    <item>
+      <title><![CDATA[Vector Embeddings and Semantic Search: Building RAG Pipelines from Scratch]]></title>
+      <link>https://www.koneacademy.io/blog/vector-embeddings-semantic-search-rag-pipelines</link>
+      <guid isPermaLink="true">https://www.koneacademy.io/blog/vector-embeddings-semantic-search-rag-pipelines</guid>
+      <pubDate>Tue, 25 Aug 2026 00:00:00 GMT</pubDate>
+      <dc:creator><![CDATA[Philip Hotor]]></dc:creator>
+      <category><![CDATA[Lab]]></category>
+      <description><![CDATA[How high-dimensional cosine similarity, HNSW indexing, and chunking strategies transform raw document databases into intelligent AI search engines.]]></description>
+      <media:content url="https://www.koneacademy.io/assets/blog/ai_futures.webp" medium="image" />
+      <enclosure url="https://www.koneacademy.io/assets/blog/ai_futures.webp" type="image/webp" length="102400" />
+    </item>
+    <item>
+      <title><![CDATA[Automated Soil Telemetry: Designing Low-Power IoT Mesh Networks in Agritech]]></title>
+      <link>https://www.koneacademy.io/blog/automated-soil-telemetry-iot-mesh-networks</link>
+      <guid isPermaLink="true">https://www.koneacademy.io/blog/automated-soil-telemetry-iot-mesh-networks</guid>
+      <pubDate>Fri, 28 Aug 2026 00:00:00 GMT</pubDate>
+      <dc:creator><![CDATA[Philip Hotor]]></dc:creator>
+      <category><![CDATA[Ecosystem]]></category>
+      <description><![CDATA[Deploying battery-efficient sensor arrays across remote agricultural fields. ESP-NOW, deep sleep modes, and solar power management.]]></description>
+      <media:content url="https://www.koneacademy.io/assets/blog/arduino_sensors.webp" medium="image" />
+      <enclosure url="https://www.koneacademy.io/assets/blog/arduino_sensors.webp" type="image/webp" length="102400" />
+    </item>
+    <item>
+      <title><![CDATA[Geospatial Indexing at Scale: H3 Hexagons and Real-Time WebSocket Dispatch]]></title>
+      <link>https://www.koneacademy.io/blog/geospatial-indexing-h3-hexagons-websocket-dispatch</link>
+      <guid isPermaLink="true">https://www.koneacademy.io/blog/geospatial-indexing-h3-hexagons-websocket-dispatch</guid>
+      <pubDate>Tue, 01 Sep 2026 00:00:00 GMT</pubDate>
+      <dc:creator><![CDATA[Philip Hotor]]></dc:creator>
+      <category><![CDATA[Code]]></category>
+      <description><![CDATA[Partitioning planetary maps into discrete hexagonal hierarchies. How high-concurrency transit apps match millions of vehicles in milliseconds.]]></description>
+      <media:content url="https://www.koneacademy.io/assets/blog/data_strategy.webp" medium="image" />
+      <enclosure url="https://www.koneacademy.io/assets/blog/data_strategy.webp" type="image/webp" length="102400" />
+    </item>
+    <item>
+      <title><![CDATA[Containerization to Orchestration: What Every Developer Must Know About Docker & Kubernetes]]></title>
+      <link>https://www.koneacademy.io/blog/docker-kubernetes-containerization-orchestration</link>
+      <guid isPermaLink="true">https://www.koneacademy.io/blog/docker-kubernetes-containerization-orchestration</guid>
+      <pubDate>Fri, 04 Sep 2026 00:00:00 GMT</pubDate>
+      <dc:creator><![CDATA[Philip Hotor]]></dc:creator>
+      <category><![CDATA[Ecosystem]]></category>
+      <description><![CDATA[From Linux kernel cgroups and namespaces to multi-pod deployment manifests, ingress controllers, and zero-downtime rolling updates.]]></description>
+      <media:content url="https://www.koneacademy.io/assets/blog/hero_agentic.webp" medium="image" />
+      <enclosure url="https://www.koneacademy.io/assets/blog/hero_agentic.webp" type="image/webp" length="102400" />
+    </item>
+    <item>
+      <title><![CDATA[Defending Against the OWASP Top 10: Enterprise Security and Threat Modeling in 2026]]></title>
+      <link>https://www.koneacademy.io/blog/owasp-top-10-enterprise-security-threat-modeling</link>
+      <guid isPermaLink="true">https://www.koneacademy.io/blog/owasp-top-10-enterprise-security-threat-modeling</guid>
+      <pubDate>Tue, 08 Sep 2026 00:00:00 GMT</pubDate>
+      <dc:creator><![CDATA[Philip Hotor]]></dc:creator>
+      <category><![CDATA[Code]]></category>
+      <description><![CDATA[Securing modern API endpoints against BOLA, SSRF, injection attacks, and token tampering with cryptographically secure session boundaries.]]></description>
+      <media:content url="https://www.koneacademy.io/assets/blog/cyber_security_owasp.webp" medium="image" />
+      <enclosure url="https://www.koneacademy.io/assets/blog/cyber_security_owasp.webp" type="image/webp" length="102400" />
+    </item>
+    <item>
+      <title><![CDATA[Bridging the Logic Gap: Why Early STEM and Physical Prototyping Shape Master Engineers]]></title>
+      <link>https://www.koneacademy.io/blog/bridging-logic-gap-early-stem-prototyping</link>
+      <guid isPermaLink="true">https://www.koneacademy.io/blog/bridging-logic-gap-early-stem-prototyping</guid>
+      <pubDate>Fri, 11 Sep 2026 00:00:00 GMT</pubDate>
+      <dc:creator><![CDATA[Philip Hotor]]></dc:creator>
+      <category><![CDATA[Ecosystem]]></category>
+      <description><![CDATA[Transitioning younger minds from visual block programming to real typed code and interactive robotics. Cultivating genuine computational intuition.]]></description>
+      <media:content url="https://www.koneacademy.io/assets/blog/stem_robotics_kids.webp" medium="image" />
+      <enclosure url="https://www.koneacademy.io/assets/blog/stem_robotics_kids.webp" type="image/webp" length="102400" />
+    </item>
+    <item>
+      <title><![CDATA[Cache Locality and Memory Layout: Squeezing Peak Flops in C and Rust]]></title>
+      <link>https://www.koneacademy.io/blog/cache-locality-memory-layout-c-rust</link>
+      <guid isPermaLink="true">https://www.koneacademy.io/blog/cache-locality-memory-layout-c-rust</guid>
+      <pubDate>Tue, 25 Aug 2026 00:00:00 GMT</pubDate>
+      <dc:creator><![CDATA[Philip Hotor]]></dc:creator>
+      <category><![CDATA[Code]]></category>
+      <description><![CDATA[Understand CPU caches (L1/L2/L3), memory bus alignment, false sharing, and cache-friendly data structures to squeeze maximum throughput from modern silicon.]]></description>
+      <media:content url="https://www.koneacademy.io/assets/blog/cpu_cache_memory.webp" medium="image" />
+      <enclosure url="https://www.koneacademy.io/assets/blog/cpu_cache_memory.webp" type="image/webp" length="102400" />
+    </item>
+    <item>
+      <title><![CDATA[Zero-Knowledge Proofs in Payment Channels: Verifiable Settlement with zk-SNARKs]]></title>
+      <link>https://www.koneacademy.io/blog/zero-knowledge-proofs-payment-channels-zksnarks</link>
+      <guid isPermaLink="true">https://www.koneacademy.io/blog/zero-knowledge-proofs-payment-channels-zksnarks</guid>
+      <pubDate>Fri, 28 Aug 2026 00:00:00 GMT</pubDate>
+      <dc:creator><![CDATA[Philip Hotor]]></dc:creator>
+      <category><![CDATA[Code]]></category>
+      <description><![CDATA[How arithmetic circuits, quadratic arithmetic programs (QAP), and polynomial commitments allow verifiable financial settlements without disclosing transaction values or account identities.]]></description>
+      <media:content url="https://www.koneacademy.io/assets/blog/zk_snarks_proof.webp" medium="image" />
+      <enclosure url="https://www.koneacademy.io/assets/blog/zk_snarks_proof.webp" type="image/webp" length="102400" />
+    </item>
+    <item>
+      <title><![CDATA[Fine-Tuning SLMs on Consumer GPUs: A Deep Dive into LoRA and QLoRA]]></title>
+      <link>https://www.koneacademy.io/blog/fine-tuning-slms-lora-qlora-consumer-gpus</link>
+      <guid isPermaLink="true">https://www.koneacademy.io/blog/fine-tuning-slms-lora-qlora-consumer-gpus</guid>
+      <pubDate>Wed, 02 Sep 2026 00:00:00 GMT</pubDate>
+      <dc:creator><![CDATA[Philip Hotor]]></dc:creator>
+      <category><![CDATA[Lab]]></category>
+      <description><![CDATA[Demystifying parameter-efficient fine-tuning (PEFT): rank decomposition matrices, 4-bit NormalFloat quantization, and training task-specific models on single GPUs.]]></description>
+      <media:content url="https://www.koneacademy.io/assets/blog/gpu_lora_training.webp" medium="image" />
+      <enclosure url="https://www.koneacademy.io/assets/blog/gpu_lora_training.webp" type="image/webp" length="102400" />
+    </item>
+    <item>
+      <title><![CDATA[Mastering Embedded Concurrency: FreeRTOS Task Scheduling and Semaphore Design]]></title>
+      <link>https://www.koneacademy.io/blog/rtos-freertos-task-scheduling-inter-task-synchronization</link>
+      <guid isPermaLink="true">https://www.koneacademy.io/blog/rtos-freertos-task-scheduling-inter-task-synchronization</guid>
+      <pubDate>Sun, 06 Sep 2026 00:00:00 GMT</pubDate>
+      <dc:creator><![CDATA[Philip Hotor]]></dc:creator>
+      <category><![CDATA[Lab]]></category>
+      <description><![CDATA[Transitioning beyond super-loops: preemptive priority-based scheduling, mutexes, counting semaphores, and avoiding priority inversion in mission-critical embedded systems.]]></description>
+      <media:content url="https://www.koneacademy.io/assets/blog/arduino_anatomy.webp" medium="image" />
+      <enclosure url="https://www.koneacademy.io/assets/blog/arduino_anatomy.webp" type="image/webp" length="102400" />
+    </item>
+    <item>
+      <title><![CDATA[Ray Marching and Signed Distance Functions: Procedural 3D Worlds in Shaders]]></title>
+      <link>https://www.koneacademy.io/blog/ray-marching-signed-distance-functions-procedural-3d</link>
+      <guid isPermaLink="true">https://www.koneacademy.io/blog/ray-marching-signed-distance-functions-procedural-3d</guid>
+      <pubDate>Thu, 10 Sep 2026 00:00:00 GMT</pubDate>
+      <dc:creator><![CDATA[Philip Hotor]]></dc:creator>
+      <category><![CDATA[Code]]></category>
+      <description><![CDATA[Step into sphere tracing algorithms, CSG operations (union, intersection, smooth subtraction), and fragment shader physics to render complex mathematics in real time.]]></description>
+      <media:content url="https://www.koneacademy.io/assets/blog/ray_marching_sdf.webp" medium="image" />
+      <enclosure url="https://www.koneacademy.io/assets/blog/ray_marching_sdf.webp" type="image/webp" length="102400" />
+    </item>
+    <item>
+      <title><![CDATA[Edge Computer Vision in Agritech: Real-Time Plant Pathology with Lightweight YOLO]]></title>
+      <link>https://www.koneacademy.io/blog/edge-computer-vision-yolo-crop-disease-diagnostics</link>
+      <guid isPermaLink="true">https://www.koneacademy.io/blog/edge-computer-vision-yolo-crop-disease-diagnostics</guid>
+      <pubDate>Tue, 15 Sep 2026 00:00:00 GMT</pubDate>
+      <dc:creator><![CDATA[Philip Hotor]]></dc:creator>
+      <category><![CDATA[Ecosystem]]></category>
+      <description><![CDATA[Optimizing convolutional neural network backbones for ONNX and Coral TPU runtimes, performing bounding-box inferences on leaf pathogens with zero cloud dependency.]]></description>
+      <media:content url="https://www.koneacademy.io/assets/blog/arduino_logic.webp" medium="image" />
+      <enclosure url="https://www.koneacademy.io/assets/blog/arduino_logic.webp" type="image/webp" length="102400" />
+    </item>
+    <item>
+      <title><![CDATA[Autonomous Motion Planning: Comparing A* Grid Search with Continuous RRT]]></title>
+      <link>https://www.koneacademy.io/blog/autonomous-path-planning-astar-vs-rrt-robotics</link>
+      <guid isPermaLink="true">https://www.koneacademy.io/blog/autonomous-path-planning-astar-vs-rrt-robotics</guid>
+      <pubDate>Sun, 20 Sep 2026 00:00:00 GMT</pubDate>
+      <dc:creator><![CDATA[Philip Hotor]]></dc:creator>
+      <category><![CDATA[Code]]></category>
+      <description><![CDATA[Comparing grid-based heuristic graph search with sampling-based motion planning in continuous high-dimensional configuration spaces for mobile logistics robots.]]></description>
+      <media:content url="https://www.koneacademy.io/assets/blog/robot_path_planning.webp" medium="image" />
+      <enclosure url="https://www.koneacademy.io/assets/blog/robot_path_planning.webp" type="image/webp" length="102400" />
+    </item>
+    <item>
+      <title><![CDATA[Demystifying Distributed Consensus: How Raft and Paxos Prevent Split-Brain]]></title>
+      <link>https://www.koneacademy.io/blog/distributed-consensus-paxos-raft-replicated-state-machines</link>
+      <guid isPermaLink="true">https://www.koneacademy.io/blog/distributed-consensus-paxos-raft-replicated-state-machines</guid>
+      <pubDate>Fri, 25 Sep 2026 00:00:00 GMT</pubDate>
+      <dc:creator><![CDATA[Philip Hotor]]></dc:creator>
+      <category><![CDATA[Ecosystem]]></category>
+      <description><![CDATA[Understanding leader elections, log compaction, split-brain mitigation, and quorum safety when building fault-tolerant cluster backbones.]]></description>
+      <media:content url="https://www.koneacademy.io/assets/blog/distributed_consensus_raft.webp" medium="image" />
+      <enclosure url="https://www.koneacademy.io/assets/blog/distributed_consensus_raft.webp" type="image/webp" length="102400" />
+    </item>
+    <item>
+      <title><![CDATA[Applied Modern Cryptography: Elliptic Curves, Ed25519, and Authenticated Encryption]]></title>
+      <link>https://www.koneacademy.io/blog/cryptographic-primitives-elliptic-curves-ed25519</link>
+      <guid isPermaLink="true">https://www.koneacademy.io/blog/cryptographic-primitives-elliptic-curves-ed25519</guid>
+      <pubDate>Mon, 28 Sep 2026 00:00:00 GMT</pubDate>
+      <dc:creator><![CDATA[Philip Hotor]]></dc:creator>
+      <category><![CDATA[Code]]></category>
+      <description><![CDATA[From Galois field arithmetic to Twisted Edwards curves: implementing tamper-proof digital signatures and forward-secret Diffie-Hellman key exchange.]]></description>
+      <media:content url="https://www.koneacademy.io/assets/blog/behind_the_stack_s01e03.jpg" medium="image" />
+      <enclosure url="https://www.koneacademy.io/assets/blog/behind_the_stack_s01e03.jpg" type="image/webp" length="102400" />
+    </item>
+    <item>
+      <title><![CDATA[Quantifying Technical Debt: Architectural Audits and Coupling Metrics for Tech Leads]]></title>
+      <link>https://www.koneacademy.io/blog/architectural-audits-measuring-technical-debt-enterprise</link>
+      <guid isPermaLink="true">https://www.koneacademy.io/blog/architectural-audits-measuring-technical-debt-enterprise</guid>
+      <pubDate>Fri, 02 Oct 2026 00:00:00 GMT</pubDate>
+      <dc:creator><![CDATA[Philip Hotor]]></dc:creator>
+      <category><![CDATA[Ecosystem]]></category>
+      <description><![CDATA[A rigorous mathematical and operational framework for tracking dependency churn, cyclomatic complexity, coupling metrics, and calculating ROI on refactoring.]]></description>
+      <media:content url="https://www.koneacademy.io/assets/blog/behind_the_stack_lab_s01e01.png" medium="image" />
+      <enclosure url="https://www.koneacademy.io/assets/blog/behind_the_stack_lab_s01e01.png" type="image/webp" length="102400" />
+    </item>
+  </channel>
+</rss>
