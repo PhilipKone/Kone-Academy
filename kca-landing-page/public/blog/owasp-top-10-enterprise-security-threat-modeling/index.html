@@ -122,7 +122,7 @@
     :root {
       --bg-dark: #080c14;
       --card-bg: rgba(15, 23, 42, 0.7);
-      --accent-purple: #a855f7;
+      --accent-azure: #38bdf8;
       --text-main: #cbd5e1;
       --text-white: #ffffff;
     }
@@ -162,7 +162,7 @@
       font-weight: 700;
       text-transform: uppercase;
       letter-spacing: 1px;
-      color: var(--accent-purple);
+      color: var(--accent-azure);
       margin-bottom: 1rem;
     }
     .meta-dot {
@@ -219,15 +219,15 @@
     .post-body code {
       font-family: monospace;
       font-size: 0.9rem;
-      background: rgba(255, 255, 255, 0.04);
+      background: rgba(255, 255, 255, 0.05);
       padding: 3px 6px;
       border-radius: 4px;
-      color: #f472b6;
+      color: var(--accent-azure);
     }
     .post-body pre code { background: transparent; padding: 0; color: #e2e8f0; }
     .post-body blockquote {
-      border-left: 4px solid var(--accent-purple);
-      background: rgba(168, 85, 247, 0.03);
+      border-left: 3px solid var(--accent-azure);
+      background: rgba(56, 189, 248, 0.04);
       padding: 1.2rem 1.6rem;
       margin: 2rem 0;
       font-style: italic;
@@ -247,25 +247,31 @@
       margin: 2.5rem 0;
       padding: 1.6rem 2rem;
       background: rgba(15, 23, 42, 0.75);
-      border: 1px solid rgba(168, 85, 247, 0.2);
-      border-radius: 16px;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 12px;
       overflow-x: auto;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
+    }
+    .blog-math-display .katex {
+      color: #f8fafc;
     }
     .blog-table-container {
       width: 100%;
       overflow-x: auto;
       margin: 2.5rem 0;
-      border-radius: 16px;
+      border-radius: 12px;
       border: 1px solid rgba(255, 255, 255, 0.08);
       background: rgba(15, 23, 42, 0.6);
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
     }
     .blog-markdown-table { width: 100%; border-collapse: collapse; }
-    .blog-markdown-table th { padding: 1.1rem 1.4rem; font-weight: 700; color: #fff; background: rgba(30, 41, 59, 0.85); border-bottom: 2px solid rgba(168, 85, 247, 0.35); }
+    .blog-markdown-table th { padding: 1.1rem 1.4rem; font-weight: 700; color: #fff; background: rgba(30, 41, 59, 0.85); border-bottom: 1px solid rgba(255, 255, 255, 0.12); }
     .blog-markdown-table td { padding: 1rem 1.4rem; border-bottom: 1px solid rgba(255, 255, 255, 0.05); }
     .post-cta {
       margin-top: 5rem;
-      background: linear-gradient(135deg, rgba(168, 85, 247, 0.12) 0%, rgba(217, 70, 239, 0.04) 100%), rgba(15, 23, 42, 0.4);
-      border: 1px solid rgba(168, 85, 247, 0.2);
+      background: rgba(15, 23, 42, 0.7);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.35);
       border-radius: 20px;
       padding: 3rem;
       text-align: center;
@@ -279,6 +285,16 @@
       padding: 12px 28px;
       border-radius: 30px;
       text-decoration: none;
+    }
+    @media (max-width: 768px) {
+      body { padding: 1.5rem 1rem; }
+      .post-container { padding: 1.5rem 0; }
+      .post-title { font-size: 2rem; }
+      .blog-math-display { padding: 1.2rem 1rem; margin: 1.8rem 0; -webkit-overflow-scrolling: touch; }
+      .blog-table-container { margin: 1.8rem 0; -webkit-overflow-scrolling: touch; }
+      .blog-markdown-table th, .blog-markdown-table td { padding: 0.8rem 1rem; font-size: 0.88rem; }
+      .post-body pre { padding: 1rem; margin: 1.6rem 0; -webkit-overflow-scrolling: touch; }
+      .post-cta { padding: 2rem 1.2rem; }
     }
   </style>
 </head>
@@ -295,7 +311,7 @@
     <h1 class="post-title">Defending Against the OWASP Top 10: Enterprise Security and Threat Modeling in 2026</h1>
     <img src="/assets/blog/cyber_security_owasp.webp" alt="Defending Against the OWASP Top 10: Enterprise Security and Threat Modeling in 2026" class="post-hero-img" />
     <article class="post-body">
-      <h2 style="font-size: 2rem; margin-top: 3.5rem; margin-bottom: 1.5rem; font-weight: 800; color: #fff;">Defending Against the OWASP Top 10: Enterprise Security and Threat Modeling in 2026</h2><p>Building software that works is only half the battle. Building software that cannot be compromised by malicious adversaries is what separates junior developers from enterprise systems architects.</p><p>At <strong>Kone Tech</strong>, security is integrated into every phase of our engineering lifecycle. Let us break down the most critical vulnerabilities and how to defend against them.</p><hr /><h2>🎯 1. The #1 Vulnerability: Broken Object Level Authorization (BOLA / IDOR)</h2><p>In modern REST and GraphQL APIs, <strong>BOLA</strong> (formerly Insecure Direct Object References) remains the most common security failure.</p><h3>The Attack:</h3><p>A user logs in as User #42. Their dashboard fetches:</p><p><code>GET /api/documents/42</code></p><p>The attacker simply alters the URL parameter:</p><p><code>GET /api/documents/43</code></p><p>If your backend code checks only <em>if the user is logged in</em> but fails to check <em>if User #42 owns Document #43</em>, the attacker drains confidential records across your entire platform!</p><h3>The Defense:</h3><p>Always scope database lookups to the authenticated session context:</p><pre><code>// SECURE PATTERN: Enforce tenant ownership at the query layer
+      <h2 style="font-size: 2rem; margin-top: 3.5rem; margin-bottom: 1.5rem; font-weight: 800; color: #fff;">Defending Against the OWASP Top 10: Enterprise Security and Threat Modeling in 2026</h2><p>Building software that works is only half the battle. Building software that cannot be compromised by malicious adversaries is what separates junior developers from enterprise systems architects.</p><p>At <strong>Kone Tech</strong>, security is integrated into every phase of our engineering lifecycle. Let us break down the most critical vulnerabilities and how to defend against them.</p><hr /><h2>1. The #1 Vulnerability: Broken Object Level Authorization (BOLA / IDOR)</h2><p>In modern REST and GraphQL APIs, <strong>BOLA</strong> (formerly Insecure Direct Object References) remains the most common security failure.</p><h3>The Attack:</h3><p>A user logs in as User #42. Their dashboard fetches:</p><p><code>GET /api/documents/42</code></p><p>The attacker simply alters the URL parameter:</p><p><code>GET /api/documents/43</code></p><p>If your backend code checks only <em>if the user is logged in</em> but fails to check <em>if User #42 owns Document #43</em>, the attacker drains confidential records across your entire platform!</p><h3>The Defense:</h3><p>Always scope database lookups to the authenticated session context:</p><pre><code>// SECURE PATTERN: Enforce tenant ownership at the query layer
 export async function getDocument(userId: string, docId: string) {
   const result = await db.query(
     'SELECT * FROM documents WHERE id = $1 AND organization_id = (SELECT organization_id FROM users WHERE id = $2);',
@@ -305,7 +321,7 @@ export async function getDocument(userId: string, docId: string) {
     throw new NotFoundError('Document not found'); // Avoid leaking existence via 403
   }
   return result.rows[0];
-}</code></pre><hr /><h2>🛡️ 2. Server-Side Request Forgery (SSRF)</h2><p>When your application allows users to supply a URL (e.g. <em>"Enter webhook URL"</em> or <em>"Import image via link"</em>), attackers can input internal cloud metadata addresses:</p><pre><code>http://169.254.169.254/latest/meta-data/iam/security-credentials/</code></pre><p>If your server fetches this URL directly, the attacker retrieves temporary AWS/GCP IAM root tokens!</p><h3>The Defense:</h3><ol><li>Parse the supplied URL.</li><li>Resolve the domain to its underlying IP address using DNS lookup.</li><li>Check the IP against private RFC-1918 CIDR ranges (<code>10.0.0.0/8</code>, <code>172.16.0.0/12</code>, <code>192.168.0.0/16</code>, <code>169.254.0.0/16</code>). Reject any private addresses before sending HTTP requests!</li></ol><hr /><p><strong>Master threat modeling, penetration testing, and SOC2 compliance in our <a href="/training" target="_blank" rel="noopener noreferrer">Enterprise System Architecture & Security Track</a>.</strong></p>
+}</code></pre><hr /><h2>2. Server-Side Request Forgery (SSRF)</h2><p>When your application allows users to supply a URL (e.g. <em>"Enter webhook URL"</em> or <em>"Import image via link"</em>), attackers can input internal cloud metadata addresses:</p><pre><code>http://169.254.169.254/latest/meta-data/iam/security-credentials/</code></pre><p>If your server fetches this URL directly, the attacker retrieves temporary AWS/GCP IAM root tokens!</p><h3>The Defense:</h3><ol><li>Parse the supplied URL.</li><li>Resolve the domain to its underlying IP address using DNS lookup.</li><li>Check the IP against private RFC-1918 CIDR ranges (<code>10.0.0.0/8</code>, <code>172.16.0.0/12</code>, <code>192.168.0.0/16</code>, <code>169.254.0.0/16</code>). Reject any private addresses before sending HTTP requests!</li></ol><hr /><p><strong>Master threat modeling, penetration testing, and SOC2 compliance in our <a href="/training" target="_blank" rel="noopener noreferrer">Enterprise System Architecture & Security Track</a>.</strong></p>
     </article>
     <div class="post-cta">
       <h2>Register at Kone School</h2>

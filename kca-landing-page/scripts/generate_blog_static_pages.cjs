@@ -384,7 +384,7 @@ ${JSON.stringify(structuredData, null, 2)}
     :root {
       --bg-dark: #080c14;
       --card-bg: rgba(15, 23, 42, 0.7);
-      --accent-purple: #a855f7;
+      --accent-azure: #38bdf8;
       --text-main: #cbd5e1;
       --text-white: #ffffff;
     }
@@ -424,7 +424,7 @@ ${JSON.stringify(structuredData, null, 2)}
       font-weight: 700;
       text-transform: uppercase;
       letter-spacing: 1px;
-      color: var(--accent-purple);
+      color: var(--accent-azure);
       margin-bottom: 1rem;
     }
     .meta-dot {
@@ -481,15 +481,15 @@ ${JSON.stringify(structuredData, null, 2)}
     .post-body code {
       font-family: monospace;
       font-size: 0.9rem;
-      background: rgba(255, 255, 255, 0.04);
+      background: rgba(255, 255, 255, 0.05);
       padding: 3px 6px;
       border-radius: 4px;
-      color: #f472b6;
+      color: var(--accent-azure);
     }
     .post-body pre code { background: transparent; padding: 0; color: #e2e8f0; }
     .post-body blockquote {
-      border-left: 4px solid var(--accent-purple);
-      background: rgba(168, 85, 247, 0.03);
+      border-left: 3px solid var(--accent-azure);
+      background: rgba(56, 189, 248, 0.04);
       padding: 1.2rem 1.6rem;
       margin: 2rem 0;
       font-style: italic;
@@ -509,25 +509,31 @@ ${JSON.stringify(structuredData, null, 2)}
       margin: 2.5rem 0;
       padding: 1.6rem 2rem;
       background: rgba(15, 23, 42, 0.75);
-      border: 1px solid rgba(168, 85, 247, 0.2);
-      border-radius: 16px;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 12px;
       overflow-x: auto;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
+    }
+    .blog-math-display .katex {
+      color: #f8fafc;
     }
     .blog-table-container {
       width: 100%;
       overflow-x: auto;
       margin: 2.5rem 0;
-      border-radius: 16px;
+      border-radius: 12px;
       border: 1px solid rgba(255, 255, 255, 0.08);
       background: rgba(15, 23, 42, 0.6);
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
     }
     .blog-markdown-table { width: 100%; border-collapse: collapse; }
-    .blog-markdown-table th { padding: 1.1rem 1.4rem; font-weight: 700; color: #fff; background: rgba(30, 41, 59, 0.85); border-bottom: 2px solid rgba(168, 85, 247, 0.35); }
+    .blog-markdown-table th { padding: 1.1rem 1.4rem; font-weight: 700; color: #fff; background: rgba(30, 41, 59, 0.85); border-bottom: 1px solid rgba(255, 255, 255, 0.12); }
     .blog-markdown-table td { padding: 1rem 1.4rem; border-bottom: 1px solid rgba(255, 255, 255, 0.05); }
     .post-cta {
       margin-top: 5rem;
-      background: linear-gradient(135deg, rgba(168, 85, 247, 0.12) 0%, rgba(217, 70, 239, 0.04) 100%), rgba(15, 23, 42, 0.4);
-      border: 1px solid rgba(168, 85, 247, 0.2);
+      background: rgba(15, 23, 42, 0.7);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.35);
       border-radius: 20px;
       padding: 3rem;
       text-align: center;

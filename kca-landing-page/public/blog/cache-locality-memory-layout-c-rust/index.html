@@ -122,7 +122,7 @@
     :root {
       --bg-dark: #080c14;
       --card-bg: rgba(15, 23, 42, 0.7);
-      --accent-purple: #a855f7;
+      --accent-azure: #38bdf8;
       --text-main: #cbd5e1;
       --text-white: #ffffff;
     }
@@ -162,7 +162,7 @@
       font-weight: 700;
       text-transform: uppercase;
       letter-spacing: 1px;
-      color: var(--accent-purple);
+      color: var(--accent-azure);
       margin-bottom: 1rem;
     }
     .meta-dot {
@@ -219,15 +219,15 @@
     .post-body code {
       font-family: monospace;
       font-size: 0.9rem;
-      background: rgba(255, 255, 255, 0.04);
+      background: rgba(255, 255, 255, 0.05);
       padding: 3px 6px;
       border-radius: 4px;
-      color: #f472b6;
+      color: var(--accent-azure);
     }
     .post-body pre code { background: transparent; padding: 0; color: #e2e8f0; }
     .post-body blockquote {
-      border-left: 4px solid var(--accent-purple);
-      background: rgba(168, 85, 247, 0.03);
+      border-left: 3px solid var(--accent-azure);
+      background: rgba(56, 189, 248, 0.04);
       padding: 1.2rem 1.6rem;
       margin: 2rem 0;
       font-style: italic;
@@ -247,25 +247,31 @@
       margin: 2.5rem 0;
       padding: 1.6rem 2rem;
       background: rgba(15, 23, 42, 0.75);
-      border: 1px solid rgba(168, 85, 247, 0.2);
-      border-radius: 16px;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 12px;
       overflow-x: auto;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
+    }
+    .blog-math-display .katex {
+      color: #f8fafc;
     }
     .blog-table-container {
       width: 100%;
       overflow-x: auto;
       margin: 2.5rem 0;
-      border-radius: 16px;
+      border-radius: 12px;
       border: 1px solid rgba(255, 255, 255, 0.08);
       background: rgba(15, 23, 42, 0.6);
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
     }
     .blog-markdown-table { width: 100%; border-collapse: collapse; }
-    .blog-markdown-table th { padding: 1.1rem 1.4rem; font-weight: 700; color: #fff; background: rgba(30, 41, 59, 0.85); border-bottom: 2px solid rgba(168, 85, 247, 0.35); }
+    .blog-markdown-table th { padding: 1.1rem 1.4rem; font-weight: 700; color: #fff; background: rgba(30, 41, 59, 0.85); border-bottom: 1px solid rgba(255, 255, 255, 0.12); }
     .blog-markdown-table td { padding: 1rem 1.4rem; border-bottom: 1px solid rgba(255, 255, 255, 0.05); }
     .post-cta {
       margin-top: 5rem;
-      background: linear-gradient(135deg, rgba(168, 85, 247, 0.12) 0%, rgba(217, 70, 239, 0.04) 100%), rgba(15, 23, 42, 0.4);
-      border: 1px solid rgba(168, 85, 247, 0.2);
+      background: rgba(15, 23, 42, 0.7);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.35);
       border-radius: 20px;
       padding: 3rem;
       text-align: center;
@@ -279,6 +285,16 @@
       padding: 12px 28px;
       border-radius: 30px;
       text-decoration: none;
+    }
+    @media (max-width: 768px) {
+      body { padding: 1.5rem 1rem; }
+      .post-container { padding: 1.5rem 0; }
+      .post-title { font-size: 2rem; }
+      .blog-math-display { padding: 1.2rem 1rem; margin: 1.8rem 0; -webkit-overflow-scrolling: touch; }
+      .blog-table-container { margin: 1.8rem 0; -webkit-overflow-scrolling: touch; }
+      .blog-markdown-table th, .blog-markdown-table td { padding: 0.8rem 1rem; font-size: 0.88rem; }
+      .post-body pre { padding: 1rem; margin: 1.6rem 0; -webkit-overflow-scrolling: touch; }
+      .post-cta { padding: 2rem 1.2rem; }
     }
   </style>
 </head>
@@ -295,7 +311,7 @@
     <h1 class="post-title">Cache Locality and Memory Layout: Squeezing Peak Flops in C and Rust</h1>
     <img src="/assets/blog/cpu_cache_memory.webp" alt="Cache Locality and Memory Layout: Squeezing Peak Flops in C and Rust" class="post-hero-img" />
     <article class="post-body">
-      <h2 style="font-size: 2rem; margin-top: 3.5rem; margin-bottom: 1.5rem; font-weight: 800; color: #fff;">Cache Locality and Memory Layout: Squeezing Peak Flops in C and Rust</h2><p>Modern CPU cores operate at frequencies in excess of 4 GHz, capable of issuing multiple instructions per clock cycle. However, fetching a single cache line from main memory (DRAM) requires roughly 60 to 100 nanoseconds—equivalent to hundreds of idle clock cycles where the CPU stalls doing nothing.</p><p>At <strong>Kone Academy's Systems Engineering division</strong>, we teach that performance is no longer about raw algorithmic Big-O operation counts alone; it is dictated by <strong>cache-conscious memory layout</strong>.</p><hr /><h2>⚡ 1. The Memory Wall and the Memory Hierarchy</h2><p>A modern processor core sits atop a cascading pyramid of cache levels:</p><div class="blog-table-container"><table class="blog-markdown-table"><thead><tr><th>Memory Tier</th><th>Typical Size</th><th>Latency (Clock Cycles)</th><th>Approximate Latency (ns)</th></tr></thead><tbody><tr><td><strong>CPU Registers</strong></td><td>~1-2 KB</td><td>0-1 cycles</td><td>~0.25 ns</td></tr><tr><td><strong>L1 Data Cache (L1d)</strong></td><td>32-64 KB</td><td>4-5 cycles</td><td>~1 ns</td></tr><tr><td><strong>L2 Unified Cache</strong></td><td>512 KB - 1 MB</td><td>12-14 cycles</td><td>~3-4 ns</td></tr><tr><td><strong>L3 Shared Cache</strong></td><td>16-64 MB</td><td>35-50 cycles</td><td>~10-15 ns</td></tr><tr><td><strong>Main Memory (DRAM)</strong></td><td>16-64 GB</td><td>150-250 cycles</td><td>~60-100 ns</td></tr></tbody></table></div><p>The processor transfers data between main memory and caches in fixed chunks termed <strong>Cache Lines</strong> (almost universally <strong>64 bytes</strong> in x86-64 and ARM64). If your program requests a 4-byte integer, the hardware fetches the entire 64-byte aligned chunk into L1.</p><hr /><h2>🔄 2. Spatial vs. Temporal Locality</h2><ul><li><strong>Temporal Locality</strong>: If a memory location is accessed once, it is likely to be accessed again in the near future (e.g., loop counters, local variables).</li><li><strong>Spatial Locality</strong>: If a memory location is accessed, adjacent memory locations are likely to be accessed soon (e.g., contiguous array traversals).</li></ul><p>Consider iterating over a 2D matrix in Row-Major order (C/C++/Rust) vs Column-Major order:</p><pre><code>// Fast: High Spatial Locality (Sequential 64-byte cache line reads)
+      <h2 style="font-size: 2rem; margin-top: 3.5rem; margin-bottom: 1.5rem; font-weight: 800; color: #fff;">Cache Locality and Memory Layout: Squeezing Peak Flops in C and Rust</h2><p>Modern CPU cores operate at frequencies in excess of 4 GHz, capable of issuing multiple instructions per clock cycle. However, fetching a single cache line from main memory (DRAM) requires roughly 60 to 100 nanoseconds—equivalent to hundreds of idle clock cycles where the CPU stalls doing nothing.</p><p>At <strong>Kone Academy's Systems Engineering division</strong>, we teach that performance is no longer about raw algorithmic Big-O operation counts alone; it is dictated by <strong>cache-conscious memory layout</strong>.</p><hr /><h2>1. The Memory Wall and the Memory Hierarchy</h2><p>A modern processor core sits atop a cascading pyramid of cache levels:</p><div class="blog-table-container"><table class="blog-markdown-table"><thead><tr><th>Memory Tier</th><th>Typical Size</th><th>Latency (Clock Cycles)</th><th>Approximate Latency (ns)</th></tr></thead><tbody><tr><td><strong>CPU Registers</strong></td><td>~1-2 KB</td><td>0-1 cycles</td><td>~0.25 ns</td></tr><tr><td><strong>L1 Data Cache (L1d)</strong></td><td>32-64 KB</td><td>4-5 cycles</td><td>~1 ns</td></tr><tr><td><strong>L2 Unified Cache</strong></td><td>512 KB - 1 MB</td><td>12-14 cycles</td><td>~3-4 ns</td></tr><tr><td><strong>L3 Shared Cache</strong></td><td>16-64 MB</td><td>35-50 cycles</td><td>~10-15 ns</td></tr><tr><td><strong>Main Memory (DRAM)</strong></td><td>16-64 GB</td><td>150-250 cycles</td><td>~60-100 ns</td></tr></tbody></table></div><p>The processor transfers data between main memory and caches in fixed chunks termed <strong>Cache Lines</strong> (almost universally <strong>64 bytes</strong> in x86-64 and ARM64). If your program requests a 4-byte integer, the hardware fetches the entire 64-byte aligned chunk into L1.</p><hr /><h2>2. Spatial vs. Temporal Locality</h2><ul><li><strong>Temporal Locality</strong>: If a memory location is accessed once, it is likely to be accessed again in the near future (e.g., loop counters, local variables).</li><li><strong>Spatial Locality</strong>: If a memory location is accessed, adjacent memory locations are likely to be accessed soon (e.g., contiguous array traversals).</li></ul><p>Consider iterating over a 2D matrix in Row-Major order (C/C++/Rust) vs Column-Major order:</p><pre><code>// Fast: High Spatial Locality (Sequential 64-byte cache line reads)
 for (size_t r = 0; r &lt; ROWS; ++r) {
     for (size_t c = 0; c &lt; COLS; ++c) {
         sum += matrix[r][c];
@@ -307,7 +323,7 @@ for (size_t c = 0; c &lt; COLS; ++c) {
     for (size_t r = 0; r &lt; ROWS; ++r) {
         sum += matrix[r][c];
     }
-}</code></pre><p>The column-major traversal can be <strong>10x to 40x slower</strong> simply because every single memory read evicts an existing cache line and induces a DRAM stall.</p><hr /><h2>🏗️ 3. Array of Structures (AoS) vs. Structure of Arrays (SoA)</h2><p>Object-oriented design naturally produces <strong>Array of Structures (AoS)</strong>:</p><pre><code>// Array of Structures (AoS) - Cache Inefficient for Batch Iteration
+}</code></pre><p>The column-major traversal can be <strong>10x to 40x slower</strong> simply because every single memory read evicts an existing cache line and induces a DRAM stall.</p><hr /><h2>3. Array of Structures (AoS) vs. Structure of Arrays (SoA)</h2><p>Object-oriented design naturally produces <strong>Array of Structures (AoS)</strong>:</p><pre><code>// Array of Structures (AoS) - Cache Inefficient for Batch Iteration
 struct Particle {
     pos_x: f32,
     pos_y: f32,
@@ -330,7 +346,7 @@ struct ParticleSystem {
     vel_z: Vec&lt;f32&gt;,
     mass:  Vec&lt;f32&gt;,
     id:    Vec&lt;u32&gt;,
-}</code></pre><p>With SoA:</p><ol><li>Every 64-byte cache line loaded contains 16 contiguous <code>f32</code> coordinates.</li><li>The hardware prefetcher recognizes the linear stride instantly.</li><li>The LLVM compiler auto-vectorizes the loop using AVX2 or NEON SIMD instructions, processing 8 floats in a single CPU cycle.</li></ol><hr /><h2>🚫 4. False Sharing in Concurrent Threads</h2><p>When multiple threads concurrently mutate variables that happen to reside on the <strong>same 64-byte cache line</strong>, the MESI (Modified, Exclusive, Shared, Invalid) cache coherence protocol forces constant invalidation across CPU cores.</p><pre><code>use std::sync::atomic::{AtomicU64, Ordering};
+}</code></pre><p>With SoA:</p><ol><li>Every 64-byte cache line loaded contains 16 contiguous <code>f32</code> coordinates.</li><li>The hardware prefetcher recognizes the linear stride instantly.</li><li>The LLVM compiler auto-vectorizes the loop using AVX2 or NEON SIMD instructions, processing 8 floats in a single CPU cycle.</li></ol><hr /><h2>4. False Sharing in Concurrent Threads</h2><p>When multiple threads concurrently mutate variables that happen to reside on the <strong>same 64-byte cache line</strong>, the MESI (Modified, Exclusive, Shared, Invalid) cache coherence protocol forces constant invalidation across CPU cores.</p><pre><code>use std::sync::atomic::{AtomicU64, Ordering};
 use std::thread;
 
 // DANGEROUS: Both counters reside in the same 64-byte cache line!
@@ -346,7 +362,7 @@ struct CacheAlignedCounter(AtomicU64);
 struct PaddedCounters {
     thread_a: CacheAlignedCounter,
     thread_b: CacheAlignedCounter,
-}</code></pre><p>Benchmarking this on an 8-core CPU demonstrates that eliminating false sharing can speed up multi-threaded counters by <strong>300% to 800%</strong>.</p><hr /><h2>🎓 Curriculum Connection at Kone Academy</h2><p>In our <strong>Kone Code & Kone Lab Systems Tracks</strong>, students learn low-level profiling with Linux <code>perf</code>, cache-miss counters (<code>perf stat -e L1-dcache-load-misses</code>), and modern memory allocation strategies that turn theoretical algorithms into industrial-grade systems.</p>
+}</code></pre><p>Benchmarking this on an 8-core CPU demonstrates that eliminating false sharing can speed up multi-threaded counters by <strong>300% to 800%</strong>.</p><hr /><h2>Curriculum Connection at Kone Academy</h2><p>In our <strong>Kone Code & Kone Lab Systems Tracks</strong>, students learn low-level profiling with Linux <code>perf</code>, cache-miss counters (<code>perf stat -e L1-dcache-load-misses</code>), and modern memory allocation strategies that turn theoretical algorithms into industrial-grade systems.</p>
     </article>
     <div class="post-cta">
       <h2>Register at Kone School</h2>

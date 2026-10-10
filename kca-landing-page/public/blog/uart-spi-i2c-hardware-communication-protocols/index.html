@@ -122,7 +122,7 @@
     :root {
       --bg-dark: #080c14;
       --card-bg: rgba(15, 23, 42, 0.7);
-      --accent-purple: #a855f7;
+      --accent-azure: #38bdf8;
       --text-main: #cbd5e1;
       --text-white: #ffffff;
     }
@@ -162,7 +162,7 @@
       font-weight: 700;
       text-transform: uppercase;
       letter-spacing: 1px;
-      color: var(--accent-purple);
+      color: var(--accent-azure);
       margin-bottom: 1rem;
     }
     .meta-dot {
@@ -219,15 +219,15 @@
     .post-body code {
       font-family: monospace;
       font-size: 0.9rem;
-      background: rgba(255, 255, 255, 0.04);
+      background: rgba(255, 255, 255, 0.05);
       padding: 3px 6px;
       border-radius: 4px;
-      color: #f472b6;
+      color: var(--accent-azure);
     }
     .post-body pre code { background: transparent; padding: 0; color: #e2e8f0; }
     .post-body blockquote {
-      border-left: 4px solid var(--accent-purple);
-      background: rgba(168, 85, 247, 0.03);
+      border-left: 3px solid var(--accent-azure);
+      background: rgba(56, 189, 248, 0.04);
       padding: 1.2rem 1.6rem;
       margin: 2rem 0;
       font-style: italic;
@@ -247,25 +247,31 @@
       margin: 2.5rem 0;
       padding: 1.6rem 2rem;
       background: rgba(15, 23, 42, 0.75);
-      border: 1px solid rgba(168, 85, 247, 0.2);
-      border-radius: 16px;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 12px;
       overflow-x: auto;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
+    }
+    .blog-math-display .katex {
+      color: #f8fafc;
     }
     .blog-table-container {
       width: 100%;
       overflow-x: auto;
       margin: 2.5rem 0;
-      border-radius: 16px;
+      border-radius: 12px;
       border: 1px solid rgba(255, 255, 255, 0.08);
       background: rgba(15, 23, 42, 0.6);
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
     }
     .blog-markdown-table { width: 100%; border-collapse: collapse; }
-    .blog-markdown-table th { padding: 1.1rem 1.4rem; font-weight: 700; color: #fff; background: rgba(30, 41, 59, 0.85); border-bottom: 2px solid rgba(168, 85, 247, 0.35); }
+    .blog-markdown-table th { padding: 1.1rem 1.4rem; font-weight: 700; color: #fff; background: rgba(30, 41, 59, 0.85); border-bottom: 1px solid rgba(255, 255, 255, 0.12); }
     .blog-markdown-table td { padding: 1rem 1.4rem; border-bottom: 1px solid rgba(255, 255, 255, 0.05); }
     .post-cta {
       margin-top: 5rem;
-      background: linear-gradient(135deg, rgba(168, 85, 247, 0.12) 0%, rgba(217, 70, 239, 0.04) 100%), rgba(15, 23, 42, 0.4);
-      border: 1px solid rgba(168, 85, 247, 0.2);
+      background: rgba(15, 23, 42, 0.7);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.35);
       border-radius: 20px;
       padding: 3rem;
       text-align: center;
@@ -279,6 +285,16 @@
       padding: 12px 28px;
       border-radius: 30px;
       text-decoration: none;
+    }
+    @media (max-width: 768px) {
+      body { padding: 1.5rem 1rem; }
+      .post-container { padding: 1.5rem 0; }
+      .post-title { font-size: 2rem; }
+      .blog-math-display { padding: 1.2rem 1rem; margin: 1.8rem 0; -webkit-overflow-scrolling: touch; }
+      .blog-table-container { margin: 1.8rem 0; -webkit-overflow-scrolling: touch; }
+      .blog-markdown-table th, .blog-markdown-table td { padding: 0.8rem 1rem; font-size: 0.88rem; }
+      .post-body pre { padding: 1rem; margin: 1.6rem 0; -webkit-overflow-scrolling: touch; }
+      .post-cta { padding: 2rem 1.2rem; }
     }
   </style>
 </head>
@@ -295,9 +311,9 @@
     <h1 class="post-title">Demystifying UART, SPI, and I2C: The High-Speed Communication Protocols of Hardware</h1>
     <img src="/assets/blog/arduino_forensics.webp" alt="Demystifying UART, SPI, and I2C: The High-Speed Communication Protocols of Hardware" class="post-hero-img" />
     <article class="post-body">
-      <h2 style="font-size: 2rem; margin-top: 3.5rem; margin-bottom: 1.5rem; font-weight: 800; color: #fff;">Demystifying UART, SPI, and I2C: The High-Speed Communication Protocols of Hardware</h2><p>When you connect a sensor, an OLED display, or a GPS module to an ESP32 or STM32 microcontroller, how do they talk to each other? They don't have ethernet ports or HTTP REST APIs.</p><p>Instead, microchips communicate using <strong>low-level serial protocols</strong>. The three most common hardware buses in embedded systems are <strong>UART</strong>, <strong>I2C</strong>, and <strong>SPI</strong>.</p><p>At <strong>Kone Lab</strong>, we teach students to diagnose these physical waveforms using oscilloscopes and logic analyzers. Here is how they compare.</p><hr /><h2>📡 1. UART: The Asynchronous Point-to-Point Wire</h2><p><strong>UART (Universal Asynchronous Receiver-Transmitter)</strong> is an asynchronous, point-to-point communication channel.</p><ul><li><strong>Wires Needed</strong>: 2 wires (<code>TX</code> transmit, <code>RX</code> receive) + Ground.</li><li><strong>Clock Line</strong>: None! Both sender and receiver must pre-agree on the speed (<strong>Baud Rate</strong>, e.g., 9600, 115200 bps).</li><li><strong>Best Used For</strong>: Debug console logs, GPS modules, Bluetooth modules (HC-05).</li></ul><pre><code>[ Microcontroller ] TX --------&gt; RX [ GPS Sensor ]
+      <h2 style="font-size: 2rem; margin-top: 3.5rem; margin-bottom: 1.5rem; font-weight: 800; color: #fff;">Demystifying UART, SPI, and I2C: The High-Speed Communication Protocols of Hardware</h2><p>When you connect a sensor, an OLED display, or a GPS module to an ESP32 or STM32 microcontroller, how do they talk to each other? They don't have ethernet ports or HTTP REST APIs.</p><p>Instead, microchips communicate using <strong>low-level serial protocols</strong>. The three most common hardware buses in embedded systems are <strong>UART</strong>, <strong>I2C</strong>, and <strong>SPI</strong>.</p><p>At <strong>Kone Lab</strong>, we teach students to diagnose these physical waveforms using oscilloscopes and logic analyzers. Here is how they compare.</p><hr /><h2>1. UART: The Asynchronous Point-to-Point Wire</h2><p><strong>UART (Universal Asynchronous Receiver-Transmitter)</strong> is an asynchronous, point-to-point communication channel.</p><ul><li><strong>Wires Needed</strong>: 2 wires (<code>TX</code> transmit, <code>RX</code> receive) + Ground.</li><li><strong>Clock Line</strong>: None! Both sender and receiver must pre-agree on the speed (<strong>Baud Rate</strong>, e.g., 9600, 115200 bps).</li><li><strong>Best Used For</strong>: Debug console logs, GPS modules, Bluetooth modules (HC-05).</li></ul><pre><code>[ Microcontroller ] TX --------&gt; RX [ GPS Sensor ]
                    RX &lt;-------- TX
-                   GND -------- GND</code></pre><hr /><h2>🌐 2. I2C: The Multi-Device Addressable Bus</h2><p><strong>I2C (Inter-Integrated Circuit)</strong> is a synchronous, two-wire multi-device bus developed by Philips (NXP).</p><ul><li><strong>Wires Needed</strong>: 2 wires:</li></ul><p>    *   <code>SDA</code> (Serial Data): Carries the binary payload bits.</p><p>    *   <code>SCL</code> (Serial Clock): Pulsed by the master to synchronize data bit sampling.</p><ul><li><strong>Addressing</strong>: Each peripheral chip on the bus has a unique 7-bit hardware address (e.g. <code>0x3C</code> for OLED screens). Up to 127 devices can share the same two pins!</li><li><strong>Pull-up Resistors</strong>: I2C is an open-drain line. Both SDA and SCL require 4.7kΩ pull-up resistors to 3.3V to function properly.</li></ul><pre><code>// Reading an I2C Temperature Sensor (Arduino C++)
+                   GND -------- GND</code></pre><hr /><h2>2. I2C: The Multi-Device Addressable Bus</h2><p><strong>I2C (Inter-Integrated Circuit)</strong> is a synchronous, two-wire multi-device bus developed by Philips (NXP).</p><ul><li><strong>Wires Needed</strong>: 2 wires:</li></ul><p>    *   <code>SDA</code> (Serial Data): Carries the binary payload bits.</p><p>    *   <code>SCL</code> (Serial Clock): Pulsed by the master to synchronize data bit sampling.</p><ul><li><strong>Addressing</strong>: Each peripheral chip on the bus has a unique 7-bit hardware address (e.g. <code>0x3C</code> for OLED screens). Up to 127 devices can share the same two pins!</li><li><strong>Pull-up Resistors</strong>: I2C is an open-drain line. Both SDA and SCL require 4.7kΩ pull-up resistors to 3.3V to function properly.</li></ul><pre><code>// Reading an I2C Temperature Sensor (Arduino C++)
 #include &lt;Wire.h&gt;
 
 #define SENSOR_I2C_ADDR 0x48
@@ -320,7 +336,7 @@ void loop() {
     Serial.printf("Current Temperature: %.2f C\n", tempC);
   }
   delay(1000);
-}</code></pre><hr /><h2>⚡ 3. SPI: The High-Speed Full-Duplex Bus</h2><p><strong>SPI (Serial Peripheral Interface)</strong> is designed for high bandwidth (typically 10 MHz to 80 MHz+).</p><ul><li><strong>Wires Needed</strong>: 4 wires:</li></ul><p>    *   <code>SCK</code> (Serial Clock)</p><p>    *   <code>MOSI</code> (Master Out, Slave In)</p><p>    *   <code>MISO</code> (Master In, Slave Out)</p><p>    *   <code>CS</code> / <code>SS</code> (Chip Select / Slave Select)</p><ul><li><strong>Full Duplex</strong>: Data is transmitted and received simultaneously on every clock pulse.</li><li><strong>Best Used For</strong>: SD card storage, high-framerate TFT LCD displays, RFID readers.</li></ul><hr /><h2>📊 Summary Comparison</h2><div class="blog-table-container"><table class="blog-markdown-table"><thead><tr><th>Metric</th><th>UART</th><th>I2C</th><th>SPI</th></tr></thead><tbody><tr><td><strong>Wiring</strong></td><td>2 Wires</td><td>2 Wires (<code>SDA</code>, <code>SCL</code>)</td><td>4 Wires (<code>MOSI</code>, <code>MISO</code>, <code>SCK</code>, <code>CS</code>)</td></tr><tr><td><strong>Typical Speed</strong></td><td>Up to 115.2 kbps</td><td>100 kbps – 3.4 Mbps</td><td>Up to 80+ Mbps</td></tr><tr><td><strong>Multi-Device?</strong></td><td>Point-to-Point only</td><td>Yes (127 devices by address)</td><td>Yes (1 dedicated CS wire per chip)</td></tr><tr><td><strong>Clock Line</strong></td><td>Asynchronous (No clock)</td><td>Synchronous</td><td>Synchronous</td></tr></tbody></table></div><hr /><p><strong>Build real micro-controller circuits and IoT devices in our <a href="/training" target="_blank" rel="noopener noreferrer">Embedded Systems & Circuit Prototyping Track</a>.</strong></p>
+}</code></pre><hr /><h2>3. SPI: The High-Speed Full-Duplex Bus</h2><p><strong>SPI (Serial Peripheral Interface)</strong> is designed for high bandwidth (typically 10 MHz to 80 MHz+).</p><ul><li><strong>Wires Needed</strong>: 4 wires:</li></ul><p>    *   <code>SCK</code> (Serial Clock)</p><p>    *   <code>MOSI</code> (Master Out, Slave In)</p><p>    *   <code>MISO</code> (Master In, Slave Out)</p><p>    *   <code>CS</code> / <code>SS</code> (Chip Select / Slave Select)</p><ul><li><strong>Full Duplex</strong>: Data is transmitted and received simultaneously on every clock pulse.</li><li><strong>Best Used For</strong>: SD card storage, high-framerate TFT LCD displays, RFID readers.</li></ul><hr /><h2>Summary Comparison</h2><div class="blog-table-container"><table class="blog-markdown-table"><thead><tr><th>Metric</th><th>UART</th><th>I2C</th><th>SPI</th></tr></thead><tbody><tr><td><strong>Wiring</strong></td><td>2 Wires</td><td>2 Wires (<code>SDA</code>, <code>SCL</code>)</td><td>4 Wires (<code>MOSI</code>, <code>MISO</code>, <code>SCK</code>, <code>CS</code>)</td></tr><tr><td><strong>Typical Speed</strong></td><td>Up to 115.2 kbps</td><td>100 kbps – 3.4 Mbps</td><td>Up to 80+ Mbps</td></tr><tr><td><strong>Multi-Device?</strong></td><td>Point-to-Point only</td><td>Yes (127 devices by address)</td><td>Yes (1 dedicated CS wire per chip)</td></tr><tr><td><strong>Clock Line</strong></td><td>Asynchronous (No clock)</td><td>Synchronous</td><td>Synchronous</td></tr></tbody></table></div><hr /><p><strong>Build real micro-controller circuits and IoT devices in our <a href="/training" target="_blank" rel="noopener noreferrer">Embedded Systems & Circuit Prototyping Track</a>.</strong></p>
     </article>
     <div class="post-cta">
       <h2>Register at Kone School</h2>

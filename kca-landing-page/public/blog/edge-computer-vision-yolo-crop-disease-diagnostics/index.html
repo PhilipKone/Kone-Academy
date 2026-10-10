@@ -122,7 +122,7 @@
     :root {
       --bg-dark: #080c14;
       --card-bg: rgba(15, 23, 42, 0.7);
-      --accent-purple: #a855f7;
+      --accent-azure: #38bdf8;
       --text-main: #cbd5e1;
       --text-white: #ffffff;
     }
@@ -162,7 +162,7 @@
       font-weight: 700;
       text-transform: uppercase;
       letter-spacing: 1px;
-      color: var(--accent-purple);
+      color: var(--accent-azure);
       margin-bottom: 1rem;
     }
     .meta-dot {
@@ -219,15 +219,15 @@
     .post-body code {
       font-family: monospace;
       font-size: 0.9rem;
-      background: rgba(255, 255, 255, 0.04);
+      background: rgba(255, 255, 255, 0.05);
       padding: 3px 6px;
       border-radius: 4px;
-      color: #f472b6;
+      color: var(--accent-azure);
     }
     .post-body pre code { background: transparent; padding: 0; color: #e2e8f0; }
     .post-body blockquote {
-      border-left: 4px solid var(--accent-purple);
-      background: rgba(168, 85, 247, 0.03);
+      border-left: 3px solid var(--accent-azure);
+      background: rgba(56, 189, 248, 0.04);
       padding: 1.2rem 1.6rem;
       margin: 2rem 0;
       font-style: italic;
@@ -247,25 +247,31 @@
       margin: 2.5rem 0;
       padding: 1.6rem 2rem;
       background: rgba(15, 23, 42, 0.75);
-      border: 1px solid rgba(168, 85, 247, 0.2);
-      border-radius: 16px;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 12px;
       overflow-x: auto;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
+    }
+    .blog-math-display .katex {
+      color: #f8fafc;
     }
     .blog-table-container {
       width: 100%;
       overflow-x: auto;
       margin: 2.5rem 0;
-      border-radius: 16px;
+      border-radius: 12px;
       border: 1px solid rgba(255, 255, 255, 0.08);
       background: rgba(15, 23, 42, 0.6);
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
     }
     .blog-markdown-table { width: 100%; border-collapse: collapse; }
-    .blog-markdown-table th { padding: 1.1rem 1.4rem; font-weight: 700; color: #fff; background: rgba(30, 41, 59, 0.85); border-bottom: 2px solid rgba(168, 85, 247, 0.35); }
+    .blog-markdown-table th { padding: 1.1rem 1.4rem; font-weight: 700; color: #fff; background: rgba(30, 41, 59, 0.85); border-bottom: 1px solid rgba(255, 255, 255, 0.12); }
     .blog-markdown-table td { padding: 1rem 1.4rem; border-bottom: 1px solid rgba(255, 255, 255, 0.05); }
     .post-cta {
       margin-top: 5rem;
-      background: linear-gradient(135deg, rgba(168, 85, 247, 0.12) 0%, rgba(217, 70, 239, 0.04) 100%), rgba(15, 23, 42, 0.4);
-      border: 1px solid rgba(168, 85, 247, 0.2);
+      background: rgba(15, 23, 42, 0.7);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.35);
       border-radius: 20px;
       padding: 3rem;
       text-align: center;
@@ -279,6 +285,16 @@
       padding: 12px 28px;
       border-radius: 30px;
       text-decoration: none;
+    }
+    @media (max-width: 768px) {
+      body { padding: 1.5rem 1rem; }
+      .post-container { padding: 1.5rem 0; }
+      .post-title { font-size: 2rem; }
+      .blog-math-display { padding: 1.2rem 1rem; margin: 1.8rem 0; -webkit-overflow-scrolling: touch; }
+      .blog-table-container { margin: 1.8rem 0; -webkit-overflow-scrolling: touch; }
+      .blog-markdown-table th, .blog-markdown-table td { padding: 0.8rem 1rem; font-size: 0.88rem; }
+      .post-body pre { padding: 1rem; margin: 1.6rem 0; -webkit-overflow-scrolling: touch; }
+      .post-cta { padding: 2rem 1.2rem; }
     }
   </style>
 </head>
@@ -295,7 +311,7 @@
     <h1 class="post-title">Edge Computer Vision in Agritech: Real-Time Plant Pathology with Lightweight YOLO</h1>
     <img src="/assets/blog/arduino_logic.webp" alt="Edge Computer Vision in Agritech: Real-Time Plant Pathology with Lightweight YOLO" class="post-hero-img" />
     <article class="post-body">
-      <h2 style="font-size: 2rem; margin-top: 3.5rem; margin-bottom: 1.5rem; font-weight: 800; color: #fff;">Edge Computer Vision in Agritech: Real-Time Plant Pathology with Lightweight YOLO</h2><p>In sub-Saharan Africa and developing agricultural belts, crop disease outbreaks (such as Cassava Mosaic Disease, Maize Lethal Necrosis, and Fall Armyworm) can wipe out up to 80% of smallholder yields in days.</p><p>While modern cloud AI vision APIs are powerful, <strong>farms do not have reliable 5G connectivity</strong>. Sending high-resolution images of field leaves to cloud servers via mobile broadband is slow, expensive, and frequently impossible in rural environments.</p><p>At <strong>Kone Farms</strong>, our engineering team builds edge-native diagnostic devices that perform sub-100ms computer vision inferences directly on field hardware.</p><hr /><h2>🌿 1. The Edge AI Constraint Architecture</h2><p>Deploying neural networks to edge devices (e.g., Raspberry Pi 5, Rockchip RK3588, or Google Coral Edge TPU) requires respecting strict physical budgets:</p><ul><li><strong>Thermal Ceiling</strong>: Fanless outdoor enclosures exposed to 38°C ambient tropical sunlight.</li><li><strong>Power Consumption</strong>: Battery and solar power caps of under 5–10 Watts.</li><li><strong>Latency</strong>: Sub-second feedback as agricultural scouting rovers traverse field rows.</li><li><strong>Model Footprint</strong>: Less than 15 MB flash storage footprint.</li></ul><hr /><h2>🔍 2. Architectural Evolution of Lightweight YOLO</h2><p>Modern edge object detectors (like YOLOv8n and YOLOv10n) utilize optimized lightweight backbones:</p><ol><li><strong>Depthwise Separable Convolutions</strong>: Factoring a standard <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>3</mn><mo>×</mo><mn>3</mn></mrow><annotation encoding="application/x-tex">3 \times 3</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="katex-base"><span class="katex-strut" style="height:0.7278em;vertical-align:-0.0833em;"></span><span class="mord">3</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="katex-base"><span class="katex-strut" style="height:0.6444em;"></span><span class="mord">3</span></span></span></span> convolution into a depthwise spatial filter followed by a <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>1</mn><mo>×</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">1 \times 1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="katex-base"><span class="katex-strut" style="height:0.7278em;vertical-align:-0.0833em;"></span><span class="mord">1</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="katex-base"><span class="katex-strut" style="height:0.6444em;"></span><span class="mord">1</span></span></span></span> pointwise projection, reducing FLOPs by ~85%.</li><li><strong>C2f / PAN-FPN Feature Pyramids</strong>: Cross-stage partial networks that enrich multi-scale semantic representations without blowing up parameter counts.</li><li><strong>Anchor-Free Decoupled Heads</strong>: Eliminating hyperparameter anchor-box tuning and speeding up Non-Maximum Suppression (NMS).</li></ol><hr /><h2>⚡ 3. Quantization: From Float32 to INT8</h2><p>By default, neural network weights and activations are stored in 32-bit floating point (<code>FP32</code>). On low-power edge chips with dedicated INT8 tensor accelerators, running in <code>FP32</code> wastes 75% of memory bandwidth and forfeits hardware acceleration.</p><p>We apply <strong>Post-Training Quantization (PTQ)</strong> with calibration:</p><div class="blog-math-display"><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mi>q</mi><mo>=</mo><mtext>clamp</mtext><mrow><mo fence="true">(</mo><mtext>round</mtext><mrow><mo fence="true">(</mo><mfrac><mi>x</mi><mi>S</mi></mfrac><mo fence="true">)</mo></mrow><mo>+</mo><mi>Z</mi><mo separator="true">,</mo><mo>−</mo><mn>128</mn><mo separator="true">,</mo><mn>127</mn><mo fence="true">)</mo></mrow></mrow><annotation encoding="application/x-tex">q = \text{clamp}\left(\text{round}\left(\frac{x}{S}\right) + Z, -128, 127\right)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="katex-base"><span class="katex-strut" style="height:0.625em;vertical-align:-0.1944em;"></span><span class="mord mathnormal" style="margin-right:0.0359em;">q</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="katex-base"><span class="katex-strut" style="height:1.836em;vertical-align:-0.686em;"></span><span class="mord text"><span class="mord">clamp</span></span><span class="mspace" style="margin-right:0.1667em;"></span><span class="minner"><span class="mopen delimcenter" style="top:0em;"><span class="delimsizing size2">(</span></span><span class="mord text"><span class="mord">round</span></span><span class="mspace" style="margin-right:0.1667em;"></span><span class="minner"><span class="mopen delimcenter" style="top:0em;"><span class="delimsizing size2">(</span></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.1076em;"><span style="top:-2.314em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.0576em;">S</span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.677em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathnormal">x</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.686em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span><span class="mclose delimcenter" style="top:0em;"><span class="delimsizing size2">)</span></span></span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mord mathnormal" style="margin-right:0.0715em;">Z</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord">−</span><span class="mord">128</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord">127</span><span class="mclose delimcenter" style="top:0em;"><span class="delimsizing size2">)</span></span></span></span></span></span></span></div><p>Where <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>S</mi></mrow><annotation encoding="application/x-tex">S</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="katex-base"><span class="katex-strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.0576em;">S</span></span></span></span> is the scale factor and <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>Z</mi></mrow><annotation encoding="application/x-tex">Z</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="katex-base"><span class="katex-strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.0715em;">Z</span></span></span></span> is the zero-point offset derived from a representative dataset of African crop pathology imagery.</p><pre><code>import onnx
+      <h2 style="font-size: 2rem; margin-top: 3.5rem; margin-bottom: 1.5rem; font-weight: 800; color: #fff;">Edge Computer Vision in Agritech: Real-Time Plant Pathology with Lightweight YOLO</h2><p>In sub-Saharan Africa and developing agricultural belts, crop disease outbreaks (such as Cassava Mosaic Disease, Maize Lethal Necrosis, and Fall Armyworm) can wipe out up to 80% of smallholder yields in days.</p><p>While modern cloud AI vision APIs are powerful, <strong>farms do not have reliable 5G connectivity</strong>. Sending high-resolution images of field leaves to cloud servers via mobile broadband is slow, expensive, and frequently impossible in rural environments.</p><p>At <strong>Kone Farms</strong>, our engineering team builds edge-native diagnostic devices that perform sub-100ms computer vision inferences directly on field hardware.</p><hr /><h2>1. The Edge AI Constraint Architecture</h2><p>Deploying neural networks to edge devices (e.g., Raspberry Pi 5, Rockchip RK3588, or Google Coral Edge TPU) requires respecting strict physical budgets:</p><ul><li><strong>Thermal Ceiling</strong>: Fanless outdoor enclosures exposed to 38°C ambient tropical sunlight.</li><li><strong>Power Consumption</strong>: Battery and solar power caps of under 5–10 Watts.</li><li><strong>Latency</strong>: Sub-second feedback as agricultural scouting rovers traverse field rows.</li><li><strong>Model Footprint</strong>: Less than 15 MB flash storage footprint.</li></ul><hr /><h2>2. Architectural Evolution of Lightweight YOLO</h2><p>Modern edge object detectors (like YOLOv8n and YOLOv10n) utilize optimized lightweight backbones:</p><ol><li><strong>Depthwise Separable Convolutions</strong>: Factoring a standard <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>3</mn><mo>×</mo><mn>3</mn></mrow><annotation encoding="application/x-tex">3 \times 3</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="katex-base"><span class="katex-strut" style="height:0.7278em;vertical-align:-0.0833em;"></span><span class="mord">3</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="katex-base"><span class="katex-strut" style="height:0.6444em;"></span><span class="mord">3</span></span></span></span> convolution into a depthwise spatial filter followed by a <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>1</mn><mo>×</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">1 \times 1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="katex-base"><span class="katex-strut" style="height:0.7278em;vertical-align:-0.0833em;"></span><span class="mord">1</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="katex-base"><span class="katex-strut" style="height:0.6444em;"></span><span class="mord">1</span></span></span></span> pointwise projection, reducing FLOPs by ~85%.</li><li><strong>C2f / PAN-FPN Feature Pyramids</strong>: Cross-stage partial networks that enrich multi-scale semantic representations without blowing up parameter counts.</li><li><strong>Anchor-Free Decoupled Heads</strong>: Eliminating hyperparameter anchor-box tuning and speeding up Non-Maximum Suppression (NMS).</li></ol><hr /><h2>3. Quantization: From Float32 to INT8</h2><p>By default, neural network weights and activations are stored in 32-bit floating point (<code>FP32</code>). On low-power edge chips with dedicated INT8 tensor accelerators, running in <code>FP32</code> wastes 75% of memory bandwidth and forfeits hardware acceleration.</p><p>We apply <strong>Post-Training Quantization (PTQ)</strong> with calibration:</p><div class="blog-math-display"><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mi>q</mi><mo>=</mo><mtext>clamp</mtext><mrow><mo fence="true">(</mo><mtext>round</mtext><mrow><mo fence="true">(</mo><mfrac><mi>x</mi><mi>S</mi></mfrac><mo fence="true">)</mo></mrow><mo>+</mo><mi>Z</mi><mo separator="true">,</mo><mo>−</mo><mn>128</mn><mo separator="true">,</mo><mn>127</mn><mo fence="true">)</mo></mrow></mrow><annotation encoding="application/x-tex">q = \text{clamp}\left(\text{round}\left(\frac{x}{S}\right) + Z, -128, 127\right)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="katex-base"><span class="katex-strut" style="height:0.625em;vertical-align:-0.1944em;"></span><span class="mord mathnormal" style="margin-right:0.0359em;">q</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="katex-base"><span class="katex-strut" style="height:1.836em;vertical-align:-0.686em;"></span><span class="mord text"><span class="mord">clamp</span></span><span class="mspace" style="margin-right:0.1667em;"></span><span class="minner"><span class="mopen delimcenter" style="top:0em;"><span class="delimsizing size2">(</span></span><span class="mord text"><span class="mord">round</span></span><span class="mspace" style="margin-right:0.1667em;"></span><span class="minner"><span class="mopen delimcenter" style="top:0em;"><span class="delimsizing size2">(</span></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.1076em;"><span style="top:-2.314em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.0576em;">S</span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.677em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathnormal">x</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.686em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span><span class="mclose delimcenter" style="top:0em;"><span class="delimsizing size2">)</span></span></span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mord mathnormal" style="margin-right:0.0715em;">Z</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord">−</span><span class="mord">128</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord">127</span><span class="mclose delimcenter" style="top:0em;"><span class="delimsizing size2">)</span></span></span></span></span></span></span></div><p>Where <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>S</mi></mrow><annotation encoding="application/x-tex">S</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="katex-base"><span class="katex-strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.0576em;">S</span></span></span></span> is the scale factor and <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>Z</mi></mrow><annotation encoding="application/x-tex">Z</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="katex-base"><span class="katex-strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.0715em;">Z</span></span></span></span> is the zero-point offset derived from a representative dataset of African crop pathology imagery.</p><pre><code>import onnx
 from onnxruntime.quantization import quantize_dynamic, QuantType
 
 # Convert FP32 ONNX model to INT8 Dynamic Quantization
@@ -307,7 +323,7 @@ quantize_dynamic(
     model_output=model_int8,
     weight_type=QuantType.QInt8
 )
-print("Quantization complete! Model size reduced from 12.8 MB to 3.4 MB.")</code></pre><hr /><h2>🐍 4. End-to-End On-Device Python Inference Pipeline</h2><p>Here is the operational pipeline running on the Kone Farms field inspection unit:</p><pre><code>import cv2
+print("Quantization complete! Model size reduced from 12.8 MB to 3.4 MB.")</code></pre><hr /><h2>4. End-to-End On-Device Python Inference Pipeline</h2><p>Here is the operational pipeline running on the Kone Farms field inspection unit:</p><pre><code>import cv2
 import numpy as np
 import onnxruntime as ort
 
@@ -336,7 +352,7 @@ class EdgeCropDiagnostic:
     def postprocess_nms(self, raw_output):
         # Decode boxes, filter by confidence threshold (0.65), apply NMS
         # Returns: list of dicts: {'disease': 'Maize Streak Virus', 'confidence': 0.92, 'bbox': [x, y, w, h]}
-        pass</code></pre><hr /><h2>🎓 Kone Farms Agritech Innovation</h2><p>By combining edge computer vision with IoT mesh telemetry, <strong>Kone Farms</strong> bridges cutting-edge deep learning with pragmatic food security engineering, proving that elite software directly impacts human flourishing.</p>
+        pass</code></pre><hr /><h2>Kone Farms Agritech Innovation</h2><p>By combining edge computer vision with IoT mesh telemetry, <strong>Kone Farms</strong> bridges cutting-edge deep learning with pragmatic food security engineering, proving that elite software directly impacts human flourishing.</p>
     </article>
     <div class="post-cta">
       <h2>Register at Kone School</h2>

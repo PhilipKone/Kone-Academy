@@ -122,7 +122,7 @@
     :root {
       --bg-dark: #080c14;
       --card-bg: rgba(15, 23, 42, 0.7);
-      --accent-purple: #a855f7;
+      --accent-azure: #38bdf8;
       --text-main: #cbd5e1;
       --text-white: #ffffff;
     }
@@ -162,7 +162,7 @@
       font-weight: 700;
       text-transform: uppercase;
       letter-spacing: 1px;
-      color: var(--accent-purple);
+      color: var(--accent-azure);
       margin-bottom: 1rem;
     }
     .meta-dot {
@@ -219,15 +219,15 @@
     .post-body code {
       font-family: monospace;
       font-size: 0.9rem;
-      background: rgba(255, 255, 255, 0.04);
+      background: rgba(255, 255, 255, 0.05);
       padding: 3px 6px;
       border-radius: 4px;
-      color: #f472b6;
+      color: var(--accent-azure);
     }
     .post-body pre code { background: transparent; padding: 0; color: #e2e8f0; }
     .post-body blockquote {
-      border-left: 4px solid var(--accent-purple);
-      background: rgba(168, 85, 247, 0.03);
+      border-left: 3px solid var(--accent-azure);
+      background: rgba(56, 189, 248, 0.04);
       padding: 1.2rem 1.6rem;
       margin: 2rem 0;
       font-style: italic;
@@ -247,25 +247,31 @@
       margin: 2.5rem 0;
       padding: 1.6rem 2rem;
       background: rgba(15, 23, 42, 0.75);
-      border: 1px solid rgba(168, 85, 247, 0.2);
-      border-radius: 16px;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 12px;
       overflow-x: auto;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
+    }
+    .blog-math-display .katex {
+      color: #f8fafc;
     }
     .blog-table-container {
       width: 100%;
       overflow-x: auto;
       margin: 2.5rem 0;
-      border-radius: 16px;
+      border-radius: 12px;
       border: 1px solid rgba(255, 255, 255, 0.08);
       background: rgba(15, 23, 42, 0.6);
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
     }
     .blog-markdown-table { width: 100%; border-collapse: collapse; }
-    .blog-markdown-table th { padding: 1.1rem 1.4rem; font-weight: 700; color: #fff; background: rgba(30, 41, 59, 0.85); border-bottom: 2px solid rgba(168, 85, 247, 0.35); }
+    .blog-markdown-table th { padding: 1.1rem 1.4rem; font-weight: 700; color: #fff; background: rgba(30, 41, 59, 0.85); border-bottom: 1px solid rgba(255, 255, 255, 0.12); }
     .blog-markdown-table td { padding: 1rem 1.4rem; border-bottom: 1px solid rgba(255, 255, 255, 0.05); }
     .post-cta {
       margin-top: 5rem;
-      background: linear-gradient(135deg, rgba(168, 85, 247, 0.12) 0%, rgba(217, 70, 239, 0.04) 100%), rgba(15, 23, 42, 0.4);
-      border: 1px solid rgba(168, 85, 247, 0.2);
+      background: rgba(15, 23, 42, 0.7);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.35);
       border-radius: 20px;
       padding: 3rem;
       text-align: center;
@@ -279,6 +285,16 @@
       padding: 12px 28px;
       border-radius: 30px;
       text-decoration: none;
+    }
+    @media (max-width: 768px) {
+      body { padding: 1.5rem 1rem; }
+      .post-container { padding: 1.5rem 0; }
+      .post-title { font-size: 2rem; }
+      .blog-math-display { padding: 1.2rem 1rem; margin: 1.8rem 0; -webkit-overflow-scrolling: touch; }
+      .blog-table-container { margin: 1.8rem 0; -webkit-overflow-scrolling: touch; }
+      .blog-markdown-table th, .blog-markdown-table td { padding: 0.8rem 1rem; font-size: 0.88rem; }
+      .post-body pre { padding: 1rem; margin: 1.6rem 0; -webkit-overflow-scrolling: touch; }
+      .post-cta { padding: 2rem 1.2rem; }
     }
   </style>
 </head>
@@ -295,7 +311,7 @@
     <h1 class="post-title">Building Resilient Double-Entry Ledgers: ACID Guarantees and Idempotency in Fintech</h1>
     <img src="/assets/blog/fintech_ledger.webp" alt="Building Resilient Double-Entry Ledgers: ACID Guarantees and Idempotency in Fintech" class="post-hero-img" />
     <article class="post-body">
-      <h2 style="font-size: 2rem; margin-top: 3.5rem; margin-bottom: 1.5rem; font-weight: 800; color: #fff;">Building Resilient Double-Entry Ledgers: ACID Guarantees and Idempotency in Fintech</h2><p>In modern payment engineering, there is one non-negotiable rule: <strong>You never store user balances as a single mutable database column.</strong> </p><p>If your database schema has a table with <code>users.balance = 500.00</code> and you run <code>UPDATE users SET balance = balance - 50</code>, your system will eventually lose money during concurrent checkouts, race conditions, or network retries.</p><p>At <strong>Kone Pay</strong>, our fintech core relies on immutable, cryptographically verifiable <strong>Double-Entry Bookkeeping</strong>. Here is how to engineer financial-grade transaction systems.</p><hr /><h2>🏛️ 1. The Fundamental Equation of Double-Entry</h2><p>Every economic event involves at least two accounts. Money never appears from nothing, and money never disappears.</p><div class="blog-math-display"><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mo>∑</mo><mtext>Debits</mtext><mo>−</mo><mo>∑</mo><mtext>Credits</mtext><mo>=</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">\sum \text{Debits} - \sum \text{Credits} = 0</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="katex-base"><span class="katex-strut" style="height:1.6em;vertical-align:-0.55em;"></span><span class="mop op-symbol large-op" style="position:relative;top:0em;">∑</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord text"><span class="mord">Debits</span></span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="katex-base"><span class="katex-strut" style="height:1.6em;vertical-align:-0.55em;"></span><span class="mop op-symbol large-op" style="position:relative;top:0em;">∑</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord text"><span class="mord">Credits</span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="katex-base"><span class="katex-strut" style="height:0.6444em;"></span><span class="mord">0</span></span></span></span></span></div><p>For every transaction:</p><ul><li>An <strong>Origin Account</strong> has money deducted.</li><li>A <strong>Destination Account</strong> has money credited.</li><li>The sum total of debits and credits in the transaction record must strictly equal zero.</li></ul><h3>The Canonical Schema</h3><pre><code>-- Immutable Entries Table
+      <h2 style="font-size: 2rem; margin-top: 3.5rem; margin-bottom: 1.5rem; font-weight: 800; color: #fff;">Building Resilient Double-Entry Ledgers: ACID Guarantees and Idempotency in Fintech</h2><p>In modern payment engineering, there is one non-negotiable rule: <strong>You never store user balances as a single mutable database column.</strong> </p><p>If your database schema has a table with <code>users.balance = 500.00</code> and you run <code>UPDATE users SET balance = balance - 50</code>, your system will eventually lose money during concurrent checkouts, race conditions, or network retries.</p><p>At <strong>Kone Pay</strong>, our fintech core relies on immutable, cryptographically verifiable <strong>Double-Entry Bookkeeping</strong>. Here is how to engineer financial-grade transaction systems.</p><hr /><h2>1. The Fundamental Equation of Double-Entry</h2><p>Every economic event involves at least two accounts. Money never appears from nothing, and money never disappears.</p><div class="blog-math-display"><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mo>∑</mo><mtext>Debits</mtext><mo>−</mo><mo>∑</mo><mtext>Credits</mtext><mo>=</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">\sum \text{Debits} - \sum \text{Credits} = 0</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="katex-base"><span class="katex-strut" style="height:1.6em;vertical-align:-0.55em;"></span><span class="mop op-symbol large-op" style="position:relative;top:0em;">∑</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord text"><span class="mord">Debits</span></span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="katex-base"><span class="katex-strut" style="height:1.6em;vertical-align:-0.55em;"></span><span class="mop op-symbol large-op" style="position:relative;top:0em;">∑</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord text"><span class="mord">Credits</span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="katex-base"><span class="katex-strut" style="height:0.6444em;"></span><span class="mord">0</span></span></span></span></span></div><p>For every transaction:</p><ul><li>An <strong>Origin Account</strong> has money deducted.</li><li>A <strong>Destination Account</strong> has money credited.</li><li>The sum total of debits and credits in the transaction record must strictly equal zero.</li></ul><h3>The Canonical Schema</h3><pre><code>-- Immutable Entries Table
 CREATE TABLE ledger_entries (
     id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
     transaction_id UUID NOT NULL REFERENCES transactions(id),
@@ -303,7 +319,7 @@ CREATE TABLE ledger_entries (
     amount_cents BIGINT NOT NULL, -- Never use floating point NUMERIC for money!
     direction VARCHAR(6) CHECK (direction IN ('DEBIT', 'CREDIT')),
     created_at TIMESTAMPTZ NOT NULL DEFAULT NOW()
-);</code></pre><hr /><h2>🔒 2. Handling Concurrency with Idempotency Keys</h2><p>Payment webhooks from Stripe, Paystack, or card networks frequently arrive multiple times due to retry policies. If a webhook retries 3 times, how do you prevent the customer from being credited 3 times?</p><h3>The Idempotency Layer:</h3><ol><li>Every incoming webhook or transfer request carries a unique <strong>Idempotency Key</strong> (e.g. <code>req-uuid-8f92b</code>).</li><li>Wrap the execution in a strict database transaction with unique constraint checks:</li></ol><pre><code>import { PoolClient } from 'pg';
+);</code></pre><hr /><h2>2. Handling Concurrency with Idempotency Keys</h2><p>Payment webhooks from Stripe, Paystack, or card networks frequently arrive multiple times due to retry policies. If a webhook retries 3 times, how do you prevent the customer from being credited 3 times?</p><h3>The Idempotency Layer:</h3><ol><li>Every incoming webhook or transfer request carries a unique <strong>Idempotency Key</strong> (e.g. <code>req-uuid-8f92b</code>).</li><li>Wrap the execution in a strict database transaction with unique constraint checks:</li></ol><pre><code>import { PoolClient } from 'pg';
 
 export async function processTransfer(
   client: PoolClient,
@@ -351,7 +367,7 @@ export async function processTransfer(
     await client.query('ROLLBACK;');
     throw error;
   }
-}</code></pre><hr /><h2>💰 3. Integer Arithmetic: Never Use Floats</h2><p>In JavaScript, <code>0.1 + 0.2 === 0.30000000000000004</code>. Over a million transactions, floating-point rounding errors lead to discrepancies known as <strong>fractional slippage</strong>.</p><ul><li><strong>Rule</strong>: Always represent monetary currency in the smallest atomic unit (e.g. cents, pesewas, kobo, satoshis) using 64-bit integers (<code>BIGINT</code> or <code>BigInt</code> in TypeScript).</li><li>Format numbers into decimals purely at the UI layer.</li></ul><hr /><p><strong>Learn how to engineer cryptographically secure ledger gateways in our <a href="/training" target="_blank" rel="noopener noreferrer">Fintech & Ledger Gateways Track</a>.</strong></p>
+}</code></pre><hr /><h2>3. Integer Arithmetic: Never Use Floats</h2><p>In JavaScript, <code>0.1 + 0.2 === 0.30000000000000004</code>. Over a million transactions, floating-point rounding errors lead to discrepancies known as <strong>fractional slippage</strong>.</p><ul><li><strong>Rule</strong>: Always represent monetary currency in the smallest atomic unit (e.g. cents, pesewas, kobo, satoshis) using 64-bit integers (<code>BIGINT</code> or <code>BigInt</code> in TypeScript).</li><li>Format numbers into decimals purely at the UI layer.</li></ul><hr /><p><strong>Learn how to engineer cryptographically secure ledger gateways in our <a href="/training" target="_blank" rel="noopener noreferrer">Fintech & Ledger Gateways Track</a>.</strong></p>
     </article>
     <div class="post-cta">
       <h2>Register at Kone School</h2>

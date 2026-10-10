@@ -122,7 +122,7 @@
     :root {
       --bg-dark: #080c14;
       --card-bg: rgba(15, 23, 42, 0.7);
-      --accent-purple: #a855f7;
+      --accent-azure: #38bdf8;
       --text-main: #cbd5e1;
       --text-white: #ffffff;
     }
@@ -162,7 +162,7 @@
       font-weight: 700;
       text-transform: uppercase;
       letter-spacing: 1px;
-      color: var(--accent-purple);
+      color: var(--accent-azure);
       margin-bottom: 1rem;
     }
     .meta-dot {
@@ -219,15 +219,15 @@
     .post-body code {
       font-family: monospace;
       font-size: 0.9rem;
-      background: rgba(255, 255, 255, 0.04);
+      background: rgba(255, 255, 255, 0.05);
       padding: 3px 6px;
       border-radius: 4px;
-      color: #f472b6;
+      color: var(--accent-azure);
     }
     .post-body pre code { background: transparent; padding: 0; color: #e2e8f0; }
     .post-body blockquote {
-      border-left: 4px solid var(--accent-purple);
-      background: rgba(168, 85, 247, 0.03);
+      border-left: 3px solid var(--accent-azure);
+      background: rgba(56, 189, 248, 0.04);
       padding: 1.2rem 1.6rem;
       margin: 2rem 0;
       font-style: italic;
@@ -247,25 +247,31 @@
       margin: 2.5rem 0;
       padding: 1.6rem 2rem;
       background: rgba(15, 23, 42, 0.75);
-      border: 1px solid rgba(168, 85, 247, 0.2);
-      border-radius: 16px;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 12px;
       overflow-x: auto;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
+    }
+    .blog-math-display .katex {
+      color: #f8fafc;
     }
     .blog-table-container {
       width: 100%;
       overflow-x: auto;
       margin: 2.5rem 0;
-      border-radius: 16px;
+      border-radius: 12px;
       border: 1px solid rgba(255, 255, 255, 0.08);
       background: rgba(15, 23, 42, 0.6);
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
     }
     .blog-markdown-table { width: 100%; border-collapse: collapse; }
-    .blog-markdown-table th { padding: 1.1rem 1.4rem; font-weight: 700; color: #fff; background: rgba(30, 41, 59, 0.85); border-bottom: 2px solid rgba(168, 85, 247, 0.35); }
+    .blog-markdown-table th { padding: 1.1rem 1.4rem; font-weight: 700; color: #fff; background: rgba(30, 41, 59, 0.85); border-bottom: 1px solid rgba(255, 255, 255, 0.12); }
     .blog-markdown-table td { padding: 1rem 1.4rem; border-bottom: 1px solid rgba(255, 255, 255, 0.05); }
     .post-cta {
       margin-top: 5rem;
-      background: linear-gradient(135deg, rgba(168, 85, 247, 0.12) 0%, rgba(217, 70, 239, 0.04) 100%), rgba(15, 23, 42, 0.4);
-      border: 1px solid rgba(168, 85, 247, 0.2);
+      background: rgba(15, 23, 42, 0.7);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.35);
       border-radius: 20px;
       padding: 3rem;
       text-align: center;
@@ -279,6 +285,16 @@
       padding: 12px 28px;
       border-radius: 30px;
       text-decoration: none;
+    }
+    @media (max-width: 768px) {
+      body { padding: 1.5rem 1rem; }
+      .post-container { padding: 1.5rem 0; }
+      .post-title { font-size: 2rem; }
+      .blog-math-display { padding: 1.2rem 1rem; margin: 1.8rem 0; -webkit-overflow-scrolling: touch; }
+      .blog-table-container { margin: 1.8rem 0; -webkit-overflow-scrolling: touch; }
+      .blog-markdown-table th, .blog-markdown-table td { padding: 0.8rem 1rem; font-size: 0.88rem; }
+      .post-body pre { padding: 1rem; margin: 1.6rem 0; -webkit-overflow-scrolling: touch; }
+      .post-cta { padding: 2rem 1.2rem; }
     }
   </style>
 </head>
@@ -295,7 +311,7 @@
     <h1 class="post-title">Physical AI: Connecting Code to Microcontrollers</h1>
     <img src="/assets/blog/ka_blog_robotics.webp" alt="Physical AI: Connecting Code to Microcontrollers" class="post-hero-img" />
     <article class="post-body">
-      <h2 style="font-size: 2rem; margin-top: 3.5rem; margin-bottom: 1.5rem; font-weight: 800; color: #fff;">Physical AI: Connecting Code to Microcontrollers</h2><p>Writing software that lives purely inside a web browser is powerful. But writing code that triggers a physical servo motor, reads humidity metrics from soil, or navigates a robot across a physical floor is magical. </p><p>This bridge is called <strong>Physical AI</strong>—the point where software instructions interface directly with silicon, circuits, and electrical power.</p><hr /><h2>⚡ 1. The Anatomy of a Physical Interface</h2><p>To link code with physics, we use microcontrollers (like the ATmega328P on Arduino boards, or the ESP32). Unlike laptops, which are general-purpose computers, microcontrollers are small, dedicated chips designed to run a single program loop continuously at low power consumption.</p><h3>The Input/Output Interface:</h3><ul><li><strong>GPIO (General Purpose Input/Output)</strong>: Silicon pins that send or receive electrical currents (3.3V or 5V).</li><li><strong>ADC (Analog-to-Digital Converter)</strong>: Translates variable voltages (like temperature sensor readings) into digital values. On a standard 10-bit ADC (e.g. Arduino Uno), this range is 0 to 1023.</li><li><strong>PWM (Pulse Width Modulation)</strong>: Rapidly toggles digital power on and off to simulate intermediate outputs (e.g., dimming a LED light or steering a servo motor pin).</li></ul><hr /><h2>🛑 2. The Golden Rules of Wiring & Prototyping</h2><p>When you build physical interfaces, electrical mistakes can destroy your hardware. Always follow these rules:</p><ul><li><strong>Never Overdraw Current</strong>: An Arduino Uno digital pin can safely source up to about 20mA (absolute max 40mA). Motors, solenoids, or heaters draw far more. Always use a motor driver, transistor, or relay to handle high-current loads externally.</li><li><strong>Shared Ground (Common GND)</strong>: If you use an external battery to power a robotic arm, you must connect its negative terminal to the microcontroller's GND pin. Without a common ground reference, control signals behave unpredictably.</li><li><strong>Floating Inputs</strong>: A digital input pin left unconnected picks up stray electrical noise, causing random HIGH/LOW readings. Use internal pull-up resistors (<code>INPUT_PULLUP</code>) to hold the pin at a defined state until intentionally pulled low.</li></ul><hr /><h2>⚙️ 3. Where Physical AI Is Heading</h2><p>At Kone School, students learn to bridge the gap between high-level programming and low-level hardware. The journey starts with writing logic in browser sandboxes, then progresses to flashing compiled firmware onto real microcontrollers — turning digital instructions into physical robotic feedback loops.</p><hr /><p><strong>Kone Academy Lab: Bridging the gap between software logic and physical reality.</strong></p>
+      <h2 style="font-size: 2rem; margin-top: 3.5rem; margin-bottom: 1.5rem; font-weight: 800; color: #fff;">Physical AI: Connecting Code to Microcontrollers</h2><p>Writing software that lives purely inside a web browser is powerful. But writing code that triggers a physical servo motor, reads humidity metrics from soil, or navigates a robot across a physical floor is magical. </p><p>This bridge is called <strong>Physical AI</strong>—the point where software instructions interface directly with silicon, circuits, and electrical power.</p><hr /><h2>1. The Anatomy of a Physical Interface</h2><p>To link code with physics, we use microcontrollers (like the ATmega328P on Arduino boards, or the ESP32). Unlike laptops, which are general-purpose computers, microcontrollers are small, dedicated chips designed to run a single program loop continuously at low power consumption.</p><h3>The Input/Output Interface:</h3><ul><li><strong>GPIO (General Purpose Input/Output)</strong>: Silicon pins that send or receive electrical currents (3.3V or 5V).</li><li><strong>ADC (Analog-to-Digital Converter)</strong>: Translates variable voltages (like temperature sensor readings) into digital values. On a standard 10-bit ADC (e.g. Arduino Uno), this range is 0 to 1023.</li><li><strong>PWM (Pulse Width Modulation)</strong>: Rapidly toggles digital power on and off to simulate intermediate outputs (e.g., dimming a LED light or steering a servo motor pin).</li></ul><hr /><h2>2. The Golden Rules of Wiring & Prototyping</h2><p>When you build physical interfaces, electrical mistakes can destroy your hardware. Always follow these rules:</p><ul><li><strong>Never Overdraw Current</strong>: An Arduino Uno digital pin can safely source up to about 20mA (absolute max 40mA). Motors, solenoids, or heaters draw far more. Always use a motor driver, transistor, or relay to handle high-current loads externally.</li><li><strong>Shared Ground (Common GND)</strong>: If you use an external battery to power a robotic arm, you must connect its negative terminal to the microcontroller's GND pin. Without a common ground reference, control signals behave unpredictably.</li><li><strong>Floating Inputs</strong>: A digital input pin left unconnected picks up stray electrical noise, causing random HIGH/LOW readings. Use internal pull-up resistors (<code>INPUT_PULLUP</code>) to hold the pin at a defined state until intentionally pulled low.</li></ul><hr /><h2>3. Where Physical AI Is Heading</h2><p>At Kone School, students learn to bridge the gap between high-level programming and low-level hardware. The journey starts with writing logic in browser sandboxes, then progresses to flashing compiled firmware onto real microcontrollers — turning digital instructions into physical robotic feedback loops.</p><hr /><p><strong>Kone Academy Lab: Bridging the gap between software logic and physical reality.</strong></p>
     </article>
     <div class="post-cta">
       <h2>Register at Kone School</h2>

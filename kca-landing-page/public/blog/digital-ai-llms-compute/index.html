@@ -122,7 +122,7 @@
     :root {
       --bg-dark: #080c14;
       --card-bg: rgba(15, 23, 42, 0.7);
-      --accent-purple: #a855f7;
+      --accent-azure: #38bdf8;
       --text-main: #cbd5e1;
       --text-white: #ffffff;
     }
@@ -162,7 +162,7 @@
       font-weight: 700;
       text-transform: uppercase;
       letter-spacing: 1px;
-      color: var(--accent-purple);
+      color: var(--accent-azure);
       margin-bottom: 1rem;
     }
     .meta-dot {
@@ -219,15 +219,15 @@
     .post-body code {
       font-family: monospace;
       font-size: 0.9rem;
-      background: rgba(255, 255, 255, 0.04);
+      background: rgba(255, 255, 255, 0.05);
       padding: 3px 6px;
       border-radius: 4px;
-      color: #f472b6;
+      color: var(--accent-azure);
     }
     .post-body pre code { background: transparent; padding: 0; color: #e2e8f0; }
     .post-body blockquote {
-      border-left: 4px solid var(--accent-purple);
-      background: rgba(168, 85, 247, 0.03);
+      border-left: 3px solid var(--accent-azure);
+      background: rgba(56, 189, 248, 0.04);
       padding: 1.2rem 1.6rem;
       margin: 2rem 0;
       font-style: italic;
@@ -247,25 +247,31 @@
       margin: 2.5rem 0;
       padding: 1.6rem 2rem;
       background: rgba(15, 23, 42, 0.75);
-      border: 1px solid rgba(168, 85, 247, 0.2);
-      border-radius: 16px;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 12px;
       overflow-x: auto;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
+    }
+    .blog-math-display .katex {
+      color: #f8fafc;
     }
     .blog-table-container {
       width: 100%;
       overflow-x: auto;
       margin: 2.5rem 0;
-      border-radius: 16px;
+      border-radius: 12px;
       border: 1px solid rgba(255, 255, 255, 0.08);
       background: rgba(15, 23, 42, 0.6);
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
     }
     .blog-markdown-table { width: 100%; border-collapse: collapse; }
-    .blog-markdown-table th { padding: 1.1rem 1.4rem; font-weight: 700; color: #fff; background: rgba(30, 41, 59, 0.85); border-bottom: 2px solid rgba(168, 85, 247, 0.35); }
+    .blog-markdown-table th { padding: 1.1rem 1.4rem; font-weight: 700; color: #fff; background: rgba(30, 41, 59, 0.85); border-bottom: 1px solid rgba(255, 255, 255, 0.12); }
     .blog-markdown-table td { padding: 1rem 1.4rem; border-bottom: 1px solid rgba(255, 255, 255, 0.05); }
     .post-cta {
       margin-top: 5rem;
-      background: linear-gradient(135deg, rgba(168, 85, 247, 0.12) 0%, rgba(217, 70, 239, 0.04) 100%), rgba(15, 23, 42, 0.4);
-      border: 1px solid rgba(168, 85, 247, 0.2);
+      background: rgba(15, 23, 42, 0.7);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.35);
       border-radius: 20px;
       padding: 3rem;
       text-align: center;
@@ -279,6 +285,16 @@
       padding: 12px 28px;
       border-radius: 30px;
       text-decoration: none;
+    }
+    @media (max-width: 768px) {
+      body { padding: 1.5rem 1rem; }
+      .post-container { padding: 1.5rem 0; }
+      .post-title { font-size: 2rem; }
+      .blog-math-display { padding: 1.2rem 1rem; margin: 1.8rem 0; -webkit-overflow-scrolling: touch; }
+      .blog-table-container { margin: 1.8rem 0; -webkit-overflow-scrolling: touch; }
+      .blog-markdown-table th, .blog-markdown-table td { padding: 0.8rem 1rem; font-size: 0.88rem; }
+      .post-body pre { padding: 1rem; margin: 1.6rem 0; -webkit-overflow-scrolling: touch; }
+      .post-cta { padding: 2rem 1.2rem; }
     }
   </style>
 </head>
@@ -295,7 +311,7 @@
     <h1 class="post-title">Digital AI: Decoupling Large Language Models and Compute</h1>
     <img src="/assets/blog/ka_blog_digital.webp" alt="Digital AI: Decoupling Large Language Models and Compute" class="post-hero-img" />
     <article class="post-body">
-      <h2 style="font-size: 2rem; margin-top: 3.5rem; margin-bottom: 1.5rem; font-weight: 800; color: #fff;">Digital AI: Decoupling Large Language Models and Compute</h2><p>The term "AI" is thrown around constantly, but under the hood, artificial intelligence is not magic. It is a mathematical combination of <strong>Data</strong>, <strong>Algorithms (Math/Logic)</strong>, and <strong>Compute (Hardware)</strong> running together.</p><p>Let's break down the layers that power Large Language Models (LLMs) like GPT-4o, Gemini, or Claude.</p><hr /><h2>🧠 1. The Three Foundations of AI</h2><p>Every modern generative AI engine relies on a three-way symbiotic balance:</p><h3>1. Data (The Food)</h3><p>Models feed on massive amounts of structured text, code repositories, books, and web assets. The quality and volume of data determine the boundaries of the model's vocabulary and reasoning capabilities.</p><h3>2. Math & Logic (The Brain)</h3><p>Algorithms organize data into learnable structure. Modern LLMs are built on the <strong>Transformer architecture</strong>, introduced in the 2017 paper "Attention Is All You Need". The core mechanism — self-attention — allows the model to weigh the relevance of every word relative to every other word in a sequence, enabling it to predict the next token based on context.</p><h3>3. Compute (The Power)</h3><p>The silicon hardware that runs the training matrices. Training an advanced neural network requires billions of mathematical operations per second, running across massive server farms.</p><hr /><h2>🖥️ 2. The Compute Hardware Hierarchy</h2><p>The hardware layer is categorized by specialization:</p><ul><li><strong>CPU (Central Processing Unit)</strong>: The general-purpose manager. Handles system setup, IO, and sequential tasks.</li><li><strong>GPU (Graphics Processing Unit)</strong>: Parallel calculation beast. Massive matrix calculations required for training models.</li><li><strong>TPU (Tensor Processing Unit)</strong>: Google-designed custom chips optimized explicitly for neural network math.</li><li><strong>NPU (Neural Processing Unit)</strong>: Edge-compute chips in smartphones and laptops designed for local, low-power inference.</li></ul><hr /><h2>🔌 3. Connecting LLMs to Data: APIs and MCPs</h2><p>How does a trained LLM act on live data?</p><ul><li><strong>APIs (Application Programming Interfaces)</strong>: Structured request/response interfaces that allow applications to send data to and receive data from LLM providers programmatically.</li><li><strong>MCP (Model Context Protocol)</strong>: An open protocol (introduced by Anthropic) that standardizes how LLMs connect to external tools, data sources, and services — giving models controlled access to live context beyond their training data.</li></ul><p>By understanding this hierarchy, students move from passive users of generative AI tools to strategic builders who can tune models, manage computing resources, and deploy custom agents.</p><hr /><p><strong>Kone School: Demystifying AI pipelines to empower creative tech leaders.</strong></p>
+      <h2 style="font-size: 2rem; margin-top: 3.5rem; margin-bottom: 1.5rem; font-weight: 800; color: #fff;">Digital AI: Decoupling Large Language Models and Compute</h2><p>The term "AI" is thrown around constantly, but under the hood, artificial intelligence is not magic. It is a mathematical combination of <strong>Data</strong>, <strong>Algorithms (Math/Logic)</strong>, and <strong>Compute (Hardware)</strong> running together.</p><p>Let's break down the layers that power Large Language Models (LLMs) like GPT-4o, Gemini, or Claude.</p><hr /><h2>1. The Three Foundations of AI</h2><p>Every modern generative AI engine relies on a three-way symbiotic balance:</p><h3>1. Data (The Food)</h3><p>Models feed on massive amounts of structured text, code repositories, books, and web assets. The quality and volume of data determine the boundaries of the model's vocabulary and reasoning capabilities.</p><h3>2. Math & Logic (The Brain)</h3><p>Algorithms organize data into learnable structure. Modern LLMs are built on the <strong>Transformer architecture</strong>, introduced in the 2017 paper "Attention Is All You Need". The core mechanism — self-attention — allows the model to weigh the relevance of every word relative to every other word in a sequence, enabling it to predict the next token based on context.</p><h3>3. Compute (The Power)</h3><p>The silicon hardware that runs the training matrices. Training an advanced neural network requires billions of mathematical operations per second, running across massive server farms.</p><hr /><h2>2. The Compute Hardware Hierarchy</h2><p>The hardware layer is categorized by specialization:</p><ul><li><strong>CPU (Central Processing Unit)</strong>: The general-purpose manager. Handles system setup, IO, and sequential tasks.</li><li><strong>GPU (Graphics Processing Unit)</strong>: Parallel calculation beast. Massive matrix calculations required for training models.</li><li><strong>TPU (Tensor Processing Unit)</strong>: Google-designed custom chips optimized explicitly for neural network math.</li><li><strong>NPU (Neural Processing Unit)</strong>: Edge-compute chips in smartphones and laptops designed for local, low-power inference.</li></ul><hr /><h2>3. Connecting LLMs to Data: APIs and MCPs</h2><p>How does a trained LLM act on live data?</p><ul><li><strong>APIs (Application Programming Interfaces)</strong>: Structured request/response interfaces that allow applications to send data to and receive data from LLM providers programmatically.</li><li><strong>MCP (Model Context Protocol)</strong>: An open protocol (introduced by Anthropic) that standardizes how LLMs connect to external tools, data sources, and services — giving models controlled access to live context beyond their training data.</li></ul><p>By understanding this hierarchy, students move from passive users of generative AI tools to strategic builders who can tune models, manage computing resources, and deploy custom agents.</p><hr /><p><strong>Kone School: Demystifying AI pipelines to empower creative tech leaders.</strong></p>
     </article>
     <div class="post-cta">
       <h2>Register at Kone School</h2>

@@ -122,7 +122,7 @@
     :root {
       --bg-dark: #080c14;
       --card-bg: rgba(15, 23, 42, 0.7);
-      --accent-purple: #a855f7;
+      --accent-azure: #38bdf8;
       --text-main: #cbd5e1;
       --text-white: #ffffff;
     }
@@ -162,7 +162,7 @@
       font-weight: 700;
       text-transform: uppercase;
       letter-spacing: 1px;
-      color: var(--accent-purple);
+      color: var(--accent-azure);
       margin-bottom: 1rem;
     }
     .meta-dot {
@@ -219,15 +219,15 @@
     .post-body code {
       font-family: monospace;
       font-size: 0.9rem;
-      background: rgba(255, 255, 255, 0.04);
+      background: rgba(255, 255, 255, 0.05);
       padding: 3px 6px;
       border-radius: 4px;
-      color: #f472b6;
+      color: var(--accent-azure);
     }
     .post-body pre code { background: transparent; padding: 0; color: #e2e8f0; }
     .post-body blockquote {
-      border-left: 4px solid var(--accent-purple);
-      background: rgba(168, 85, 247, 0.03);
+      border-left: 3px solid var(--accent-azure);
+      background: rgba(56, 189, 248, 0.04);
       padding: 1.2rem 1.6rem;
       margin: 2rem 0;
       font-style: italic;
@@ -247,25 +247,31 @@
       margin: 2.5rem 0;
       padding: 1.6rem 2rem;
       background: rgba(15, 23, 42, 0.75);
-      border: 1px solid rgba(168, 85, 247, 0.2);
-      border-radius: 16px;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 12px;
       overflow-x: auto;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
+    }
+    .blog-math-display .katex {
+      color: #f8fafc;
     }
     .blog-table-container {
       width: 100%;
       overflow-x: auto;
       margin: 2.5rem 0;
-      border-radius: 16px;
+      border-radius: 12px;
       border: 1px solid rgba(255, 255, 255, 0.08);
       background: rgba(15, 23, 42, 0.6);
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
     }
     .blog-markdown-table { width: 100%; border-collapse: collapse; }
-    .blog-markdown-table th { padding: 1.1rem 1.4rem; font-weight: 700; color: #fff; background: rgba(30, 41, 59, 0.85); border-bottom: 2px solid rgba(168, 85, 247, 0.35); }
+    .blog-markdown-table th { padding: 1.1rem 1.4rem; font-weight: 700; color: #fff; background: rgba(30, 41, 59, 0.85); border-bottom: 1px solid rgba(255, 255, 255, 0.12); }
     .blog-markdown-table td { padding: 1rem 1.4rem; border-bottom: 1px solid rgba(255, 255, 255, 0.05); }
     .post-cta {
       margin-top: 5rem;
-      background: linear-gradient(135deg, rgba(168, 85, 247, 0.12) 0%, rgba(217, 70, 239, 0.04) 100%), rgba(15, 23, 42, 0.4);
-      border: 1px solid rgba(168, 85, 247, 0.2);
+      background: rgba(15, 23, 42, 0.7);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.35);
       border-radius: 20px;
       padding: 3rem;
       text-align: center;
@@ -279,6 +285,16 @@
       padding: 12px 28px;
       border-radius: 30px;
       text-decoration: none;
+    }
+    @media (max-width: 768px) {
+      body { padding: 1.5rem 1rem; }
+      .post-container { padding: 1.5rem 0; }
+      .post-title { font-size: 2rem; }
+      .blog-math-display { padding: 1.2rem 1rem; margin: 1.8rem 0; -webkit-overflow-scrolling: touch; }
+      .blog-table-container { margin: 1.8rem 0; -webkit-overflow-scrolling: touch; }
+      .blog-markdown-table th, .blog-markdown-table td { padding: 0.8rem 1rem; font-size: 0.88rem; }
+      .post-body pre { padding: 1rem; margin: 1.6rem 0; -webkit-overflow-scrolling: touch; }
+      .post-cta { padding: 2rem 1.2rem; }
     }
   </style>
 </head>
@@ -295,7 +311,7 @@
     <h1 class="post-title">Deconstructing the Event Loop: Microtasks, Macrotasks, and High-Throughput I/O</h1>
     <img src="/assets/blog/architecture_diagram.webp" alt="Deconstructing the Event Loop: Microtasks, Macrotasks, and High-Throughput I/O" class="post-hero-img" />
     <article class="post-body">
-      <h2 style="font-size: 2rem; margin-top: 3.5rem; margin-bottom: 1.5rem; font-weight: 800; color: #fff;">Deconstructing the Event Loop: Microtasks, Macrotasks, and High-Throughput I/O</h2><p>Why can a single-threaded runtime like Node.js handle tens of thousands of concurrent network connections without choking? The secret lies in understanding how the V8 JavaScript engine interfaces with the underlying C library <strong>libuv</strong> through the <strong>Event Loop</strong>.</p><p>At <strong>Kone Academy</strong>, our Full-Stack Engineering cohort dives into the runtime execution model before touching backend frameworks. Let us deconstruct how execution queues actually operate.</p><hr /><h2>⚡ 1. The Three Core Memory Arenas</h2><p>When a JavaScript application executes, execution is divided across three distinct areas:</p><ol><li><strong>The Call Stack</strong>: A single-threaded LIFO (Last In, First Out) stack executing the current instruction frame. If a function blocks here (e.g. infinite loop, sync cryptographic hash), the entire server freezes.</li><li><strong>The Memory Heap</strong>: Unstructured memory allocation for variables, objects, and closures.</li><li><strong>The Event Loop & Task Queues</strong>: The coordination mechanism that pumps queued callbacks back onto the call stack when it becomes empty.</li></ol><hr /><h2>🔄 2. Microtasks vs. Macrotasks: Priority Order</h2><p>Not all asynchronous operations are queued equally. The runtime splits callbacks into two fundamental tiers:</p><h3>Microtask Queue (Highest Priority)</h3><p>Microtasks execute immediately after the currently running script finishes and before control is returned to the event loop phases:</p><ul><li><code>process.nextTick()</code> (Node.js microtask priority queue)</li><li><code>Promise.then()</code> / <code>catch()</code> / <code>finally()</code></li><li><code>queueMicrotask()</code></li></ul><h3>Macrotask Phases (libuv Event Loop)</h3><p>Macrotasks are grouped into distinct lifecycle phases executed in a circle:</p><ol><li><strong>Timers Phase</strong>: <code>setTimeout()</code> and <code>setInterval()</code></li><li><strong>Pending Callbacks</strong>: I/O errors and OS-level operations</li><li><strong>Poll Phase</strong>: Retrieving new I/O events (HTTP sockets, disk files)</li><li><strong>Check Phase</strong>: <code>setImmediate()</code> callbacks</li><li><strong>Close Callbacks</strong>: Socket closure events (e.g., <code>socket.on('close')</code>)</li></ol><hr /><h2>⚠️ 3. The Microtask Starvation Danger</h2><p>Because the runtime drains the <strong>entire microtask queue</strong> before proceeding to the next event loop phase, recursively queueing microtasks will completely starve your I/O and timers!</p><pre><code>// ANTI-PATTERN: This will lock your server and prevent any HTTP requests from resolving!
+      <h2 style="font-size: 2rem; margin-top: 3.5rem; margin-bottom: 1.5rem; font-weight: 800; color: #fff;">Deconstructing the Event Loop: Microtasks, Macrotasks, and High-Throughput I/O</h2><p>Why can a single-threaded runtime like Node.js handle tens of thousands of concurrent network connections without choking? The secret lies in understanding how the V8 JavaScript engine interfaces with the underlying C library <strong>libuv</strong> through the <strong>Event Loop</strong>.</p><p>At <strong>Kone Academy</strong>, our Full-Stack Engineering cohort dives into the runtime execution model before touching backend frameworks. Let us deconstruct how execution queues actually operate.</p><hr /><h2>1. The Three Core Memory Arenas</h2><p>When a JavaScript application executes, execution is divided across three distinct areas:</p><ol><li><strong>The Call Stack</strong>: A single-threaded LIFO (Last In, First Out) stack executing the current instruction frame. If a function blocks here (e.g. infinite loop, sync cryptographic hash), the entire server freezes.</li><li><strong>The Memory Heap</strong>: Unstructured memory allocation for variables, objects, and closures.</li><li><strong>The Event Loop & Task Queues</strong>: The coordination mechanism that pumps queued callbacks back onto the call stack when it becomes empty.</li></ol><hr /><h2>2. Microtasks vs. Macrotasks: Priority Order</h2><p>Not all asynchronous operations are queued equally. The runtime splits callbacks into two fundamental tiers:</p><h3>Microtask Queue (Highest Priority)</h3><p>Microtasks execute immediately after the currently running script finishes and before control is returned to the event loop phases:</p><ul><li><code>process.nextTick()</code> (Node.js microtask priority queue)</li><li><code>Promise.then()</code> / <code>catch()</code> / <code>finally()</code></li><li><code>queueMicrotask()</code></li></ul><h3>Macrotask Phases (libuv Event Loop)</h3><p>Macrotasks are grouped into distinct lifecycle phases executed in a circle:</p><ol><li><strong>Timers Phase</strong>: <code>setTimeout()</code> and <code>setInterval()</code></li><li><strong>Pending Callbacks</strong>: I/O errors and OS-level operations</li><li><strong>Poll Phase</strong>: Retrieving new I/O events (HTTP sockets, disk files)</li><li><strong>Check Phase</strong>: <code>setImmediate()</code> callbacks</li><li><strong>Close Callbacks</strong>: Socket closure events (e.g., <code>socket.on('close')</code>)</li></ol><hr /><h2>3. The Microtask Starvation Danger</h2><p>Because the runtime drains the <strong>entire microtask queue</strong> before proceeding to the next event loop phase, recursively queueing microtasks will completely starve your I/O and timers!</p><pre><code>// ANTI-PATTERN: This will lock your server and prevent any HTTP requests from resolving!
 function recursiveMicrotask() {
   queueMicrotask(() =&gt; {
     recursiveMicrotask();
@@ -315,7 +331,7 @@ function processLargeBatch(items: string[], index = 0) {
   setImmediate(() =&gt; {
     processLargeBatch(items, index + chunkSize);
   });
-}</code></pre><hr /><h2>💡 4. Engineering Challenge</h2><p>Can you predict the exact order of this output before running it?</p><pre><code>console.log('1: Sync Start');
+}</code></pre><hr /><h2>4. Engineering Challenge</h2><p>Can you predict the exact order of this output before running it?</p><pre><code>console.log('1: Sync Start');
 setTimeout(() =&gt; console.log('2: Timeout Macrotask'), 0);
 Promise.resolve().then(() =&gt; console.log('3: Promise Microtask'));
 process.nextTick(() =&gt; console.log('4: NextTick Priority'));

@@ -122,7 +122,7 @@
     :root {
       --bg-dark: #080c14;
       --card-bg: rgba(15, 23, 42, 0.7);
-      --accent-purple: #a855f7;
+      --accent-azure: #38bdf8;
       --text-main: #cbd5e1;
       --text-white: #ffffff;
     }
@@ -162,7 +162,7 @@
       font-weight: 700;
       text-transform: uppercase;
       letter-spacing: 1px;
-      color: var(--accent-purple);
+      color: var(--accent-azure);
       margin-bottom: 1rem;
     }
     .meta-dot {
@@ -219,15 +219,15 @@
     .post-body code {
       font-family: monospace;
       font-size: 0.9rem;
-      background: rgba(255, 255, 255, 0.04);
+      background: rgba(255, 255, 255, 0.05);
       padding: 3px 6px;
       border-radius: 4px;
-      color: #f472b6;
+      color: var(--accent-azure);
     }
     .post-body pre code { background: transparent; padding: 0; color: #e2e8f0; }
     .post-body blockquote {
-      border-left: 4px solid var(--accent-purple);
-      background: rgba(168, 85, 247, 0.03);
+      border-left: 3px solid var(--accent-azure);
+      background: rgba(56, 189, 248, 0.04);
       padding: 1.2rem 1.6rem;
       margin: 2rem 0;
       font-style: italic;
@@ -247,25 +247,31 @@
       margin: 2.5rem 0;
       padding: 1.6rem 2rem;
       background: rgba(15, 23, 42, 0.75);
-      border: 1px solid rgba(168, 85, 247, 0.2);
-      border-radius: 16px;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 12px;
       overflow-x: auto;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
+    }
+    .blog-math-display .katex {
+      color: #f8fafc;
     }
     .blog-table-container {
       width: 100%;
       overflow-x: auto;
       margin: 2.5rem 0;
-      border-radius: 16px;
+      border-radius: 12px;
       border: 1px solid rgba(255, 255, 255, 0.08);
       background: rgba(15, 23, 42, 0.6);
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
     }
     .blog-markdown-table { width: 100%; border-collapse: collapse; }
-    .blog-markdown-table th { padding: 1.1rem 1.4rem; font-weight: 700; color: #fff; background: rgba(30, 41, 59, 0.85); border-bottom: 2px solid rgba(168, 85, 247, 0.35); }
+    .blog-markdown-table th { padding: 1.1rem 1.4rem; font-weight: 700; color: #fff; background: rgba(30, 41, 59, 0.85); border-bottom: 1px solid rgba(255, 255, 255, 0.12); }
     .blog-markdown-table td { padding: 1rem 1.4rem; border-bottom: 1px solid rgba(255, 255, 255, 0.05); }
     .post-cta {
       margin-top: 5rem;
-      background: linear-gradient(135deg, rgba(168, 85, 247, 0.12) 0%, rgba(217, 70, 239, 0.04) 100%), rgba(15, 23, 42, 0.4);
-      border: 1px solid rgba(168, 85, 247, 0.2);
+      background: rgba(15, 23, 42, 0.7);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.35);
       border-radius: 20px;
       padding: 3rem;
       text-align: center;
@@ -279,6 +285,16 @@
       padding: 12px 28px;
       border-radius: 30px;
       text-decoration: none;
+    }
+    @media (max-width: 768px) {
+      body { padding: 1.5rem 1rem; }
+      .post-container { padding: 1.5rem 0; }
+      .post-title { font-size: 2rem; }
+      .blog-math-display { padding: 1.2rem 1rem; margin: 1.8rem 0; -webkit-overflow-scrolling: touch; }
+      .blog-table-container { margin: 1.8rem 0; -webkit-overflow-scrolling: touch; }
+      .blog-markdown-table th, .blog-markdown-table td { padding: 0.8rem 1rem; font-size: 0.88rem; }
+      .post-body pre { padding: 1rem; margin: 1.6rem 0; -webkit-overflow-scrolling: touch; }
+      .post-cta { padding: 2rem 1.2rem; }
     }
   </style>
 </head>
@@ -295,7 +311,7 @@
     <h1 class="post-title">Automated Soil Telemetry: Designing Low-Power IoT Mesh Networks in Agritech</h1>
     <img src="/assets/blog/arduino_sensors.webp" alt="Automated Soil Telemetry: Designing Low-Power IoT Mesh Networks in Agritech" class="post-hero-img" />
     <article class="post-body">
-      <h2 style="font-size: 2rem; margin-top: 3.5rem; margin-bottom: 1.5rem; font-weight: 800; color: #fff;">Automated Soil Telemetry: Designing Low-Power IoT Mesh Networks in Agritech</h2><p>Deploying IoT technology inside an air-conditioned office with wall power and gigabit WiFi is simple. Deploying sensors across 50 acres of agricultural crops in rural climates is an entirely different engineering challenge.</p><p>At <strong>Kone Farms</strong>, we build autonomous telemetry systems that monitor soil moisture, leaf temperature, and micro-climate patterns to optimize crop yields and prevent water waste.</p><p>Here is how we design field-hardened sensor nodes that run for years on a single battery charge.</p><hr /><h2>🔋 1. The Energy Budget & Deep Sleep Cycles</h2><p>An active ESP32 microcontroller with WiFi enabled draws approximately <strong>160mA to 240mA</strong>. Running continuously on a standard 2500mAh 18650 lithium battery, it would die in less than 12 hours!</p><p>To solve this, we leverage <strong>Deep Sleep</strong>:</p><ul><li>The CPU, WiFi radio, and RAM are completely powered down.</li><li>Only an ultra-low-power timer remains active, consuming just <strong>10µA to 15µA</strong>.</li><li>Every 30 minutes, the timer wakes the processor for 300 milliseconds to read sensors, transmit data, and return to sleep.</li></ul><div class="blog-math-display"><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mtext>Battery Life</mtext><mo>=</mo><mfrac><mrow><mn>2500</mn><mtext> mAh</mtext></mrow><mrow><mo stretchy="false">(</mo><mn>0.015</mn><mtext> mA</mtext><mo>×</mo><mn>99.8</mn><mi mathvariant="normal">%</mi><mo stretchy="false">)</mo><mo>+</mo><mo stretchy="false">(</mo><mn>180</mn><mtext> mA</mtext><mo>×</mo><mn>0.2</mn><mi mathvariant="normal">%</mi><mo stretchy="false">)</mo></mrow></mfrac><mo>≈</mo><mn>6</mn><mo separator="true">,</mo><mn>000</mn><mo>+</mo><mtext> hours (250+ days)</mtext></mrow><annotation encoding="application/x-tex">\text{Battery Life} = \frac{2500\text{ mAh}}{(0.015\text{ mA} \times 99.8\%) + (180\text{ mA} \times 0.2\%)} \approx 6,000+\text{ hours (250+ days)}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="katex-base"><span class="katex-strut" style="height:0.8889em;vertical-align:-0.1944em;"></span><span class="mord text"><span class="mord">Battery Life</span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="katex-base"><span class="katex-strut" style="height:2.3074em;vertical-align:-0.936em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.3714em;"><span style="top:-2.314em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mopen">(</span><span class="mord">0.015</span><span class="mord text"><span class="mord"> mA</span></span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mord">99.8%</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mopen">(</span><span class="mord">180</span><span class="mord text"><span class="mord"> mA</span></span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mord">0.2%</span><span class="mclose">)</span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.677em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord">2500</span><span class="mord text"><span class="mord"> mAh</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.936em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">≈</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="katex-base"><span class="katex-strut" style="height:0.8389em;vertical-align:-0.1944em;"></span><span class="mord">6</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord">000</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="katex-base"><span class="katex-strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord text"><span class="mord"> hours (250+ days)</span></span></span></span></span></span></div><hr /><h2>📡 2. Low-Power RF Protocol: ESP-NOW vs. LoRa</h2><p>Rather than connecting each remote sensor node to a heavy cellular or standard WiFi access point, we use <strong>ESP-NOW</strong>:</p><ul><li>A peer-to-peer 2.4GHz protocol developed by Espressif.</li><li>Zero TCP/IP handshake overhead: packets are sent in under 5 milliseconds.</li><li>Remote nodes blast telemetry to a central <strong>Solar Gateway</strong>, which then syncs the batch payload to the cloud over LTE/4G.</li></ul><hr /><h2>💧 3. Capacitive vs. Resistive Soil Probes</h2><p>When selecting soil sensors:</p><ul><li><strong>Resistive Probes (Avoid in Production)</strong>: Pass direct current between two exposed metal prongs. Soil moisture causes rapid electrochemical oxidation, destroying the probe within weeks.</li><li><strong>Capacitive Probes (Production Standard)</strong>: The circuit traces are insulated inside solder mask resin. The probe measures capacitance changes in soil dielectric permittivity without corroding.</li></ul><hr /><p><strong>Explore sustainable agriculture technology and sensor engineering in our <a href="/training" target="_blank" rel="noopener noreferrer">Agritech Telemetry & Environmental Analytics Track</a>.</strong></p>
+      <h2 style="font-size: 2rem; margin-top: 3.5rem; margin-bottom: 1.5rem; font-weight: 800; color: #fff;">Automated Soil Telemetry: Designing Low-Power IoT Mesh Networks in Agritech</h2><p>Deploying IoT technology inside an air-conditioned office with wall power and gigabit WiFi is simple. Deploying sensors across 50 acres of agricultural crops in rural climates is an entirely different engineering challenge.</p><p>At <strong>Kone Farms</strong>, we build autonomous telemetry systems that monitor soil moisture, leaf temperature, and micro-climate patterns to optimize crop yields and prevent water waste.</p><p>Here is how we design field-hardened sensor nodes that run for years on a single battery charge.</p><hr /><h2>1. The Energy Budget & Deep Sleep Cycles</h2><p>An active ESP32 microcontroller with WiFi enabled draws approximately <strong>160mA to 240mA</strong>. Running continuously on a standard 2500mAh 18650 lithium battery, it would die in less than 12 hours!</p><p>To solve this, we leverage <strong>Deep Sleep</strong>:</p><ul><li>The CPU, WiFi radio, and RAM are completely powered down.</li><li>Only an ultra-low-power timer remains active, consuming just <strong>10µA to 15µA</strong>.</li><li>Every 30 minutes, the timer wakes the processor for 300 milliseconds to read sensors, transmit data, and return to sleep.</li></ul><div class="blog-math-display"><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mtext>Battery Life</mtext><mo>=</mo><mfrac><mrow><mn>2500</mn><mtext> mAh</mtext></mrow><mrow><mo stretchy="false">(</mo><mn>0.015</mn><mtext> mA</mtext><mo>×</mo><mn>99.8</mn><mi mathvariant="normal">%</mi><mo stretchy="false">)</mo><mo>+</mo><mo stretchy="false">(</mo><mn>180</mn><mtext> mA</mtext><mo>×</mo><mn>0.2</mn><mi mathvariant="normal">%</mi><mo stretchy="false">)</mo></mrow></mfrac><mo>≈</mo><mn>6</mn><mo separator="true">,</mo><mn>000</mn><mo>+</mo><mtext> hours (250+ days)</mtext></mrow><annotation encoding="application/x-tex">\text{Battery Life} = \frac{2500\text{ mAh}}{(0.015\text{ mA} \times 99.8\%) + (180\text{ mA} \times 0.2\%)} \approx 6,000+\text{ hours (250+ days)}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="katex-base"><span class="katex-strut" style="height:0.8889em;vertical-align:-0.1944em;"></span><span class="mord text"><span class="mord">Battery Life</span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="katex-base"><span class="katex-strut" style="height:2.3074em;vertical-align:-0.936em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.3714em;"><span style="top:-2.314em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mopen">(</span><span class="mord">0.015</span><span class="mord text"><span class="mord"> mA</span></span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mord">99.8%</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mopen">(</span><span class="mord">180</span><span class="mord text"><span class="mord"> mA</span></span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mord">0.2%</span><span class="mclose">)</span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.677em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord">2500</span><span class="mord text"><span class="mord"> mAh</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.936em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">≈</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="katex-base"><span class="katex-strut" style="height:0.8389em;vertical-align:-0.1944em;"></span><span class="mord">6</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord">000</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="katex-base"><span class="katex-strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord text"><span class="mord"> hours (250+ days)</span></span></span></span></span></span></div><hr /><h2>2. Low-Power RF Protocol: ESP-NOW vs. LoRa</h2><p>Rather than connecting each remote sensor node to a heavy cellular or standard WiFi access point, we use <strong>ESP-NOW</strong>:</p><ul><li>A peer-to-peer 2.4GHz protocol developed by Espressif.</li><li>Zero TCP/IP handshake overhead: packets are sent in under 5 milliseconds.</li><li>Remote nodes blast telemetry to a central <strong>Solar Gateway</strong>, which then syncs the batch payload to the cloud over LTE/4G.</li></ul><hr /><h2>3. Capacitive vs. Resistive Soil Probes</h2><p>When selecting soil sensors:</p><ul><li><strong>Resistive Probes (Avoid in Production)</strong>: Pass direct current between two exposed metal prongs. Soil moisture causes rapid electrochemical oxidation, destroying the probe within weeks.</li><li><strong>Capacitive Probes (Production Standard)</strong>: The circuit traces are insulated inside solder mask resin. The probe measures capacitance changes in soil dielectric permittivity without corroding.</li></ul><hr /><p><strong>Explore sustainable agriculture technology and sensor engineering in our <a href="/training" target="_blank" rel="noopener noreferrer">Agritech Telemetry & Environmental Analytics Track</a>.</strong></p>
     </article>
     <div class="post-cta">
       <h2>Register at Kone School</h2>

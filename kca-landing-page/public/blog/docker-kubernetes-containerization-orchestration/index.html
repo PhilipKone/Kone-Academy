@@ -122,7 +122,7 @@
     :root {
       --bg-dark: #080c14;
       --card-bg: rgba(15, 23, 42, 0.7);
-      --accent-purple: #a855f7;
+      --accent-azure: #38bdf8;
       --text-main: #cbd5e1;
       --text-white: #ffffff;
     }
@@ -162,7 +162,7 @@
       font-weight: 700;
       text-transform: uppercase;
       letter-spacing: 1px;
-      color: var(--accent-purple);
+      color: var(--accent-azure);
       margin-bottom: 1rem;
     }
     .meta-dot {
@@ -219,15 +219,15 @@
     .post-body code {
       font-family: monospace;
       font-size: 0.9rem;
-      background: rgba(255, 255, 255, 0.04);
+      background: rgba(255, 255, 255, 0.05);
       padding: 3px 6px;
       border-radius: 4px;
-      color: #f472b6;
+      color: var(--accent-azure);
     }
     .post-body pre code { background: transparent; padding: 0; color: #e2e8f0; }
     .post-body blockquote {
-      border-left: 4px solid var(--accent-purple);
-      background: rgba(168, 85, 247, 0.03);
+      border-left: 3px solid var(--accent-azure);
+      background: rgba(56, 189, 248, 0.04);
       padding: 1.2rem 1.6rem;
       margin: 2rem 0;
       font-style: italic;
@@ -247,25 +247,31 @@
       margin: 2.5rem 0;
       padding: 1.6rem 2rem;
       background: rgba(15, 23, 42, 0.75);
-      border: 1px solid rgba(168, 85, 247, 0.2);
-      border-radius: 16px;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 12px;
       overflow-x: auto;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
+    }
+    .blog-math-display .katex {
+      color: #f8fafc;
     }
     .blog-table-container {
       width: 100%;
       overflow-x: auto;
       margin: 2.5rem 0;
-      border-radius: 16px;
+      border-radius: 12px;
       border: 1px solid rgba(255, 255, 255, 0.08);
       background: rgba(15, 23, 42, 0.6);
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
     }
     .blog-markdown-table { width: 100%; border-collapse: collapse; }
-    .blog-markdown-table th { padding: 1.1rem 1.4rem; font-weight: 700; color: #fff; background: rgba(30, 41, 59, 0.85); border-bottom: 2px solid rgba(168, 85, 247, 0.35); }
+    .blog-markdown-table th { padding: 1.1rem 1.4rem; font-weight: 700; color: #fff; background: rgba(30, 41, 59, 0.85); border-bottom: 1px solid rgba(255, 255, 255, 0.12); }
     .blog-markdown-table td { padding: 1rem 1.4rem; border-bottom: 1px solid rgba(255, 255, 255, 0.05); }
     .post-cta {
       margin-top: 5rem;
-      background: linear-gradient(135deg, rgba(168, 85, 247, 0.12) 0%, rgba(217, 70, 239, 0.04) 100%), rgba(15, 23, 42, 0.4);
-      border: 1px solid rgba(168, 85, 247, 0.2);
+      background: rgba(15, 23, 42, 0.7);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.35);
       border-radius: 20px;
       padding: 3rem;
       text-align: center;
@@ -279,6 +285,16 @@
       padding: 12px 28px;
       border-radius: 30px;
       text-decoration: none;
+    }
+    @media (max-width: 768px) {
+      body { padding: 1.5rem 1rem; }
+      .post-container { padding: 1.5rem 0; }
+      .post-title { font-size: 2rem; }
+      .blog-math-display { padding: 1.2rem 1rem; margin: 1.8rem 0; -webkit-overflow-scrolling: touch; }
+      .blog-table-container { margin: 1.8rem 0; -webkit-overflow-scrolling: touch; }
+      .blog-markdown-table th, .blog-markdown-table td { padding: 0.8rem 1rem; font-size: 0.88rem; }
+      .post-body pre { padding: 1rem; margin: 1.6rem 0; -webkit-overflow-scrolling: touch; }
+      .post-cta { padding: 2rem 1.2rem; }
     }
   </style>
 </head>
@@ -295,7 +311,7 @@
     <h1 class="post-title">Containerization to Orchestration: What Every Developer Must Know About Docker & Kubernetes</h1>
     <img src="/assets/blog/hero_agentic.webp" alt="Containerization to Orchestration: What Every Developer Must Know About Docker & Kubernetes" class="post-hero-img" />
     <article class="post-body">
-      <h2 style="font-size: 2rem; margin-top: 3.5rem; margin-bottom: 1.5rem; font-weight: 800; color: #fff;">Containerization to Orchestration: What Every Developer Must Know About Docker & Kubernetes</h2><p>The notorious phrase <em>"Well, it worked on my machine!"</em> has caused countless production outages. Variations in operating system packages, Node versions, and environment variables lead to unpredictable failures.</p><p>To build reliable cloud software, modern teams package code into <strong>immutable containers</strong> and deploy them using <strong>Kubernetes (K8s)</strong>.</p><p>At <strong>Kone Digital</strong>, we train engineers to build cloud infrastructure as code. Here is how modern container orchestration functions.</p><hr /><h2>📦 1. How Containers Actually Work</h2><p>A container is <strong>not</strong> a lightweight Virtual Machine (VM). A VM runs a full guest operating system on top of a hypervisor.</p><p>A container is simply a standard Linux process isolated using two Linux kernel primitives:</p><ol><li><strong>Namespaces</strong>: Isolates what the process can <strong>see</strong> (Process IDs <code>pid</code>, Network interfaces <code>net</code>, Mount points <code>mnt</code>, User IDs <code>user</code>).</li><li><strong>Control Groups (cgroups)</strong>: Restricts what the process can <strong>use</strong> (Limits CPU shares, RAM allocations, and disk I/O).</li></ol><hr /><h2>🛠️ 2. The Multi-Stage Dockerfile Pattern</h2><p>A common beginner mistake is deploying Docker images containing source code, test suites, and build tools. This inflates image sizes to over 1GB!</p><p>Use <strong>Multi-Stage Builds</strong> to produce lean, production-ready images:</p><pre><code># Stage 1: Build & Compile
+      <h2 style="font-size: 2rem; margin-top: 3.5rem; margin-bottom: 1.5rem; font-weight: 800; color: #fff;">Containerization to Orchestration: What Every Developer Must Know About Docker & Kubernetes</h2><p>The notorious phrase <em>"Well, it worked on my machine!"</em> has caused countless production outages. Variations in operating system packages, Node versions, and environment variables lead to unpredictable failures.</p><p>To build reliable cloud software, modern teams package code into <strong>immutable containers</strong> and deploy them using <strong>Kubernetes (K8s)</strong>.</p><p>At <strong>Kone Digital</strong>, we train engineers to build cloud infrastructure as code. Here is how modern container orchestration functions.</p><hr /><h2>1. How Containers Actually Work</h2><p>A container is <strong>not</strong> a lightweight Virtual Machine (VM). A VM runs a full guest operating system on top of a hypervisor.</p><p>A container is simply a standard Linux process isolated using two Linux kernel primitives:</p><ol><li><strong>Namespaces</strong>: Isolates what the process can <strong>see</strong> (Process IDs <code>pid</code>, Network interfaces <code>net</code>, Mount points <code>mnt</code>, User IDs <code>user</code>).</li><li><strong>Control Groups (cgroups)</strong>: Restricts what the process can <strong>use</strong> (Limits CPU shares, RAM allocations, and disk I/O).</li></ol><hr /><h2>2. The Multi-Stage Dockerfile Pattern</h2><p>A common beginner mistake is deploying Docker images containing source code, test suites, and build tools. This inflates image sizes to over 1GB!</p><p>Use <strong>Multi-Stage Builds</strong> to produce lean, production-ready images:</p><pre><code># Stage 1: Build & Compile
 FROM node:20-alpine AS builder
 WORKDIR /app
 COPY package*.json ./
@@ -314,7 +330,7 @@ COPY --from=builder /app/dist ./dist
 # Run as non-root user for security
 USER node
 EXPOSE 3000
-CMD ["node", "dist/server.js"]</code></pre><p><em>Result: Image size slashed from 1.2GB down to 65MB!</em></p><hr /><h2>☸️ 3. Kubernetes: The Cloud Operating System</h2><p>Once you have 50 microservices across 10 virtual machines, managing individual containers manually becomes impossible. That is where Kubernetes comes in:</p><ul><li><strong>Pods</strong>: The smallest deployable unit (one or more co-located containers).</li><li><strong>Deployments</strong>: Declares desired replica state (e.g. <em>"keep 3 instances running"</em>). If a node crashes, K8s automatically schedules replacement pods elsewhere.</li><li><strong>Services & Ingress</strong>: Provides stable internal DNS and external HTTPS load balancing.</li></ul><hr /><p><strong>Learn Docker, Kubernetes, Terraform, and cloud automation in our <a href="/training" target="_blank" rel="noopener noreferrer">Cloud Infrastructure & DevOps Automation Track</a>.</strong></p>
+CMD ["node", "dist/server.js"]</code></pre><p><em>Result: Image size slashed from 1.2GB down to 65MB!</em></p><hr /><h2>3. Kubernetes: The Cloud Operating System</h2><p>Once you have 50 microservices across 10 virtual machines, managing individual containers manually becomes impossible. That is where Kubernetes comes in:</p><ul><li><strong>Pods</strong>: The smallest deployable unit (one or more co-located containers).</li><li><strong>Deployments</strong>: Declares desired replica state (e.g. <em>"keep 3 instances running"</em>). If a node crashes, K8s automatically schedules replacement pods elsewhere.</li><li><strong>Services & Ingress</strong>: Provides stable internal DNS and external HTTPS load balancing.</li></ul><hr /><p><strong>Learn Docker, Kubernetes, Terraform, and cloud automation in our <a href="/training" target="_blank" rel="noopener noreferrer">Cloud Infrastructure & DevOps Automation Track</a>.</strong></p>
     </article>
     <div class="post-cta">
       <h2>Register at Kone School</h2>

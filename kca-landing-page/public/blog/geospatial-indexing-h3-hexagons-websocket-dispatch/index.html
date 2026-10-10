@@ -122,7 +122,7 @@
     :root {
       --bg-dark: #080c14;
       --card-bg: rgba(15, 23, 42, 0.7);
-      --accent-purple: #a855f7;
+      --accent-azure: #38bdf8;
       --text-main: #cbd5e1;
       --text-white: #ffffff;
     }
@@ -162,7 +162,7 @@
       font-weight: 700;
       text-transform: uppercase;
       letter-spacing: 1px;
-      color: var(--accent-purple);
+      color: var(--accent-azure);
       margin-bottom: 1rem;
     }
     .meta-dot {
@@ -219,15 +219,15 @@
     .post-body code {
       font-family: monospace;
       font-size: 0.9rem;
-      background: rgba(255, 255, 255, 0.04);
+      background: rgba(255, 255, 255, 0.05);
       padding: 3px 6px;
       border-radius: 4px;
-      color: #f472b6;
+      color: var(--accent-azure);
     }
     .post-body pre code { background: transparent; padding: 0; color: #e2e8f0; }
     .post-body blockquote {
-      border-left: 4px solid var(--accent-purple);
-      background: rgba(168, 85, 247, 0.03);
+      border-left: 3px solid var(--accent-azure);
+      background: rgba(56, 189, 248, 0.04);
       padding: 1.2rem 1.6rem;
       margin: 2rem 0;
       font-style: italic;
@@ -247,25 +247,31 @@
       margin: 2.5rem 0;
       padding: 1.6rem 2rem;
       background: rgba(15, 23, 42, 0.75);
-      border: 1px solid rgba(168, 85, 247, 0.2);
-      border-radius: 16px;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 12px;
       overflow-x: auto;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
+    }
+    .blog-math-display .katex {
+      color: #f8fafc;
     }
     .blog-table-container {
       width: 100%;
       overflow-x: auto;
       margin: 2.5rem 0;
-      border-radius: 16px;
+      border-radius: 12px;
       border: 1px solid rgba(255, 255, 255, 0.08);
       background: rgba(15, 23, 42, 0.6);
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
     }
     .blog-markdown-table { width: 100%; border-collapse: collapse; }
-    .blog-markdown-table th { padding: 1.1rem 1.4rem; font-weight: 700; color: #fff; background: rgba(30, 41, 59, 0.85); border-bottom: 2px solid rgba(168, 85, 247, 0.35); }
+    .blog-markdown-table th { padding: 1.1rem 1.4rem; font-weight: 700; color: #fff; background: rgba(30, 41, 59, 0.85); border-bottom: 1px solid rgba(255, 255, 255, 0.12); }
     .blog-markdown-table td { padding: 1rem 1.4rem; border-bottom: 1px solid rgba(255, 255, 255, 0.05); }
     .post-cta {
       margin-top: 5rem;
-      background: linear-gradient(135deg, rgba(168, 85, 247, 0.12) 0%, rgba(217, 70, 239, 0.04) 100%), rgba(15, 23, 42, 0.4);
-      border: 1px solid rgba(168, 85, 247, 0.2);
+      background: rgba(15, 23, 42, 0.7);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.35);
       border-radius: 20px;
       padding: 3rem;
       text-align: center;
@@ -279,6 +285,16 @@
       padding: 12px 28px;
       border-radius: 30px;
       text-decoration: none;
+    }
+    @media (max-width: 768px) {
+      body { padding: 1.5rem 1rem; }
+      .post-container { padding: 1.5rem 0; }
+      .post-title { font-size: 2rem; }
+      .blog-math-display { padding: 1.2rem 1rem; margin: 1.8rem 0; -webkit-overflow-scrolling: touch; }
+      .blog-table-container { margin: 1.8rem 0; -webkit-overflow-scrolling: touch; }
+      .blog-markdown-table th, .blog-markdown-table td { padding: 0.8rem 1rem; font-size: 0.88rem; }
+      .post-body pre { padding: 1rem; margin: 1.6rem 0; -webkit-overflow-scrolling: touch; }
+      .post-cta { padding: 2rem 1.2rem; }
     }
   </style>
 </head>
@@ -297,7 +313,7 @@
     <article class="post-body">
       <h2 style="font-size: 2rem; margin-top: 3.5rem; margin-bottom: 1.5rem; font-weight: 800; color: #fff;">Geospatial Indexing at Scale: H3 Hexagons and Real-Time WebSocket Dispatch</h2><p>Imagine you run an on-demand ride-hailing and courier dispatch platform like <strong>Kone Warp</strong>. Every two seconds, 20,000 drivers broadcast their GPS coordinates: <code>{ lat: 5.6037, lng: -0.1870 }</code>.</p><p>If a rider opens the app and requests a car, how do you find the closest 10 available drivers?</p><p>If you run a naive SQL query with distance calculations:</p><pre><code>-- ANTI-PATTERN: Scans all rows and computes spherical trigonometry on every ping
 SELECT * FROM drivers 
-WHERE ST_DWithin(geom, ST_MakePoint(-0.1870, 5.6037)::geography, 3000);</code></pre><p>Your database CPU will reach 100% within seconds under production load. Here is how modern logistics systems solve geospatial search at scale.</p><hr /><h2>🛑 1. Why Squares and Geohashes Fall Short</h2><p>Traditional map partitioning divides the globe into rectangular grids (Geohashes or Quadkeys). However, rectangles have a critical mathematical flaw:</p><ul><li>Neighbors across an edge share a center distance of <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>1.0</mn></mrow><annotation encoding="application/x-tex">1.0</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="katex-base"><span class="katex-strut" style="height:0.6444em;"></span><span class="mord">1.0</span></span></span></span>.</li><li>Neighbors across a diagonal corner share a center distance of <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msqrt><mn>2</mn></msqrt><mo>≈</mo><mn>1.414</mn></mrow><annotation encoding="application/x-tex">\sqrt{2} \approx 1.414</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="katex-base"><span class="katex-strut" style="height:1.04em;vertical-align:-0.1328em;"></span><span class="mord sqrt"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.9072em;"><span class="svg-align" style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="mord" style="padding-left:0.833em;"><span class="mord">2</span></span></span><span style="top:-2.8672em;"><span class="pstrut" style="height:3em;"></span><span class="hide-tail" style="min-width:0.853em;height:1.08em;"><svg xmlns="http://www.w3.org/2000/svg" width="400em" height="1.08em" viewBox="0 0 400000 1080" preserveAspectRatio="xMinYMin slice"><path d="M95,702
+WHERE ST_DWithin(geom, ST_MakePoint(-0.1870, 5.6037)::geography, 3000);</code></pre><p>Your database CPU will reach 100% within seconds under production load. Here is how modern logistics systems solve geospatial search at scale.</p><hr /><h2>1. Why Squares and Geohashes Fall Short</h2><p>Traditional map partitioning divides the globe into rectangular grids (Geohashes or Quadkeys). However, rectangles have a critical mathematical flaw:</p><ul><li>Neighbors across an edge share a center distance of <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>1.0</mn></mrow><annotation encoding="application/x-tex">1.0</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="katex-base"><span class="katex-strut" style="height:0.6444em;"></span><span class="mord">1.0</span></span></span></span>.</li><li>Neighbors across a diagonal corner share a center distance of <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msqrt><mn>2</mn></msqrt><mo>≈</mo><mn>1.414</mn></mrow><annotation encoding="application/x-tex">\sqrt{2} \approx 1.414</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="katex-base"><span class="katex-strut" style="height:1.04em;vertical-align:-0.1328em;"></span><span class="mord sqrt"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.9072em;"><span class="svg-align" style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="mord" style="padding-left:0.833em;"><span class="mord">2</span></span></span><span style="top:-2.8672em;"><span class="pstrut" style="height:3em;"></span><span class="hide-tail" style="min-width:0.853em;height:1.08em;"><svg xmlns="http://www.w3.org/2000/svg" width="400em" height="1.08em" viewBox="0 0 400000 1080" preserveAspectRatio="xMinYMin slice"><path d="M95,702
 c-2.7,0,-7.17,-2.7,-13.5,-8c-5.8,-5.3,-9.5,-10,-9.5,-14
 c0,-2,0.3,-3.3,1,-4c1.3,-2.7,23.83,-20.7,67.5,-54
 c44.2,-33.3,65.8,-50.3,66.5,-51c1.3,-1.3,3,-2,5,-2c4.7,0,8.7,3.3,12,10
@@ -308,7 +324,7 @@ c5.3,-9.3,12,-14,20,-14
 H400000v40H845.2724
 s-225.272,467,-225.272,467s-235,486,-235,486c-2.7,4.7,-9,7,-19,7
 c-6,0,-10,-1,-12,-3s-194,-422,-194,-422s-65,47,-65,47z
-M834 80h400000v40h-400000z"/></svg></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.1328em;"><span></span></span></span></span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">≈</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="katex-base"><span class="katex-strut" style="height:0.6444em;"></span><span class="mord">1.414</span></span></span></span>.</li></ul><p>This dimensional asymmetry complicates proximity search and radius calculations.</p><hr /><h2>⬡ 2. The Power of H3 Hexagons</h2><p>Developed by Uber and now an open-source standard, <strong>H3</strong> partitions the surface of the Earth into discrete, hierarchically nested <strong>hexagonal cells</strong>.</p><h3>The Advantages of Hexagonal Symmetry:</h3><ol><li><strong>Identical Neighbor Distances</strong>: Every hexagon has exactly 6 neighbors, and the distance to the center of every adjacent cell is mathematically identical.</li><li><strong>Aperture 7 Hierarchies</strong>: H3 supports 16 resolutions—from Resolution 0 (continental scales) down to Resolution 15 (sub-meter accuracy).</li><li><strong>Instant Integer Bitmasking</strong>: An H3 index is stored as a compact 64-bit unsigned integer (<code>0x8858a554a9fffff</code>), allowing <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>O</mi><mo stretchy="false">(</mo><mn>1</mn><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">O(1)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="katex-base"><span class="katex-strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.0278em;">O</span><span class="mopen">(</span><span class="mord">1</span><span class="mclose">)</span></span></span></span> memory lookups in Redis or in-memory hash sets.</li></ol><hr /><h2>⚡ 3. The Real-Time Dispatch Architecture</h2><pre><code>[ Driver GPS Ping ] ──&gt; WebSocket Gateway ──&gt; Compute H3 Index (Res 8)
+M834 80h400000v40h-400000z"/></svg></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.1328em;"><span></span></span></span></span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">≈</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="katex-base"><span class="katex-strut" style="height:0.6444em;"></span><span class="mord">1.414</span></span></span></span>.</li></ul><p>This dimensional asymmetry complicates proximity search and radius calculations.</p><hr /><h2>2. The Power of H3 Hexagons</h2><p>Developed by Uber and now an open-source standard, <strong>H3</strong> partitions the surface of the Earth into discrete, hierarchically nested <strong>hexagonal cells</strong>.</p><h3>The Advantages of Hexagonal Symmetry:</h3><ol><li><strong>Identical Neighbor Distances</strong>: Every hexagon has exactly 6 neighbors, and the distance to the center of every adjacent cell is mathematically identical.</li><li><strong>Aperture 7 Hierarchies</strong>: H3 supports 16 resolutions—from Resolution 0 (continental scales) down to Resolution 15 (sub-meter accuracy).</li><li><strong>Instant Integer Bitmasking</strong>: An H3 index is stored as a compact 64-bit unsigned integer (<code>0x8858a554a9fffff</code>), allowing <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>O</mi><mo stretchy="false">(</mo><mn>1</mn><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">O(1)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="katex-base"><span class="katex-strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.0278em;">O</span><span class="mopen">(</span><span class="mord">1</span><span class="mclose">)</span></span></span></span> memory lookups in Redis or in-memory hash sets.</li></ol><hr /><h2>3. The Real-Time Dispatch Architecture</h2><pre><code>[ Driver GPS Ping ] ──&gt; WebSocket Gateway ──&gt; Compute H3 Index (Res 8)
                                                         │
                                                         ▼
                                        Redis Pub/Sub Channel: 'h3:8858a554'

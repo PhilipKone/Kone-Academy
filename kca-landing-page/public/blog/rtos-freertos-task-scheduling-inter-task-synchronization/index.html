@@ -122,7 +122,7 @@
     :root {
       --bg-dark: #080c14;
       --card-bg: rgba(15, 23, 42, 0.7);
-      --accent-purple: #a855f7;
+      --accent-azure: #38bdf8;
       --text-main: #cbd5e1;
       --text-white: #ffffff;
     }
@@ -162,7 +162,7 @@
       font-weight: 700;
       text-transform: uppercase;
       letter-spacing: 1px;
-      color: var(--accent-purple);
+      color: var(--accent-azure);
       margin-bottom: 1rem;
     }
     .meta-dot {
@@ -219,15 +219,15 @@
     .post-body code {
       font-family: monospace;
       font-size: 0.9rem;
-      background: rgba(255, 255, 255, 0.04);
+      background: rgba(255, 255, 255, 0.05);
       padding: 3px 6px;
       border-radius: 4px;
-      color: #f472b6;
+      color: var(--accent-azure);
     }
     .post-body pre code { background: transparent; padding: 0; color: #e2e8f0; }
     .post-body blockquote {
-      border-left: 4px solid var(--accent-purple);
-      background: rgba(168, 85, 247, 0.03);
+      border-left: 3px solid var(--accent-azure);
+      background: rgba(56, 189, 248, 0.04);
       padding: 1.2rem 1.6rem;
       margin: 2rem 0;
       font-style: italic;
@@ -247,25 +247,31 @@
       margin: 2.5rem 0;
       padding: 1.6rem 2rem;
       background: rgba(15, 23, 42, 0.75);
-      border: 1px solid rgba(168, 85, 247, 0.2);
-      border-radius: 16px;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 12px;
       overflow-x: auto;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
+    }
+    .blog-math-display .katex {
+      color: #f8fafc;
     }
     .blog-table-container {
       width: 100%;
       overflow-x: auto;
       margin: 2.5rem 0;
-      border-radius: 16px;
+      border-radius: 12px;
       border: 1px solid rgba(255, 255, 255, 0.08);
       background: rgba(15, 23, 42, 0.6);
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
     }
     .blog-markdown-table { width: 100%; border-collapse: collapse; }
-    .blog-markdown-table th { padding: 1.1rem 1.4rem; font-weight: 700; color: #fff; background: rgba(30, 41, 59, 0.85); border-bottom: 2px solid rgba(168, 85, 247, 0.35); }
+    .blog-markdown-table th { padding: 1.1rem 1.4rem; font-weight: 700; color: #fff; background: rgba(30, 41, 59, 0.85); border-bottom: 1px solid rgba(255, 255, 255, 0.12); }
     .blog-markdown-table td { padding: 1rem 1.4rem; border-bottom: 1px solid rgba(255, 255, 255, 0.05); }
     .post-cta {
       margin-top: 5rem;
-      background: linear-gradient(135deg, rgba(168, 85, 247, 0.12) 0%, rgba(217, 70, 239, 0.04) 100%), rgba(15, 23, 42, 0.4);
-      border: 1px solid rgba(168, 85, 247, 0.2);
+      background: rgba(15, 23, 42, 0.7);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.35);
       border-radius: 20px;
       padding: 3rem;
       text-align: center;
@@ -279,6 +285,16 @@
       padding: 12px 28px;
       border-radius: 30px;
       text-decoration: none;
+    }
+    @media (max-width: 768px) {
+      body { padding: 1.5rem 1rem; }
+      .post-container { padding: 1.5rem 0; }
+      .post-title { font-size: 2rem; }
+      .blog-math-display { padding: 1.2rem 1rem; margin: 1.8rem 0; -webkit-overflow-scrolling: touch; }
+      .blog-table-container { margin: 1.8rem 0; -webkit-overflow-scrolling: touch; }
+      .blog-markdown-table th, .blog-markdown-table td { padding: 0.8rem 1rem; font-size: 0.88rem; }
+      .post-body pre { padding: 1rem; margin: 1.6rem 0; -webkit-overflow-scrolling: touch; }
+      .post-cta { padding: 2rem 1.2rem; }
     }
   </style>
 </head>
@@ -300,7 +316,7 @@
     update_motor_pwm();
     transmit_telemetry();
     delay(100);
-}</code></pre><p>This pattern works well for elementary hobby prototypes. But in commercial firmware—such as an automated braking controller, agricultural drone, or biometric terminal—a blocking sensor read or network transmission stalls critical control loops, causing catastrophic failure.</p><p>To build deterministic, fault-tolerant hardware systems, we must transition to a <strong>Real-Time Operating System (RTOS)</strong>.</p><hr /><h2>⚙️ 1. Preemptive Fixed-Priority Scheduling</h2><p>Unlike desktop operating systems (Linux/Windows) that optimize for fair throughput, an RTOS like <strong>FreeRTOS</strong> optimizes for <strong>strict temporal determinism</strong>:</p><ul><li>Each task is assigned a numerical priority (e.g., <code>0</code> lowest to <code>configMAX_PRIORITIES - 1</code> highest).</li><li>The scheduler guarantees that the <strong>highest priority task ready to run</strong> will always execute immediately.</li><li>If a higher-priority task transitions from <em>Blocked</em> to <em>Ready</em> (e.g., an interrupt signals new telemetry), the running lower-priority task is <strong>preempted</strong> on the next CPU tick.</li></ul><h3>Context Switching on ARM Cortex-M</h3><p>On ARM Cortex-M microcontrollers (STM32, ESP32, nRF52), FreeRTOS uses two specialized hardware exception handlers:</p><ol><li><strong>SysTick Timer</strong>: Generates periodic timer interrupts (typically every 1ms).</li><li><strong>PendSV (Pipelined Service Call)</strong>: Low-priority exception used to swap register frames (<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>R</mi><mn>0</mn><mo>−</mo><mi>R</mi><mn>3</mn><mo separator="true">,</mo><mi>R</mi><mn>12</mn><mo separator="true">,</mo><mi>L</mi><mi>R</mi><mo separator="true">,</mo><mi>P</mi><mi>C</mi><mo separator="true">,</mo><mi>x</mi><mi>P</mi><mi>S</mi><mi>R</mi></mrow><annotation encoding="application/x-tex">R0-R3, R12, LR, PC, xPSR</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="katex-base"><span class="katex-strut" style="height:0.7667em;vertical-align:-0.0833em;"></span><span class="mord mathnormal" style="margin-right:0.0077em;">R</span><span class="mord">0</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="katex-base"><span class="katex-strut" style="height:0.8778em;vertical-align:-0.1944em;"></span><span class="mord mathnormal" style="margin-right:0.0077em;">R</span><span class="mord">3</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal" style="margin-right:0.0077em;">R</span><span class="mord">12</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal">L</span><span class="mord mathnormal" style="margin-right:0.0077em;">R</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal" style="margin-right:0.1389em;">P</span><span class="mord mathnormal" style="margin-right:0.0715em;">C</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal">x</span><span class="mord mathnormal" style="margin-right:0.1389em;">P</span><span class="mord mathnormal" style="margin-right:0.0576em;">S</span><span class="mord mathnormal" style="margin-right:0.0077em;">R</span></span></span></span>) to task stacks without disturbing urgent peripheral interrupts.</li></ol><hr /><h2>🚦 2. Synchronization Primitives: Mutexes vs. Semaphores</h2><p>A frequent source of embedded firmware bugs is treating Semaphores and Mutexes as interchangeable:</p><div class="blog-table-container"><table class="blog-markdown-table"><thead><tr><th>Primitive</th><th>Mechanism</th><th>Primary Use Case</th><th>Ownership</th></tr></thead><tbody><tr><td><strong>Binary Semaphore</strong></td><td>Signaling flag (0 or 1)</td><td>Task-to-task or ISR-to-task signaling</td><td>No concept of ownership</td></tr><tr><td><strong>Counting Semaphore</strong></td><td>Token bucket (<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>0</mn></mrow><annotation encoding="application/x-tex">0</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="katex-base"><span class="katex-strut" style="height:0.6444em;"></span><span class="mord">0</span></span></span></span> to <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>N</mi></mrow><annotation encoding="application/x-tex">N</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="katex-base"><span class="katex-strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.109em;">N</span></span></span></span>)</td><td>Managing shared pools of resources</td><td>No ownership</td></tr><tr><td><strong>Mutex</strong></td><td>Locking token</td><td>Exclusive resource access (I2C bus, UART)</td><td>Owned by locking task; supports priority inheritance</td></tr></tbody></table></div><hr /><h2>⚠️ 3. The Classic Priority Inversion Catastrophe</h2><p>Consider three tasks:</p><ul><li><strong>High Priority (Task H)</strong>: Flight navigation guidance (Priority 3)</li><li><strong>Medium Priority (Task M)</strong>: Communications processing (Priority 2)</li><li><strong>Low Priority (Task L)</strong>: Data logger reading an I2C sensor (Priority 1)</li></ul><ol><li>Task L acquires the I2C mutex.</li><li>Task H preempts Task L and attempts to acquire the I2C mutex. Since it is locked, Task H enters the <em>Blocked</em> state.</li><li>Task M wakes up. Because Task M has priority 2 (higher than Task L's priority 1), Task M preempts Task L.</li><li><strong>Catastrophe</strong>: Task L cannot finish its work to release the mutex. Task M is running, while Task H (the most critical task) is starved! This exact bug caused the Mars Pathfinder spacecraft to reboot continuously on Mars in 1997.</li></ol><h3>The Solution: Priority Inheritance</h3><p>FreeRTOS Mutexes implement <strong>Priority Inheritance</strong>: when Task H blocks on a mutex held by Task L, Task L's priority is temporarily boosted to match Task H. Task M cannot preempt Task L, allowing Task L to quickly release the mutex.</p><hr /><h2>💻 4. Practical FreeRTOS Producer-Consumer Pattern</h2><pre><code>#include "FreeRTOS.h"
+}</code></pre><p>This pattern works well for elementary hobby prototypes. But in commercial firmware—such as an automated braking controller, agricultural drone, or biometric terminal—a blocking sensor read or network transmission stalls critical control loops, causing catastrophic failure.</p><p>To build deterministic, fault-tolerant hardware systems, we must transition to a <strong>Real-Time Operating System (RTOS)</strong>.</p><hr /><h2>1. Preemptive Fixed-Priority Scheduling</h2><p>Unlike desktop operating systems (Linux/Windows) that optimize for fair throughput, an RTOS like <strong>FreeRTOS</strong> optimizes for <strong>strict temporal determinism</strong>:</p><ul><li>Each task is assigned a numerical priority (e.g., <code>0</code> lowest to <code>configMAX_PRIORITIES - 1</code> highest).</li><li>The scheduler guarantees that the <strong>highest priority task ready to run</strong> will always execute immediately.</li><li>If a higher-priority task transitions from <em>Blocked</em> to <em>Ready</em> (e.g., an interrupt signals new telemetry), the running lower-priority task is <strong>preempted</strong> on the next CPU tick.</li></ul><h3>Context Switching on ARM Cortex-M</h3><p>On ARM Cortex-M microcontrollers (STM32, ESP32, nRF52), FreeRTOS uses two specialized hardware exception handlers:</p><ol><li><strong>SysTick Timer</strong>: Generates periodic timer interrupts (typically every 1ms).</li><li><strong>PendSV (Pipelined Service Call)</strong>: Low-priority exception used to swap register frames (<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>R</mi><mn>0</mn><mo>−</mo><mi>R</mi><mn>3</mn><mo separator="true">,</mo><mi>R</mi><mn>12</mn><mo separator="true">,</mo><mi>L</mi><mi>R</mi><mo separator="true">,</mo><mi>P</mi><mi>C</mi><mo separator="true">,</mo><mi>x</mi><mi>P</mi><mi>S</mi><mi>R</mi></mrow><annotation encoding="application/x-tex">R0-R3, R12, LR, PC, xPSR</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="katex-base"><span class="katex-strut" style="height:0.7667em;vertical-align:-0.0833em;"></span><span class="mord mathnormal" style="margin-right:0.0077em;">R</span><span class="mord">0</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="katex-base"><span class="katex-strut" style="height:0.8778em;vertical-align:-0.1944em;"></span><span class="mord mathnormal" style="margin-right:0.0077em;">R</span><span class="mord">3</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal" style="margin-right:0.0077em;">R</span><span class="mord">12</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal">L</span><span class="mord mathnormal" style="margin-right:0.0077em;">R</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal" style="margin-right:0.1389em;">P</span><span class="mord mathnormal" style="margin-right:0.0715em;">C</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal">x</span><span class="mord mathnormal" style="margin-right:0.1389em;">P</span><span class="mord mathnormal" style="margin-right:0.0576em;">S</span><span class="mord mathnormal" style="margin-right:0.0077em;">R</span></span></span></span>) to task stacks without disturbing urgent peripheral interrupts.</li></ol><hr /><h2>2. Synchronization Primitives: Mutexes vs. Semaphores</h2><p>A frequent source of embedded firmware bugs is treating Semaphores and Mutexes as interchangeable:</p><div class="blog-table-container"><table class="blog-markdown-table"><thead><tr><th>Primitive</th><th>Mechanism</th><th>Primary Use Case</th><th>Ownership</th></tr></thead><tbody><tr><td><strong>Binary Semaphore</strong></td><td>Signaling flag (0 or 1)</td><td>Task-to-task or ISR-to-task signaling</td><td>No concept of ownership</td></tr><tr><td><strong>Counting Semaphore</strong></td><td>Token bucket (<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>0</mn></mrow><annotation encoding="application/x-tex">0</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="katex-base"><span class="katex-strut" style="height:0.6444em;"></span><span class="mord">0</span></span></span></span> to <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>N</mi></mrow><annotation encoding="application/x-tex">N</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="katex-base"><span class="katex-strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.109em;">N</span></span></span></span>)</td><td>Managing shared pools of resources</td><td>No ownership</td></tr><tr><td><strong>Mutex</strong></td><td>Locking token</td><td>Exclusive resource access (I2C bus, UART)</td><td>Owned by locking task; supports priority inheritance</td></tr></tbody></table></div><hr /><h2>3. The Classic Priority Inversion Catastrophe</h2><p>Consider three tasks:</p><ul><li><strong>High Priority (Task H)</strong>: Flight navigation guidance (Priority 3)</li><li><strong>Medium Priority (Task M)</strong>: Communications processing (Priority 2)</li><li><strong>Low Priority (Task L)</strong>: Data logger reading an I2C sensor (Priority 1)</li></ul><ol><li>Task L acquires the I2C mutex.</li><li>Task H preempts Task L and attempts to acquire the I2C mutex. Since it is locked, Task H enters the <em>Blocked</em> state.</li><li>Task M wakes up. Because Task M has priority 2 (higher than Task L's priority 1), Task M preempts Task L.</li><li><strong>Catastrophe</strong>: Task L cannot finish its work to release the mutex. Task M is running, while Task H (the most critical task) is starved! This exact bug caused the Mars Pathfinder spacecraft to reboot continuously on Mars in 1997.</li></ol><h3>The Solution: Priority Inheritance</h3><p>FreeRTOS Mutexes implement <strong>Priority Inheritance</strong>: when Task H blocks on a mutex held by Task L, Task L's priority is temporarily boosted to match Task H. Task M cannot preempt Task L, allowing Task L to quickly release the mutex.</p><hr /><h2>4. Practical FreeRTOS Producer-Consumer Pattern</h2><pre><code>#include "FreeRTOS.h"
 #include "task.h"
 #include "queue.h"
 
@@ -343,7 +359,7 @@ void SensorReadTask(void *pvParameters) {
         // Sleep until exact next 50ms period (no drift)
         vTaskDelayUntil(&xLastWakeTime, xFrequency);
     }
-}</code></pre><hr /><h2>🎓 The Kone Lab Engineering Standard</h2><p>At <strong>Kone Lab</strong>, our students construct autonomous robotics and edge telemetry devices utilizing FreeRTOS and bare-metal ARM firmware, teaching them how to build hardware products that never crash.</p>
+}</code></pre><hr /><h2>The Kone Lab Engineering Standard</h2><p>At <strong>Kone Lab</strong>, our students construct autonomous robotics and edge telemetry devices utilizing FreeRTOS and bare-metal ARM firmware, teaching them how to build hardware products that never crash.</p>
     </article>
     <div class="post-cta">
       <h2>Register at Kone School</h2>

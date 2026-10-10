@@ -122,7 +122,7 @@
     :root {
       --bg-dark: #080c14;
       --card-bg: rgba(15, 23, 42, 0.7);
-      --accent-purple: #a855f7;
+      --accent-azure: #38bdf8;
       --text-main: #cbd5e1;
       --text-white: #ffffff;
     }
@@ -162,7 +162,7 @@
       font-weight: 700;
       text-transform: uppercase;
       letter-spacing: 1px;
-      color: var(--accent-purple);
+      color: var(--accent-azure);
       margin-bottom: 1rem;
     }
     .meta-dot {
@@ -219,15 +219,15 @@
     .post-body code {
       font-family: monospace;
       font-size: 0.9rem;
-      background: rgba(255, 255, 255, 0.04);
+      background: rgba(255, 255, 255, 0.05);
       padding: 3px 6px;
       border-radius: 4px;
-      color: #f472b6;
+      color: var(--accent-azure);
     }
     .post-body pre code { background: transparent; padding: 0; color: #e2e8f0; }
     .post-body blockquote {
-      border-left: 4px solid var(--accent-purple);
-      background: rgba(168, 85, 247, 0.03);
+      border-left: 3px solid var(--accent-azure);
+      background: rgba(56, 189, 248, 0.04);
       padding: 1.2rem 1.6rem;
       margin: 2rem 0;
       font-style: italic;
@@ -247,25 +247,31 @@
       margin: 2.5rem 0;
       padding: 1.6rem 2rem;
       background: rgba(15, 23, 42, 0.75);
-      border: 1px solid rgba(168, 85, 247, 0.2);
-      border-radius: 16px;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 12px;
       overflow-x: auto;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
+    }
+    .blog-math-display .katex {
+      color: #f8fafc;
     }
     .blog-table-container {
       width: 100%;
       overflow-x: auto;
       margin: 2.5rem 0;
-      border-radius: 16px;
+      border-radius: 12px;
       border: 1px solid rgba(255, 255, 255, 0.08);
       background: rgba(15, 23, 42, 0.6);
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
     }
     .blog-markdown-table { width: 100%; border-collapse: collapse; }
-    .blog-markdown-table th { padding: 1.1rem 1.4rem; font-weight: 700; color: #fff; background: rgba(30, 41, 59, 0.85); border-bottom: 2px solid rgba(168, 85, 247, 0.35); }
+    .blog-markdown-table th { padding: 1.1rem 1.4rem; font-weight: 700; color: #fff; background: rgba(30, 41, 59, 0.85); border-bottom: 1px solid rgba(255, 255, 255, 0.12); }
     .blog-markdown-table td { padding: 1rem 1.4rem; border-bottom: 1px solid rgba(255, 255, 255, 0.05); }
     .post-cta {
       margin-top: 5rem;
-      background: linear-gradient(135deg, rgba(168, 85, 247, 0.12) 0%, rgba(217, 70, 239, 0.04) 100%), rgba(15, 23, 42, 0.4);
-      border: 1px solid rgba(168, 85, 247, 0.2);
+      background: rgba(15, 23, 42, 0.7);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.35);
       border-radius: 20px;
       padding: 3rem;
       text-align: center;
@@ -279,6 +285,16 @@
       padding: 12px 28px;
       border-radius: 30px;
       text-decoration: none;
+    }
+    @media (max-width: 768px) {
+      body { padding: 1.5rem 1rem; }
+      .post-container { padding: 1.5rem 0; }
+      .post-title { font-size: 2rem; }
+      .blog-math-display { padding: 1.2rem 1rem; margin: 1.8rem 0; -webkit-overflow-scrolling: touch; }
+      .blog-table-container { margin: 1.8rem 0; -webkit-overflow-scrolling: touch; }
+      .blog-markdown-table th, .blog-markdown-table td { padding: 0.8rem 1rem; font-size: 0.88rem; }
+      .post-body pre { padding: 1rem; margin: 1.6rem 0; -webkit-overflow-scrolling: touch; }
+      .post-cta { padding: 2rem 1.2rem; }
     }
   </style>
 </head>
@@ -295,7 +311,7 @@
     <h1 class="post-title">Bridging the Logic Gap: Why Early STEM and Physical Prototyping Shape Master Engineers</h1>
     <img src="/assets/blog/stem_robotics_kids.webp" alt="Bridging the Logic Gap: Why Early STEM and Physical Prototyping Shape Master Engineers" class="post-hero-img" />
     <article class="post-body">
-      <h2 style="font-size: 2rem; margin-top: 3.5rem; margin-bottom: 1.5rem; font-weight: 800; color: #fff;">Bridging the Logic Gap: Why Early STEM and Physical Prototyping Shape Master Engineers</h2><p>When young students first encounter programming, they are frequently confronted with cryptic syntax errors like <code>SyntaxError: Unexpected token '}'</code> or missing semicolons. For an eight-year-old or ten-year-old, this cognitive overhead can shut down curiosity before it ever starts.</p><p>At <strong>Kone Kids</strong>, we designed our youth curriculum around a different premise: <strong>Logic first, syntax second, physical feedback always.</strong></p><hr /><h2>🧩 1. The Power of Block-Based Abstraction</h2><p>Visual block programming environments (like Scratch and Blockly) eliminate syntax frustration by making syntax errors physically impossible. Blocks only snap together if their types and logical conditions are compatible.</p><p>This allows young minds to focus 100% of their cognitive bandwidth on foundational computer science principles:</p><ul><li><strong>Sequence</strong>: The order in which actions occur.</li><li><strong>Conditionals</strong>: If the obstacle sensor detects a wall, turn left; otherwise, drive straight.</li><li><strong>Repetition</strong>: Looping an action until a goal is achieved.</li><li><strong>Variables</strong>: Keeping score or tracking battery life.</li></ul><hr /><h2>🤖 2. Why Physical Hardware Accelerates Learning</h2><p>When a student writes a program that prints words to a laptop screen, it feels abstract. But when their code causes a robotic car to spin its wheels, illuminates an RGB LED matrix, or sounds an alarm when their bedroom door opens, programming becomes <strong>real</strong>.</p><p>Physical computing establishes an immediate cause-and-effect relationship:</p><ol><li>Write the code.</li><li>Flash the microcontroller (Micro:bit or ESP32).</li><li>Observe physical motion in the real world.</li><li>If it bumps into a chair, debug the sensor loop!</li></ol><p>This iterative feedback loop transforms debugging from a frustrating roadblock into an engaging, gamified puzzle.</p><hr /><h2>🚀 3. The Graduation to Typed Code</h2><p>Once a student masters algorithmic thinking through blocks and hardware sensors, transitioning to typed Python or JavaScript is remarkably smooth. They already know <em>what</em> an array or a while-loop does—they simply need to learn the keyboard punctuation to express it.</p><hr /><p><strong>Discover our engaging youth robotics, Scratch, and Micro:bit programs in the <a href="/training" target="_blank" rel="noopener noreferrer">Gamified Youth STEM & Robotics Track</a>.</strong></p>
+      <h2 style="font-size: 2rem; margin-top: 3.5rem; margin-bottom: 1.5rem; font-weight: 800; color: #fff;">Bridging the Logic Gap: Why Early STEM and Physical Prototyping Shape Master Engineers</h2><p>When young students first encounter programming, they are frequently confronted with cryptic syntax errors like <code>SyntaxError: Unexpected token '}'</code> or missing semicolons. For an eight-year-old or ten-year-old, this cognitive overhead can shut down curiosity before it ever starts.</p><p>At <strong>Kone Kids</strong>, we designed our youth curriculum around a different premise: <strong>Logic first, syntax second, physical feedback always.</strong></p><hr /><h2>1. The Power of Block-Based Abstraction</h2><p>Visual block programming environments (like Scratch and Blockly) eliminate syntax frustration by making syntax errors physically impossible. Blocks only snap together if their types and logical conditions are compatible.</p><p>This allows young minds to focus 100% of their cognitive bandwidth on foundational computer science principles:</p><ul><li><strong>Sequence</strong>: The order in which actions occur.</li><li><strong>Conditionals</strong>: If the obstacle sensor detects a wall, turn left; otherwise, drive straight.</li><li><strong>Repetition</strong>: Looping an action until a goal is achieved.</li><li><strong>Variables</strong>: Keeping score or tracking battery life.</li></ul><hr /><h2>2. Why Physical Hardware Accelerates Learning</h2><p>When a student writes a program that prints words to a laptop screen, it feels abstract. But when their code causes a robotic car to spin its wheels, illuminates an RGB LED matrix, or sounds an alarm when their bedroom door opens, programming becomes <strong>real</strong>.</p><p>Physical computing establishes an immediate cause-and-effect relationship:</p><ol><li>Write the code.</li><li>Flash the microcontroller (Micro:bit or ESP32).</li><li>Observe physical motion in the real world.</li><li>If it bumps into a chair, debug the sensor loop!</li></ol><p>This iterative feedback loop transforms debugging from a frustrating roadblock into an engaging, gamified puzzle.</p><hr /><h2>3. The Graduation to Typed Code</h2><p>Once a student masters algorithmic thinking through blocks and hardware sensors, transitioning to typed Python or JavaScript is remarkably smooth. They already know <em>what</em> an array or a while-loop does—they simply need to learn the keyboard punctuation to express it.</p><hr /><p><strong>Discover our engaging youth robotics, Scratch, and Micro:bit programs in the <a href="/training" target="_blank" rel="noopener noreferrer">Gamified Youth STEM & Robotics Track</a>.</strong></p>
     </article>
     <div class="post-cta">
       <h2>Register at Kone School</h2>

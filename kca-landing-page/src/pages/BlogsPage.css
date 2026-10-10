@@ -51,7 +51,7 @@
   transform: translateX(-50%);
   width: 300px;
   height: 300px;
-  background: radial-gradient(circle, rgba(168, 85, 247, 0.25) 0%, transparent 70%);
+  background: radial-gradient(circle, rgba(56, 189, 248, 0.08) 0%, transparent 70%);
   filter: blur(40px);
   z-index: 1;
   pointer-events: none;
@@ -59,17 +59,16 @@
 
 .blogs-badge {
   display: inline-block;
-  font-size: 0.85rem;
+  font-size: 0.82rem;
   font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: 2px;
-  color: #a855f7;
-  background: rgba(168, 85, 247, 0.08);
+  letter-spacing: 1.5px;
+  color: var(--accent-primary, #38bdf8);
+  background: rgba(56, 189, 248, 0.08);
   padding: 6px 16px;
   border-radius: 20px;
-  border: 1px solid rgba(168, 85, 247, 0.2);
+  border: 1px solid rgba(56, 189, 248, 0.2);
   margin-bottom: 1rem;
-  box-shadow: 0 0 15px rgba(168, 85, 247, 0.1);
   position: relative;
   z-index: 2;
 }
@@ -78,15 +77,10 @@
   font-size: clamp(2.2rem, 5vw, 3.8rem);
   font-weight: 900;
   color: #ffffff;
-  background: linear-gradient(180deg, #ffffff 40%, #f3e8ff 75%, #c084fc 100%);
-  background-clip: text;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
   margin-bottom: 1rem;
   letter-spacing: -0.03em;
   position: relative;
   z-index: 2;
-  filter: drop-shadow(0 2px 12px rgba(168, 85, 247, 0.3));
 }
 
 .blogs-subtitle {
@@ -132,10 +126,9 @@
 }
 
 .blogs-filter-pill.active {
-  background: rgba(168, 85, 247, 0.08);
-  border-color: #a855f7;
-  color: #a855f7;
-  box-shadow: 0 0 15px rgba(168, 85, 247, 0.15);
+  background: rgba(56, 189, 248, 0.12);
+  border-color: #38bdf8;
+  color: #38bdf8;
 }
 
 .blogs-search-wrapper {
@@ -159,8 +152,8 @@
 }
 
 .blogs-search-input:focus {
-  border-color: #a855f7;
-  box-shadow: 0 0 15px rgba(168, 85, 247, 0.1);
+  border-color: #38bdf8;
+  box-shadow: 0 0 12px rgba(56, 189, 248, 0.15);
   background: rgba(30, 41, 59, 0.6);
 }
 
@@ -196,10 +189,10 @@
 }
 
 .blog-card:hover {
-  transform: translateY(-5px);
-  border-color: rgba(168, 85, 247, 0.3);
+  transform: translateY(-4px);
+  border-color: rgba(56, 189, 248, 0.3);
   background: rgba(30, 41, 59, 0.55);
-  box-shadow: 0 12px 30px rgba(168, 85, 247, 0.05);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.35);
 }
 
 .blog-card-img-wrapper {
@@ -233,7 +226,7 @@
   font-size: 0.75rem;
   font-weight: 700;
   text-transform: uppercase;
-  color: #a855f7;
+  color: #38bdf8;
   letter-spacing: 1px;
   margin-bottom: 0.8rem;
 }
@@ -249,7 +242,7 @@
 }
 
 .blog-card:hover .blog-card-title {
-  color: #c084fc;
+  color: #38bdf8;
 }
 
 .blog-card-excerpt {
@@ -325,9 +318,8 @@
 
 .post-progress-bar {
   height: 100%;
-  background: linear-gradient(90deg, #a855f7 0%, #d946ef 100%);
+  background: #38bdf8;
   width: 0%;
-  box-shadow: 0 0 10px rgba(168, 85, 247, 0.5);
   transition: width 0.1s ease;
 }
 
@@ -346,7 +338,7 @@
   gap: 12px;
   font-size: 0.85rem;
   font-weight: 700;
-  color: #a855f7;
+  color: #38bdf8;
   text-transform: uppercase;
   letter-spacing: 1px;
   margin-bottom: 1.2rem;
@@ -543,8 +535,8 @@
 }
 
 .post-body blockquote {
-  border-left: 4px solid #a855f7;
-  background: rgba(168, 85, 247, 0.03);
+  border-left: 3px solid #38bdf8;
+  background: rgba(56, 189, 248, 0.04);
   padding: 1.2rem 1.6rem;
   border-radius: 0 12px 12px 0;
   margin: 2rem 0;
@@ -565,10 +557,10 @@
 .post-body code {
   font-family: var(--font-mono, monospace);
   font-size: 0.9rem;
-  background: rgba(255, 255, 255, 0.04);
+  background: rgba(255, 255, 255, 0.05);
   padding: 3px 6px;
   border-radius: 4px;
-  color: #f472b6;
+  color: #38bdf8;
 }
 
 .post-body pre code {
@@ -596,9 +588,9 @@
 /* Post Registration CTA */
 .post-cta {
   margin-top: 5rem;
-  background: linear-gradient(135deg, rgba(168, 85, 247, 0.12) 0%, rgba(217, 70, 239, 0.04) 100%), rgba(15, 23, 42, 0.4);
-  border: 1px solid rgba(168, 85, 247, 0.2);
-  box-shadow: 0 0 40px rgba(168, 85, 247, 0.04);
+  background: rgba(15, 23, 42, 0.7);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.35);
   border-radius: 20px;
   padding: 3rem;
   text-align: center;
@@ -624,7 +616,7 @@
   align-items: center;
   justify-content: center;
   gap: 10px;
-  background: #a855f7;
+  background: #0284c7;
   color: #ffffff;
   padding: 14px 28px;
   border-radius: 50px;
@@ -634,13 +626,13 @@
   cursor: pointer;
   transition: all 0.3s cubic-bezier(0.19, 1, 0.22, 1);
   text-decoration: none;
-  box-shadow: 0 8px 20px rgba(168, 85, 247, 0.25);
+  box-shadow: 0 4px 15px rgba(2, 132, 199, 0.25);
 }
 
 .post-cta-btn:hover {
   transform: translateY(-2px);
-  background: #b55fe6;
-  box-shadow: 0 12px 25px rgba(168, 85, 247, 0.35);
+  background: #0369a1;
+  box-shadow: 0 8px 25px rgba(2, 132, 199, 0.35);
 }
 
 .post-cta-btn:active {
@@ -891,10 +883,10 @@
   background: rgba(15, 23, 42, 0.75);
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
-  border: 1px solid rgba(168, 85, 247, 0.2);
-  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 12px;
   overflow-x: auto;
-  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.35), inset 0 1px 0 rgba(255, 255, 255, 0.05);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
   scrollbar-width: thin;
 }
 
@@ -905,21 +897,18 @@
 
 .katex {
   font-size: 1.08em;
-  color: #f1f5f9;
+  color: #f8fafc;
   text-rendering: optimizeLegibility;
 }
 
-.katex .mord.mathnormal {
-  color: #93c5fd; /* Soft luminous cyan/blue for math variables */
-}
-
-.katex .mord {
-  color: #f1f5f9;
-}
-
+.katex .mord,
+.katex .mord.mathnormal,
 .katex .mbin,
-.katex .mrel {
-  color: #c084fc; /* Vibrant purple for math operators like =, +, -, \times */
+.katex .mrel,
+.katex .mopen,
+.katex .mclose,
+.katex .mpunct {
+  color: #f8fafc;
 }
 
 /* ==========================================================================
@@ -930,12 +919,12 @@
   width: 100%;
   overflow-x: auto;
   margin: 2.5rem 0;
-  border-radius: 16px;
+  border-radius: 12px;
   border: 1px solid rgba(255, 255, 255, 0.08);
   background: rgba(15, 23, 42, 0.6);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
-  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
   scrollbar-width: thin;
 }
 
@@ -949,7 +938,7 @@
 
 .blog-markdown-table thead {
   background: rgba(30, 41, 59, 0.85);
-  border-bottom: 2px solid rgba(168, 85, 247, 0.35);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
 }
 
 .blog-markdown-table th {
@@ -971,7 +960,7 @@
 }
 
 .blog-markdown-table tbody tr:hover {
-  background: rgba(168, 85, 247, 0.04);
+  background: rgba(255, 255, 255, 0.02);
 }
 
 
