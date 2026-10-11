@@ -8,8 +8,8 @@ const blogsFilePath = path.join(__dirname, '..', 'src', 'data', 'blogs.ts');
 const blogsFileContent = fs.readFileSync(blogsFilePath, 'utf8');
 
 const jsContent = blogsFileContent
-  .replace(/export interface[\s\S]*?}\n\n/g, '')
-  .replace(/export const staticBlogs: BlogPost\[\] =/g, 'const staticBlogs =') + '\nmodule.exports = { staticBlogs };';
+  .replace(/export interface[\s\S]*?}\s*(?=export const staticBlogs)/g, '')
+  .replace(/export const staticBlogs:\s*BlogPost\[\]\s*=/g, 'const staticBlogs =') + '\nmodule.exports = { staticBlogs };';
 
 const tempPath = path.join(__dirname, '_temp_blogs.cjs');
 fs.writeFileSync(tempPath, jsContent, 'utf8');

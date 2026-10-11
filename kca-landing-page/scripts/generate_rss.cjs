@@ -211,6 +211,15 @@ const blogs = [
     "imageUrl": "/assets/blog/behind_the_stack_lab_s01e01.png",
     "author": "Philip Hotor",
     "publishedAt": "2026-10-02T00:00:00Z"
+  },
+  {
+    "title": "Mastering Python: From CPython Virtual Machine Internals to High-Throughput Architecture",
+    "slug": "mastering-python-cpython-internals-asyncio-architecture",
+    "category": "Code",
+    "excerpt": "A comprehensive masterclass on CPython bytecode compilation, PyMalloc memory architecture, cyclic garbage collection, GIL free-threading, descriptor protocols, and asyncio event loops.",
+    "imageUrl": "/assets/blog/python_architecture_internals.webp",
+    "author": "Philip Hotor",
+    "publishedAt": "2026-10-08T00:00:00Z"
   }
 ];
 

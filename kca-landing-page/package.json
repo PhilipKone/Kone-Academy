@@ -77,7 +77,8 @@
             "/blog/autonomous-path-planning-astar-vs-rrt-robotics",
             "/blog/distributed-consensus-paxos-raft-replicated-state-machines",
             "/blog/cryptographic-primitives-elliptic-curves-ed25519",
-            "/blog/architectural-audits-measuring-technical-debt-enterprise"
+            "/blog/architectural-audits-measuring-technical-debt-enterprise",
+            "/blog/mastering-python-cpython-internals-asyncio-architecture"
         ],
         "puppeteerArgs": [
             "--no-sandbox",

@@ -12,7 +12,7 @@
     <language>en-us</language>
     <managingEditor>philipkone45@gmail.com (Philip Hotor)</managingEditor>
     <webMaster>philipkone45@gmail.com (Philip Hotor)</webMaster>
-    <lastBuildDate>Sat, 10 Oct 2026 20:08:21 GMT</lastBuildDate>
+    <lastBuildDate>Sun, 11 Oct 2026 19:16:19 GMT</lastBuildDate>
     <image>
       <url>https://www.koneacademy.io/assets/blog/author_philip.webp</url>
       <title>Kone Academy</title>
@@ -270,6 +270,17 @@
       <description><![CDATA[A rigorous mathematical and operational framework for tracking dependency churn, cyclomatic complexity, coupling metrics, and calculating ROI on refactoring.]]></description>
       <media:content url="https://www.koneacademy.io/assets/blog/behind_the_stack_lab_s01e01.png" medium="image" />
       <enclosure url="https://www.koneacademy.io/assets/blog/behind_the_stack_lab_s01e01.png" type="image/webp" length="102400" />
+    </item>
+    <item>
+      <title><![CDATA[Mastering Python: From CPython Virtual Machine Internals to High-Throughput Architecture]]></title>
+      <link>https://www.koneacademy.io/blog/mastering-python-cpython-internals-asyncio-architecture</link>
+      <guid isPermaLink="true">https://www.koneacademy.io/blog/mastering-python-cpython-internals-asyncio-architecture</guid>
+      <pubDate>Thu, 08 Oct 2026 00:00:00 GMT</pubDate>
+      <dc:creator><![CDATA[Philip Hotor]]></dc:creator>
+      <category><![CDATA[Code]]></category>
+      <description><![CDATA[A comprehensive masterclass on CPython bytecode compilation, PyMalloc memory architecture, cyclic garbage collection, GIL free-threading, descriptor protocols, and asyncio event loops.]]></description>
+      <media:content url="https://www.koneacademy.io/assets/blog/python_architecture_internals.webp" medium="image" />
+      <enclosure url="https://www.koneacademy.io/assets/blog/python_architecture_internals.webp" type="image/webp" length="102400" />
     </item>
   </channel>
 </rss>
