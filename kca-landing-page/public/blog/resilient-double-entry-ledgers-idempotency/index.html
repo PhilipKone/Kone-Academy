@@ -367,7 +367,7 @@ export async function processTransfer(
     await client.query('ROLLBACK;');
     throw error;
   }
-}</code></pre><hr /><h2>3. Integer Arithmetic: Never Use Floats</h2><p>In JavaScript, <code>0.1 + 0.2 === 0.30000000000000004</code>. Over a million transactions, floating-point rounding errors lead to discrepancies known as <strong>fractional slippage</strong>.</p><ul><li><strong>Rule</strong>: Always represent monetary currency in the smallest atomic unit (e.g. cents, pesewas, kobo, satoshis) using 64-bit integers (<code>BIGINT</code> or <code>BigInt</code> in TypeScript).</li><li>Format numbers into decimals purely at the UI layer.</li></ul><hr /><p><strong>Learn how to engineer cryptographically secure ledger gateways in our <a href="/training" target="_blank" rel="noopener noreferrer">Fintech & Ledger Gateways Track</a>.</strong></p>
+}</code></pre><hr /><h2>3. Integer Arithmetic: Never Use Floats</h2><p>In JavaScript, <code>0.1 + 0.2 === 0.30000000000000004</code>. Over a million transactions, floating-point rounding errors lead to discrepancies known as <strong>fractional slippage</strong>.</p><ul><li><strong>Rule</strong>: Always represent monetary currency in the smallest atomic unit (e.g. cents, pesewas, kobo, satoshis) using 64-bit integers (<code>BIGINT</code> or <code>BigInt</code> in TypeScript).</li><li>Format numbers into decimals purely at the UI layer.</li></ul><hr /><p><strong>Learn how to engineer cryptographically secure ledger gateways in our <a href="/training?track=course-pay#course-pay" class="blog-internal-link">Fintech & Ledger Gateways Track</a>.</strong></p>
     </article>
     <div class="post-cta">
       <h2>Register at Kone School</h2>

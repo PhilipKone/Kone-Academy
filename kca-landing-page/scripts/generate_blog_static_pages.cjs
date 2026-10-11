@@ -53,7 +53,12 @@ function applyInline(text) {
     .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
     .replace(/(?<!\*)\*(?!\*)(.+?)(?<!\*)\*(?!\*)/g, '<em>$1</em>')
     .replace(/`(.*?)`/g, '<code>$1</code>')
-    .replace(/\[(.*?)\]\((.*?)\)/g, '<a href="$2" target="_blank" rel="noopener noreferrer">$1</a>');
+    .replace(/\[(.*?)\]\((.*?)\)/g, (match, linkText, url) => {
+      if (url.startsWith('/')) {
+        return `<a href="${url}" class="blog-internal-link">${linkText}</a>`;
+      }
+      return `<a href="${url}" target="_blank" rel="noopener noreferrer">${linkText}</a>`;
+    });
   return res;
 }
 

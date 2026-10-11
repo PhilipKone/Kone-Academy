@@ -411,33 +411,89 @@ const TrainingHub = ({ onBack }) => {
   const [onboardingCourse, setOnboardingCourse] = useState(null);
   const [showPathfinderModal, setShowPathfinderModal] = useState(false);
 
+  const handleCloseModal = () => {
+    const courseId = selectedCourse?.id;
+    setSelectedCourse(null);
+    if (courseId) {
+      setTimeout(() => {
+        const cardEl = document.getElementById(courseId);
+        if (cardEl) {
+          cardEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+      }, 60);
+    }
+  };
+
   useEffect(() => {
-    if (typeof window !== 'undefined') {
+    if (typeof window === 'undefined') return;
+
+    const resolveAndScrollToTrack = () => {
       const params = new URLSearchParams(window.location.search);
       let trackParam = params.get('track');
+
+      // Check window.location.hash (#course-...)
+      if (!trackParam && window.location.hash) {
+        const hash = window.location.hash.replace(/^#/, '');
+        if (hash.startsWith('course-')) {
+          trackParam = hash;
+        }
+      }
+
+      // Check pathname (/training/course-.../)
       if (!trackParam) {
         const pathParts = window.location.pathname.split('/').filter(Boolean);
         if (pathParts[0] === 'training' && pathParts[1] && pathParts[1].startsWith('course-')) {
-          trackParam = pathParts[1];
+          trackParam = pathParts[1].replace(/\/+$/, '');
         }
       }
+
       if (trackParam) {
         const matched = courses.find(c => c.id === trackParam);
         if (matched) {
-          setActiveFilter(matched.category);
-          setSelectedCourse(matched);
-          setTimeout(() => {
-            const cardEl = document.getElementById(trackParam);
+          // If explicitly requested via /training/course-xyz/ route or ?modal=true, open modal
+          const isDirectPath = window.location.pathname.includes(`/training/${matched.id}`);
+          if (isDirectPath || params.get('modal') === 'true') {
+            setSelectedCourse(matched);
+          }
+
+          // Ensure the course card is visible in the grid (keep 'All' so all 12 cards remain in their natural positions)
+          setActiveFilter(prev => {
+            if (prev !== 'All' && prev !== matched.category) {
+              return 'All';
+            }
+            return prev;
+          });
+
+          const scrollToTarget = () => {
+            const cardEl = document.getElementById(trackParam!);
             if (cardEl) {
               cardEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
               cardEl.classList.add('highlight-pulse');
-              setTimeout(() => cardEl.classList.remove('highlight-pulse'), 2500);
+              setTimeout(() => cardEl.classList.remove('highlight-pulse'), 3500);
+              return true;
             }
-          }, 350);
+            return false;
+          };
+
+          // Trigger smooth scroll with progressive retries to ensure DOM is mounted and painted
+          setTimeout(scrollToTarget, 60);
+          setTimeout(scrollToTarget, 300);
+          setTimeout(scrollToTarget, 700);
         }
       }
-    }
+    };
 
+    resolveAndScrollToTrack();
+
+    window.addEventListener('popstate', resolveAndScrollToTrack);
+    window.addEventListener('hashchange', resolveAndScrollToTrack);
+    return () => {
+      window.removeEventListener('popstate', resolveAndScrollToTrack);
+      window.removeEventListener('hashchange', resolveAndScrollToTrack);
+    };
+  }, []);
+
+  useEffect(() => {
     // Dynamic Course List Schema for Google Sitelinks, Rich Snippets, and AI Overview indexing
     const coursesSchema = {
       "@context": "https://schema.org",
@@ -661,7 +717,7 @@ const TrainingHub = ({ onBack }) => {
         {selectedCourse && (
           <CourseDetailsModal 
             course={selectedCourse} 
-            onClose={() => setSelectedCourse(null)} 
+            onClose={handleCloseModal} 
             onOpenOnboarding={(course) => setOnboardingCourse(course)}
           />
         )}

@@ -335,7 +335,7 @@ function processLargeBatch(items: string[], index = 0) {
 setTimeout(() =&gt; console.log('2: Timeout Macrotask'), 0);
 Promise.resolve().then(() =&gt; console.log('3: Promise Microtask'));
 process.nextTick(() =&gt; console.log('4: NextTick Priority'));
-console.log('5: Sync End');</code></pre><p><em>Answer: 1 → 5 → 4 → 3 → 2.</em>  </p><p>Notice how <code>process.nextTick</code> runs before regular promises, and both finish before <code>setTimeout</code> is allowed onto the stack!</p><hr /><p><strong>Master high-concurrency Node.js, WebSockets, and system architecture in our <a href="/training" target="_blank" rel="noopener noreferrer">Full-Stack Web & Mobile Engineering Track</a>.</strong></p>
+console.log('5: Sync End');</code></pre><p><em>Answer: 1 → 5 → 4 → 3 → 2.</em>  </p><p>Notice how <code>process.nextTick</code> runs before regular promises, and both finish before <code>setTimeout</code> is allowed onto the stack!</p><hr /><p><strong>Master high-concurrency Node.js, WebSockets, and system architecture in our <a href="/training?track=course-code#course-code" class="blog-internal-link">Full-Stack Web & Mobile Engineering Track</a>.</strong></p>
     </article>
     <div class="post-cta">
       <h2>Register at Kone School</h2>

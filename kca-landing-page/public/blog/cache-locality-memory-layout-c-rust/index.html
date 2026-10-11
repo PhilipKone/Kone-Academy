@@ -362,7 +362,7 @@ struct CacheAlignedCounter(AtomicU64);
 struct PaddedCounters {
     thread_a: CacheAlignedCounter,
     thread_b: CacheAlignedCounter,
-}</code></pre><p>Benchmarking this on an 8-core CPU demonstrates that eliminating false sharing can speed up multi-threaded counters by <strong>300% to 800%</strong>.</p><hr /><h2>Curriculum Connection at Kone Academy</h2><p>In our <strong>Kone Code & Kone Lab Systems Tracks</strong>, students learn low-level profiling with Linux <code>perf</code>, cache-miss counters (<code>perf stat -e L1-dcache-load-misses</code>), and modern memory allocation strategies that turn theoretical algorithms into industrial-grade systems.</p>
+}</code></pre><p>Benchmarking this on an 8-core CPU demonstrates that eliminating false sharing can speed up multi-threaded counters by <strong>300% to 800%</strong>.</p><hr /><h2>Curriculum Connection at Kone Academy</h2><p>In our <strong>Kone Code & Kone Lab Systems Tracks</strong>, students learn low-level profiling with Linux <code>perf</code>, cache-miss counters (<code>perf stat -e L1-dcache-load-misses</code>), and modern memory allocation strategies in our <a href="/training?track=course-code#course-code" class="blog-internal-link">Full-Stack Web & Mobile Engineering Track</a>.</p>
     </article>
     <div class="post-cta">
       <h2>Register at Kone School</h2>

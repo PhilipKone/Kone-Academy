@@ -216,7 +216,13 @@ const BlogPostPage: React.FC<BlogPostPageProps> = ({ slug, onBack }) => {
       .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
       .replace(/(?<!\*)\*(?!\*)(.+?)(?<!\*)\*(?!\*)/g, '<em>$1</em>')
       .replace(/`(.*?)`/g, '<code>$1</code>')
-      .replace(/\[(.*?)\]\((.*?)\)/g, '<a href="$2" target="_blank" rel="noopener noreferrer">$1</a>');
+      .replace(/\[(.*?)\]\((.*?)\)/g, (match, linkText, url) => {
+        const isInternal = url.startsWith('/');
+        if (isInternal) {
+          return `<a href="${url}" class="blog-internal-link">${linkText}</a>`;
+        }
+        return `<a href="${url}" target="_blank" rel="noopener noreferrer">${linkText}</a>`;
+      });
     return res;
   };
 
@@ -515,6 +521,16 @@ const BlogPostPage: React.FC<BlogPostPageProps> = ({ slug, onBack }) => {
         <div 
           className="post-body" 
           dangerouslySetInnerHTML={{ __html: parseMarkdown(post.content) }} 
+          onClick={(e) => {
+            const target = (e.target as HTMLElement).closest('a');
+            if (!target) return;
+            const href = target.getAttribute('href');
+            if (href && href.startsWith('/')) {
+              e.preventDefault();
+              window.history.pushState({}, '', href);
+              window.dispatchEvent(new Event('popstate'));
+            }
+          }}
         />
 
         {/* Registration CTA card at footer of article */}

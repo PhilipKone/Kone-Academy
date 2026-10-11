@@ -336,7 +336,7 @@ void main() {
     float mixFactor = (vElevation + 0.2) / 0.4;
     vec3 color = mix(uDepthColor, uSurfaceColor, mixFactor);
     gl_FragColor = vec4(color, 1.0);
-}</code></pre><hr /><h2>3. Why GPU Parallelism Changes Everything</h2><p>On a CPU, changing the color of a 1920×1080 display requires iterating through over 2 million pixels in a sequential loop.</p><p>A GPU, by contrast, executes your Fragment Shader <strong>concurrently</strong> across millions of fragments. Because each pixel calculation is mathematically independent, you achieve buttery-smooth 60fps renders even with complex trigonometric equations.</p><hr /><p><strong>Master 3D WebGL, GLSL custom shaders, and Three.js physics in our <a href="/training" target="_blank" rel="noopener noreferrer">3D WebGL Graphics & Shader Engineering Track</a>.</strong></p>
+}</code></pre><hr /><h2>3. Why GPU Parallelism Changes Everything</h2><p>On a CPU, changing the color of a 1920×1080 display requires iterating through over 2 million pixels in a sequential loop.</p><p>A GPU, by contrast, executes your Fragment Shader <strong>concurrently</strong> across millions of fragments. Because each pixel calculation is mathematically independent, you achieve buttery-smooth 60fps renders even with complex trigonometric equations.</p><hr /><p><strong>Master 3D WebGL, GLSL custom shaders, and Three.js physics in our <a href="/training?track=course-studio#course-studio" class="blog-internal-link">3D WebGL Graphics & Shader Engineering Track</a>.</strong></p>
     </article>
     <div class="post-cta">
       <h2>Register at Kone School</h2>
