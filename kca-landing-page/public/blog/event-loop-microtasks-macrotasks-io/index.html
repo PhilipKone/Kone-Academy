@@ -311,13 +311,121 @@
     <h1 class="post-title">Deconstructing the Event Loop: Microtasks, Macrotasks, and High-Throughput I/O</h1>
     <img src="/assets/blog/architecture_diagram.webp" alt="Deconstructing the Event Loop: Microtasks, Macrotasks, and High-Throughput I/O" class="post-hero-img" />
     <article class="post-body">
-      <h2 style="font-size: 2rem; margin-top: 3.5rem; margin-bottom: 1.5rem; font-weight: 800; color: #fff;">Deconstructing the Event Loop: Microtasks, Macrotasks, and High-Throughput I/O</h2><p>Why can a single-threaded runtime like Node.js handle tens of thousands of concurrent network connections without choking? The secret lies in understanding how the V8 JavaScript engine interfaces with the underlying C library <strong>libuv</strong> through the <strong>Event Loop</strong>.</p><p>At <strong>Kone Academy</strong>, our Full-Stack Engineering cohort dives into the runtime execution model before touching backend frameworks. Let us deconstruct how execution queues actually operate.</p><hr /><h2>1. The Three Core Memory Arenas</h2><p>When a JavaScript application executes, execution is divided across three distinct areas:</p><ol><li><strong>The Call Stack</strong>: A single-threaded LIFO (Last In, First Out) stack executing the current instruction frame. If a function blocks here (e.g. infinite loop, sync cryptographic hash), the entire server freezes.</li><li><strong>The Memory Heap</strong>: Unstructured memory allocation for variables, objects, and closures.</li><li><strong>The Event Loop & Task Queues</strong>: The coordination mechanism that pumps queued callbacks back onto the call stack when it becomes empty.</li></ol><hr /><h2>2. Microtasks vs. Macrotasks: Priority Order</h2><p>Not all asynchronous operations are queued equally. The runtime splits callbacks into two fundamental tiers:</p><h3>Microtask Queue (Highest Priority)</h3><p>Microtasks execute immediately after the currently running script finishes and before control is returned to the event loop phases:</p><ul><li><code>process.nextTick()</code> (Node.js microtask priority queue)</li><li><code>Promise.then()</code> / <code>catch()</code> / <code>finally()</code></li><li><code>queueMicrotask()</code></li></ul><h3>Macrotask Phases (libuv Event Loop)</h3><p>Macrotasks are grouped into distinct lifecycle phases executed in a circle:</p><ol><li><strong>Timers Phase</strong>: <code>setTimeout()</code> and <code>setInterval()</code></li><li><strong>Pending Callbacks</strong>: I/O errors and OS-level operations</li><li><strong>Poll Phase</strong>: Retrieving new I/O events (HTTP sockets, disk files)</li><li><strong>Check Phase</strong>: <code>setImmediate()</code> callbacks</li><li><strong>Close Callbacks</strong>: Socket closure events (e.g., <code>socket.on('close')</code>)</li></ol><hr /><h2>3. The Microtask Starvation Danger</h2><p>Because the runtime drains the <strong>entire microtask queue</strong> before proceeding to the next event loop phase, recursively queueing microtasks will completely starve your I/O and timers!</p><pre><code>// ANTI-PATTERN: This will lock your server and prevent any HTTP requests from resolving!
+      <h2 style="font-size: 2rem; margin-top: 3.5rem; margin-bottom: 1.5rem; font-weight: 800; color: #fff;">Deconstructing the Event Loop: Microtasks, Macrotasks, and High-Throughput I/O</h2><p>Why can a single-threaded runtime like Node.js handle tens of thousands of concurrent network connections without choking? The secret lies in understanding how the V8 JavaScript engine interfaces with the underlying C library <strong>libuv</strong> through the <strong>Event Loop</strong>.</p><p>At <strong>Kone Academy</strong>, our Full-Stack Engineering cohort dives into the runtime execution model before touching backend frameworks. Let us deconstruct how execution queues actually operate.</p><hr /><h2>1. The Three Core Memory Arenas</h2><p>When a JavaScript application executes, execution is divided across three distinct areas:</p><ol><li><strong>The Call Stack</strong>: A single-threaded LIFO (Last In, First Out) stack executing the current instruction frame. If a function blocks here (e.g. infinite loop, sync cryptographic hash), the entire server freezes.</li><li><strong>The Memory Heap</strong>: Unstructured memory allocation for variables, objects, and closures.</li><li><strong>The Event Loop & Task Queues</strong>: The coordination mechanism that pumps queued callbacks back onto the call stack when it becomes empty.</li></ol><hr /><h2>2. Microtasks vs. Macrotasks: Priority Order</h2><p>Not all asynchronous operations are queued equally. The runtime splits callbacks into two fundamental tiers:</p><h3>Microtask Queue (Highest Priority)</h3><p>Microtasks execute immediately after the currently running script finishes and before control is returned to the event loop phases:</p><ul><li><code>process.nextTick()</code> (Node.js microtask priority queue)</li><li><code>Promise.then()</code> / <code>catch()</code> / <code>finally()</code></li><li><code>queueMicrotask()</code></li></ul><h3>Macrotask Phases (libuv Event Loop)</h3><p>Macrotasks are grouped into distinct lifecycle phases executed in a circle:</p><ol><li><strong>Timers Phase</strong>: <code>setTimeout()</code> and <code>setInterval()</code></li><li><strong>Pending Callbacks</strong>: I/O errors and OS-level operations</li><li><strong>Poll Phase</strong>: Retrieving new I/O events (HTTP sockets, disk files)</li><li><strong>Check Phase</strong>: <code>setImmediate()</code> callbacks</li><li><strong>Close Callbacks</strong>: Socket closure events (e.g., <code>socket.on('close')</code>)</li></ol><div class="mermaid-diagram-card" data-diagram-id="diagram-1"><div class="diagram-card-header"><div class="diagram-card-title-group"><span class="diagram-pulse-dot"></span><span class="diagram-type-tag">ARCHITECTURE SCHEMATIC</span></div><div class="diagram-card-actions"><button type="button" class="diagram-tab-btn active" data-tab="diagram">Diagram</button><button type="button" class="diagram-tab-btn" data-tab="source">Source</button></div></div><div class="mermaid-viewport"><div class="mermaid" id="mermaid-item-1">flowchart TD
+    subgraph Stack["Call Stack Execution"]
+        Sync["Execute Synchronous Script / Call Stack"]
+    end
+
+    subgraph MicrotaskDrain["Microtask Drain (Priority Intercept)"]
+        Drain["Drain All Microtasks
+(process.nextTick, Promise.then, queueMicrotask)"]
+    end
+
+    subgraph LibuvLoop["libuv Event Loop (Macrotask Phases)"]
+        P1["Phase 1: Timers
+(setTimeout, setInterval)"]
+        P2["Phase 2: Pending I/O Callbacks
+(System Errors, TCP/UDP)"]
+        P3["Phase 3: Idle, Prepare
+(Internal libuv housekeeping)"]
+        P4["Phase 4: Poll Phase
+(epoll_wait, kqueue, IOCP - Blocks for I/O)"]
+        P5["Phase 5: Check Phase
+(setImmediate callbacks)"]
+        P6["Phase 6: Close Callbacks
+(socket.on('close'))"]
+    end
+
+    Sync --> Drain
+    Drain --> P1
+    P1 -->|Drain Microtasks| Drain1["Drain Microtask Queue"]
+    Drain1 --> P2
+    P2 -->|Drain Microtasks| Drain2["Drain Microtask Queue"]
+    Drain2 --> P3
+    P3 --> P4
+    P4 -->|Drain Microtasks| Drain3["Drain Microtask Queue"]
+    Drain3 --> P5
+    P5 -->|Drain Microtasks| Drain4["Drain Microtask Queue"]
+    Drain4 --> P6
+    P6 -->|Drain Microtasks| Drain5["Drain Microtask Queue"]
+    Drain5 -->|Active Handles Left?| P1
+
+    style Stack fill:#080d1a,stroke:#334155,stroke-width:1px,color:#f8fafc
+    style MicrotaskDrain fill:#080d1a,stroke:#f59e0b,stroke-width:1px,color:#f8fafc
+    style LibuvLoop fill:#080d1a,stroke:#334155,stroke-width:1px,color:#f8fafc
+    style Sync fill:#0f172a,stroke:#334155,stroke-width:1px,color:#f8fafc
+    style Drain fill:#1e293b,stroke:#f59e0b,stroke-width:2px,color:#f8fafc
+    style Drain1 fill:#1e293b,stroke:#f59e0b,stroke-width:1px,color:#f8fafc
+    style Drain2 fill:#1e293b,stroke:#f59e0b,stroke-width:1px,color:#f8fafc
+    style Drain3 fill:#1e293b,stroke:#f59e0b,stroke-width:1px,color:#f8fafc
+    style Drain4 fill:#1e293b,stroke:#f59e0b,stroke-width:1px,color:#f8fafc
+    style Drain5 fill:#1e293b,stroke:#f59e0b,stroke-width:1px,color:#f8fafc
+    style P1 fill:#0f172a,stroke:#00d4ff,stroke-width:1px,color:#f8fafc
+    style P2 fill:#0f172a,stroke:#00d4ff,stroke-width:1px,color:#f8fafc
+    style P3 fill:#0f172a,stroke:#334155,stroke-width:1px,color:#f8fafc
+    style P4 fill:#0f172a,stroke:#10b981,stroke-width:2px,color:#f8fafc
+    style P5 fill:#0f172a,stroke:#00d4ff,stroke-width:1px,color:#f8fafc
+    style P6 fill:#0f172a,stroke:#334155,stroke-width:1px,color:#f8fafc</div></div><pre class="mermaid-source-view" style="display: none;"><code>flowchart TD
+    subgraph Stack["Call Stack Execution"]
+        Sync["Execute Synchronous Script / Call Stack"]
+    end
+
+    subgraph MicrotaskDrain["Microtask Drain (Priority Intercept)"]
+        Drain["Drain All Microtasks
+(process.nextTick, Promise.then, queueMicrotask)"]
+    end
+
+    subgraph LibuvLoop["libuv Event Loop (Macrotask Phases)"]
+        P1["Phase 1: Timers
+(setTimeout, setInterval)"]
+        P2["Phase 2: Pending I/O Callbacks
+(System Errors, TCP/UDP)"]
+        P3["Phase 3: Idle, Prepare
+(Internal libuv housekeeping)"]
+        P4["Phase 4: Poll Phase
+(epoll_wait, kqueue, IOCP - Blocks for I/O)"]
+        P5["Phase 5: Check Phase
+(setImmediate callbacks)"]
+        P6["Phase 6: Close Callbacks
+(socket.on('close'))"]
+    end
+
+    Sync --&gt; Drain
+    Drain --&gt; P1
+    P1 --&gt;|Drain Microtasks| Drain1["Drain Microtask Queue"]
+    Drain1 --&gt; P2
+    P2 --&gt;|Drain Microtasks| Drain2["Drain Microtask Queue"]
+    Drain2 --&gt; P3
+    P3 --&gt; P4
+    P4 --&gt;|Drain Microtasks| Drain3["Drain Microtask Queue"]
+    Drain3 --&gt; P5
+    P5 --&gt;|Drain Microtasks| Drain4["Drain Microtask Queue"]
+    Drain4 --&gt; P6
+    P6 --&gt;|Drain Microtasks| Drain5["Drain Microtask Queue"]
+    Drain5 --&gt;|Active Handles Left?| P1
+
+    style Stack fill:#080d1a,stroke:#334155,stroke-width:1px,color:#f8fafc
+    style MicrotaskDrain fill:#080d1a,stroke:#f59e0b,stroke-width:1px,color:#f8fafc
+    style LibuvLoop fill:#080d1a,stroke:#334155,stroke-width:1px,color:#f8fafc
+    style Sync fill:#0f172a,stroke:#334155,stroke-width:1px,color:#f8fafc
+    style Drain fill:#1e293b,stroke:#f59e0b,stroke-width:2px,color:#f8fafc
+    style Drain1 fill:#1e293b,stroke:#f59e0b,stroke-width:1px,color:#f8fafc
+    style Drain2 fill:#1e293b,stroke:#f59e0b,stroke-width:1px,color:#f8fafc
+    style Drain3 fill:#1e293b,stroke:#f59e0b,stroke-width:1px,color:#f8fafc
+    style Drain4 fill:#1e293b,stroke:#f59e0b,stroke-width:1px,color:#f8fafc
+    style Drain5 fill:#1e293b,stroke:#f59e0b,stroke-width:1px,color:#f8fafc
+    style P1 fill:#0f172a,stroke:#00d4ff,stroke-width:1px,color:#f8fafc
+    style P2 fill:#0f172a,stroke:#00d4ff,stroke-width:1px,color:#f8fafc
+    style P3 fill:#0f172a,stroke:#334155,stroke-width:1px,color:#f8fafc
+    style P4 fill:#0f172a,stroke:#10b981,stroke-width:2px,color:#f8fafc
+    style P5 fill:#0f172a,stroke:#00d4ff,stroke-width:1px,color:#f8fafc
+    style P6 fill:#0f172a,stroke:#334155,stroke-width:1px,color:#f8fafc</code></pre></div><hr /><h2>3. The Microtask Starvation Danger</h2><p>Because the runtime drains the <strong>entire microtask queue</strong> before proceeding to the next event loop phase, recursively queueing microtasks will completely starve your I/O and timers!</p><pre><code class="language-typescript">// ANTI-PATTERN: This will lock your server and prevent any HTTP requests from resolving!
 function recursiveMicrotask() {
   queueMicrotask(() =&gt; {
     recursiveMicrotask();
   });
 }
-// The call stack empties, but the microtask queue never drains!</code></pre><p>Instead, for continuous background processing, offload execution across <code>setImmediate()</code> so the event loop can breathe and process incoming socket connections between cycles:</p><pre><code>// PRODUCTION PATTERN: Yield to the poll phase between chunks
+// The call stack empties, but the microtask queue never drains!</code></pre><p>Instead, for continuous background processing, offload execution across <code>setImmediate()</code> so the event loop can breathe and process incoming socket connections between cycles:</p><pre><code class="language-typescript">// PRODUCTION PATTERN: Yield to the poll phase between chunks
 function processLargeBatch(items: string[], index = 0) {
   if (index &gt;= items.length) return;
 
@@ -331,7 +439,7 @@ function processLargeBatch(items: string[], index = 0) {
   setImmediate(() =&gt; {
     processLargeBatch(items, index + chunkSize);
   });
-}</code></pre><hr /><h2>4. Engineering Challenge</h2><p>Can you predict the exact order of this output before running it?</p><pre><code>console.log('1: Sync Start');
+}</code></pre><hr /><h2>4. Engineering Challenge</h2><p>Can you predict the exact order of this output before running it?</p><pre><code class="language-javascript">console.log('1: Sync Start');
 setTimeout(() =&gt; console.log('2: Timeout Macrotask'), 0);
 Promise.resolve().then(() =&gt; console.log('3: Promise Microtask'));
 process.nextTick(() =&gt; console.log('4: NextTick Priority'));

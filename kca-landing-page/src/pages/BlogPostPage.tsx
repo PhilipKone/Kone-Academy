@@ -152,6 +152,90 @@ const BlogPostPage: React.FC<BlogPostPageProps> = ({ slug, onBack }) => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  // Initialize and render Mermaid diagrams
+  useEffect(() => {
+    if (typeof window === 'undefined' || !post || isLoading) return;
+
+    let isMounted = true;
+
+    const renderMermaid = async () => {
+      try {
+        const mermaidNodes = document.querySelectorAll('.mermaid:not([data-processed="true"])');
+        if (mermaidNodes.length === 0) return;
+
+        const mermaidModule = await import('mermaid');
+        const mermaid = (mermaidModule.default || mermaidModule) as any;
+
+        mermaid.initialize({
+          startOnLoad: false,
+          theme: 'base',
+          securityLevel: 'loose',
+          fontFamily: 'Inter, system-ui, -apple-system, sans-serif',
+          fontSize: 13,
+          themeVariables: {
+            darkMode: true,
+            background: '#090d16',
+            mainBkg: '#0f172a',
+            textColor: '#f1f5f9',
+            lineColor: '#64748b',
+            primaryColor: '#0f172a',
+            primaryBorderColor: '#38bdf8',
+            primaryTextColor: '#f8fafc',
+            secondaryColor: '#1e293b',
+            secondaryBorderColor: '#0ea5e9',
+            secondaryTextColor: '#f8fafc',
+            tertiaryColor: '#1e293b',
+            tertiaryBorderColor: '#475569',
+            tertiaryTextColor: '#cbd5e1',
+            edgeLabelBackground: '#090d16',
+            clusterBkg: '#060a12',
+            clusterBorder: '#334155',
+            defaultLinkColor: '#64748b',
+            titleColor: '#38bdf8',
+            nodeBorder: '#38bdf8',
+            actorBorder: '#38bdf8',
+            actorBkg: '#0f172a',
+            actorTextColor: '#f8fafc',
+            actorLineColor: '#475569',
+            signalColor: '#38bdf8',
+            signalTextColor: '#f8fafc',
+            labelBoxBkgColor: '#0f172a',
+            labelBoxBorderColor: '#334155',
+            labelTextColor: '#f8fafc',
+            loopTextColor: '#f8fafc',
+            noteBorderColor: '#38bdf8',
+            noteBkgColor: '#0f172a',
+            noteTextColor: '#f8fafc',
+            activationBorderColor: '#38bdf8',
+            activationBkgColor: '#1e293b',
+            sequenceNumberColor: '#f8fafc',
+            stateBkg: '#0f172a',
+            stateBorder: '#38bdf8',
+            stateLabelColor: '#f8fafc',
+            altSectionBkgColor: '#0b1120'
+          }
+        });
+
+        if (isMounted) {
+          const freshNodes = document.querySelectorAll('.mermaid:not([data-processed="true"])');
+          if (freshNodes.length > 0) {
+            await mermaid.run({
+              nodes: freshNodes as unknown as HTMLElement[]
+            });
+          }
+        }
+      } catch (err) {
+        console.warn('Mermaid rendering notice:', err);
+      }
+    };
+
+    const timer = setTimeout(renderMermaid, 50);
+    return () => {
+      isMounted = false;
+      clearTimeout(timer);
+    };
+  }, [post, isLoading]);
+
   if (isLoading) {
     return (
       <div className="post-skeleton-wrapper">
@@ -233,6 +317,8 @@ const BlogPostPage: React.FC<BlogPostPageProps> = ({ slug, onBack }) => {
     let listType: 'ul' | 'ol' = 'ul';
     let inCodeBlock = false;
     let codeContent: string[] = [];
+    let codeLang = '';
+    let diagramCounter = 0;
     let inDisplayMath = false;
     let mathContent: string[] = [];
     let inTable = false;
@@ -280,22 +366,49 @@ const BlogPostPage: React.FC<BlogPostPageProps> = ({ slug, onBack }) => {
       const line = lines[i];
       const trimmed = line.trim();
 
-      // Code blocks
+      // Code blocks & Mermaid diagrams
       if (trimmed.startsWith('```')) {
         closeList();
         closeTable();
         if (inCodeBlock) {
           inCodeBlock = false;
-          html += `<pre><code>${codeContent.join('\n')}</code></pre>`;
+          if (codeLang === 'mermaid') {
+            const rawMermaid = codeContent.join('\n').trim();
+            const escapedMermaid = rawMermaid.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+            diagramCounter++;
+            html += `<div class="mermaid-diagram-card" data-diagram-id="diagram-${diagramCounter}">` +
+              `<div class="diagram-card-header">` +
+                `<div class="diagram-card-title-group">` +
+                  `<span class="diagram-pulse-dot"></span>` +
+                  `<span class="diagram-type-tag">ARCHITECTURE SCHEMATIC</span>` +
+                `</div>` +
+                `<div class="diagram-card-actions">` +
+                  `<button type="button" class="diagram-tab-btn active" data-tab="diagram">Diagram</button>` +
+                  `<button type="button" class="diagram-tab-btn" data-tab="source">Source</button>` +
+                `</div>` +
+              `</div>` +
+              `<div class="mermaid-viewport">` +
+                `<div class="mermaid" id="mermaid-item-${diagramCounter}">${rawMermaid}</div>` +
+              `</div>` +
+              `<pre class="mermaid-source-view" style="display: none;"><code>${escapedMermaid}</code></pre>` +
+            `</div>`;
+          } else {
+            const escapedCode = codeContent.map(c => c.replace(/</g, '&lt;').replace(/>/g, '&gt;')).join('\n');
+            const langClass = codeLang ? ` class="language-${codeLang}"` : '';
+            html += `<pre><code${langClass}>${escapedCode}</code></pre>`;
+          }
           codeContent = [];
+          codeLang = '';
         } else {
           inCodeBlock = true;
+          codeLang = trimmed.slice(3).trim().toLowerCase();
+          codeContent = [];
         }
         continue;
       }
 
       if (inCodeBlock) {
-        codeContent.push(line.replace(/</g, '&lt;').replace(/>/g, '&gt;'));
+        codeContent.push(line);
         continue;
       }
 
@@ -522,7 +635,31 @@ const BlogPostPage: React.FC<BlogPostPageProps> = ({ slug, onBack }) => {
           className="post-body" 
           dangerouslySetInnerHTML={{ __html: parseMarkdown(post.content) }} 
           onClick={(e) => {
-            const target = (e.target as HTMLElement).closest('a');
+            const targetEl = e.target as HTMLElement;
+
+            // Handle diagram tab toggle (Diagram / Source)
+            const tabBtn = targetEl.closest('.diagram-tab-btn') as HTMLButtonElement | null;
+            if (tabBtn) {
+              e.preventDefault();
+              const card = tabBtn.closest('.mermaid-diagram-card');
+              if (card) {
+                const targetTab = tabBtn.getAttribute('data-tab');
+                const viewport = card.querySelector('.mermaid-viewport') as HTMLElement | null;
+                const source = card.querySelector('.mermaid-source-view') as HTMLElement | null;
+                card.querySelectorAll('.diagram-tab-btn').forEach(b => b.classList.remove('active'));
+                tabBtn.classList.add('active');
+                if (targetTab === 'source') {
+                  if (viewport) viewport.style.display = 'none';
+                  if (source) source.style.display = 'block';
+                } else {
+                  if (viewport) viewport.style.display = 'flex';
+                  if (source) source.style.display = 'none';
+                }
+              }
+              return;
+            }
+
+            const target = targetEl.closest('a');
             if (!target) return;
             const href = target.getAttribute('href');
             if (href && href.startsWith('/')) {

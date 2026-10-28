@@ -311,9 +311,55 @@
     <h1 class="post-title">Demystifying UART, SPI, and I2C: The High-Speed Communication Protocols of Hardware</h1>
     <img src="/assets/blog/arduino_forensics.webp" alt="Demystifying UART, SPI, and I2C: The High-Speed Communication Protocols of Hardware" class="post-hero-img" />
     <article class="post-body">
-      <h2 style="font-size: 2rem; margin-top: 3.5rem; margin-bottom: 1.5rem; font-weight: 800; color: #fff;">Demystifying UART, SPI, and I2C: The High-Speed Communication Protocols of Hardware</h2><p>When you connect a sensor, an OLED display, or a GPS module to an ESP32 or STM32 microcontroller, how do they talk to each other? They don't have ethernet ports or HTTP REST APIs.</p><p>Instead, microchips communicate using <strong>low-level serial protocols</strong>. The three most common hardware buses in embedded systems are <strong>UART</strong>, <strong>I2C</strong>, and <strong>SPI</strong>.</p><p>At <strong>Kone Lab</strong>, we teach students to diagnose these physical waveforms using oscilloscopes and logic analyzers. Here is how they compare.</p><hr /><h2>1. UART: The Asynchronous Point-to-Point Wire</h2><p><strong>UART (Universal Asynchronous Receiver-Transmitter)</strong> is an asynchronous, point-to-point communication channel.</p><ul><li><strong>Wires Needed</strong>: 2 wires (<code>TX</code> transmit, <code>RX</code> receive) + Ground.</li><li><strong>Clock Line</strong>: None! Both sender and receiver must pre-agree on the speed (<strong>Baud Rate</strong>, e.g., 9600, 115200 bps).</li><li><strong>Best Used For</strong>: Debug console logs, GPS modules, Bluetooth modules (HC-05).</li></ul><pre><code>[ Microcontroller ] TX --------&gt; RX [ GPS Sensor ]
-                   RX &lt;-------- TX
-                   GND -------- GND</code></pre><hr /><h2>2. I2C: The Multi-Device Addressable Bus</h2><p><strong>I2C (Inter-Integrated Circuit)</strong> is a synchronous, two-wire multi-device bus developed by Philips (NXP).</p><ul><li><strong>Wires Needed</strong>: 2 wires:</li></ul><p>    *   <code>SDA</code> (Serial Data): Carries the binary payload bits.</p><p>    *   <code>SCL</code> (Serial Clock): Pulsed by the master to synchronize data bit sampling.</p><ul><li><strong>Addressing</strong>: Each peripheral chip on the bus has a unique 7-bit hardware address (e.g. <code>0x3C</code> for OLED screens). Up to 127 devices can share the same two pins!</li><li><strong>Pull-up Resistors</strong>: I2C is an open-drain line. Both SDA and SCL require 4.7kΩ pull-up resistors to 3.3V to function properly.</li></ul><pre><code>// Reading an I2C Temperature Sensor (Arduino C++)
+      <h2 style="font-size: 2rem; margin-top: 3.5rem; margin-bottom: 1.5rem; font-weight: 800; color: #fff;">Demystifying UART, SPI, and I2C: The High-Speed Communication Protocols of Hardware</h2><p>When you connect a sensor, an OLED display, or a GPS module to an ESP32 or STM32 microcontroller, how do they talk to each other? They don't have ethernet ports or HTTP REST APIs.</p><p>Instead, microchips communicate using <strong>low-level serial protocols</strong>. The three most common hardware buses in embedded systems are <strong>UART</strong>, <strong>I2C</strong>, and <strong>SPI</strong>.</p><p>At <strong>Kone Lab</strong>, we teach students to diagnose these physical waveforms using oscilloscopes and logic analyzers. Here is how they compare.</p><hr /><h2>1. UART: The Asynchronous Point-to-Point Wire</h2><p><strong>UART (Universal Asynchronous Receiver-Transmitter)</strong> is an asynchronous, point-to-point communication channel.</p><ul><li><strong>Wires Needed</strong>: 2 wires (<code>TX</code> transmit, <code>RX</code> receive) + Ground.</li><li><strong>Clock Line</strong>: None! Both sender and receiver must pre-agree on the speed (<strong>Baud Rate</strong>, e.g., 9600, 115200 bps).</li><li><strong>Best Used For</strong>: Debug console logs, GPS modules, Bluetooth modules (HC-05).</li></ul><div class="mermaid-diagram-card" data-diagram-id="diagram-1"><div class="diagram-card-header"><div class="diagram-card-title-group"><span class="diagram-pulse-dot"></span><span class="diagram-type-tag">ARCHITECTURE SCHEMATIC</span></div><div class="diagram-card-actions"><button type="button" class="diagram-tab-btn active" data-tab="diagram">Diagram</button><button type="button" class="diagram-tab-btn" data-tab="source">Source</button></div></div><div class="mermaid-viewport"><div class="mermaid" id="mermaid-item-1">flowchart LR
+    subgraph MCU["Host Microcontroller (Transceiver 1)"]
+        TX1["UART TX (Transmit)"]
+        RX1["UART RX (Receive)"]
+        GND1["GND (Signal Ground)"]
+    end
+
+    subgraph Sensor["GPS / Peripheral (Transceiver 2)"]
+        RX2["UART RX (Receive)"]
+        TX2["UART TX (Transmit)"]
+        GND2["GND (Signal Ground)"]
+    end
+
+    TX1 -->|Asynchronous Serial Data| RX2
+    TX2 -->|Asynchronous Serial Data| RX1
+    GND1 <-->|Common Voltage Reference| GND2
+
+    style MCU fill:#080d1a,stroke:#334155,stroke-width:1px,color:#f8fafc
+    style Sensor fill:#080d1a,stroke:#334155,stroke-width:1px,color:#f8fafc
+    style TX1 fill:#0f172a,stroke:#00d4ff,stroke-width:1px,color:#f8fafc
+    style RX1 fill:#0f172a,stroke:#00d4ff,stroke-width:1px,color:#f8fafc
+    style GND1 fill:#0f172a,stroke:#64748b,stroke-width:1px,color:#f8fafc
+    style TX2 fill:#0f172a,stroke:#10b981,stroke-width:1px,color:#f8fafc
+    style RX2 fill:#0f172a,stroke:#10b981,stroke-width:1px,color:#f8fafc
+    style GND2 fill:#0f172a,stroke:#64748b,stroke-width:1px,color:#f8fafc</div></div><pre class="mermaid-source-view" style="display: none;"><code>flowchart LR
+    subgraph MCU["Host Microcontroller (Transceiver 1)"]
+        TX1["UART TX (Transmit)"]
+        RX1["UART RX (Receive)"]
+        GND1["GND (Signal Ground)"]
+    end
+
+    subgraph Sensor["GPS / Peripheral (Transceiver 2)"]
+        RX2["UART RX (Receive)"]
+        TX2["UART TX (Transmit)"]
+        GND2["GND (Signal Ground)"]
+    end
+
+    TX1 --&gt;|Asynchronous Serial Data| RX2
+    TX2 --&gt;|Asynchronous Serial Data| RX1
+    GND1 &lt;--&gt;|Common Voltage Reference| GND2
+
+    style MCU fill:#080d1a,stroke:#334155,stroke-width:1px,color:#f8fafc
+    style Sensor fill:#080d1a,stroke:#334155,stroke-width:1px,color:#f8fafc
+    style TX1 fill:#0f172a,stroke:#00d4ff,stroke-width:1px,color:#f8fafc
+    style RX1 fill:#0f172a,stroke:#00d4ff,stroke-width:1px,color:#f8fafc
+    style GND1 fill:#0f172a,stroke:#64748b,stroke-width:1px,color:#f8fafc
+    style TX2 fill:#0f172a,stroke:#10b981,stroke-width:1px,color:#f8fafc
+    style RX2 fill:#0f172a,stroke:#10b981,stroke-width:1px,color:#f8fafc
+    style GND2 fill:#0f172a,stroke:#64748b,stroke-width:1px,color:#f8fafc</code></pre></div><hr /><h2>2. I2C: The Multi-Device Addressable Bus</h2><p><strong>I2C (Inter-Integrated Circuit)</strong> is a synchronous, two-wire multi-device bus developed by Philips (NXP).</p><ul><li><strong>Wires Needed</strong>: 2 wires:</li></ul><p>    *   <code>SDA</code> (Serial Data): Carries the binary payload bits.</p><p>    *   <code>SCL</code> (Serial Clock): Pulsed by the master to synchronize data bit sampling.</p><ul><li><strong>Addressing</strong>: Each peripheral chip on the bus has a unique 7-bit hardware address (e.g. <code>0x3C</code> for OLED screens). Up to 127 devices can share the same two pins!</li><li><strong>Pull-up Resistors</strong>: I2C is an open-drain line. Both SDA and SCL require 4.7kΩ pull-up resistors to 3.3V to function properly.</li></ul><pre><code class="language-cpp">// Reading an I2C Temperature Sensor (Arduino C++)
 #include &lt;Wire.h&gt;
 
 #define SENSOR_I2C_ADDR 0x48

@@ -963,4 +963,164 @@
   background: rgba(255, 255, 255, 0.02);
 }
 
+/* ==========================================================================
+   Engineering Architecture Diagram Cards (Mermaid & Vector Schematics)
+   ========================================================================== */
+.mermaid-diagram-card {
+  margin: 2.8rem 0;
+  background: #080d1a;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.mermaid-diagram-card:hover {
+  border-color: rgba(56, 189, 248, 0.25);
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.5), 0 0 20px rgba(56, 189, 248, 0.04);
+}
+
+.diagram-card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.75rem 1.2rem;
+  background: rgba(15, 23, 42, 0.75);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.diagram-card-title-group {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.diagram-pulse-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #00d4ff;
+  box-shadow: 0 0 8px #00d4ff;
+  animation: diagram-dot-pulse 2s infinite ease-in-out;
+}
+
+@keyframes diagram-dot-pulse {
+  0%, 100% { opacity: 0.4; transform: scale(0.9); }
+  50% { opacity: 1; transform: scale(1.15); }
+}
+
+.diagram-type-tag {
+  font-family: var(--font-mono, monospace);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: #94a3b8;
+  text-transform: uppercase;
+}
+
+.diagram-card-actions {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  background: rgba(0, 0, 0, 0.3);
+  padding: 2px;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.diagram-tab-btn {
+  background: transparent;
+  border: none;
+  color: #64748b;
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 4px 10px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.diagram-tab-btn:hover {
+  color: #cbd5e1;
+}
+
+.diagram-tab-btn.active {
+  background: #1e293b;
+  color: #38bdf8;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+}
+
+.mermaid-viewport {
+  padding: 2rem 1.4rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow-x: auto;
+  scrollbar-width: thin;
+  scrollbar-color: #334155 transparent;
+  min-height: 140px;
+}
+
+.mermaid-viewport .mermaid {
+  width: 100%;
+  max-width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.mermaid-viewport .mermaid svg {
+  max-width: 100% !important;
+  height: auto !important;
+  font-family: 'Inter', system-ui, -apple-system, sans-serif !important;
+}
+
+/* Custom styling inside the SVG nodes */
+.mermaid-viewport .node rect,
+.mermaid-viewport .node circle,
+.mermaid-viewport .node polygon {
+  transition: stroke 0.2s ease, filter 0.2s ease;
+}
+
+.mermaid-viewport .node:hover rect,
+.mermaid-viewport .node:hover circle,
+.mermaid-viewport .node:hover polygon {
+  filter: drop-shadow(0 0 6px rgba(56, 189, 248, 0.4));
+}
+
+.mermaid-source-view {
+  margin: 0 !important;
+  border: none !important;
+  border-radius: 0 !important;
+  background: #060913 !important;
+  padding: 1.2rem !important;
+  overflow-x: auto;
+  font-size: 0.85rem !important;
+  color: #94a3b8 !important;
+  line-height: 1.5 !important;
+}
+
+@media (max-width: 768px) {
+  .mermaid-diagram-card {
+    margin: 2rem 0;
+    border-radius: 10px;
+  }
+  .diagram-card-header {
+    padding: 0.6rem 0.9rem;
+  }
+  .diagram-type-tag {
+    font-size: 0.68rem;
+  }
+  .mermaid-viewport {
+    padding: 1.4rem 0.8rem;
+    justify-content: flex-start;
+  }
+  /* Keep sequence diagrams legible on mobile screens with horizontal scroll */
+  .mermaid-viewport .mermaid svg:has(.actor),
+  .mermaid-viewport .mermaid svg:has(rect.actor) {
+    min-width: 520px;
+  }
+}
+
+
 

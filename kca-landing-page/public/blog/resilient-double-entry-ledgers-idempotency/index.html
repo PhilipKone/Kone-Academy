@@ -311,7 +311,7 @@
     <h1 class="post-title">Building Resilient Double-Entry Ledgers: ACID Guarantees and Idempotency in Fintech</h1>
     <img src="/assets/blog/fintech_ledger.webp" alt="Building Resilient Double-Entry Ledgers: ACID Guarantees and Idempotency in Fintech" class="post-hero-img" />
     <article class="post-body">
-      <h2 style="font-size: 2rem; margin-top: 3.5rem; margin-bottom: 1.5rem; font-weight: 800; color: #fff;">Building Resilient Double-Entry Ledgers: ACID Guarantees and Idempotency in Fintech</h2><p>In modern payment engineering, there is one non-negotiable rule: <strong>You never store user balances as a single mutable database column.</strong> </p><p>If your database schema has a table with <code>users.balance = 500.00</code> and you run <code>UPDATE users SET balance = balance - 50</code>, your system will eventually lose money during concurrent checkouts, race conditions, or network retries.</p><p>At <strong>Kone Pay</strong>, our fintech core relies on immutable, cryptographically verifiable <strong>Double-Entry Bookkeeping</strong>. Here is how to engineer financial-grade transaction systems.</p><hr /><h2>1. The Fundamental Equation of Double-Entry</h2><p>Every economic event involves at least two accounts. Money never appears from nothing, and money never disappears.</p><div class="blog-math-display"><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mo>∑</mo><mtext>Debits</mtext><mo>−</mo><mo>∑</mo><mtext>Credits</mtext><mo>=</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">\sum \text{Debits} - \sum \text{Credits} = 0</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="katex-base"><span class="katex-strut" style="height:1.6em;vertical-align:-0.55em;"></span><span class="mop op-symbol large-op" style="position:relative;top:0em;">∑</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord text"><span class="mord">Debits</span></span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="katex-base"><span class="katex-strut" style="height:1.6em;vertical-align:-0.55em;"></span><span class="mop op-symbol large-op" style="position:relative;top:0em;">∑</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord text"><span class="mord">Credits</span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="katex-base"><span class="katex-strut" style="height:0.6444em;"></span><span class="mord">0</span></span></span></span></span></div><p>For every transaction:</p><ul><li>An <strong>Origin Account</strong> has money deducted.</li><li>A <strong>Destination Account</strong> has money credited.</li><li>The sum total of debits and credits in the transaction record must strictly equal zero.</li></ul><h3>The Canonical Schema</h3><pre><code>-- Immutable Entries Table
+      <h2 style="font-size: 2rem; margin-top: 3.5rem; margin-bottom: 1.5rem; font-weight: 800; color: #fff;">Building Resilient Double-Entry Ledgers: ACID Guarantees and Idempotency in Fintech</h2><p>In modern payment engineering, there is one non-negotiable rule: <strong>You never store user balances as a single mutable database column.</strong> </p><p>If your database schema has a table with <code>users.balance = 500.00</code> and you run <code>UPDATE users SET balance = balance - 50</code>, your system will eventually lose money during concurrent checkouts, race conditions, or network retries.</p><p>At <strong>Kone Pay</strong>, our fintech core relies on immutable, cryptographically verifiable <strong>Double-Entry Bookkeeping</strong>. Here is how to engineer financial-grade transaction systems.</p><hr /><h2>1. The Fundamental Equation of Double-Entry</h2><p>Every economic event involves at least two accounts. Money never appears from nothing, and money never disappears.</p><div class="blog-math-display"><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mo>∑</mo><mtext>Debits</mtext><mo>−</mo><mo>∑</mo><mtext>Credits</mtext><mo>=</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">\sum \text{Debits} - \sum \text{Credits} = 0</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="katex-base"><span class="katex-strut" style="height:1.6em;vertical-align:-0.55em;"></span><span class="mop op-symbol large-op" style="position:relative;top:0em;">∑</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord text"><span class="mord">Debits</span></span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="katex-base"><span class="katex-strut" style="height:1.6em;vertical-align:-0.55em;"></span><span class="mop op-symbol large-op" style="position:relative;top:0em;">∑</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord text"><span class="mord">Credits</span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="katex-base"><span class="katex-strut" style="height:0.6444em;"></span><span class="mord">0</span></span></span></span></span></div><p>For every transaction:</p><ul><li>An <strong>Origin Account</strong> has money deducted.</li><li>A <strong>Destination Account</strong> has money credited.</li><li>The sum total of debits and credits in the transaction record must strictly equal zero.</li></ul><h3>The Canonical Schema</h3><pre><code class="language-sql">-- Immutable Entries Table
 CREATE TABLE ledger_entries (
     id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
     transaction_id UUID NOT NULL REFERENCES transactions(id),
@@ -319,7 +319,59 @@ CREATE TABLE ledger_entries (
     amount_cents BIGINT NOT NULL, -- Never use floating point NUMERIC for money!
     direction VARCHAR(6) CHECK (direction IN ('DEBIT', 'CREDIT')),
     created_at TIMESTAMPTZ NOT NULL DEFAULT NOW()
-);</code></pre><hr /><h2>2. Handling Concurrency with Idempotency Keys</h2><p>Payment webhooks from Stripe, Paystack, or card networks frequently arrive multiple times due to retry policies. If a webhook retries 3 times, how do you prevent the customer from being credited 3 times?</p><h3>The Idempotency Layer:</h3><ol><li>Every incoming webhook or transfer request carries a unique <strong>Idempotency Key</strong> (e.g. <code>req-uuid-8f92b</code>).</li><li>Wrap the execution in a strict database transaction with unique constraint checks:</li></ol><pre><code>import { PoolClient } from 'pg';
+);</code></pre><hr /><h2>2. Handling Concurrency with Idempotency Keys</h2><p>Payment webhooks from Stripe, Paystack, or card networks frequently arrive multiple times due to retry policies. If a webhook retries 3 times, how do you prevent the customer from being credited 3 times?</p><h3>The Idempotency Layer:</h3><ol><li>Every incoming webhook or transfer request carries a unique <strong>Idempotency Key</strong> (e.g. <code>req-uuid-8f92b</code>).</li><li>Wrap the execution in a strict database transaction with unique constraint checks:</li></ol><div class="mermaid-diagram-card" data-diagram-id="diagram-1"><div class="diagram-card-header"><div class="diagram-card-title-group"><span class="diagram-pulse-dot"></span><span class="diagram-type-tag">ARCHITECTURE SCHEMATIC</span></div><div class="diagram-card-actions"><button type="button" class="diagram-tab-btn active" data-tab="diagram">Diagram</button><button type="button" class="diagram-tab-btn" data-tab="source">Source</button></div></div><div class="mermaid-viewport"><div class="mermaid" id="mermaid-item-1">sequenceDiagram
+    autonumber
+    actor Client as Client / Webhook
+    participant Gateway as API Gateway / App
+    participant Redis as Redis Lock Cache
+    participant DB as Postgres ACID Core
+
+    Client->>Gateway: POST /transfers (Idempotency-Key: "idemp_8f92b")
+    Gateway->>Redis: SETNX lock:idemp_8f92b (TTL: 10s)
+    alt Lock Acquired
+        Gateway->>DB: SELECT * FROM transactions WHERE idempotency_key = 'idemp_8f92b'
+        alt Already Executed (Cached Result)
+            DB-->>Gateway: Existing Transaction Record (Status: COMMITTED)
+            Gateway-->>Client: 200 OK (Cached Result, No Double Charge!)
+        else New Transaction
+            Gateway->>DB: BEGIN TRANSACTION ISOLATION SERIALIZABLE
+            Gateway->>DB: SELECT balance FROM accounts WHERE id = source FOR UPDATE
+            Gateway->>DB: INSERT INTO ledger_entries (Debit Source, Credit Dest)
+            Gateway->>DB: INSERT INTO transactions (idempotency_key, status='COMMITTED')
+            Gateway->>DB: COMMIT TRANSACTION
+            DB-->>Gateway: Transaction Committed (Zero Sum Verified)
+            Gateway->>Redis: DEL lock:idemp_8f92b
+            Gateway-->>Client: 201 Created (Transfer Settled)
+        end
+    else Lock Held (Concurrent Request)
+        Gateway-->>Client: 429 Conflict / Retry After
+    end</div></div><pre class="mermaid-source-view" style="display: none;"><code>sequenceDiagram
+    autonumber
+    actor Client as Client / Webhook
+    participant Gateway as API Gateway / App
+    participant Redis as Redis Lock Cache
+    participant DB as Postgres ACID Core
+
+    Client-&gt;&gt;Gateway: POST /transfers (Idempotency-Key: "idemp_8f92b")
+    Gateway-&gt;&gt;Redis: SETNX lock:idemp_8f92b (TTL: 10s)
+    alt Lock Acquired
+        Gateway-&gt;&gt;DB: SELECT * FROM transactions WHERE idempotency_key = 'idemp_8f92b'
+        alt Already Executed (Cached Result)
+            DB--&gt;&gt;Gateway: Existing Transaction Record (Status: COMMITTED)
+            Gateway--&gt;&gt;Client: 200 OK (Cached Result, No Double Charge!)
+        else New Transaction
+            Gateway-&gt;&gt;DB: BEGIN TRANSACTION ISOLATION SERIALIZABLE
+            Gateway-&gt;&gt;DB: SELECT balance FROM accounts WHERE id = source FOR UPDATE
+            Gateway-&gt;&gt;DB: INSERT INTO ledger_entries (Debit Source, Credit Dest)
+            Gateway-&gt;&gt;DB: INSERT INTO transactions (idempotency_key, status='COMMITTED')
+            Gateway-&gt;&gt;DB: COMMIT TRANSACTION
+            DB--&gt;&gt;Gateway: Transaction Committed (Zero Sum Verified)
+            Gateway-&gt;&gt;Redis: DEL lock:idemp_8f92b
+            Gateway--&gt;&gt;Client: 201 Created (Transfer Settled)
+        end
+    else Lock Held (Concurrent Request)
+        Gateway--&gt;&gt;Client: 429 Conflict / Retry After
+    end</code></pre></div><pre><code class="language-typescript">import { PoolClient } from 'pg';
 
 export async function processTransfer(
   client: PoolClient,

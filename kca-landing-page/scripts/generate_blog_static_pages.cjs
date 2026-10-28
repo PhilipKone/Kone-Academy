@@ -70,6 +70,8 @@ function parseMarkdownToHtml(markdown) {
   let listType = 'ul';
   let inCodeBlock = false;
   let codeContent = [];
+  let codeLang = '';
+  let diagramCounter = 0;
   let inDisplayMath = false;
   let mathContent = [];
   let inTable = false;
@@ -117,22 +119,49 @@ function parseMarkdownToHtml(markdown) {
     const line = lines[i];
     const trimmed = line.trim();
 
-    // Code blocks
+    // Code blocks & Mermaid diagrams
     if (trimmed.startsWith('```')) {
       closeList();
       closeTable();
       if (inCodeBlock) {
         inCodeBlock = false;
-        html += `<pre><code>${codeContent.join('\n')}</code></pre>`;
+        if (codeLang === 'mermaid') {
+          const rawMermaid = codeContent.join('\n').trim();
+          const escapedMermaid = rawMermaid.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+          diagramCounter++;
+          html += `<div class="mermaid-diagram-card" data-diagram-id="diagram-${diagramCounter}">` +
+            `<div class="diagram-card-header">` +
+              `<div class="diagram-card-title-group">` +
+                `<span class="diagram-pulse-dot"></span>` +
+                `<span class="diagram-type-tag">ARCHITECTURE SCHEMATIC</span>` +
+              `</div>` +
+              `<div class="diagram-card-actions">` +
+                `<button type="button" class="diagram-tab-btn active" data-tab="diagram">Diagram</button>` +
+                `<button type="button" class="diagram-tab-btn" data-tab="source">Source</button>` +
+              `</div>` +
+            `</div>` +
+            `<div class="mermaid-viewport">` +
+              `<div class="mermaid" id="mermaid-item-${diagramCounter}">${rawMermaid}</div>` +
+            `</div>` +
+            `<pre class="mermaid-source-view" style="display: none;"><code>${escapedMermaid}</code></pre>` +
+          `</div>`;
+        } else {
+          const escapedCode = codeContent.map(c => c.replace(/</g, '&lt;').replace(/>/g, '&gt;')).join('\n');
+          const langClass = codeLang ? ` class="language-${codeLang}"` : '';
+          html += `<pre><code${langClass}>${escapedCode}</code></pre>`;
+        }
         codeContent = [];
+        codeLang = '';
       } else {
         inCodeBlock = true;
+        codeLang = trimmed.slice(3).trim().toLowerCase();
+        codeContent = [];
       }
       continue;
     }
 
     if (inCodeBlock) {
-      codeContent.push(line.replace(/</g, '&lt;').replace(/>/g, '&gt;'));
+      codeContent.push(line);
       continue;
     }
 
