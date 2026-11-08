@@ -92,8 +92,11 @@ const Footer = ({ onOpenPrivacy, onOpenTerms }) => {
         </div>
       </div>
       <div className="footer-bottom">
+        <p className="footer-legal-ownership">
+          Kone Academy is an edtech &amp; engineering initiative operated by <strong>Codkon Technologies</strong> (Reg. No: BN413711026, Republic of Ghana).
+        </p>
         <p>
-          &copy; {new Date().getFullYear()} Kone Academy. Open Source License. &nbsp;|&nbsp; 
+          &copy; {new Date().getFullYear()} Kone Academy &bull; Codkon Technologies. &nbsp;|&nbsp; 
           <button className="footer-legal-btn" onClick={onOpenPrivacy}>Privacy Policy</button> &nbsp;|&nbsp; 
           <button className="footer-legal-btn" onClick={onOpenTerms}>Terms of Service</button>
         </p>

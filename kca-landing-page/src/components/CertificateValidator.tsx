@@ -297,6 +297,7 @@ const CertificateValidator = ({ onBack }) => {
                     <div className="cert-top-right-meta">
                       <span className="meta-auth-label">ISSUING AUTHORITY</span>
                       <strong className="meta-auth-val">Kone Academy</strong>
+                      <span className="meta-auth-id" style={{ display: 'block', fontSize: '0.74rem', opacity: 0.85, color: '#38bdf8' }}>Codkon Technologies (BN413711026)</span>
                       <span className="meta-auth-id">ID: {certData.id}</span>
                     </div>
                   </div>

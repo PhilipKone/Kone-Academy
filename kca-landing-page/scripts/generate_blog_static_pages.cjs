@@ -138,6 +138,7 @@ function parseMarkdownToHtml(markdown) {
               `<div class="diagram-card-actions">` +
                 `<button type="button" class="diagram-tab-btn active" data-tab="diagram">Diagram</button>` +
                 `<button type="button" class="diagram-tab-btn" data-tab="source">Source</button>` +
+                `<button type="button" class="diagram-copy-btn" title="Copy Mermaid Definition">Copy</button>` +
               `</div>` +
             `</div>` +
             `<div class="mermaid-viewport">` +

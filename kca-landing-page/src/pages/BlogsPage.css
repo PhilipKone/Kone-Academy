@@ -1051,11 +1051,35 @@
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
 }
 
+.diagram-copy-btn {
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  color: #94a3b8;
+  font-size: 0.72rem;
+  font-weight: 600;
+  padding: 3px 8px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  margin-left: 4px;
+}
+
+.diagram-copy-btn:hover {
+  background: rgba(255, 255, 255, 0.06);
+  color: #38bdf8;
+  border-color: rgba(56, 189, 248, 0.3);
+}
+
+.diagram-copy-btn.copied {
+  background: rgba(16, 185, 129, 0.15);
+  color: #10b981;
+  border-color: rgba(16, 185, 129, 0.4);
+}
+
 .mermaid-viewport {
   padding: 2rem 1.4rem;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  display: block;
+  text-align: center;
   overflow-x: auto;
   scrollbar-width: thin;
   scrollbar-color: #334155 transparent;
@@ -1063,16 +1087,30 @@
 }
 
 .mermaid-viewport .mermaid {
-  width: 100%;
+  display: inline-block;
+  min-width: min-content;
   max-width: 100%;
-  display: flex;
-  justify-content: center;
+  text-align: left;
 }
 
 .mermaid-viewport .mermaid svg {
-  max-width: 100% !important;
+  display: block;
+  margin: 0 auto;
   height: auto !important;
   font-family: 'Inter', system-ui, -apple-system, sans-serif !important;
+}
+
+/* Vertical diagrams (flowcharts, state diagrams) scale smoothly */
+.mermaid-viewport .mermaid svg:not(.sequenceDiagram) {
+  max-width: 100% !important;
+}
+
+/* Sequence diagrams: maintain comfortable column width and fluid horizontal scroll without flex-clipping */
+.mermaid-viewport .mermaid svg.sequenceDiagram,
+.mermaid-viewport .mermaid svg:has(.actor),
+.mermaid-viewport .mermaid svg:has(rect.actor) {
+  max-width: none !important;
+  min-width: 680px;
 }
 
 /* Custom styling inside the SVG nodes */
@@ -1113,12 +1151,7 @@
   }
   .mermaid-viewport {
     padding: 1.4rem 0.8rem;
-    justify-content: flex-start;
-  }
-  /* Keep sequence diagrams legible on mobile screens with horizontal scroll */
-  .mermaid-viewport .mermaid svg:has(.actor),
-  .mermaid-viewport .mermaid svg:has(rect.actor) {
-    min-width: 520px;
+    text-align: left;
   }
 }
 

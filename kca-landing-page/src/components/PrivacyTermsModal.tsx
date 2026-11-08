@@ -23,11 +23,11 @@ const PRIVACY_SECTIONS: LegalSection[] = [
     id: 'scope',
     number: '01',
     title: 'Scope & Corporate Attribution',
-    summary: 'Kone Academy is the engineering education division operated under Kone Technologies. This policy covers all learning platforms, lab sandboxes, and verification systems.',
+    summary: 'Kone Academy is the engineering education and edtech division operated under Codkon Technologies (Reg. No: BN413711026). This policy covers all learning platforms, lab sandboxes, and verification systems.',
     keywords: 'scope attribution corporate holding company ecosystem platform lab sandboxes',
     content: (
       <p>
-        Kone Academy (<code>www.koneacademy.io</code>) operates as an advanced engineering and technology training division of <strong>Kone Technologies</strong> and its broader ecosystem. This Privacy Policy governs all student registrations, enrollment inquiries, syllabus downloads, software lab access, and cryptographic credential validations across our global platforms.
+        Kone Academy (<code>www.koneacademy.io</code>) operates as an advanced engineering, edtech, and technology training division of <strong>Codkon Technologies</strong> (Registration No: <code>BN413711026</code>, Republic of Ghana). This Privacy Policy governs all student registrations, enrollment inquiries, syllabus downloads, software lab access, and cryptographic credential validations across our global platforms.
       </p>
     )
   },
@@ -118,11 +118,11 @@ const TERMS_SECTIONS: LegalSection[] = [
     id: 'scope-education',
     number: '01',
     title: 'Educational Scope & Engineering Rigor',
-    summary: 'Kone Academy delivers production-grade engineering curricula with hands-on architecture blueprints, micro-projects, and live capstone deployments.',
+    summary: 'Kone Academy is an edtech & engineering initiative operated by Codkon Technologies (Reg. No: BN413711026), delivering production-grade curricula with live capstones.',
     keywords: 'education curriculum tracks engineering micro projects capstones training rigor',
     content: (
       <p>
-        Kone Academy provides intensive engineering tracks, architectural visualizers, micro-project checkpoints, and production capstone blueprints. Our curriculum is engineered to simulate high-concurrency production environments and real-world engineering accountability.
+        Kone Academy, an edtech and engineering initiative operated under <strong>Codkon Technologies</strong> (Reg. No: <code>BN413711026</code>, Republic of Ghana), provides intensive engineering tracks, architectural visualizers, micro-project checkpoints, and production capstone blueprints. Our curriculum is engineered to simulate high-concurrency production environments and real-world engineering accountability.
       </p>
     )
   },
@@ -276,7 +276,7 @@ const PrivacyTermsModal: React.FC<PrivacyTermsModalProps> = ({
               <div className="mobbin-doc-meta">
                 <span className="mobbin-meta-status"><span className="status-dot"></span> Active Policy</span>
                 <span className="mobbin-meta-sep">•</span>
-                <span>Updated August 2026</span>
+                <span>Codkon Technologies (BN413711026)</span>
                 <span className="mobbin-meta-sep">•</span>
                 <span>Ghana DPA (Act 843)</span>
               </div>
@@ -446,7 +446,7 @@ const PrivacyTermsModal: React.FC<PrivacyTermsModalProps> = ({
         <div className="mobbin-modal-footer">
           <div className="mobbin-footer-meta">
             <FaLock size={11} className="text-emerald" />
-            <span>Cryptographically Verified &bull; Kone Academy Ecosystem &copy; {new Date().getFullYear()}</span>
+            <span>Cryptographically Verified &bull; Codkon Technologies / Kone Academy &copy; {new Date().getFullYear()}</span>
           </div>
 
           <div className="mobbin-footer-buttons">

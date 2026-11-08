@@ -168,7 +168,7 @@ const DocumentPrintModal: React.FC<DocumentPrintModalProps> = ({
                 </div>
                 <div>
                   <h1 className="doc-brand-title">KONE ACADEMY</h1>
-                  <p className="doc-brand-sub">Research, Coding &amp; Engineering Collective</p>
+                  <p className="doc-brand-sub">An EdTech &amp; Engineering Division of <strong>Codkon Technologies</strong> (Reg. No: BN413711026)</p>
                   <p className="doc-brand-contact">
                     Accra, Ghana &bull; philipkone45@gmail.com &bull; +233 55 199 3820 &bull; www.koneacademy.io
                   </p>
@@ -268,7 +268,7 @@ const DocumentPrintModal: React.FC<DocumentPrintModalProps> = ({
                     <div className="doc-signature-line">
                       <div className="sign-name">Philip Hotor</div>
                       <div className="sign-role">Lead Engineer & Academy Director</div>
-                      <div className="sign-org">Kone Academy Admissions Directorate</div>
+                      <div className="sign-org">Kone Academy &bull; Codkon Technologies (Reg. No: BN413711026)</div>
                     </div>
                   </div>
                 </div>
@@ -363,7 +363,7 @@ const DocumentPrintModal: React.FC<DocumentPrintModalProps> = ({
             {/* Document Bottom Footer */}
             <footer className="doc-footer">
               <div className="doc-footer-meta">
-                <span>Kone Academy &bull; Empowering Africa's Next-Generation Software Engineers</span>
+                <span>Kone Academy &bull; Codkon Technologies (Reg. No: BN413711026) &bull; Empowering Africa's Next-Generation Software Engineers</span>
                 <span>Document ID: {invoiceNumber} &bull; Verification URL: koneacademy.io/verify</span>
               </div>
             </footer>

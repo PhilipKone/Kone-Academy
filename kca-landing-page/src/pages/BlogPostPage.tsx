@@ -385,6 +385,7 @@ const BlogPostPage: React.FC<BlogPostPageProps> = ({ slug, onBack }) => {
                 `<div class="diagram-card-actions">` +
                   `<button type="button" class="diagram-tab-btn active" data-tab="diagram">Diagram</button>` +
                   `<button type="button" class="diagram-tab-btn" data-tab="source">Source</button>` +
+                  `<button type="button" class="diagram-copy-btn" title="Copy Mermaid Definition">Copy</button>` +
                 `</div>` +
               `</div>` +
               `<div class="mermaid-viewport">` +
@@ -637,6 +638,53 @@ const BlogPostPage: React.FC<BlogPostPageProps> = ({ slug, onBack }) => {
           onClick={(e) => {
             const targetEl = e.target as HTMLElement;
 
+            // Handle diagram copy button
+            const copyBtn = targetEl.closest('.diagram-copy-btn') as HTMLButtonElement | null;
+            if (copyBtn) {
+              e.preventDefault();
+              const card = copyBtn.closest('.mermaid-diagram-card');
+              const sourceEl = card ? card.querySelector('.mermaid-source-view code') : null;
+              const textToCopy = sourceEl ? sourceEl.textContent || '' : '';
+              
+              const showCopiedFeedback = () => {
+                const originalText = copyBtn.textContent;
+                copyBtn.textContent = 'Copied!';
+                copyBtn.classList.add('copied');
+                setTimeout(() => {
+                  copyBtn.textContent = originalText;
+                  copyBtn.classList.remove('copied');
+                }, 2000);
+              };
+
+              const fallbackCopy = (text: string) => {
+                try {
+                  const textArea = document.createElement('textarea');
+                  textArea.value = text;
+                  textArea.style.position = 'fixed';
+                  textArea.style.left = '-9999px';
+                  document.body.appendChild(textArea);
+                  textArea.focus();
+                  textArea.select();
+                  const successful = document.execCommand('copy');
+                  document.body.removeChild(textArea);
+                  if (successful) showCopiedFeedback();
+                } catch (e) {
+                  console.warn('Fallback copy failed:', e);
+                }
+              };
+
+              if (textToCopy) {
+                if (navigator.clipboard && navigator.clipboard.writeText) {
+                  navigator.clipboard.writeText(textToCopy)
+                    .then(showCopiedFeedback)
+                    .catch(() => fallbackCopy(textToCopy));
+                } else {
+                  fallbackCopy(textToCopy);
+                }
+              }
+              return;
+            }
+
             // Handle diagram tab toggle (Diagram / Source)
             const tabBtn = targetEl.closest('.diagram-tab-btn') as HTMLButtonElement | null;
             if (tabBtn) {
@@ -652,7 +700,7 @@ const BlogPostPage: React.FC<BlogPostPageProps> = ({ slug, onBack }) => {
                   if (viewport) viewport.style.display = 'none';
                   if (source) source.style.display = 'block';
                 } else {
-                  if (viewport) viewport.style.display = 'flex';
+                  if (viewport) viewport.style.display = 'block';
                   if (source) source.style.display = 'none';
                 }
               }
