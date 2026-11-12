@@ -1,8 +1,0 @@
-{
-  "dependencies": {
-    "googleapis": "^173.0.0"
-  },
-  "devDependencies": {
-    "puppeteer": "^25.2.1"
-  }
-}
