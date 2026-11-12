@@ -1,0 +1,38 @@
+{
+  "mcpVersion": "1.0.0",
+  "name": "Kone Academy Web MCP Server",
+  "version": "0.1.0",
+  "description": "Exposes browser-level actions on the Kone Academy landing page for autonomous AI agents.",
+  "tools": [
+    {
+      "name": "launchApp",
+      "description": "Navigate the user to a specific division app in the Kone Academy ecosystem.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "appName": {
+            "type": "string",
+            "enum": ["consult", "code", "lab", "kids", "shop", "warp", "digital", "ai"],
+            "description": "The name of the app to launch."
+          }
+        },
+        "required": ["appName"]
+      }
+    },
+    {
+      "name": "changeTheme",
+      "description": "Change the neon theme color of the Kone Academy website interface.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "themeColor": {
+            "type": "string",
+            "enum": ["blue", "green", "pink", "orange", "purple"],
+            "description": "The neon theme color to apply."
+          }
+        },
+        "required": ["themeColor"]
+      }
+    }
+  ]
+}

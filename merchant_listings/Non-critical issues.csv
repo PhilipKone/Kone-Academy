@@ -1,0 +1,3 @@
+Issue,Validation,Items
+Missing field 'hasMerchantReturnPolicy' (in 'offers'),Not Started,29
+Missing field 'shippingDetails' (in 'offers'),Not Started,29

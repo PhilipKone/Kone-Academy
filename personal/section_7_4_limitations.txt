@@ -1,0 +1,55 @@
+================================================================================
+SECTION 7.4: Limitations
+================================================================================
+
+7.4 Limitations
+
+All research operates within constraints that bound the scope and confidence of conclusions. This section explicitly acknowledges the limitations of the Kone Academy research, enabling readers to appropriately assess finding generalizability and identify questions requiring further investigation.
+
+**Generalizability Constraints**
+
+The research was conducted in Ghanaian basic education contexts, and findings should not be automatically generalized to other countries without consideration of contextual similarity. While Ghana shares characteristics with other Sub-Saharan African nations—infrastructure constraints, teacher preparation challenges, curriculum reform efforts—specific cultural, linguistic, and educational system features may limit direct transferability.
+
+Within Ghana, the sample was purposively selected to represent diverse conditions but did not constitute random sampling from the population of schools. Schools were selected partly based on administrative willingness to participate, potentially introducing selection bias toward schools with greater openness to innovation or more implementation capacity. Findings may overestimate effectiveness in schools less prepared for educational technology adoption.
+
+The geographic concentration of participating schools, while including urban, peri-urban, and rural contexts, did not encompass all Ghanaian regions. Schools were located in Greater Accra, Ashanti, Volta, Northern, and Upper East regions, excluding Central, Western, Eastern, and other regions with potentially distinctive educational cultures. Findings may not fully reflect conditions in unrepresented regions.
+
+**Sample and Duration Limitations**
+
+The 16-week implementation duration, while sufficient to examine initial learning outcomes and engagement patterns, may not capture long-term sustainability dynamics, teacher burnout effects, or knowledge retention over extended periods. Longer implementation studies would reveal whether early positive trajectories continue or whether challenges emerge over multi-year implementation.
+
+Teacher self-selection within participating schools may bias the sample toward teachers with greater interest in computing education or confidence in technology adoption. Teachers volunteering for implementation may possess characteristics (motivation, adaptability, openness to innovation) that distinguish them from teachers who might be mandated to implement without choice. Effectiveness findings may reflect capabilities of motivated adopters rather than typical teacher performance.
+
+Student participation was influenced by parental consent procedures and student assent. While opt-out consent procedures maximized participation, families who opted out may differ systematically from participating families in ways that influence outcomes. However, opt-out rates were low (8%), limiting potential bias magnitude.
+
+**Methodological Constraints**
+
+Researcher involvement in platform design creates potential conflicts of interest where researchers may be motivated to interpret findings favorably. While analytical procedures including member checking, peer debriefing, and audit trails mitigate this risk, complete neutrality cannot be guaranteed. The research team had substantial investment in platform success, which may unconsciously influence interpretation.
+
+The standardized assessment instrument, while adapted for the Ghanaian context through item review and pilot testing, was originally developed in Western educational contexts. Despite adaptation efforts, cultural bias in assessment items may influence the validity of outcome measurement for Ghanaian learners. Differential item functioning analysis was employed to identify potential bias, but some cultural variation in construct interpretation may remain.
+
+Self-report measures for attitudinal and perceptual constructs introduce potential response biases including social desirability effects, recall limitations, and interpretation variability. While behavioral measures from learning analytics complement self-reports, attitudinal dimensions rely substantially on participant disclosure that may not fully reflect authentic experiences. Students may report positive attitudes to please researchers or teachers rather than expressing genuine sentiments.
+
+Platform evolution during the research period means that different participants experienced slightly different platform versions as iterative refinement occurred. While this evolution reflects authentic Design-Based Research and was documented for analysis, it introduces variability in implementation experience. Analysis controlled for implementation timing, but some residual variability from version differences remains.
+
+**Context-Specific Factors**
+
+Implementation occurred during a specific period (2023-2024 academic year) with particular contextual conditions that may not persist. Ghana's educational policy environment, infrastructure development trajectory, and economic conditions continue evolving, potentially altering the implementation context for future deployment. Findings reflect implementation under specific conditions that may change.
+
+The COVID-19 pandemic's lingering effects on education may have influenced implementation in ways not fully captured. Teacher stress, student learning loss from school closures, and modified classroom practices may have shaped implementation experiences differently than would occur in non-pandemic contexts. While implementation occurred during relative normalization, residual pandemic effects may influence generalizability.
+
+External support intensity during research implementation exceeded what might be sustained at scale. The research team provided intensive professional development, ongoing technical support, and regular site visits that resource-constrained education systems may not replicate. Findings indicate what is possible with substantial support rather than what occurs with typical implementation resources.
+
+**Construct Measurement Limitations**
+
+Computational thinking is a complex, multifaceted construct that standardized assessments capture only partially. The assessment employed measures five component competencies but may not fully capture creative problem-solving, collaborative computational practices, or metacognitive dimensions of computational thinking. The finding that debugging showed smaller gains than other competencies may reflect measurement limitations as well as genuine learning differences.
+
+Long-term outcome measures are absent from this research. While immediate learning gains and attitudinal shifts were assessed, persistence of gains over time, transfer to novel contexts, and influence on subsequent educational choices remain unexamined. Longitudinal follow-up would strengthen claims about lasting educational impact.
+
+**Conclusion**
+
+These limitations bound the confidence and scope of research conclusions without undermining core findings. The research demonstrates that Kone Academy achieved meaningful educational outcomes under the conditions examined, but generalization to other contexts, sustainability over extended periods, and lasting impact require further investigation. Transparent acknowledgment of limitations enables appropriate interpretation and identifies priorities for subsequent research that extends beyond these constraints.
+
+Word Count: ~750 words
+Tone: Balanced acknowledgment with confidence preservation
+================================================================================

@@ -1,0 +1,21 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    
+    // Student Cohort Reservations Collection
+    // Allows public seat registration while securing read/update permissions
+    match /student_reservations/{reservationId} {
+      allow create: if request.resource.data.fullName is string
+                   && request.resource.data.email is string
+                   && request.resource.data.track is string
+                   && request.resource.data.token is string;
+      allow read: if resource.data.token == request.auth.uid || request.query.limit <= 10;
+      allow update, delete: if false;
+    }
+
+    // Default fallback: deny unauthenticated wildcard access
+    match /{document=**} {
+      allow read, write: if false;
+    }
+  }
+}

@@ -1,0 +1,201 @@
+/* src/pages/AuthorPage.css - Premium Dark Mode Author Profile Styles */
+
+.author-page-container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 4rem 2rem 6rem 2rem;
+  color: #e2e8f0;
+  font-family: var(--font-sans, sans-serif);
+}
+
+.author-header-card {
+  background: linear-gradient(135deg, rgba(30, 41, 59, 0.5) 0%, rgba(15, 23, 42, 0.8) 100%);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 28px;
+  padding: 3.5rem 3rem;
+  margin-bottom: 4rem;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
+}
+
+.author-header-card::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  right: -20%;
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(circle, rgba(0, 229, 255, 0.12) 0%, rgba(123, 44, 191, 0) 70%);
+  pointer-events: none;
+}
+
+.author-profile-main {
+  display: flex;
+  align-items: center;
+  gap: 2.5rem;
+  position: relative;
+  z-index: 2;
+}
+
+.author-profile-avatar-wrapper {
+  position: relative;
+  flex-shrink: 0;
+}
+
+.author-profile-avatar {
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid rgba(0, 229, 255, 0.4);
+  box-shadow: 0 0 25px rgba(0, 229, 255, 0.25);
+}
+
+.author-verified-badge {
+  position: absolute;
+  bottom: 6px;
+  right: 6px;
+  background: #0a66c2;
+  color: #ffffff;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid #0f172a;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.author-info-content {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.author-name-title {
+  font-size: 2.4rem;
+  font-weight: 800;
+  color: #ffffff;
+  margin: 0;
+  letter-spacing: -0.02em;
+}
+
+.author-role-subtitle {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #00E5FF;
+  margin: 0;
+}
+
+.author-bio-text {
+  font-size: 1.05rem;
+  line-height: 1.7;
+  color: #94a3b8;
+  max-width: 680px;
+  margin: 0.5rem 0 1rem 0;
+}
+
+.author-social-links {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.author-social-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 20px;
+  border-radius: 50px;
+  font-size: 0.9rem;
+  font-weight: 700;
+  text-decoration: none;
+  transition: all 0.3s cubic-bezier(0.19, 1, 0.22, 1);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.04);
+  color: #f8fafc;
+}
+
+.author-social-btn.linkedin {
+  background: rgba(10, 102, 194, 0.15);
+  border-color: rgba(10, 102, 194, 0.4);
+  color: #38bdf8;
+}
+
+.author-social-btn.linkedin:hover {
+  background: #0a66c2;
+  color: #ffffff;
+  box-shadow: 0 0 20px rgba(10, 102, 194, 0.4);
+  transform: translateY(-2px);
+}
+
+.author-social-btn.twitter {
+  background: rgba(255, 255, 255, 0.05);
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+.author-social-btn.twitter:hover {
+  background: #ffffff;
+  color: #000000;
+  transform: translateY(-2px);
+}
+
+.author-social-btn.github {
+  background: rgba(15, 23, 42, 0.6);
+  border-color: rgba(255, 255, 255, 0.15);
+}
+
+.author-social-btn.github:hover {
+  background: #333333;
+  color: #ffffff;
+  transform: translateY(-2px);
+}
+
+/* Articles Section */
+.author-articles-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 2rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.author-articles-title {
+  font-size: 1.6rem;
+  font-weight: 800;
+  color: #ffffff;
+}
+
+.author-articles-count {
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: #94a3b8;
+  background: rgba(255, 255, 255, 0.05);
+  padding: 4px 14px;
+  border-radius: 20px;
+}
+
+/* Responsive Rules */
+@media (max-width: 768px) {
+  .author-header-card {
+    padding: 2.2rem 1.5rem;
+  }
+
+  .author-profile-main {
+    flex-direction: column;
+    text-align: center;
+    gap: 1.5rem;
+  }
+
+  .author-name-title {
+    font-size: 1.8rem;
+  }
+
+  .author-social-links {
+    justify-content: center;
+  }
+}

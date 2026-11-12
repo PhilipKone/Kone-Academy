@@ -1,0 +1,94 @@
+{
+    "name": "kca-landing-page",
+    "version": "0.1.0",
+    "private": true,
+    "homepage": "/",
+    "dependencies": {
+        "@react-three/drei": "^9.122.0",
+        "@react-three/fiber": "^8.18.0",
+        "@types/katex": "^0.16.8",
+        "firebase": "^12.12.1",
+        "framer-motion": "^12.38.0",
+        "katex": "^0.19.0",
+        "mermaid": "^12.1.0",
+        "prismjs": "^1.30.0",
+        "react": "^18.2.0",
+        "react-dom": "^18.2.0",
+        "react-icons": "^5.5.0",
+        "three": "^0.183.2"
+    },
+    "devDependencies": {
+        "@types/react": "^19.2.17",
+        "@types/react-dom": "^19.2.3",
+        "@vitejs/plugin-react": "^4.2.0",
+        "gh-pages": "^6.0.0",
+        "googleapis": "^140.0.1",
+        "lighthouse": "^12.1.0",
+        "react-snap": "^1.23.0",
+        "typescript": "^7.0.2",
+        "vite": "^5.0.0"
+    },
+    "scripts": {
+        "dev": "vite",
+        "prebuild": "node scripts/generate_rss.cjs && node scripts/generate_course_static_pages.cjs && node scripts/generate_blog_static_pages.cjs",
+        "build": "vite build",
+        "postbuild": "node -e \"const fs=require('fs'); if(fs.existsSync('dist/200.html')) fs.unlinkSync('dist/200.html');\" && react-snap || echo 'Pre-rendering timed out, deploying SPA...'",
+        "preview": "vite preview",
+        "predeploy": "npm run build",
+        "deploy": "gh-pages -d dist --dotfiles -f",
+        "postinstall": "node patch-react-snap.cjs",
+        "audit:lighthouse": "node ../scripts/lighthouse_audit.js",
+        "audit:gsc": "node ../scripts/search_console_audit.js"
+    },
+    "reactSnap": {
+        "source": "dist",
+        "delay": 1000,
+        "port": 45701,
+        "timeout": 120000,
+        "include": [
+            "/",
+            "/school",
+            "/blog",
+            "/author/philip-hotor",
+            "/sitemap",
+            "/training",
+            "/privacy",
+            "/terms",
+            "/verify",
+            "/protocols",
+            "/blog/computational-thinking-structured-logic",
+            "/blog/physical-ai-microcontrollers-robotics",
+            "/blog/digital-ai-llms-compute",
+            "/blog/event-loop-microtasks-macrotasks-io",
+            "/blog/resilient-double-entry-ledgers-idempotency",
+            "/blog/uart-spi-i2c-hardware-communication-protocols",
+            "/blog/glsl-shaders-webgl-coordinates-graphics",
+            "/blog/vector-embeddings-semantic-search-rag-pipelines",
+            "/blog/automated-soil-telemetry-iot-mesh-networks",
+            "/blog/geospatial-indexing-h3-hexagons-websocket-dispatch",
+            "/blog/docker-kubernetes-containerization-orchestration",
+            "/blog/owasp-top-10-enterprise-security-threat-modeling",
+            "/blog/bridging-logic-gap-early-stem-prototyping",
+            "/blog/cache-locality-memory-layout-c-rust",
+            "/blog/zero-knowledge-proofs-payment-channels-zksnarks",
+            "/blog/fine-tuning-slms-lora-qlora-consumer-gpus",
+            "/blog/rtos-freertos-task-scheduling-inter-task-synchronization",
+            "/blog/ray-marching-signed-distance-functions-procedural-3d",
+            "/blog/edge-computer-vision-yolo-crop-disease-diagnostics",
+            "/blog/autonomous-path-planning-astar-vs-rrt-robotics",
+            "/blog/distributed-consensus-paxos-raft-replicated-state-machines",
+            "/blog/cryptographic-primitives-elliptic-curves-ed25519",
+            "/blog/architectural-audits-measuring-technical-debt-enterprise",
+            "/blog/mastering-python-cpython-internals-asyncio-architecture"
+        ],
+        "puppeteerArgs": [
+            "--no-sandbox",
+            "--disable-setuid-sandbox"
+        ]
+    },
+    "overrides": {
+        "react-snap": {
+            "puppeteer": "^22.0.0"
+        }
+    }
+}

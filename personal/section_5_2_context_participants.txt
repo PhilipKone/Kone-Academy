@@ -1,0 +1,63 @@
+================================================================================
+SECTION 5.2: Context and Participants
+================================================================================
+
+5.2 Context and Participants
+
+The Kone Academy research was conducted in Ghanaian basic education institutions representing diverse geographic, infrastructural, and demographic contexts. This section details the school selection criteria, the geographic diversity of participating institutions, participant demographics, and the rationale for sample sizes employed in the study.
+
+**School Selection Criteria**
+
+Schools were selected through purposive sampling designed to ensure representation of the diverse conditions characterizing Ghanaian basic education while maintaining feasibility for intensive research involvement. Selection criteria addressed infrastructure conditions, curriculum implementation status, administrative support, and existing technology access.
+
+Infrastructure requirements specified that participating schools needed minimal conditions for platform implementation: electricity availability for at least 75% of school hours, physical space for technology activities, and basic classroom furniture suitable for hands-on computing work. Schools were not required to have existing computer labs or internet connectivity, as the Kone Academy offline-first architecture is specifically designed for low-resource contexts. This inclusive approach enabled participation of schools that would be excluded from studies requiring robust existing technology infrastructure.
+
+Curriculum implementation status criteria ensured that participating schools were actively implementing Ghana's Standards-Based Curriculum, which includes ICT and emerging computing education components. Schools where computing education was already formally integrated into timetables were prioritized, as these contexts provided authentic curriculum integration opportunities rather than treating Kone Academy as an extracurricular supplement. However, schools with limited prior computing education experience were also included to examine platform effectiveness in contexts where computing instruction was novel.
+
+Administrative support requirements included head teacher commitment to study participation, willingness to allocate timetabled periods for Kone Academy activities, and support for teacher professional development involvement. This administrative buy-in was essential for sustainable implementation, as research on educational technology consistently identifies leadership support as a critical factor in implementation success. Schools where administrators expressed enthusiasm for computing education innovation and willingness to address implementation challenges were prioritized.
+
+Existing technology access was documented but not used as exclusion criteria. Schools across the technology access spectrum were included, from institutions with computer labs and intermittent internet to those with no existing computing infrastructure. This diversity enables examination of how platform effectiveness varies with infrastructure conditions and supports claims about platform accessibility across Ghana's heterogeneous technology landscape.
+
+**Geographic Diversity**
+
+The research explicitly sought geographic diversity to ensure that findings are applicable across Ghana's varied regional contexts. Participating schools were located in three geographic categories: urban, peri-urban, and rural settings, each presenting distinctive implementation conditions.
+
+Urban schools in Accra and Kumasi represent contexts with relatively robust infrastructure, higher teacher qualification levels, and greater exposure to educational technology innovations. These schools typically had intermittent but functional internet connectivity, some existing computer equipment (often outdated or non-functional), and teachers with basic familiarity with technology integration. Urban implementation examined how Kone Academy functions in relatively well-resourced contexts where platform adoption might compete with other technology options rather than filling infrastructure gaps.
+
+Peri-urban schools in satellite communities surrounding major cities represent transitional contexts with mixed infrastructure conditions. These schools often had electricity reliability issues, limited technology equipment, and teachers with variable technology preparation. Peri-urban settings are increasingly important in Ghanaian education as urban expansion extends into surrounding areas, making understanding of technology implementation in these contexts particularly relevant for scaling. Implementation in peri-urban schools examined how platform features address the infrastructure instability characteristic of rapidly developing areas.
+
+Rural schools in Northern, Upper East, and Volta Region communities represent the most challenging implementation contexts with limited electricity, minimal technology infrastructure, and teachers often without prior computing education experience. These schools typically serve predominantly agricultural communities where learners may have limited exposure to digital technology outside school contexts. Rural implementation provided the strongest test of Kone Academy's offline-first architecture and low-resource design, examining whether effective computing education is feasible in Ghana's most underserved educational contexts.
+
+The geographic distribution included six urban schools (3 in Accra, 3 in Kumasi), four peri-urban schools (2 near Accra, 2 near Kumasi), and six rural schools (2 in Northern Region, 2 in Upper East Region, 2 in Volta Region). This sixteen-school sample enabled comparative analysis across geographic contexts while maintaining feasibility for intensive research involvement including regular site visits, ongoing teacher support, and detailed data collection.
+
+**Participant Demographics**
+
+Learner participants included students in upper primary (Primary 4-6, approximately ages 9-11) and junior secondary (Junior Secondary School 1-3, approximately ages 12-15) grades. This age range corresponds to the target population for Kone Academy Levels 1-3, encompassing the developmental stages where the platform is designed for use. Within participating schools, intact classrooms were included to preserve ecological validity rather than selecting individual learners, resulting in approximately 1,200 learner participants across the sixteen schools.
+
+The learner population reflected Ghana's demographic diversity in terms of gender, socioeconomic background, and prior technology exposure. Gender distribution was approximately 52% female and 48% male, closely matching Ghana's general school enrollment patterns. Socioeconomic diversity was substantial, with participants ranging from relatively privileged urban learners with home technology access to rural learners with minimal prior exposure to digital devices. This diversity enables examination of how platform effectiveness varies across learner backgrounds and identifies potential equity concerns in technology access and outcomes.
+
+Prior technology exposure varied significantly across participants. Urban learners often reported regular access to smartphones, tablets, or computers at home, while rural learners frequently indicated that school-based Kone Academy activities represented their primary technology exposure. This variation in prior exposure is treated as a contextual variable in analysis rather than a selection criterion, enabling naturalistic examination of how platform effectiveness interacts with learner background characteristics.
+
+Teacher participants included 32 classroom teachers responsible for implementing Kone Academy activities in their classrooms. Teacher selection within participating schools sought volunteers who expressed interest in computing education, as mandatory participation would likely undermine implementation quality and research validity. Selected teachers represented diverse preparation levels: 8 had prior computer science or ICT teaching qualifications, 12 had basic technology literacy without formal computing education training, and 12 had minimal prior technology experience but expressed enthusiasm for professional development.
+
+Teacher demographics reflected Ghana's teaching workforce characteristics. Gender distribution was 56% female and 44% male, matching Ghana's relatively balanced gender distribution in basic education teaching. Teaching experience ranged from 2 to 18 years, with mean experience of 7.3 years. Age ranged from 24 to 52 years, with a mean of 34 years. This demographic diversity enables examination of how teacher characteristics relate to implementation effectiveness and identifies professional development needs across teacher populations.
+
+**Sample Size Justification**
+
+The sixteen-school sample with approximately 1,200 learners and 32 teachers was determined through multiple considerations balancing research rigor with practical feasibility.
+
+For quantitative outcome analysis, the sample provides adequate statistical power for detecting medium-sized effects in learning outcomes. Power analysis indicated that a sample of 1,200 learners enables detection of Cohen's d = 0.25 with 80% power at α = 0.05, sufficient for identifying meaningful educational effects. The multi-level structure (learners nested in classrooms nested in schools) was addressed through appropriate statistical techniques including hierarchical linear modeling.
+
+For qualitative implementation analysis, the sixteen-school sample enables saturation across major contextual categories. Within each geographic category (urban, peri-urban, rural), the sample size supports identification of implementation patterns and variation. Comparative analysis across the three geographic categories examines how implementation processes differ with contextual conditions. This structure enables both within-category pattern identification and cross-category comparative analysis.
+
+For DBR iterative refinement, the sample size supports progressive adjustment across research cycles while maintaining continuity with prior participants. Cycle 1 involved four schools (1 urban, 1 peri-urban, 2 rural), enabling intensive observation and rapid feedback for initial refinement. Cycle 2 expanded to eight additional schools, examining scalability and diverse context adaptation. Cycle 3 involved the full sixteen-school sample with refined implementation, generating outcome evidence across the complete contextual spectrum.
+
+Feasibility considerations including research team capacity for regular site visits, data management resources, and teacher support capabilities constrained sample expansion beyond sixteen schools. Intensive DBR involvement requires substantial researcher presence in participating schools, limiting the number of sites that can be effectively supported while maintaining research quality. The selected sample represents a compromise between comprehensiveness and intensity that enables rigorous research within available resource constraints.
+
+**Conclusion**
+
+The research context and participant sample were designed to enable examination of Kone Academy implementation across the diverse conditions characterizing Ghanaian basic education. Through purposive selection addressing infrastructure, curriculum, administrative, and technology access criteria, and explicit inclusion of geographic diversity across urban, peri-urban, and rural settings, the research generates findings applicable to Ghana's varied educational landscape. The participant demographics reflect this contextual diversity while providing adequate sample sizes for both quantitative outcome analysis and qualitative implementation examination. This contextual grounding ensures that research findings address authentic educational challenges rather than idealized conditions, supporting claims about platform effectiveness in real-world Ghanaian schools.
+
+Word Count: ~1,100 words
+Tone: Methodological detail with contextual specificity
+================================================================================

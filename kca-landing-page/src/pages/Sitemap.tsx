@@ -1,0 +1,277 @@
+import React, { useRef } from 'react';
+import './Sitemap.css';
+import { 
+  FaGlobe, 
+  FaBook, 
+  FaInfoCircle, 
+  FaChevronLeft, 
+  FaExternalLinkAlt, 
+  FaChevronRight 
+} from 'react-icons/fa';
+import { motion } from 'framer-motion';
+
+// Import our programmatic datasets
+import { staticBlogs } from '../data/blogs';
+import { courses } from '../data/courses';
+
+const Sitemap = ({ onBack }) => {
+  const sliderRef = useRef(null);
+
+  const scrollSlider = (direction) => {
+    if (sliderRef.current) {
+      const scrollAmount = 304; // card width (280) + gap (24)
+      sliderRef.current.scrollBy({
+        left: direction === 'left' ? -scrollAmount : scrollAmount,
+        behavior: 'smooth'
+      });
+    }
+  };
+
+  const handleLinkClick = (e, path) => {
+    // Intercept client-side routing to keep SPA navigation smooth
+    if (path.startsWith('/')) {
+      e.preventDefault();
+      window.history.pushState({}, '', path);
+      // Dispatch popstate to update routing state in App.jsx
+      window.dispatchEvent(new PopStateEvent('popstate'));
+    }
+  };
+
+  return (
+    <div className="sitemap-page">
+      {/* Header action bar */}
+      <div className="docs-header-bar">
+        <button onClick={onBack} className="docs-header-btn">
+          <FaChevronLeft /> Back to Main Hub
+        </button>
+        <span className="small text-secondary">Kone Academy Hub (Central Index)</span>
+      </div>
+
+      <div className="sitemap-content-area">
+        <div className="sitemap-max-w">
+          
+          <div className="sitemap-title-wrapper">
+            <h1 className="sitemap-title">Kone Academy Sitemap</h1>
+            <p className="sitemap-subtitle">
+              The central index connecting all 11 active subdomains, developer documentation guides, industrial telemetry specs, and software architecture blueprints.
+            </p>
+          </div>
+
+          {/* Master Grid */}
+          <div className="sitemap-grid">
+            
+            {/* Column 1: Ecosystem Platforms */}
+            <div className="sitemap-column platforms">
+              <h2 className="sitemap-column-title">
+                <FaGlobe /> Subdomain Platforms
+              </h2>
+              <div className="sitemap-link-list">
+                <div className="sitemap-item">
+                  <a href="https://www.koneacademy.io" className="sitemap-link" target="_blank" rel="noopener noreferrer">
+                    Main Academy Hub <FaExternalLinkAlt />
+                  </a>
+                  <span className="sitemap-link-desc">Central landing page, courses, and protocol specs.</span>
+                </div>
+                <div className="sitemap-item">
+                  <a href="https://code.koneacademy.io" className="sitemap-link" target="_blank" rel="noopener noreferrer">
+                    Kone Code <FaExternalLinkAlt />
+                  </a>
+                  <span className="sitemap-link-desc">Web-based IDE editor and compiler tools.</span>
+                </div>
+                <div className="sitemap-item">
+                  <a href="https://consult.koneacademy.io" className="sitemap-link" target="_blank" rel="noopener noreferrer">
+                    Kone Consult <FaExternalLinkAlt />
+                  </a>
+                  <span className="sitemap-link-desc">Enterprise software consulting & custom integrations.</span>
+                </div>
+                <div className="sitemap-item">
+                  <a href="https://farms.koneacademy.io" className="sitemap-link" target="_blank" rel="noopener noreferrer">
+                    Kone Farms <FaExternalLinkAlt />
+                  </a>
+                  <span className="sitemap-link-desc">Industrial agritech IoT monitoring dashboards.</span>
+                </div>
+                <div className="sitemap-item">
+                  <a href="https://ai.koneacademy.io" className="sitemap-link" target="_blank" rel="noopener noreferrer">
+                    Kone AI <FaExternalLinkAlt />
+                  </a>
+                  <span className="sitemap-link-desc">Specialized LLM agentic workflow orchestration.</span>
+                </div>
+                <div className="sitemap-item">
+                  <a href="https://warp.koneacademy.io" className="sitemap-link" target="_blank" rel="noopener noreferrer">
+                    Kone Warp <FaExternalLinkAlt />
+                  </a>
+                  <span className="sitemap-link-desc">Next-generation ridesharing & logistics systems.</span>
+                </div>
+                <div className="sitemap-item">
+                  <a href="https://shop.koneacademy.io" className="sitemap-link" target="_blank" rel="noopener noreferrer">
+                    Kone Shop <FaExternalLinkAlt />
+                  </a>
+                  <span className="sitemap-link-desc">E-commerce storefront for hardware and lab supplies.</span>
+                </div>
+                <div className="sitemap-item">
+                  <a href="https://kids.koneacademy.io" className="sitemap-link" target="_blank" rel="noopener noreferrer">
+                    Kone Kids <FaExternalLinkAlt />
+                  </a>
+                  <span className="sitemap-link-desc">Visual drag-and-drop coding courses for children.</span>
+                  <div style={{ paddingLeft: '1rem', marginTop: '0.4rem', display: 'flex', flexDirection: 'column', gap: '0.3rem', fontSize: '0.85rem' }}>
+                    <a href="https://kids.koneacademy.io/coding/" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--text-secondary)' }}>• Coding Lab (Block &amp; Python)</a>
+                    <a href="https://kids.koneacademy.io/robotics/" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--text-secondary)' }}>• Robotics Lab (Microcontrollers)</a>
+                    <a href="https://kids.koneacademy.io/ai/" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--text-secondary)' }}>• AI Studio (Machine Learning)</a>
+                    <a href="https://kids.koneacademy.io/kits/" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--text-secondary)' }}>• STEM &amp; Robotics Kits Store</a>
+                    <a href="https://kids.koneacademy.io/blog/" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--text-secondary)' }}>• Parent Hub &amp; STEM Articles</a>
+                  </div>
+                </div>
+                <div className="sitemap-item">
+                  <a href="https://lab.koneacademy.io" className="sitemap-link" target="_blank" rel="noopener noreferrer">
+                    Kone Lab <FaExternalLinkAlt />
+                  </a>
+                  <span className="sitemap-link-desc">Experimental physics and embedded hardware telemetry.</span>
+                </div>
+                <div className="sitemap-item">
+                  <a href="https://digital.koneacademy.io" className="sitemap-link" target="_blank" rel="noopener noreferrer">
+                    Kone Digital <FaExternalLinkAlt />
+                  </a>
+                  <span className="sitemap-link-desc">Product marketing, branding, and asset design studio.</span>
+                </div>
+                <div className="sitemap-item">
+                  <a href="https://tech.koneacademy.io" className="sitemap-link" target="_blank" rel="noopener noreferrer">
+                    Kone Tech <FaExternalLinkAlt />
+                  </a>
+                  <span className="sitemap-link-desc">Ecosystem parent organization hub.</span>
+                </div>
+              </div>
+            </div>
+
+
+
+            {/* Column 4: Resources & Compliance */}
+            <div className="sitemap-column company">
+              <h2 className="sitemap-column-title">
+                <FaBook /> Hub Resources & Legal
+              </h2>
+              <div className="sitemap-link-list">
+                <div className="sitemap-item">
+                  <a href="/training" onClick={(e) => handleLinkClick(e, '/training')} className="sitemap-link">
+                    Training Hub
+                  </a>
+                  <span className="sitemap-link-desc">Interactive curriculum and 12 engineering tracks.</span>
+                </div>
+                {courses.map(course => (
+                  <div key={course.id} className="sitemap-item" style={{ paddingLeft: '12px', borderLeft: '1px solid rgba(56, 189, 248, 0.25)' }}>
+                    <a href={`/training/${course.id}/`} onClick={(e) => handleLinkClick(e, `/training/${course.id}/`)} className="sitemap-link" style={{ fontSize: '0.85rem' }}>
+                      → {course.title}
+                    </a>
+                  </div>
+                ))}
+                <div className="sitemap-item">
+                  <a href="/school" onClick={(e) => handleLinkClick(e, '/school')} className="sitemap-link">
+                    Kone School
+                  </a>
+                  <span className="sitemap-link-desc">Core digital curriculum and AI hardware pathway nodes.</span>
+                </div>
+                <div className="sitemap-item">
+                  <a href="/blog" onClick={(e) => handleLinkClick(e, '/blog')} className="sitemap-link">
+                    Insights Blog Hub
+                  </a>
+                  <span className="sitemap-link-desc">Articles on GenAI engineering, physics labs, and tutorials.</span>
+                </div>
+                {staticBlogs.map(blog => (
+                  <div key={blog.slug} className="sitemap-item" style={{ paddingLeft: '12px', borderLeft: '1px solid rgba(168, 85, 247, 0.2)' }}>
+                    <a href={`/blog/${blog.slug}`} onClick={(e) => handleLinkClick(e, `/blog/${blog.slug}`)} className="sitemap-link" style={{ fontSize: '0.85rem' }}>
+                      → {blog.title}
+                    </a>
+                  </div>
+                ))}
+                <div className="sitemap-item">
+                  <a href="/protocols" onClick={(e) => handleLinkClick(e, '/protocols')} className="sitemap-link">
+                    Research Protocols
+                  </a>
+                  <span className="sitemap-link-desc">Research studies and industrial engineering specifications.</span>
+                </div>
+                <div className="sitemap-item">
+                  <a href="https://www.koneacademy.io/.well-known/security.txt" className="sitemap-link" target="_blank" rel="noopener noreferrer">
+                    Vulnerability Disclosure Protocol
+                  </a>
+                  <span className="sitemap-link-desc">Our public security disclosure and PGP credentials.</span>
+                </div>
+                <div className="sitemap-item">
+                  <a href="https://www.koneacademy.io/.well-known/mcp.json" className="sitemap-link" target="_blank" rel="noopener noreferrer">
+                    MCP Integration Spec
+                  </a>
+                  <span className="sitemap-link-desc">Model Context Protocol endpoint definitions.</span>
+                </div>
+                <div className="sitemap-item">
+                  <a href="https://github.com/PhilipKone/Kone-Academy" className="sitemap-link" target="_blank" rel="noopener noreferrer">
+                    Ecosystem Source Code
+                  </a>
+                  <span className="sitemap-link-desc">View and contribute to our public GitHub repository.</span>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+          {/* Slider Section */}
+          <div className="showcase-section">
+            <div className="showcase-header">
+              <div className="showcase-header-left">
+                <h3>Discover our core divisions</h3>
+                <p>Learn more about what you can build inside the Kone Academy ecosystem.</p>
+              </div>
+              <div className="slider-controls">
+                <button onClick={() => scrollSlider('left')} className="slider-btn" aria-label="Slide Left"><FaChevronLeft /></button>
+                <button onClick={() => scrollSlider('right')} className="slider-btn" aria-label="Slide Right"><FaChevronRight /></button>
+              </div>
+            </div>
+
+            <div className="showcase-slider" ref={sliderRef}>
+              
+              <div className="showcase-card">
+                <img src="/app-code.svg" alt="Kone Code" className="showcase-card-img" style={{ background: '#0a0f1d', padding: '20px' }} />
+                <div className="showcase-card-content">
+                  <h4 className="showcase-card-title">Kone Code Compiler</h4>
+                  <p className="showcase-card-desc">
+                    A web-based interactive compiler sandbox. Test code snippets, run benchmarks, and complete challenges directly in your browser.
+                  </p>
+                  <a href="https://code.koneacademy.io" className="showcase-card-link" target="_blank" rel="noopener noreferrer">
+                    Explore Platform <FaChevronRight />
+                  </a>
+                </div>
+              </div>
+
+              <div className="showcase-card">
+                <img src="/app-farms.svg" alt="Kone Farms" className="showcase-card-img" style={{ background: '#0a0f1d', padding: '20px' }} />
+                <div className="showcase-card-content">
+                  <h4 className="showcase-card-title">Kone Farms Telemetry</h4>
+                  <p className="showcase-card-desc">
+                    High-scale agricultural IoT tracking. Access soil moisture telemetry, electric fence status, and automated yield projections.
+                  </p>
+                  <a href="https://farms.koneacademy.io" className="showcase-card-link" target="_blank" rel="noopener noreferrer">
+                    Access Dashboard <FaChevronRight />
+                  </a>
+                </div>
+              </div>
+
+              <div className="showcase-card">
+                <img src="/app-ai.svg" alt="Kone AI" className="showcase-card-img" style={{ background: '#0a0f1d', padding: '30px', width: '100%', height: '200px' }} />
+                <div className="showcase-card-content">
+                  <h4 className="showcase-card-title">Kone AI agentic Workflows</h4>
+                  <p className="showcase-card-desc">
+                    Orchestrate large language models, execute complex automated code analysis, and run clinical research data pipelines.
+                  </p>
+                  <a href="https://ai.koneacademy.io" className="showcase-card-link" target="_blank" rel="noopener noreferrer">
+                    Deploy Agents <FaChevronRight />
+                  </a>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default Sitemap;
