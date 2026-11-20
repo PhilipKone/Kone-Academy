@@ -113,7 +113,7 @@ export const ecosystemGuides: EcosystemGuide[] = [
     framework: "Verification System",
     difficulty: "Security",
     cause: "Every graduate from Kone Academy receives a tamper-proof digital credential that employers and academic institutions can independently verify.",
-    solution: "1. Unique Credential ID: Each certificate contains a unique alphanumeric identifier and verification QR code.\n2. Instant Portal Validation: Enter the credential ID on www.koneacademy.io/verify to view verified course accomplishments.\n3. Shareable LinkedIn Credentials: Easily add your verified achievements to professional social networks.",
+    solution: "1. Unique Credential ID: Each certificate contains a unique alphanumeric identifier and verification QR code.\n2. Instant Portal Validation: Enter the credential ID on academy.codkon.com/verify to view verified course accomplishments.\n3. Shareable LinkedIn Credentials: Easily add your verified achievements to professional social networks.",
     oldModelTitle: "Traditional Paper / PDF Certificates",
     oldModelItems: [
       "Easy to forge or manipulate static image files",

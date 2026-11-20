@@ -8,7 +8,7 @@
 ![Firebase Integration](https://img.shields.io/badge/Firebase-12.12.1-orange?logo=firebase)
 ![Node.js](https://img.shields.io/badge/Node.js-Latest-green?logo=node.js)
 
-**[🌐 Visit Website](https://www.koneacademy.io/)** | **[📧 Get Started](https://docs.google.com/forms/d/e/1FAIpQLSeXOBgnnnquQmQHHU1Kbyw9iYfK7gJ6Kyj5T5OctIcyy4fXSA/viewform)** | **[🐕 Report Issues](https://github.com/PhilipKone/Kone-Academy/issues)**
+**[🌐 Visit Website](https://academy.codkon.com/)** | **[📧 Get Started](https://docs.google.com/forms/d/e/1FAIpQLSeXOBgnnnquQmQHHU1Kbyw9iYfK7gJ6Kyj5T5OctIcyy4fXSA/viewform)** | **[🐕 Report Issues](https://github.com/PhilipKone/Kone-Academy/issues)**
 
 ---
 
@@ -78,7 +78,7 @@ Kone Consult specializes in supporting researchers at every stage of their acade
 - **Literature Review & Citation Management**: Systematic research synthesis
 - **Methodology Design**: Quantitative and qualitative research frameworks
 
-**[🔗 Learn More](https://consult.koneacademy.io/)**
+**[🔗 Learn More](https://consult.codkon.com/)**
 
 ---
 
@@ -96,7 +96,7 @@ Kone Code delivers comprehensive programming education through modern, industry-
 - **Face-to-Face & Online Tuition**: Flexible learning environments with personalized instruction
 - **Project-Based Learning**: Real-world application development and portfolio building
 
-**[🔗 Learn More](https://code.koneacademy.io/)**
+**[🔗 Learn More](https://code.codkon.com/)**
 
 ---
 
@@ -112,7 +112,7 @@ Kone Lab transforms theoretical knowledge into tangible innovations:
 - **Robotics & Automation**: Practical robotics projects and automation solutions
 - **Product Development**: From concept to prototype and production-ready design
 
-**[🔗 Learn More](https://lab.koneacademy.io/)**
+**[🔗 Learn More](https://lab.codkon.com/)**
 
 ---
 
@@ -122,7 +122,7 @@ Kone Lab transforms theoretical knowledge into tangible innovations:
 
 Introducing STEM concepts (Coding, Robotics, and AI) through engaging, age-appropriate gamified missions designed to inspire the next generation of innovators.
 
-**[🔗 Learn More](https://kids.koneacademy.io/)**
+**[🔗 Learn More](https://kids.codkon.com/)**
 
 ---
 
@@ -522,7 +522,7 @@ This means:
 
 ### Contact & Support
 
-- **🌐 Website**: [koneacademy.io](https://www.koneacademy.io/)
+- **🌐 Website**: [koneacademy.io](https://academy.codkon.com/)
 - **📧 Email**: contact@koneacademy.io
 - **📱 Phone**: +233 551 993 820
 - **📍 Location**: Accra, Ghana (Digital Address: GA-123-4567)
@@ -531,12 +531,12 @@ This means:
 ### Quick Links
 
 - **[Service Inquiry & Signup Form](https://docs.google.com/forms/d/e/1FAIpQLSeXOBgnnnquQmQHHU1Kbyw9iYfK7gJ6Kyj5T5OctIcyy4fXSA/viewform)** - Register your interest in our services
-- **[Kone Consult](https://consult.koneacademy.io/)** - Research division
-- **[Kone Code](https://code.koneacademy.io/)** - Software development
-- **[Kone Lab](https://lab.koneacademy.io/)** - Engineering division
-- **[Kone Kids](https://kids.koneacademy.io/)** - Youth education
-- **[Kone Shop](https://shop.koneacademy.io/)** - Products & resources
-- **[Digital Services](https://digital.koneacademy.io/)** - Digital solutions
+- **[Kone Consult](https://consult.codkon.com/)** - Research division
+- **[Kone Code](https://code.codkon.com/)** - Software development
+- **[Kone Lab](https://lab.codkon.com/)** - Engineering division
+- **[Kone Kids](https://kids.codkon.com/)** - Youth education
+- **[Kone Shop](https://shop.codkon.com/)** - Products & resources
+- **[Digital Services](https://digital.codkon.com/)** - Digital solutions
 
 ---
 
@@ -581,6 +581,6 @@ This means:
 
 ---
 
-**Made with ❤️ by [Kone Academy](https://www.koneacademy.io/)**
+**Made with ❤️ by [Kone Academy](https://academy.codkon.com/)**
 
 *Research, Coding, and Engineering the Right Way* ⚙️✨🔬

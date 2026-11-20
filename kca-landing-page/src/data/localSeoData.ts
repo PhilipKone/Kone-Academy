@@ -40,7 +40,7 @@ export const localSeoData: LocalSeoData = {
         "Global Career Placement"
       ],
       ctaText: "Explore Kone Code",
-      ctaLink: "https://code.koneacademy.io"
+      ctaLink: "https://code.codkon.com"
     },
     "robotics-iot": {
       name: "Robotics & Embedded Systems",
@@ -53,7 +53,7 @@ export const localSeoData: LocalSeoData = {
         "Hardware Lab Access"
       ],
       ctaText: "Explore Kone Lab",
-      ctaLink: "https://lab.koneacademy.io"
+      ctaLink: "https://lab.codkon.com"
     },
     "agritech": {
       name: "Smart Agriculture & Agritech",
@@ -66,7 +66,7 @@ export const localSeoData: LocalSeoData = {
         "Volta Region Smart Farms"
       ],
       ctaText: "Explore Kone Farms",
-      ctaLink: "https://farms.koneacademy.io"
+      ctaLink: "https://farms.codkon.com"
     },
     "research-consulting": {
       name: "Research & Data Analytics",
@@ -79,7 +79,7 @@ export const localSeoData: LocalSeoData = {
         "Secure Milestone Payments"
       ],
       ctaText: "Explore Kone Consult",
-      ctaLink: "https://consult.koneacademy.io"
+      ctaLink: "https://consult.codkon.com"
     }
   },
   cities: {

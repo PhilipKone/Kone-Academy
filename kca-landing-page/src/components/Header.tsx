@@ -30,7 +30,7 @@ const Header: React.FC<HeaderProps> = ({ onOpenOnboarding }) => {
 
   const loginUrl = (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') && !isPrerender
     ? 'http://localhost:3001/login'
-    : 'https://consult.koneacademy.io/login';
+    : 'https://consult.codkon.com/login';
 
   useEffect(() => {
     const savedTheme = localStorage.getItem('kca-neon-theme') || 'blue';

@@ -67,74 +67,74 @@ const Sitemap = ({ onBack }) => {
               </h2>
               <div className="sitemap-link-list">
                 <div className="sitemap-item">
-                  <a href="https://www.koneacademy.io" className="sitemap-link" target="_blank" rel="noopener noreferrer">
+                  <a href="https://academy.codkon.com" className="sitemap-link" target="_blank" rel="noopener noreferrer">
                     Main Academy Hub <FaExternalLinkAlt />
                   </a>
                   <span className="sitemap-link-desc">Central landing page, courses, and protocol specs.</span>
                 </div>
                 <div className="sitemap-item">
-                  <a href="https://code.koneacademy.io" className="sitemap-link" target="_blank" rel="noopener noreferrer">
+                  <a href="https://code.codkon.com" className="sitemap-link" target="_blank" rel="noopener noreferrer">
                     Kone Code <FaExternalLinkAlt />
                   </a>
                   <span className="sitemap-link-desc">Web-based IDE editor and compiler tools.</span>
                 </div>
                 <div className="sitemap-item">
-                  <a href="https://consult.koneacademy.io" className="sitemap-link" target="_blank" rel="noopener noreferrer">
+                  <a href="https://consult.codkon.com" className="sitemap-link" target="_blank" rel="noopener noreferrer">
                     Kone Consult <FaExternalLinkAlt />
                   </a>
                   <span className="sitemap-link-desc">Enterprise software consulting & custom integrations.</span>
                 </div>
                 <div className="sitemap-item">
-                  <a href="https://farms.koneacademy.io" className="sitemap-link" target="_blank" rel="noopener noreferrer">
+                  <a href="https://farms.codkon.com" className="sitemap-link" target="_blank" rel="noopener noreferrer">
                     Kone Farms <FaExternalLinkAlt />
                   </a>
                   <span className="sitemap-link-desc">Industrial agritech IoT monitoring dashboards.</span>
                 </div>
                 <div className="sitemap-item">
-                  <a href="https://ai.koneacademy.io" className="sitemap-link" target="_blank" rel="noopener noreferrer">
+                  <a href="https://ai.codkon.com" className="sitemap-link" target="_blank" rel="noopener noreferrer">
                     Kone AI <FaExternalLinkAlt />
                   </a>
                   <span className="sitemap-link-desc">Specialized LLM agentic workflow orchestration.</span>
                 </div>
                 <div className="sitemap-item">
-                  <a href="https://warp.koneacademy.io" className="sitemap-link" target="_blank" rel="noopener noreferrer">
+                  <a href="https://warp.codkon.com" className="sitemap-link" target="_blank" rel="noopener noreferrer">
                     Kone Warp <FaExternalLinkAlt />
                   </a>
                   <span className="sitemap-link-desc">Next-generation ridesharing & logistics systems.</span>
                 </div>
                 <div className="sitemap-item">
-                  <a href="https://shop.koneacademy.io" className="sitemap-link" target="_blank" rel="noopener noreferrer">
+                  <a href="https://shop.codkon.com" className="sitemap-link" target="_blank" rel="noopener noreferrer">
                     Kone Shop <FaExternalLinkAlt />
                   </a>
                   <span className="sitemap-link-desc">E-commerce storefront for hardware and lab supplies.</span>
                 </div>
                 <div className="sitemap-item">
-                  <a href="https://kids.koneacademy.io" className="sitemap-link" target="_blank" rel="noopener noreferrer">
+                  <a href="https://kids.codkon.com" className="sitemap-link" target="_blank" rel="noopener noreferrer">
                     Kone Kids <FaExternalLinkAlt />
                   </a>
                   <span className="sitemap-link-desc">Visual drag-and-drop coding courses for children.</span>
                   <div style={{ paddingLeft: '1rem', marginTop: '0.4rem', display: 'flex', flexDirection: 'column', gap: '0.3rem', fontSize: '0.85rem' }}>
-                    <a href="https://kids.koneacademy.io/coding/" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--text-secondary)' }}>• Coding Lab (Block &amp; Python)</a>
-                    <a href="https://kids.koneacademy.io/robotics/" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--text-secondary)' }}>• Robotics Lab (Microcontrollers)</a>
-                    <a href="https://kids.koneacademy.io/ai/" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--text-secondary)' }}>• AI Studio (Machine Learning)</a>
-                    <a href="https://kids.koneacademy.io/kits/" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--text-secondary)' }}>• STEM &amp; Robotics Kits Store</a>
-                    <a href="https://kids.koneacademy.io/blog/" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--text-secondary)' }}>• Parent Hub &amp; STEM Articles</a>
+                    <a href="https://kids.codkon.com/coding/" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--text-secondary)' }}>• Coding Lab (Block &amp; Python)</a>
+                    <a href="https://kids.codkon.com/robotics/" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--text-secondary)' }}>• Robotics Lab (Microcontrollers)</a>
+                    <a href="https://kids.codkon.com/ai/" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--text-secondary)' }}>• AI Studio (Machine Learning)</a>
+                    <a href="https://kids.codkon.com/kits/" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--text-secondary)' }}>• STEM &amp; Robotics Kits Store</a>
+                    <a href="https://kids.codkon.com/blog/" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--text-secondary)' }}>• Parent Hub &amp; STEM Articles</a>
                   </div>
                 </div>
                 <div className="sitemap-item">
-                  <a href="https://lab.koneacademy.io" className="sitemap-link" target="_blank" rel="noopener noreferrer">
+                  <a href="https://lab.codkon.com" className="sitemap-link" target="_blank" rel="noopener noreferrer">
                     Kone Lab <FaExternalLinkAlt />
                   </a>
                   <span className="sitemap-link-desc">Experimental physics and embedded hardware telemetry.</span>
                 </div>
                 <div className="sitemap-item">
-                  <a href="https://digital.koneacademy.io" className="sitemap-link" target="_blank" rel="noopener noreferrer">
+                  <a href="https://digital.codkon.com" className="sitemap-link" target="_blank" rel="noopener noreferrer">
                     Kone Digital <FaExternalLinkAlt />
                   </a>
                   <span className="sitemap-link-desc">Product marketing, branding, and asset design studio.</span>
                 </div>
                 <div className="sitemap-item">
-                  <a href="https://tech.koneacademy.io" className="sitemap-link" target="_blank" rel="noopener noreferrer">
+                  <a href="https://tech.codkon.com" className="sitemap-link" target="_blank" rel="noopener noreferrer">
                     Kone Tech <FaExternalLinkAlt />
                   </a>
                   <span className="sitemap-link-desc">Ecosystem parent organization hub.</span>
@@ -189,13 +189,13 @@ const Sitemap = ({ onBack }) => {
                   <span className="sitemap-link-desc">Research studies and industrial engineering specifications.</span>
                 </div>
                 <div className="sitemap-item">
-                  <a href="https://www.koneacademy.io/.well-known/security.txt" className="sitemap-link" target="_blank" rel="noopener noreferrer">
+                  <a href="https://academy.codkon.com/.well-known/security.txt" className="sitemap-link" target="_blank" rel="noopener noreferrer">
                     Vulnerability Disclosure Protocol
                   </a>
                   <span className="sitemap-link-desc">Our public security disclosure and PGP credentials.</span>
                 </div>
                 <div className="sitemap-item">
-                  <a href="https://www.koneacademy.io/.well-known/mcp.json" className="sitemap-link" target="_blank" rel="noopener noreferrer">
+                  <a href="https://academy.codkon.com/.well-known/mcp.json" className="sitemap-link" target="_blank" rel="noopener noreferrer">
                     MCP Integration Spec
                   </a>
                   <span className="sitemap-link-desc">Model Context Protocol endpoint definitions.</span>
@@ -233,7 +233,7 @@ const Sitemap = ({ onBack }) => {
                   <p className="showcase-card-desc">
                     A web-based interactive compiler sandbox. Test code snippets, run benchmarks, and complete challenges directly in your browser.
                   </p>
-                  <a href="https://code.koneacademy.io" className="showcase-card-link" target="_blank" rel="noopener noreferrer">
+                  <a href="https://code.codkon.com" className="showcase-card-link" target="_blank" rel="noopener noreferrer">
                     Explore Platform <FaChevronRight />
                   </a>
                 </div>
@@ -246,7 +246,7 @@ const Sitemap = ({ onBack }) => {
                   <p className="showcase-card-desc">
                     High-scale agricultural IoT tracking. Access soil moisture telemetry, electric fence status, and automated yield projections.
                   </p>
-                  <a href="https://farms.koneacademy.io" className="showcase-card-link" target="_blank" rel="noopener noreferrer">
+                  <a href="https://farms.codkon.com" className="showcase-card-link" target="_blank" rel="noopener noreferrer">
                     Access Dashboard <FaChevronRight />
                   </a>
                 </div>
@@ -259,7 +259,7 @@ const Sitemap = ({ onBack }) => {
                   <p className="showcase-card-desc">
                     Orchestrate large language models, execute complex automated code analysis, and run clinical research data pipelines.
                   </p>
-                  <a href="https://ai.koneacademy.io" className="showcase-card-link" target="_blank" rel="noopener noreferrer">
+                  <a href="https://ai.codkon.com" className="showcase-card-link" target="_blank" rel="noopener noreferrer">
                     Deploy Agents <FaChevronRight />
                   </a>
                 </div>

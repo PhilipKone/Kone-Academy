@@ -41,13 +41,13 @@ const BlogPostPage: React.FC<BlogPostPageProps> = ({ slug, onBack }) => {
         "@type": "TechArticle",
         "headline": post.title,
         "description": post.excerpt,
-        "image": socialImage.startsWith('http') ? socialImage : `https://www.koneacademy.io${socialImage.startsWith('/') ? '' : '/'}${socialImage}`,
+        "image": socialImage.startsWith('http') ? socialImage : `https://academy.codkon.com${socialImage.startsWith('/') ? '' : '/'}${socialImage}`,
         "datePublished": post.publishedAt,
         "dateModified": post.publishedAt,
         "author": {
           "@type": "Person",
           "name": post.author.name,
-          "url": "https://www.koneacademy.io/author/philip-hotor",
+          "url": "https://academy.codkon.com/author/philip-hotor",
           "sameAs": [
             "https://www.linkedin.com/in/philip-hotor/",
             "https://x.com/Philkone1",
@@ -57,15 +57,15 @@ const BlogPostPage: React.FC<BlogPostPageProps> = ({ slug, onBack }) => {
         "publisher": {
           "@type": "Organization",
           "name": "Kone Academy",
-          "url": "https://www.koneacademy.io",
+          "url": "https://academy.codkon.com",
           "logo": {
             "@type": "ImageObject",
-            "url": "https://www.koneacademy.io/logo-circle-blue.svg"
+            "url": "https://academy.codkon.com/logo-circle-blue.svg"
           }
         },
         "mainEntityOfPage": {
           "@type": "WebPage",
-          "@id": `https://www.koneacademy.io/blog/${post.slug}`
+          "@id": `https://academy.codkon.com/blog/${post.slug}`
         },
         "keywords": post.tags?.join(', ') || "Engineering, Software, IoT, Research"
       };

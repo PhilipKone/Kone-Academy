@@ -21,7 +21,7 @@ graph TD
     A[High-Authority Publications: Medium, dev.to, Hashnode] -->|Passes Referral Traffic & Equity| B(Kone Consult Blog: Pillar Guides)
     C[Academic Citations: Google Scholar, ResearchGate] -->|Passes Trust & Scholarly Equity| B
     D[Open Source Hubs: GitHub, npm, PyPI] -->|Passes Technical Trust| E(Kone Code / Kone Lab Portals)
-    B -->|Distributes PageRank| F[Main Hub: www.koneacademy.io]
+    B -->|Distributes PageRank| F[Main Hub: academy.codkon.com]
     E -->|Distributes PageRank| F
 ```
 
@@ -33,12 +33,12 @@ We will publish deep technical guides on high-DA platforms and link back to our 
 ### Target Platforms
 1.  **Medium Publications** (Towards Data Science, JavaScript in Plain English):
     *   *Topic*: "Building Distributed IoT Telemetry Networks with ESP32 and React".
-    *   *Link Strategy*: Link to [Kone Lab](https://lab.koneacademy.io/) and [Kone Shop](https://shop.koneacademy.io/).
+    *   *Link Strategy*: Link to [Kone Lab](https://lab.codkon.com/) and [Kone Shop](https://shop.codkon.com/).
 2.  **dev.to & Hashnode**:
     *   *Topic*: "Why We Built a Custom IDE for Software Engineering Students".
-    *   *Link Strategy*: Link to [Kone Code](https://code.koneacademy.io/).
+    *   *Link Strategy*: Link to [Kone Code](https://code.codkon.com/).
 3.  **Substack Newsletter**:
-    *   Establish the *Kone Insights* newsletter to syndicate academic research methodology, linking back to [Kone Consult](https://consult.koneacademy.io/).
+    *   Establish the *Kone Insights* newsletter to syndicate academic research methodology, linking back to [Kone Consult](https://consult.codkon.com/).
 
 ---
 
@@ -46,7 +46,7 @@ We will publish deep technical guides on high-DA platforms and link back to our 
 Search engines place immense weight on `.edu`, `.gov`, and verified scholarly profiles.
 
 ### Action Items
-*   **Google Scholar Profiles**: Ensure all consulting staff and researchers have active Google Scholar profiles listing their affiliations with **Kone Academy** and linking to `koneacademy.io` or `consult.koneacademy.io`.
+*   **Google Scholar Profiles**: Ensure all consulting staff and researchers have active Google Scholar profiles listing their affiliations with **Kone Academy** and linking to `koneacademy.io` or `consult.codkon.com`.
 *   **ResearchGate & ORCID**: Upload open-access preprints of research papers, referencing Kone Academy as the supporting institution.
 *   **Wikipedia Citations**: Monitor pages related to regional agriculture, agritech, and software education in West Africa. Cite Kone Farms' research or data reports to secure high-value Wikipedia backlinks.
 
@@ -57,9 +57,9 @@ Search engines crawl package registries heavily. We will leverage our engineerin
 
 ### Action Items
 *   **npm & PyPI Packages**: Publish helper libraries (e.g., our custom telemetry parsers or React hooks) under the `@koneacademy` scope.
-    *   Include `https://koneacademy.io` in the package `homepage` and `repository` fields in `package.json`.
+    *   Include `https://academy.codkon.com` in the package `homepage` and `repository` fields in `package.json`.
 *   **GitHub Organization**: Optimize the [Kone Academy GitHub Organization](https://github.com/PhilipKone) profile with links to all subdomains.
-*   **Product Listings**: List the *Kone IoT Telemetry Kit* on hardware sharing sites like **Hackster.io** and **Instructables**, linking back to [Kone Shop](https://shop.koneacademy.io/).
+*   **Product Listings**: List the *Kone IoT Telemetry Kit* on hardware sharing sites like **Hackster.io** and **Instructables**, linking back to [Kone Shop](https://shop.codkon.com/).
 
 ---
 

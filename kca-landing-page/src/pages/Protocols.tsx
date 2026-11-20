@@ -28,12 +28,12 @@ const Protocols = ({ onBack }) => {
       "@type": "DefinedTermSet",
       "name": "Kone Academy Technical & Pedagogy Protocols",
       "description": "Standardized tuition delivery formats, technical communication media, clinical surveys, and software engineering protocols.",
-      "url": "https://www.koneacademy.io/protocols",
+      "url": "https://academy.codkon.com/protocols",
       "hasDefinedTerm": protocols.map(proto => ({
         "@type": "DefinedTerm",
         "name": proto.title,
         "description": proto.description,
-        "inDefinedTermSet": "https://www.koneacademy.io/protocols",
+        "inDefinedTermSet": "https://academy.codkon.com/protocols",
         "termCode": proto.category
       }))
     };

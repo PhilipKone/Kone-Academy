@@ -288,8 +288,8 @@ staticBlogs.forEach(post => {
   }
 
   const jpgName = post.imageUrl.replace(/^\/assets\/blog\//, '').replace(/\.(webp|png)$/, '.jpg');
-  const ogImageUrl = `https://www.koneacademy.io/assets/blog/${jpgName}`;
-  const canonicalUrl = `https://www.koneacademy.io/blog/${post.slug}`;
+  const ogImageUrl = `https://academy.codkon.com/assets/blog/${jpgName}`;
+  const canonicalUrl = `https://academy.codkon.com/blog/${post.slug}`;
   const fullTitle = `${post.title} | Kone Academy`;
   const renderedContent = parseMarkdownToHtml(post.content);
 
@@ -308,15 +308,15 @@ staticBlogs.forEach(post => {
           "@type": "Person",
           "name": post.author.name,
           "jobTitle": post.author.role,
-          "url": "https://www.koneacademy.io/author/philip-hotor"
+          "url": "https://academy.codkon.com/author/philip-hotor"
         },
         "publisher": {
           "@type": "Organization",
           "name": "Kone Academy",
-          "url": "https://www.koneacademy.io",
+          "url": "https://academy.codkon.com",
           "logo": {
             "@type": "ImageObject",
-            "url": "https://www.koneacademy.io/og-image.png?v=4"
+            "url": "https://academy.codkon.com/og-image.png?v=4"
           }
         },
         "mainEntityOfPage": {
@@ -331,13 +331,13 @@ staticBlogs.forEach(post => {
             "@type": "ListItem",
             "position": 1,
             "name": "Home",
-            "item": "https://www.koneacademy.io"
+            "item": "https://academy.codkon.com"
           },
           {
             "@type": "ListItem",
             "position": 2,
             "name": "Blog",
-            "item": "https://www.koneacademy.io/blog"
+            "item": "https://academy.codkon.com/blog"
           },
           {
             "@type": "ListItem",

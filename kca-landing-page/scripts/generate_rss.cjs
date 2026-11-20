@@ -2,7 +2,7 @@
 const fs = require('fs');
 const path = require('path');
 
-const domain = "https://www.koneacademy.io";
+const domain = "https://academy.codkon.com";
 
 const blogs = [
   {

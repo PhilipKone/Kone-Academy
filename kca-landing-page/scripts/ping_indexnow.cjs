@@ -1,25 +1,25 @@
 const https = require('https');
 
 const payload = JSON.stringify({
-  host: "www.koneacademy.io",
+  host: "academy.codkon.com",
   key: "4a8f9c0e1b2d3e4f5a6b7c8d9e0f1a2b",
-  keyLocation: "https://www.koneacademy.io/4a8f9c0e1b2d3e4f5a6b7c8d9e0f1a2b.txt",
+  keyLocation: "https://academy.codkon.com/4a8f9c0e1b2d3e4f5a6b7c8d9e0f1a2b.txt",
   urlList: [
-    "https://www.koneacademy.io/sitemap.xml",
-    "https://www.koneacademy.io/sitemap",
-    "https://www.koneacademy.io/training",
-    "https://www.koneacademy.io/training/course-pay/",
-    "https://www.koneacademy.io/training/course-farms/",
-    "https://www.koneacademy.io/training/course-warp/",
-    "https://www.koneacademy.io/training/course-studio/",
-    "https://www.koneacademy.io/training/course-ai/",
-    "https://www.koneacademy.io/training/course-consult/",
-    "https://www.koneacademy.io/training/course-code/",
-    "https://www.koneacademy.io/training/course-kids/",
-    "https://www.koneacademy.io/training/course-lab/",
-    "https://www.koneacademy.io/training/course-shop/",
-    "https://www.koneacademy.io/training/course-digital/",
-    "https://www.koneacademy.io/training/course-tech/"
+    "https://academy.codkon.com/sitemap.xml",
+    "https://academy.codkon.com/sitemap",
+    "https://academy.codkon.com/training",
+    "https://academy.codkon.com/training/course-pay/",
+    "https://academy.codkon.com/training/course-farms/",
+    "https://academy.codkon.com/training/course-warp/",
+    "https://academy.codkon.com/training/course-studio/",
+    "https://academy.codkon.com/training/course-ai/",
+    "https://academy.codkon.com/training/course-consult/",
+    "https://academy.codkon.com/training/course-code/",
+    "https://academy.codkon.com/training/course-kids/",
+    "https://academy.codkon.com/training/course-lab/",
+    "https://academy.codkon.com/training/course-shop/",
+    "https://academy.codkon.com/training/course-digital/",
+    "https://academy.codkon.com/training/course-tech/"
   ]
 });
 

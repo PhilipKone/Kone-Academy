@@ -40,7 +40,7 @@ const iconMap = {
 };
 
 const shareTrack = async (course: any, onSuccess?: () => void) => {
-  const origin = typeof window !== 'undefined' ? window.location.origin : 'https://www.koneacademy.io';
+  const origin = typeof window !== 'undefined' ? window.location.origin : 'https://academy.codkon.com';
   const shareUrl = `${origin}/training/${course.id}/`;
   const shareData = {
     title: course.title.toLowerCase().endsWith('track') ? `${course.title} | Kone Academy` : `${course.title} Track | Kone Academy`,
@@ -511,8 +511,8 @@ const TrainingHub = ({ onBack }) => {
           "provider": {
             "@type": "EducationalOrganization",
             "name": "Kone Academy",
-            "sameAs": "https://www.koneacademy.io",
-            "url": "https://www.koneacademy.io"
+            "sameAs": "https://academy.codkon.com",
+            "url": "https://academy.codkon.com"
           },
           "hasCourseInstance": {
             "@type": "CourseInstance",
@@ -531,7 +531,7 @@ const TrainingHub = ({ onBack }) => {
             "priceCurrency": "USD",
             "availability": "https://schema.org/InStock"
           },
-          "url": `https://www.koneacademy.io/training?track=${course.id}`
+          "url": `https://academy.codkon.com/training?track=${course.id}`
         }
       }))
     };
@@ -564,13 +564,13 @@ const TrainingHub = ({ onBack }) => {
       if (ogDesc) ogDesc.setAttribute('content', selectedCourse.description);
 
       const ogUrl = document.querySelector('meta[property="og:url"]');
-      if (ogUrl) ogUrl.setAttribute('content', `https://www.koneacademy.io/training/${selectedCourse.id}/`);
+      if (ogUrl) ogUrl.setAttribute('content', `https://academy.codkon.com/training/${selectedCourse.id}/`);
 
       const ogImage = document.querySelector('meta[property="og:image"]');
-      if (ogImage) ogImage.setAttribute('content', `https://www.koneacademy.io/og/${selectedCourse.id}.png`);
+      if (ogImage) ogImage.setAttribute('content', `https://academy.codkon.com/og/${selectedCourse.id}.png`);
 
       const twitterImage = document.querySelector('meta[name="twitter:image"]');
-      if (twitterImage) twitterImage.setAttribute('content', `https://www.koneacademy.io/og/${selectedCourse.id}.png`);
+      if (twitterImage) twitterImage.setAttribute('content', `https://academy.codkon.com/og/${selectedCourse.id}.png`);
     } else {
       if (window.location.pathname.startsWith('/training/course-') || window.location.search.includes('track=')) {
         window.history.replaceState({}, '', '/training');
@@ -581,11 +581,11 @@ const TrainingHub = ({ onBack }) => {
       const ogTitle = document.querySelector('meta[property="og:title"]');
       if (ogTitle) ogTitle.setAttribute('content', 'Training Hub | 12 Technology Tracks | Kone Academy');
       const ogUrl = document.querySelector('meta[property="og:url"]');
-      if (ogUrl) ogUrl.setAttribute('content', 'https://www.koneacademy.io/training');
+      if (ogUrl) ogUrl.setAttribute('content', 'https://academy.codkon.com/training');
       const ogImage = document.querySelector('meta[property="og:image"]');
-      if (ogImage) ogImage.setAttribute('content', 'https://www.koneacademy.io/og-image.png?v=4');
+      if (ogImage) ogImage.setAttribute('content', 'https://academy.codkon.com/og-image.png?v=4');
       const twitterImage = document.querySelector('meta[name="twitter:image"]');
-      if (twitterImage) twitterImage.setAttribute('content', 'https://www.koneacademy.io/og-image.png?v=4');
+      if (twitterImage) twitterImage.setAttribute('content', 'https://academy.codkon.com/og-image.png?v=4');
     }
   }, [selectedCourse]);
 

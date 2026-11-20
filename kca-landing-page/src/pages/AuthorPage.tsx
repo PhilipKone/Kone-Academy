@@ -44,10 +44,10 @@ const AuthorPage: React.FC<AuthorPageProps> = ({ onBack, onNavigatePost }) => {
       "worksFor": {
         "@type": "Organization",
         "name": "Kone Academy",
-        "url": "https://www.koneacademy.io"
+        "url": "https://academy.codkon.com"
       },
-      "image": `https://www.koneacademy.io${authorAvatar}`,
-      "url": "https://www.koneacademy.io/author/philip-hotor",
+      "image": `https://academy.codkon.com${authorAvatar}`,
+      "url": "https://academy.codkon.com/author/philip-hotor",
       "sameAs": [
         linkedinUrl,
         twitterUrl,

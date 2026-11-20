@@ -185,7 +185,7 @@ export default function KoneFarms({ onBack }) {
           </div>
 
           <a 
-            href="https://farms.koneacademy.io/#blog" 
+            href="https://farms.codkon.com/#blog" 
             target="_blank" 
             rel="noopener noreferrer"
             className="kids-button"

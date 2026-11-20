@@ -38,7 +38,7 @@ export const LocalSEOPage = ({ niche, city, onBack }) => {
     updateMetaTag('description', pageDesc);
     updateMetaTag('og:title', pageTitle, true);
     updateMetaTag('og:description', pageDesc, true);
-    updateMetaTag('og:url', `https://www.koneacademy.io/academy/${niche}/${city}`, true);
+    updateMetaTag('og:url', `https://academy.codkon.com/academy/${niche}/${city}`, true);
 
     // Update canonical link
     let canonical = document.querySelector('link[rel="canonical"]');
@@ -47,7 +47,7 @@ export const LocalSEOPage = ({ niche, city, onBack }) => {
       canonical.setAttribute('rel', 'canonical');
       document.head.appendChild(canonical);
     }
-    canonical.setAttribute('href', `https://www.koneacademy.io/academy/${niche}/${city}`);
+    canonical.setAttribute('href', `https://academy.codkon.com/academy/${niche}/${city}`);
 
     // 2. Inject localized LocalBusiness Schema
     const SCHEMA_ID = 'local-seo-jsonld';
@@ -61,7 +61,7 @@ export const LocalSEOPage = ({ niche, city, onBack }) => {
       "@type": "LocalBusiness",
       "name": `${nicheInfo.name} - Kone Academy ${cityInfo.cityName}`,
       "description": pageDesc,
-      "url": `https://www.koneacademy.io/academy/${niche}/${city}`,
+      "url": `https://academy.codkon.com/academy/${niche}/${city}`,
       "telephone": cityInfo.phone,
       "address": {
         "@type": "PostalAddress",
@@ -72,7 +72,7 @@ export const LocalSEOPage = ({ niche, city, onBack }) => {
       "parentOrganization": {
         "@type": "Organization",
         "name": "Kone Academy",
-        "url": "https://www.koneacademy.io/"
+        "url": "https://academy.codkon.com/"
       },
       "geo": {
         "@type": "GeoCoordinates",

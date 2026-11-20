@@ -27,7 +27,7 @@ const PRIVACY_SECTIONS: LegalSection[] = [
     keywords: 'scope attribution corporate holding company ecosystem platform lab sandboxes',
     content: (
       <p>
-        Kone Academy (<code>www.koneacademy.io</code>) operates as an advanced engineering, edtech, and technology training division of <strong>Codkon Technologies</strong> (Registration No: <code>BN413711026</code>, Republic of Ghana). This Privacy Policy governs all student registrations, enrollment inquiries, syllabus downloads, software lab access, and cryptographic credential validations across our global platforms.
+        Kone Academy (<code>academy.codkon.com</code>) operates as an advanced engineering, edtech, and technology training division of <strong>Codkon Technologies</strong> (Registration No: <code>BN413711026</code>, Republic of Ghana). This Privacy Policy governs all student registrations, enrollment inquiries, syllabus downloads, software lab access, and cryptographic credential validations across our global platforms.
       </p>
     )
   },
@@ -107,7 +107,7 @@ const PRIVACY_SECTIONS: LegalSection[] = [
     isB2B: true,
     content: (
       <p>
-        Commercial custom software engagements, enterprise engineering contracts, and dedicated workforce upskilling agreements are managed through our corporate division. For corporate governance terms, visit the <a href="https://consult.koneacademy.io" target="_blank" rel="noreferrer">Kone Consult Enterprise Portal <FaExternalLinkAlt size={10} /></a>.
+        Commercial custom software engagements, enterprise engineering contracts, and dedicated workforce upskilling agreements are managed through our corporate division. For corporate governance terms, visit the <a href="https://consult.codkon.com" target="_blank" rel="noreferrer">Kone Consult Enterprise Portal <FaExternalLinkAlt size={10} /></a>.
       </p>
     )
   }
@@ -183,7 +183,7 @@ const TERMS_SECTIONS: LegalSection[] = [
     isB2B: true,
     content: (
       <p>
-        Statements of Work (SOW), client software deliverables, bespoke enterprise staff training, and corporate consulting agreements operate under independent MSAs. For commercial contracts, refer to <a href="https://consult.koneacademy.io" target="_blank" rel="noreferrer">Kone Consult <FaExternalLinkAlt size={10} /></a>.
+        Statements of Work (SOW), client software deliverables, bespoke enterprise staff training, and corporate consulting agreements operate under independent MSAs. For commercial contracts, refer to <a href="https://consult.codkon.com" target="_blank" rel="noreferrer">Kone Consult <FaExternalLinkAlt size={10} /></a>.
       </p>
     )
   }

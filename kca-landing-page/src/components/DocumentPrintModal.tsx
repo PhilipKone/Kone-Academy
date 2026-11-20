@@ -56,7 +56,7 @@ const DocumentPrintModal: React.FC<DocumentPrintModalProps> = ({
   const division = data.division || matchedCourse.division;
   const issueDate = data.issueDate || new Date().toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' });
   const invoiceNumber = `INV-2026-${token.split('-').slice(-2).join('-') || 'TK-9513'}`;
-  const verificationUrl = `https://www.koneacademy.io/verify?id=${encodeURIComponent(token)}`;
+  const verificationUrl = `https://academy.codkon.com/verify?id=${encodeURIComponent(token)}`;
 
   const handlePrint = () => {
     window.print();
@@ -102,7 +102,7 @@ const DocumentPrintModal: React.FC<DocumentPrintModalProps> = ({
         `Philip Hotor\n` +
         `Lead Engineer & Academy Director\n` +
         `Kone Academy Admissions Directorate\n` +
-        `https://www.koneacademy.io`
+        `https://academy.codkon.com`
       : `Dear ${studentName},\n\n` +
         `Here is the official curriculum specification and module checkpoints for the ${trackTitle} (${token}) at Kone Academy:\n\n` +
         `Syllabus Portal: ${verificationUrl}\n\n` +
@@ -110,7 +110,7 @@ const DocumentPrintModal: React.FC<DocumentPrintModalProps> = ({
         `Philip Hotor\n` +
         `Lead Engineer & Academy Director\n` +
         `Kone Academy Admissions Directorate\n` +
-        `https://www.koneacademy.io`;
+        `https://academy.codkon.com`;
 
     const mailtoUrl = `mailto:${encodeURIComponent(email)}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
     window.location.href = mailtoUrl;
@@ -170,7 +170,7 @@ const DocumentPrintModal: React.FC<DocumentPrintModalProps> = ({
                   <h1 className="doc-brand-title">KONE ACADEMY</h1>
                   <p className="doc-brand-sub">An EdTech &amp; Engineering Division of <strong>Codkon Technologies</strong> (Reg. No: BN413711026)</p>
                   <p className="doc-brand-contact">
-                    Accra, Ghana &bull; philipkone45@gmail.com &bull; +233 55 199 3820 &bull; www.koneacademy.io
+                    Accra, Ghana &bull; philipkone45@gmail.com &bull; +233 55 199 3820 &bull; academy.codkon.com
                   </p>
                 </div>
               </div>

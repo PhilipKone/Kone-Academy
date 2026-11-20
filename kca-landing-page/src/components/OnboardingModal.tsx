@@ -76,7 +76,7 @@ const OnboardingModal: React.FC<OnboardingModalProps> = ({ isOpen, onClose, defa
           'Academy Division': payload.division,
           'Learning Format': payload.format,
           'Reservation Token': payload.token,
-          'Verification URL': `https://www.koneacademy.io/verify?id=${payload.token}`,
+          'Verification URL': `https://academy.codkon.com/verify?id=${payload.token}`,
           'Registration Timestamp': new Date().toLocaleString('en-US', { timeZoneName: 'short' })
         })
       });
@@ -159,7 +159,7 @@ SUPPORT & ADMISSIONS:
 Admissions Desk:   philipkone45@gmail.com
 Direct Inquiries:  philipkone45@gmail.com
 WhatsApp Support:  +233 55 199 3820
-Website:           https://www.koneacademy.io
+Website:           https://academy.codkon.com
 =====================================================`;
 
     const blob = new Blob([syllabusText], { type: 'text/plain' });

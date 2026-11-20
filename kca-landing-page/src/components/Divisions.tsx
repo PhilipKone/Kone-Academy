@@ -33,7 +33,7 @@ const Divisions: React.FC = () => {
       description: 'Applied data science, academic mentorship, and methodology protocols.',
       features: ['Data Analysis', 'Research Papers', 'Methodology'],
       status: 'Active',
-      link: isLocal ? 'http://localhost:3001/' : 'https://consult.koneacademy.io/'
+      link: isLocal ? 'http://localhost:3001/' : 'https://consult.codkon.com/'
     },
     {
       id: 'coding',
@@ -49,7 +49,7 @@ const Divisions: React.FC = () => {
       description: 'Production software engineering from Python, TypeScript, to C++ and Go.',
       features: ['Web Engineering', 'Data Systems', 'Compilers'],
       status: 'Enrollment Open',
-      link: isLocal ? 'http://localhost:5174/' : 'https://code.koneacademy.io/'
+      link: isLocal ? 'http://localhost:5174/' : 'https://code.codkon.com/'
     },
     {
       id: 'engineering',
@@ -72,7 +72,7 @@ const Divisions: React.FC = () => {
       description: 'Embedded microcontrollers, IoT telemetry, and 3D physical computing.',
       features: ['IoT Microcontrollers', '3D Simulation', 'Circuit Design'],
       status: 'Lab Access',
-      link: isLocal ? 'http://localhost:5175/' : 'https://lab.koneacademy.io/'
+      link: isLocal ? 'http://localhost:5175/' : 'https://lab.codkon.com/'
     }
   ];
 

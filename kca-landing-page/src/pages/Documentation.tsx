@@ -106,7 +106,7 @@ const Documentation = ({ category, subcategory, slug, onBack, onNavigate }) => {
           "publisher": {
             "@type": "Organization",
             "name": "Kone Academy",
-            "url": "https://www.koneacademy.io"
+            "url": "https://academy.codkon.com"
           }
         };
         injectJSONLD('pseo-jsonld', schema);
@@ -307,7 +307,7 @@ const Documentation = ({ category, subcategory, slug, onBack, onNavigate }) => {
                     <h4 className="h5 text-white fw-bold mb-1">Ready to start practicing?</h4>
                     <p className="text-secondary small mb-3">Explore interactive courses and connect with cohort learning mentors.</p>
                     <a 
-                      href="https://code.koneacademy.io/"
+                      href="https://code.codkon.com/"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="pulse-cta-blue"
@@ -373,7 +373,7 @@ const Documentation = ({ category, subcategory, slug, onBack, onNavigate }) => {
                     <h4 className="h5 text-white fw-bold mb-1">Need custom implementation help?</h4>
                     <p className="text-secondary small mb-3">Book a consultation session with Kone Consult to design and deploy this tech stack for your project.</p>
                     <a 
-                      href="https://consult.koneacademy.io/contact"
+                      href="https://consult.codkon.com/contact"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="pulse-cta-green"

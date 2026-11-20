@@ -24,12 +24,12 @@ export function updatePageMeta({
   // Ensure absolute image URL for WhatsApp / Facebook crawlers
   const fullImageUrl = image.startsWith('http') 
     ? image 
-    : `https://www.koneacademy.io${image.startsWith('/') ? '' : '/'}${image}`;
+    : `https://academy.codkon.com${image.startsWith('/') ? '' : '/'}${image}`;
 
   // Ensure absolute page URL
   const fullPageUrl = url.startsWith('http')
     ? url
-    : `https://www.koneacademy.io${url.startsWith('/') ? '' : '/'}${url}`;
+    : `https://academy.codkon.com${url.startsWith('/') ? '' : '/'}${url}`;
 
   // Update document title
   document.title = `${title} | Kone Academy`;

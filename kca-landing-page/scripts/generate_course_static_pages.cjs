@@ -33,8 +33,8 @@ courses.forEach(course => {
   const divisionName = course.division === 'Studio' ? 'Anim Studio' : `Kone ${course.division}`;
   const trackHeading = course.title.toLowerCase().endsWith('track') ? course.title : `${course.title} Track`;
   const fullTitle = `${trackHeading} | ${divisionName} | Kone Academy`;
-  const ogImageUrl = `https://www.koneacademy.io/og/${course.id}.png`;
-  const canonicalUrl = `https://www.koneacademy.io/training/${course.id}/`;
+  const ogImageUrl = `https://academy.codkon.com/og/${course.id}.png`;
+  const canonicalUrl = `https://academy.codkon.com/training/${course.id}/`;
 
   const structuredData = {
     "@context": "https://schema.org",
@@ -53,8 +53,8 @@ courses.forEach(course => {
         "provider": {
           "@type": "EducationalOrganization",
           "name": "Kone Academy",
-          "url": "https://www.koneacademy.io",
-          "sameAs": "https://www.koneacademy.io"
+          "url": "https://academy.codkon.com",
+          "sameAs": "https://academy.codkon.com"
         },
         "hasCourseInstance": {
           "@type": "CourseInstance",
@@ -77,13 +77,13 @@ courses.forEach(course => {
             "@type": "ListItem",
             "position": 1,
             "name": "Home",
-            "item": "https://www.koneacademy.io"
+            "item": "https://academy.codkon.com"
           },
           {
             "@type": "ListItem",
             "position": 2,
             "name": "Training Hub",
-            "item": "https://www.koneacademy.io/training"
+            "item": "https://academy.codkon.com/training"
           },
           {
             "@type": "ListItem",
